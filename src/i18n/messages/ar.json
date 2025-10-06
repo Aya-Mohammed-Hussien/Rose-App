@@ -1,0 +1,12 @@
+{
+  "homepage": {
+    "header": {
+      "home": "الرئيسيه",
+      "about": "عن الشركه",
+      "services": "الخدمات",
+      "contact": "تواصل معنا"
+    }
+  },
+  "hello-world" : "مرحبا",
+  "title":"تطبيق روز"
+}
