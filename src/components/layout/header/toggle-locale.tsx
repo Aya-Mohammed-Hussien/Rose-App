@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 export default function ToggleLocale() {
   // Translation
   const locale = useLocale();
+  console.log("toggledLocale" , locale);
 
   // Navigation
   const router = useRouter();
