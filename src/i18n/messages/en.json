@@ -1,13 +1,4 @@
 
 {
-  "homepage": {
-    "header": {
-      "home": "home",
-      "about": "about",
-      "services": "services",
-      "contact": "contact us"
-    }
-  },
-  "hello-world" : "Hello",
   "title":"Rose App"
 }
