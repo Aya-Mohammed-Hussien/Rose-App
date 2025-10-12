@@ -1,3 +1,11 @@
+import { CarouselSection, GiftCategories, InfoBar } from '.';
+
 export default function Page() {
-  return <h3 className="text-blue-700">hiiiii</h3>;
+  return (
+    <div className="max-w-7xl mx-auto flex flex-col gap-10 mt-10 mb-3">
+      <CarouselSection />
+      <GiftCategories />
+      <InfoBar />
+    </div>
+  );
 }

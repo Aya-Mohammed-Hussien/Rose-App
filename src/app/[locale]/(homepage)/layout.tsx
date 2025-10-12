@@ -5,7 +5,7 @@ export default function HomePageLayout({ children }: { children: React.ReactNode
   return (
     <>
       <Header />
-      <main className='mt-36'>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );

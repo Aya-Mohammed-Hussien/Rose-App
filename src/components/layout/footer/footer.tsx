@@ -5,7 +5,7 @@ import SubscribeForm from './_components/subscribe-form';
 export default function Footer() {
 
   return (
-    <footer className="bg-zinc-800 fixed bottom-0 w-full py-10 px-20 flex justify-between items-start dark:bg-gray-900">
+    <footer className="bg-zinc-800 w-full py-10 px-20 flex justify-between items-start dark:bg-gray-900">
       {/* Logo & links section */}
       <div className="flex justify-center gap-4">
         <div className="flex flex-col justify-center items-center">
