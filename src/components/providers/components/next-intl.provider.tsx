@@ -1,7 +1,11 @@
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from 'next-intl';
 
-export default function NextIntlProvider({children}:{children:React.ReactNode}) {
+export default function NextIntlProvider({ children }: { children: React.ReactNode }) {
   return (
-    <NextIntlClientProvider>{children}</NextIntlClientProvider>
-  )
+    <NextIntlClientProvider>
+      {children}
+    </NextIntlClientProvider>
+  );
 }
+
+

@@ -1,4 +1,32 @@
 {
-  "title":"تطبيق روز",
-  "heading" : "أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ"
+  "title": "تطبيق روز",
+  "header": {
+    "nav": {
+      "home": "الرئيسية",
+      "products": "المنتجات",
+      "categories": "الفئات",
+      "occasions": "المناسبات",
+      "contact": "تواصل معنا",
+      "about": "عن الشركة"
+    },
+    "top-nav": {
+      "search-placeholder": "ما الهدية الرائعة التي تبحث عنها؟",
+      "login": "تسجيل الدخول",
+      "locale-button": "English"
+    }
+  },
+  "footer": {
+    "title": "اكتشف موقعنا الإلكتروني",
+    "links": {
+      "home": "الرئيسية",
+      "products": "المنتجات",
+      "categories": "الفئات",
+      "occasions": "المناسبات",
+      "contact": "اتصل بنا",
+      "about": "من نحن",
+      "terms": "الشروط والأحكام",
+      "privacy": "سياسة الخصوصية",
+      "faq": "الأسئلة الشائعة"
+    }
+  }
 }
