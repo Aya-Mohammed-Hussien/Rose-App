@@ -1,30 +1,30 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { Card } from "@/components/ui/card";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Product } from "@/lib/types/product";
-import { Occasion } from "@/lib/types/occasion";
-import ProductCard from "../product-card/product-card";
+import React, { useEffect, useState } from 'react';
+import { Card } from '@/components/ui/card';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Product } from '@/lib/types/product';
+import { Occasion } from '@/lib/types/occasion';
+import ProductCard from '../product-card/product-card';
 
-// props
+// Props
 type OccasionsProps = {
   occasions: Occasion[];
   products: Product[];
 };
 
 export default function Occasions({ products, occasions }: OccasionsProps) {
-  // navigation
+  // Navigation
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // state
+  // State
   const [selectedOccasion, setSelectedOccasion] = useState<string | null>(null);
 
-  // effects
+  // Effects
   useEffect(() => {
     // set default selected occasion
-    const urlOccasion = searchParams.get("occasion");
+    const urlOccasion = searchParams.get('occasion');
     if (urlOccasion) {
       setSelectedOccasion(urlOccasion);
       return;
@@ -35,7 +35,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
       const defaultOccasion = occasions[0]._id;
       setSelectedOccasion(defaultOccasion);
       const params = new URLSearchParams(searchParams.toString());
-      params.set("occasion", defaultOccasion);
+      params.set('occasion', defaultOccasion);
       router.replace(`?${params.toString()}`);
     }
   }, [occasions, searchParams]);
@@ -43,7 +43,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
   // functions
   const handleOccasionClick = (id: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("occasion", id);
+    params.set('occasion', id);
     router.push(`?${params.toString()}`, { scroll: false });
     setSelectedOccasion(id);
   };
@@ -66,9 +66,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
               key={occasion._id}
               onClick={() => handleOccasionClick(occasion._id)}
               className={`cursor-pointer font-medium text-base ${
-                selectedOccasion === occasion._id
-                  ? "text-[#A6252A]"
-                  : "text-zinc-700"
+                selectedOccasion === occasion._id ? 'text-[#A6252A]' : 'text-zinc-700'
               }`}
             >
               {/* name */}

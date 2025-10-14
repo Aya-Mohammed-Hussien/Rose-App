@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Heart, Eye, ShoppingCart, Star } from "lucide-react";
-import { Product } from "@/lib/types/product";
-import { Badge } from "@/components/ui/badge";
+import React from 'react';
+import Image from 'next/image';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Heart, Eye, ShoppingCart, Star } from 'lucide-react';
+import { Product } from '@/lib/types/product';
+import { Badge } from '@/components/ui/badge';
 
 // props
 type ProductCardProps = {
@@ -27,10 +27,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* badge */}
         <Badge
           className={`flex justify-center items-center absolute ${
-            product.quantity > 0 ? "bg-zinc-100 text-zinc-700" : "bg-red-600"
+            product.quantity > 0 ? 'bg-zinc-100 text-zinc-700' : 'bg-red-600'
           }  rounded-2xl top-3 right-3 text-[12px]`}
         >
-          {product.quantity > 0 ? "NEW" : "OUT OF STOCK"}
+          {product.quantity > 0 ? 'NEW' : 'OUT OF STOCK'}
         </Badge>
 
         {/* overlay */}
@@ -56,13 +56,11 @@ export default function ProductCard({ product }: ProductCardProps) {
       </CardContent>
 
       {/* Card details */}
-      <CardFooter className="border-none flex flex-row mt-3 justify-between p-0">
-        <div className="flex flex-col gap-3">
+      <CardFooter className="border-none flex  flex-row mt-3 justify-between p-0">
+        <div className="flex flex-col gap-3 w-3/4  ">
           {/* title */}
           <h3 className="font-semibold text-[18px] truncate w-[250px] text-[#741C21]">
-            {product.title.length > 30
-              ? `${product.title.slice(0, 30)}...`
-              : product.title}
+            {product.title.length > 30 ? `${product.title.slice(0, 30)}...` : product.title}
           </h3>
 
           {/* rating */}
@@ -71,9 +69,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               <Star
                 key={i}
                 className={`w-4 h-4 ${
-                  i < product.rateAvg
-                    ? "text-[#FBA707] fill-[#FBA707]"
-                    : "text-[#FBA707]"
+                  i < product.rateAvg ? 'text-[#FBA707] fill-[#FBA707]' : 'text-[#FBA707]'
                 }`}
               />
             ))}
@@ -95,9 +91,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* cart button */}
+
         <button
           aria-label="Add to cart"
-          className="bg-[#A6252A] hover:bg-[#A6252A]/90 mb-1 w-11 h-11 rounded-full flex flex-none self-end justify-center items-center"
+          className="bg-[#A6252A]  hover:bg-[#A6252A]/90 mb-1 w-11 h-11 rounded-full flex flex-none self-end justify-center items-center"
         >
           {/* icon */}
           <ShoppingCart className="text-white w-6 h-6" />

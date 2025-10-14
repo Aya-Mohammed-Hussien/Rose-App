@@ -1,4 +1,32 @@
-
 {
-  "title":"Rose App"
+  "title": "Rose App",
+  "header": {
+    "nav": {
+      "home": "Home",
+      "products": "Products",
+      "categories": "Categories",
+      "occasions": "Occasions",
+      "contact": "Contact",
+      "about": "About"
+    },
+    "top-nav": {
+      "search-placeholder": "What awesome gift are you looking for?",
+      "login": "login",
+      "locale-button": "العربية"
+    }
+  },
+  "footer": {
+    "title": "Discover our website",
+    "links": {
+      "home": "Home",
+      "products": "Products",
+      "categories": "Categories",
+      "occasions": "Occasions",
+      "contact": "Contact",
+      "about": "About",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "faq": "FAQs"
+    }
+  }
 }
