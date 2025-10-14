@@ -1,5 +1,9 @@
 {
     "files.autoSave": "off" ,
     "editor.formatOnSave": true ,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "i18n-ally.localesPaths": [
+        "src/i18n",
+        "src/i18n/messages"
+    ]
 }

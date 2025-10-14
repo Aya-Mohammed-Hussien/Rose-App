@@ -1,0 +1,28 @@
+import Link from "next/link";
+import VerifyForm from "./_components/verify-otp";
+
+export default function VerifyOTPage() {
+  return (
+    <section>
+      <div className="max-w-md mx-auto mt-10 border-b border-[#E4E4E7] pb-4 pe-5">
+        {/*  Heading Of The Section */}
+        <h2 className="text-lg font-semibold text-gray-900">
+          Enter the OTP Code
+        </h2>
+
+        {/* User email Info and Edit Link */}
+        <p className="font-primary font-normal text-base leading-none align-middle text-[#27272A]">
+          We have sent a 6-digit code to user@example.com
+          <Link
+            href="/login"
+            className="text-blue-600 underline ml-1 font-medium"
+          >
+            Edit
+          </Link>
+        </p>
+      </div>
+      {/* Verify Form */}
+      <VerifyForm />
+    </section>
+  );
+}
