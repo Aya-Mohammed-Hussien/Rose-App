@@ -1,4 +1,5 @@
 import { CarouselSection, GiftCategories, InfoBar } from '.';
+import ForgotPasswordPage from '../(auth)/forgot-password/_components/forgotpass-form';
 
 export default function Page() {
   return (
