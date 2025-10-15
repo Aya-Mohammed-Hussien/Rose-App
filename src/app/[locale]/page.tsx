@@ -6,6 +6,7 @@ import { getOccasions } from '@/lib/apis/occasions/occasion.api';
 import { getBestSellingProducts } from '@/lib/apis/products/best-selling.api';
 import { getProductsByOccasion } from '@/lib/apis/products/products-by-occasion.api';
 import React, { Suspense } from 'react';
+import HomePage from './(homepage)/page';
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
   // variables

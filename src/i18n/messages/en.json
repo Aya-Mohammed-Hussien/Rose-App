@@ -28,5 +28,18 @@
       "privacy": "Privacy Policy",
       "faq": "FAQs"
     }
+  },
+  "register": {
+    "titleAuth": " Become part of our family! ",
+    "confirmPassword": "Confirm Password",
+    "password": "Password",
+    "email": "Email ",
+    "firstname": "Firstname ",
+    "lastname": "Lastname ",
+    "alreadyAccount": "Already have an account? ",
+    "login": "login ",
+    "CreateAccount": " Create Account",
+    "gender": "Gender",
+    "phone": "Phone "
   }
 }
