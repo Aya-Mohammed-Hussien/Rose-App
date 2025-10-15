@@ -6,7 +6,7 @@ export default function SubmissionMessage({
   children,
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
-  // In case there is no Error Message then hide this
+  // In case there is no Error Message then hide 
   if (!children) return null;
 
   return (

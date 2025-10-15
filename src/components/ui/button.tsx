@@ -3,19 +3,24 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
-import { Loader } from 'lucide-react';
+import { LoaderCircle } from 'lucide-react';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap capitalize rounded-[0.625rem] text-base font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'bg-transparent text-foreground hover:bg-transparent hover:text-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+        default:
+          'bg-maroon-600 text-white hover:bg-maroon-700 dark:bg-softPink-300 dark:hover:bg-softPink-400 disabled:bg-zinc-300 disabled:text-zinc-500 dark:disabled:bg-zinc-700 dark:disabled:bg-zinc-600',
+        destructive:
+          'bg-maroon-50 text-maroon-600 hover:bg-maroon-100 dark:text-softPink-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 disabled:bg-zinc-300 disabled:text-zinc-500 dark:disabled:bg-zinc-700 dark:disabled:bg-zinc-600', 
+        outline:
+          'border border-maroon-600 bg-white hover:bg-maroon-50 dark:text-softPink-300 dark:bg-zinc-800 dark:border-softPink-300 dark:hover:bg-zinc-700 disabled:bg-zinc-100 disabled:text-zinc-400 disabled:borderzinc-300 dark:disabled:bg-zinc-800 dark:disabled:text-zinc-600 dark:disabled:border-zinc-600',
+        secondary:
+          'bg-zinc-50 text-zinc-800 border border-zinc-400 hover:bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-50 dark:border-zinc-500 dark:hover:bg-zinc-700 disabled:bg-zinc-100 disabled:text-zinc-400 disabled:borderzinc-300 dark:disabled:bg-zinc-800 dark:disabled:text-zinc-600 dark:disabled:border-zinc-600',
+        ghost:
+          'bg-transparent text-zinc-800 hover:bg-zinc-100 dark:text-zinc-50 dark:hover:bg-zinc-700 disabled:bg-zinc-100 disabled:text-zinc-400 dark:disabled:bg-zinc-700 dark:disabled:bg-zinc-600',
+        link: 'bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 disabled:bg-zinc-300 disabled:text-zinc-500 dark:disabled:bg-zinc-700 dark:disabled:bg-zinc-600',
         subscribe:
           'rounded-full transition-none hover:none font-medium text-sm bg-maroon-50 text-maroon-700 dark:bg-maroon-300 dark:text-zinc-800',
       },
@@ -46,7 +51,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
         {children}
-        {loading && <Loader className="ml-2 h-4 w-4 animate-spin" />}
+        {loading && <LoaderCircle className="ml-2 h-4 w-4 animate-spin" />}
       </Comp>
     );
   }

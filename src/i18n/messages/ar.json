@@ -31,7 +31,12 @@
   },
   "auth": {
     "login": {
-      "headline":"مرحبًا بعودتك",
+      "headline": "مرحبًا بعودتك",
+      "validation": {
+        "email_required": "البريد الإلكتروني مطلوب",
+        "email_invalid": "يرجى إدخال بريد إلكتروني صالح",
+        "password_required": "كلمة المرور مطلوبة"
+      },
       "login-form": {
         "email-label": "البريد الإلكتروني",
         "password-label": "كلمة المرور",

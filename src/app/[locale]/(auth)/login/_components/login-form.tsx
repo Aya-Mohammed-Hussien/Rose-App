@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/password-input';
 import { Link } from '@/i18n/navigation';
-import { loginSchema, LoginValues } from '@/lib/schemes/auth.schema';
+import { LoginValues, useLoginSchema } from '@/lib/schemes/auth.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -23,6 +23,7 @@ export default function LoginForm() {
   // Translations
   const t = useTranslations('auth.login.login-form');
 
+  const { loginSchema } = useLoginSchema();
   // Form
   const form = useForm<LoginValues>({
     defaultValues: {
@@ -47,7 +48,7 @@ export default function LoginForm() {
         <FormField
           name="email"
           control={form.control}
-          render={({field}) => (
+          render={({ field }) => (
             <FormItem className="mb-4">
               {/* Form Label */}
               <FormLabel>{t('email-label')}</FormLabel>
@@ -66,14 +67,14 @@ export default function LoginForm() {
         <FormField
           name="password"
           control={form.control}
-          render={({field}) => (
+          render={({ field }) => (
             <FormItem className="mb-2.5">
               {/* Form Label */}
               <FormLabel>{t('password-label')}</FormLabel>
 
               {/* Field */}
               <FormControl>
-                <PasswordInput {...field} placeholder="********" />
+                <PasswordInput {...field} placeholder="********" type="password"/>
               </FormControl>
               {/* Feedback */}
               <FormMessage />
@@ -94,9 +95,11 @@ export default function LoginForm() {
 
         {/* Login Button */}
         <Button
+          variant="default"
           type="submit"
+          loading={isPending}
           disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)}
-          className="capitalize w-full rounded-[0.625rem] font-medium text-base bg-maroon-600 dark:bg-softPink-300 dark:text-zinc-800 mt-9"
+          className="capitalize w-full rounded-[0.625rem] mt-9"
         >
           {t('login-button')}
         </Button>
