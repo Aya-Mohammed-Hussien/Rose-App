@@ -1,7 +1,9 @@
 import BestSelling from '@/components/features/best-selling/best-selling';
 import Occasions from '@/components/features/occasions/occasions';
+import PaginationSection from '@/components/features/pagination/pagination';
 import BestSellingSkeleton from '@/components/skeletons/best-selling.skeleton';
 import OccasionsSkeleton from '@/components/skeletons/occasions.skeleton';
+import { Input, PasswordInput } from '@/components/ui/input';
 import { getOccasions } from '@/lib/apis/occasions/occasion.api';
 import { getBestSellingProducts } from '@/lib/apis/products/best-selling.api';
 import { getProductsByOccasion } from '@/lib/apis/products/products-by-occasion.api';
@@ -26,6 +28,12 @@ export default async function page({ searchParams }: { searchParams: { occasion?
       <Suspense fallback={<OccasionsSkeleton />}>
         <Occasions occasions={occasionsData.occasions} products={productsData?.products || []} />
       </Suspense>
+
+      <div className="w-full flex justify-center items-center ">
+        <PasswordInput placeholder="********" error={false} />
+      </div>
+
+      <PaginationSection />
     </main>
   );
 }

@@ -51,9 +51,9 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
   return (
     <section className="p-6 flex flex-col gap-10 mx-14">
       {/* header */}
-      <header className="flex flex-row justify-between items-center ">
+      <header className="flex flex-row justify-between items-center">
         {/* title */}
-        <h3 className="relative font-bold text-[#741C21] text-4xl ">
+        <h3 className="relative font-bold text-[#741C21] text-4xl">
           <span className="relative z-50">Most Popular</span>
           <span className="absolute bg-red-100 left-0 top-7 rounded-e-lg w-3/4 h-4"></span>
           <span className="absolute left-0 -bottom-1 w-16 h-[3px] bg-red-500"></span>
