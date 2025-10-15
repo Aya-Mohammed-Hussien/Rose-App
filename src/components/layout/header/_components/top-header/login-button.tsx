@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/navigation';
 import { User } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
@@ -17,12 +18,14 @@ export default function LoginButton() {
       <User size={20} />
 
       {/* Login Button */}
-      <Button
-        variant="ghost"
-        className="p-0 m-0 text-zinc-700 dark:text-zinc-50 font-normal text-base"
-      >
-        {t('login')}
-      </Button>
+      <Link href="/login">
+        <Button
+          variant="ghost"
+          className="p-0 m-0 text-zinc-700 dark:text-zinc-50 font-normal text-base"
+        >
+          {t('login')}
+        </Button>
+      </Link>
     </div>
   );
 }

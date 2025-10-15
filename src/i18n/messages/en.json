@@ -28,5 +28,18 @@
       "privacy": "Privacy Policy",
       "faq": "FAQs"
     }
+  },
+  "auth": {
+    "login": {
+      "headline": "Welcome back!",
+      "login-form": {
+        "email-label": "Email",
+        "password-label": "Password",
+        "forget-password": "Forgot your password?",
+        "login-button": "Login"
+      },
+      "register-prompt": "Don’t have an account yet?",
+      "register-link": "Create one now!"
+    }
   }
 }

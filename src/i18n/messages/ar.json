@@ -28,5 +28,18 @@
       "privacy": "سياسة الخصوصية",
       "faq": "الأسئلة الشائعة"
     }
+  },
+  "auth": {
+    "login": {
+      "headline":"مرحبًا بعودتك",
+      "login-form": {
+        "email-label": "البريد الإلكتروني",
+        "password-label": "كلمة المرور",
+        "forget-password": "هل نسيت كلمة المرور؟",
+        "login-button": "تسجيل الدخول"
+      },
+      "register-prompt": "ليس لديك حساب بعد؟",
+      "register-link": "أنشئ حسابك الآن!"
+    }
   }
 }
