@@ -39,19 +39,13 @@ type PaginationLinkProps = {
 } & Pick<ButtonProps, 'size'> &
   React.ComponentProps<'a'>;
 
-/**
- * Styling-only PaginationLink.
- * - No logic here. Just renders a styled anchor that looks like the Figma example.
- */
 const PaginationLink = ({ className, isActive, size = 'icon', ...props }: PaginationLinkProps) => {
   // base shadcn-like button classes for square page buttons
   const base = buttonVariants({ variant: 'ghost', size });
 
   const visual = cn(
     base,
-    // sizing and shape to match the image: ~40x40, rounded square, subtle border
     'h-8 w-8  flex items-center justify-center rounded-lg  border border-zinc-100 shadow-sm ',
-    // active style override
     isActive
       ? 'bg-maroon-600  text-white hover:text-white  hover:bg-maroon-600'
       : 'bg-white text-gray-700 ',

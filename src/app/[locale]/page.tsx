@@ -29,7 +29,11 @@ export default async function page({ searchParams }: { searchParams: { occasion?
         <Occasions occasions={occasionsData.occasions} products={productsData?.products || []} />
       </Suspense>
 
-      <div className="w-full flex justify-center items-center ">
+      {/* <div className="w-full flex justify-center items-center ">
+        <PasswordInput placeholder="********" error={true} />
+      </div> */}
+
+      <div className="dark w-full flex justify-center items-center ">
         <PasswordInput placeholder="********" error={false} />
       </div>
 
