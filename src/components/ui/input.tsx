@@ -25,11 +25,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           // focus (light/dark)
           !error &&
-            'border-[1.5px] border-zinc-300 focus-visible:border-zinc-400 dark:border-zinc-600 dark:focus-visible:border-zinc-500',
+            'border-[1.5px] border-zinc-300 hover:border-zinc-400 dark:border-zinc-600  focus-visible:border-maroon-600 dark:focus-visible:border-pink-400',
 
           // error state (light/dark)
-          error &&
-            'border-[1.5px] border-red-600 focus-visible:border-maroon-600 dark:border-red-500 dark:focus-visible:border-pink-400',
+          error && 'border-[1.5px] border-red-600  dark:border-red-500 ',
 
           className
         )}
