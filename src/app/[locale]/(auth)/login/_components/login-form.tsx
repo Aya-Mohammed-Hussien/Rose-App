@@ -99,7 +99,7 @@ export default function LoginForm() {
           type="submit"
           loading={isPending}
           disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)}
-          className="capitalize w-full rounded-[0.625rem] mt-9"
+          className="capitalize w-full mt-9"
         >
           {t('login-button')}
         </Button>

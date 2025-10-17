@@ -2,8 +2,10 @@ import { NextAuthOptions, User } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { JSON_HEADER } from './lib/constants/shared.constant';
 
+// NextAuth configuration options
 export const authOptions: NextAuthOptions = {
   pages: {
+    // Redirect users to custom login page instead of default NextAuth UI
     signIn: '/login',
   },
   providers: [
@@ -13,7 +15,9 @@ export const authOptions: NextAuthOptions = {
         email: {},
         password: {},
       },
+      // Authorize callback handles user authentication via custom backend API
       authorize: async (credentials) => {
+        // Send credentials to backend for verification
         const response = await fetch(`${process.env.API}/auth/signin`, {
           method: 'POST',
           body: JSON.stringify({
@@ -24,11 +28,15 @@ export const authOptions: NextAuthOptions = {
             ...JSON_HEADER,
           },
         });
+
         const payload: ApiResponse<User> = await response.json();
+
+        // If API returns an error, throw to fail authentication
         if ('error' in payload) {
           throw new Error(payload.error);
         }
 
+        // Return user and token data to NextAuth
         return {
           id: payload.user._id,
           user: payload.user,
@@ -38,6 +46,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    // Attach token and user data to the JWT
     jwt: ({ token, user }) => {
       if (user) {
         token.token = user.token;
@@ -45,6 +54,7 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
+    // Make token data available in client-side session
     session: ({ session, token }) => {
       session.user = token.user;
       return session;

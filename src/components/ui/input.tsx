@@ -1,26 +1,44 @@
-import * as React from "react"
+import * as React from 'react';
 
-import { cn } from "@/lib/utils"
-import { useFormField } from "./form"
+import { cn } from '@/lib/utils';
+import { useFormField } from './form';
 
-
-
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+// Reusable Input component with dynamic styling and error handling
+const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
   ({ className, type, ...props }, ref) => {
-    const {error} = useFormField();
+    // Access field state (to detect validation errors)
+    const { error } = useFormField();
+
     return (
       <input
         type={type}
-        className={cn(
-          "flex h-[3.0625rem] w-full rounded-[0.625rem] border border-zinc-300 dark:border-zinc-600 hover:border-zinc-400 dark:hover:border-zinc-500 bg-white dark:bg-zinc-700 p-4 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-maroon-600 focus-visible:border-0 dark:focus-visible:ring-softPink-400 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-          error && "border-red-600 dark:border-red-500",
-          className
-        )}
         ref={ref}
         {...props}
+        className={cn(
+          // --- Base layout and sizing ---
+          'flex h-[3.0625rem] w-full rounded-[0.625rem] p-4 text-base md:text-sm',
+          // --- Border and background (default) ---
+          'border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-700',
+          // --- Hover states ---
+          'hover:border-zinc-400 dark:hover:border-zinc-500',
+          // --- Focus states ---
+          'focus-visible:outline-none focus-visible:border-maroon-600 dark:focus-visible:border-softPink-400',
+          // --- Placeholder text color ---
+          'placeholder:text-zinc-400',
+          // --- Disabled states ---
+          'disabled:cursor-not-allowed disabled:opacity-50',
+          // --- File input styling (removes default file input look) ---
+          'file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground',
+          // --- Error state  ---
+          error && 'border-red-600 dark:border-red-500',
+          // --- Additional custom styles passed as props ---
+          className
+        )}
       />
-    )
+    );
   }
-)
-Input.displayName = "Input"
-export { Input }
+);
+
+Input.displayName = 'Input';
+
+export { Input };
