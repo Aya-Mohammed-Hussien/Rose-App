@@ -6,4 +6,4 @@ declare type SuccessResponse<T> = {
 declare interface ErrorResponse {
   error: string;
 }
-type ApiResponse<T> = SuccessResponse<T> | ErrorResponse;
+declare type ApiResponse<T> = SuccessResponse<T> | ErrorResponse;

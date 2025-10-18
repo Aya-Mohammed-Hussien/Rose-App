@@ -27,6 +27,7 @@ import useRegister from '../_hooks/use-register';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { PasswordInput } from '@/components/ui/password-input';
 
 export default function RegisterForm() {
   //Translations
@@ -198,7 +199,7 @@ export default function RegisterForm() {
             <FormItem className="mb-4">
               <FormLabel>{t('password')}</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="Password@12345" {...field} />
+                <PasswordInput type="password" placeholder="Password@12345" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -213,7 +214,7 @@ export default function RegisterForm() {
             <FormItem className="mb-4">
               <FormLabel>{t('confirmPassword')}</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="**********" {...field} />
+                <PasswordInput {...field} placeholder="********" type="password" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -222,10 +223,10 @@ export default function RegisterForm() {
 
         {/* Submit */}
         <Button
-          variant="createAccount"
+          variant="default"
           type="submit"
           disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
-          className="flex items-center justify-center gap-2"
+          className="w-full flex items-center justify-center gap-2"
         >
           {isPending && <Loader2 className="h-4 w-4 animate-spin" />}
           {t('CreateAccount')}

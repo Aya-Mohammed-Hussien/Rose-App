@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { GENDER } from '../constants/auth.constant';
+import { useTranslations } from 'next-intl';
 
 //Register Schema
 
@@ -29,8 +30,20 @@ const registerSchema = z
 
 type RegisterValues = z.infer<typeof registerSchema>;
 
+// Login schema
+export const useLoginSchema = () => {
+  const t = useTranslations('auth.login.validation');
+
+  const loginSchema = z.object({
+    email: z.string().nonempty(t('email_required')).email(t('email_invalid')),
+    password: z.string().min(1, t('password_required')),
+  });
+  return { loginSchema };
+};
+
+type LoginValues = z.infer<ReturnType<typeof useLoginSchema>['loginSchema']>;
+
 //Export
 
 export { registerSchema };
-
-export type { RegisterValues };
+export type { LoginValues, RegisterValues };

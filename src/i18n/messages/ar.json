@@ -41,5 +41,23 @@
     "CreateAccount": "إنشاء حساب",
     "gender": "العمر",
     "phone": "رقم الهاتف"
+  },
+  "auth": {
+    "login": {
+      "headline": "مرحبًا بعودتك",
+      "validation": {
+        "email_required": "البريد الإلكتروني مطلوب",
+        "email_invalid": "يرجى إدخال بريد إلكتروني صالح",
+        "password_required": "كلمة المرور مطلوبة"
+      },
+      "login-form": {
+        "email-label": "البريد الإلكتروني",
+        "password-label": "كلمة المرور",
+        "forget-password": "هل نسيت كلمة المرور؟",
+        "login-button": "تسجيل الدخول"
+      },
+      "register-prompt": "ليس لديك حساب بعد؟",
+      "register-link": "أنشئ حسابك الآن!"
+    }
   }
 }

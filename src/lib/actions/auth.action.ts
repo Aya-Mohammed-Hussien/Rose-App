@@ -14,6 +14,7 @@ export async function registerAction(values: RegisterValues) {
   });
 
   const payload: ApiResponse<AuthResponse> = await response.json();
+  console.log(payload);
 
   return payload;
 }

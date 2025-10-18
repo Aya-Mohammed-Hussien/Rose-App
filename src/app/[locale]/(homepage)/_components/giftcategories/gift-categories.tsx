@@ -7,19 +7,19 @@ export function GiftCategories() {
   //variables  
   const giftCategories = [
   {  id : 1,
-    img: "/assets/image/650ebce97e11985e0c78fa1a2c8b1633ad6865ae.png",
+    img: "/assets/images/650ebce97e11985e0c78fa1a2c8b1633ad6865ae.png",
     tag: "Wedding",
     title: "Celebrate Her Forever with a Gift\nShe’ll Always Remember",
   },
   { 
     id : 2,
-    img: "/assets/image/9c80f839880ae4729e2ed36e6a6e2ce4c8acf962.png",
+    img: "/assets/images/9c80f839880ae4729e2ed36e6a6e2ce4c8acf962.png",
     tag: "Engagement",
     title: "Honor the Beginning of a\nBeautiful Journey Together",
   },
   {
     id : 3,
-    img: "/assets/image/f1ae11b6a3272e3325efa8c7c66af85509d2b54c.png",
+    img: "/assets/images/f1ae11b6a3272e3325efa8c7c66af85509d2b54c.png",
     tag: "Anniversary",
     title: "Mark Every Year of Love with\na Meaningful Surprise",
   },
