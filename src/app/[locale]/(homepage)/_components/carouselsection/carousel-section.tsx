@@ -1,6 +1,6 @@
 "use client";
 
-
+import type { EmblaCarouselType } from "embla-carousel";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
@@ -8,12 +8,9 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-
 export function CarouselSection() {
-
-
   //  State
-  const [emblaApi, setEmblaApi] = useState<any>(null);
+  const [emblaApi, setEmblaApi] = useState<EmblaCarouselType | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   //  Ref
@@ -23,28 +20,28 @@ export function CarouselSection() {
   const slides = [
     {
       id: 1,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
+      img: "/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
       title: "Say It with Flowers",
       subtitle: "Elegant gifts for every special moment.",
       btnText: "I'm buying!",
     },
     {
       id: 2,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
+      img: "/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
       title: "Sweet Surprises for Loved Ones",
       subtitle: "Delicious chocolates for any occasion.",
       btnText: "Shop Now",
     },
     {
       id: 3,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
+      img: "/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
       title: "Roses & Romance",
       subtitle: "Show your love in a classic way.",
       btnText: "Discover More",
     },
     {
       id: 4,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
+      img: "/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
       title: "Roses & Romance",
       subtitle: "Show your love in a classic way.",
       btnText: "Discover More",
@@ -66,7 +63,7 @@ export function CarouselSection() {
       {/* 🌸 Left Card */}
       <div className="relative w-full max-w-sm h-[440px] rounded-2xl overflow-hidden p-6 flex flex-col gap-3 lg:col-span-1 before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/70 before:to-transparent before:z-[1]">
         <Image
-          src="/assets/image/132a2f7f5902767a6f99bcab7221e6bf3f2703e8.png"
+          src="/assets/images/132a2f7f5902767a6f99bcab7221e6bf3f2703e8.png"
           alt="Special Gifts For The People You Love"
           fill
           className="object-cover"
