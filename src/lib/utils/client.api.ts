@@ -1,4 +1,5 @@
-const API_BASE = process.env.API;
+// lib/utils/client.api.ts
+const NEXT_PUBLIC_API = process.env.NEXT_PUBLIC_API;
 
 /**
  * Safe typed API caller for server actions or client fetches.
@@ -9,7 +10,9 @@ export async function callApi<T = any>(
   method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
   body?: any
 ): Promise<T> {
-  const url = `${API_BASE}/api/v1/${path}`;
+  const url = `${NEXT_PUBLIC_API}/${path}`;
+  console.log(url);
+
   try {
     const res = await fetch(url, {
       method,

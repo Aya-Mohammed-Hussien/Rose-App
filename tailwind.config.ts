@@ -12,6 +12,7 @@ const config: Config = {
       fontFamily: {
         sarabun: ['var(--font-sarabun)', 'sans-serif'],
         tajawal: ['var(--font-tajawal)', 'sans-serif'],
+        edwardian: ['var(--font-edwardian)'],
       },
       colors: {
         background: 'hsl(var(--background))',
