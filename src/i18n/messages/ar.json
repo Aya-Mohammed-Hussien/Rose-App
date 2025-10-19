@@ -29,6 +29,19 @@
       "faq": "الأسئلة الشائعة"
     }
   },
+  "register": {
+    "titleAuth": " كن جزءًا من عائلتنا",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "password": "كلمة المرور",
+    "email": "البريد الإلكتروني",
+    "firstname": "الاسم الاول",
+    "lastname": "الاسم الاخير",
+    "alreadyAccount": "هل لديك حساب؟",
+    "login": "تسجيل الدخول",
+    "CreateAccount": "إنشاء حساب",
+    "gender": "العمر",
+    "phone": "رقم الهاتف"
+  },
   "auth": {
     "login": {
       "headline": "مرحبًا بعودتك",

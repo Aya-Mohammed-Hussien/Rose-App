@@ -1,14 +1,11 @@
 import * as React from 'react';
-
 import { cn } from '@/lib/utils';
 import { useFormField } from './form';
-
 // Reusable Input component with dynamic styling and error handling
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
   ({ className, type, ...props }, ref) => {
     // Access field state (to detect validation errors)
     const { error } = useFormField();
-
     return (
       <input
         type={type}
@@ -38,9 +35,7 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
     );
   }
 );
-
 Input.displayName = 'Input';
-
 export { Input };
 
 
