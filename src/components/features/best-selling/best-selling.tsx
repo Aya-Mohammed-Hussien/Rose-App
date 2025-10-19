@@ -21,7 +21,7 @@ type BestSellingProps = {
 export default function BestSelling({ bestSelling }: BestSellingProps) {
   return (
     // Best Selling Section
-    <section className=" p-6  mx-14  ">
+    <section className="   px-20   ">
       <div className="grid grid-cols-4 gap-9">
         {/* aside */}
         <aside className="col-span-1 flex flex-col gap-2    ">

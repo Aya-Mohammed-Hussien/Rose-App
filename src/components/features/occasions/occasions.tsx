@@ -50,7 +50,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
 
   return (
     // Occasions Section
-    <section className="p-6 flex flex-col gap-10 mx-14">
+    <section className=" flex flex-col gap-10 px-20">
       {/* header */}
       <header className="flex flex-row justify-between items-center">
         {/* title */}

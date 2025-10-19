@@ -11,7 +11,7 @@
     },
     "top-nav": {
       "search-placeholder": "What awesome gift are you looking for?",
-      "login": "login",
+      "login": "Login",
       "locale-button": "العربية"
     }
   },
@@ -27,6 +27,61 @@
       "terms": "Terms & Conditions",
       "privacy": "Privacy Policy",
       "faq": "FAQs"
+    }
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "subtitle": "Don’t worry, we’ll help you recover your account.",
+    "email": "Email address",
+    "placeholder": "you@example.com",
+    "button": "Continue",
+    "loading": "Sending...",
+    "waitMessage": "Please wait until the timer ends before requesting again.",
+    "countdownMessage": "You cannot ask for another OTP right now, please wait for {seconds} seconds",
+    "error": "An error occurred while sending, please try again.",
+    "noAccount": "Don’t have an account?",
+    "createAccount": "Create yours"
+  },
+  "resetPassword": {
+    "title": "Create a new password",
+    "subtitle": "Set a strong password to secure your account.",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "button": "Reset Password",
+    "loading": "Resetting...",
+    "error": "Something went wrong, please try again.",
+    "help": "Need help?",
+    "contact": "Contact us"
+  },
+  "register": {
+    "titleAuth": " Become part of our family! ",
+    "confirmPassword": "Confirm Password",
+    "password": "Password",
+    "email": "Email ",
+    "firstname": "Firstname ",
+    "lastname": "Lastname ",
+    "alreadyAccount": "Already have an account? ",
+    "login": "login ",
+    "CreateAccount": " Create Account",
+    "gender": "Gender",
+    "phone": "Phone "
+  },
+  "auth": {
+    "login": {
+      "headline": "Welcome back!",
+      "validation": {
+        "email_required": "Your email is required",
+        "email_invalid": "Please enter a valid email address",
+        "password_required": "Your password is required"
+      },
+      "login-form": {
+        "email-label": "Email",
+        "password-label": "Password",
+        "forgot-password": "Forgot your password?",
+        "login-button": "Login"
+      },
+      "register-prompt": "Don’t have an account yet?",
+      "register-link": "Create one now!"
     }
   }
 }

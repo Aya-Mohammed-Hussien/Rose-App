@@ -6,6 +6,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { Sarabun, Tajawal } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
+import localFont from 'next/font/local';
 
 // Generate static params for each layout
 export function generateStaticParams() {
@@ -28,6 +29,13 @@ const tajawal = Tajawal({
   subsets: ['arabic'],
   display: 'swap',
   weight: ['400', '500', '700', '800'],
+});
+
+// Edwardian English Font
+const edwardian = localFont({
+  src: '../../../public/fonts/ITCEDSCR.woff2',
+  variable: '--font-edwardian',
+  display: 'swap',
 });
 
 // Types
@@ -54,11 +62,9 @@ export default function LocaleLayout({ children, params: { locale } }: LayoutPro
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <body
-        className={`antialiased ${locale === 'ar' ? `${tajawal.variable} font-tajawal` : `${sarabun.variable} font-sarabun`}`}
+        className={`antialiased ${locale === 'ar' ? `${tajawal.variable} font-tajawal` : `${sarabun.variable} font-sarabun`} ${edwardian.variable}`}
       >
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
         <Toaster />
       </body>
     </html>
