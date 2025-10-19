@@ -24,17 +24,44 @@ import { useForgetPasswordAction } from '../_hooks/forgot-password';
 import { useTranslations } from 'next-intl';
 
 export default function ForgotPasswordPage() {
+  // Translation
   const t = useTranslations('forgotPassword');
 
-  // Hook to handle API call and loading/error states
-  const { mutate, isPending, error } = useForgetPasswordAction();
+  // Navigation
 
-  // Timer states for controlling resend logic
+  // State
   const [targetTime, setTargetTime] = useState<number | null>(null);
   const [canResend, setCanResend] = useState(true);
   const [key, setKey] = useState(0);
 
-  // On mount, restore any saved countdown timer from localStorage
+  // Mutation
+  const { mutate, isPending, error } = useForgetPasswordAction();
+
+  // Form & validation
+  const form = useForm<ForgotPasswordValues>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: { email: '' },
+  });
+
+  // Variables => This is a flexible choice
+
+  // Functions
+  const onSubmit = (values: ForgotPasswordValues) => {
+    mutate(values);
+
+    const end = Date.now() + 60000;
+    localStorage.setItem('forgot_password_timer', String(end));
+    setTargetTime(end);
+    setCanResend(false);
+    setKey((prev) => prev + 1);
+  };
+
+  const handleTimerComplete = () => {
+    setCanResend(true);
+    localStorage.removeItem('forgot_password_timer');
+  };
+
+  // Effects
   useEffect(() => {
     const saved = localStorage.getItem('forgot_password_timer');
     const now = Date.now();
@@ -45,32 +72,7 @@ export default function ForgotPasswordPage() {
     }
   }, []);
 
-  // Setup React Hook Form with Zod validation schema
-  const form = useForm<ForgotPasswordValues>({
-    resolver: zodResolver(forgotPasswordSchema),
-    defaultValues: { email: '' },
-  });
-
-  // Handle form submission
-  const onSubmit = (values: ForgotPasswordValues) => {
-    // Call the forget password mutation
-    mutate(values);
-
-    // Start 60-second cooldown before allowing another request
-    const end = Date.now() + 60000;
-    localStorage.setItem('forgot_password_timer', String(end));
-    setTargetTime(end);
-    setCanResend(false);
-    setKey((prev) => prev + 1);
-  };
-
-  // Callback when countdown completes
-  const handleTimerComplete = () => {
-    setCanResend(true);
-    localStorage.removeItem('forgot_password_timer');
-  };
-  console.log(t('countdownMessage', { seconds: 45 }));
-
+  // Render
   return (
     <div className="min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-md bg-card rounded-2xl shadow-sm border-none">

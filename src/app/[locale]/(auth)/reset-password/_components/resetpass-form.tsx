@@ -21,12 +21,13 @@ import { PasswordInput } from '@/components/shared/password-input';
 import { useTranslations } from 'next-intl';
 
 export default function ResetPasswordPage() {
+  // Translation
   const t = useTranslations('resetPassword');
 
-  // Hook for API call
+  // Mutation
   const { mutate, isPending, error } = useResetPasswordAction();
 
-  // Setup form validation
+  // Form & validation
   const form = useForm<ResetPasswordValues>({
     resolver: zodResolver(resetPasswordSchema),
     defaultValues: {
@@ -35,11 +36,12 @@ export default function ResetPasswordPage() {
     },
   });
 
-  // Submit handler
+  // Functions
   const onSubmit = (values: ResetPasswordValues) => {
     mutate(values);
   };
 
+  // Render
   return (
     <div className="min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-md bg-card rounded-2xl shadow-sm border-none">
