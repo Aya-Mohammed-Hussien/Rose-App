@@ -43,8 +43,6 @@ export default function ForgotPasswordPage() {
     defaultValues: { email: '' },
   });
 
-  // Variables => This is a flexible choice
-
   // Functions
   const onSubmit = (values: ForgotPasswordValues) => {
     mutate(values);

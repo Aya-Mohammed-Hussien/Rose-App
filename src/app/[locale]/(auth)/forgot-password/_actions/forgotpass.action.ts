@@ -20,5 +20,5 @@ export async function forgetPasswordAction(values: ForgotPasswordValues) {
   });
 
   // Redirect user to OTP verification page
-  redirect('/otp');
+  redirect('/verify-otp');
 }
