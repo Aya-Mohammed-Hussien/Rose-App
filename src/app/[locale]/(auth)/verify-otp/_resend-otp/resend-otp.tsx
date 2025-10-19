@@ -2,8 +2,11 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 export default function ResendCodeButton() {
+  // Translations
+  const t = useTranslations();
   // Seconds
   const [time, setTime] = useState(0);
 
@@ -36,7 +39,7 @@ export default function ResendCodeButton() {
           transition-opacity duration-200 ease-in-out
           ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       >
-        Send a new code
+        {t('send-a-new-code')}
       </Button>
     </div>
   );

@@ -1,16 +1,20 @@
 'use client';
+
 import { Button } from '@/components/ui/button';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useVerify } from '../_hooks/use-verify';
 import { useRouter } from 'next/navigation';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { otpSchema, OtpValues } from '@/lib/schemes/verify-otp';
 import ResendOtp from '../_resend-otp/resend-otp';
+import { useTranslations } from 'next-intl';
+import useVerify from '../_hooks/use-verify';
 
 export default function VerifyForm() {
+  // Translations
+  const t = useTranslations();
   // Form
   const router = useRouter();
   const form = useForm<OtpValues>({
@@ -78,14 +82,16 @@ export default function VerifyForm() {
                    focus:outline-none active:outline-none
                    transition-none shadow-none"
           >
-            Verify OTP
+            {t('verify-otp')}
           </Button>
         </div>
       </form>
       {/* For Help */}
       <p className="font-primary text-sm leading-none tracking-normal text-[#27272A] mt-5 flex items-center justify-center gap-1">
-        <span className="font-medium">Need help?</span>
-        <span className="font-bold cursor-pointer text-[#A6252A] hover:underline">Contact us</span>
+        <span className="font-medium">{t('need-help')}</span>
+        <span className="font-bold cursor-pointer text-[#A6252A] hover:underline">
+          {t('contact-us')}
+        </span>
       </p>
     </Form>
   );
