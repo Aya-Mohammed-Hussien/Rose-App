@@ -1,11 +1,34 @@
-import { CarouselSection, GiftCategories, InfoBar } from '.';
+import BestSellingSkeleton from '@/components/skeletons/best-selling.skeleton';
+import OccasionsSkeleton from '@/components/skeletons/occasions.skeleton';
+import React, { Suspense } from 'react';
+import { CarouselSection } from './_components/carousel-section/carousel-section';
+import { GiftCategories } from './_components/gift-categories/gift-categories';
+import { InfoBar } from './_components/infobar/info-bar';
+import OccasionsSection from './_components/server/occasions-section';
+import BestSellingSection from './_components/server/best-selling-section';
 
-export default function Page() {
+export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
+  // Variables
+  const occasionId = searchParams?.occasion;
+
   return (
-    <div className="max-w-7xl mx-auto flex flex-col gap-10 mt-10 mb-3">
+    <main className="flex flex-col  gap-32 py-12">
+      {/* Carousel Section */}
       <CarouselSection />
+
+      {/* Gift Section */}
       <GiftCategories />
       <InfoBar />
-    </div>
+
+      {/* Best Selling Section */}
+      <Suspense fallback={<BestSellingSkeleton />}>
+        <BestSellingSection />
+      </Suspense>
+
+      {/* Occasions Section */}
+      <Suspense fallback={<OccasionsSkeleton />}>
+        <OccasionsSection occasionId={occasionId} />
+      </Suspense>
+    </main>
   );
 }

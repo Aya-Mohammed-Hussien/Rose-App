@@ -1,17 +1,13 @@
-"use client";
+'use client';
 
-
-import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
-
+import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Autoplay from 'embla-carousel-autoplay';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
 
 export function CarouselSection() {
-
-
   //  State
   const [emblaApi, setEmblaApi] = useState<any>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -23,31 +19,31 @@ export function CarouselSection() {
   const slides = [
     {
       id: 1,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
-      title: "Say It with Flowers",
-      subtitle: "Elegant gifts for every special moment.",
+      img: '/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
+      title: 'Say It with Flowers',
+      subtitle: 'Elegant gifts for every special moment.',
       btnText: "I'm buying!",
     },
     {
       id: 2,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
-      title: "Sweet Surprises for Loved Ones",
-      subtitle: "Delicious chocolates for any occasion.",
-      btnText: "Shop Now",
+      img: '/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
+      title: 'Sweet Surprises for Loved Ones',
+      subtitle: 'Delicious chocolates for any occasion.',
+      btnText: 'Shop Now',
     },
     {
       id: 3,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
-      title: "Roses & Romance",
-      subtitle: "Show your love in a classic way.",
-      btnText: "Discover More",
+      img: '/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
+      title: 'Roses & Romance',
+      subtitle: 'Show your love in a classic way.',
+      btnText: 'Discover More',
     },
     {
       id: 4,
-      img: "/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png",
-      title: "Roses & Romance",
-      subtitle: "Show your love in a classic way.",
-      btnText: "Discover More",
+      img: '/assets/image/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
+      title: 'Roses & Romance',
+      subtitle: 'Show your love in a classic way.',
+      btnText: 'Discover More',
     },
   ];
 
@@ -56,11 +52,10 @@ export function CarouselSection() {
     if (!emblaApi) return;
 
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
+    emblaApi.on('select', onSelect);
     onSelect();
   }, [emblaApi]);
 
- 
   return (
     <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-2 items-center">
       {/* 🌸 Left Card */}
@@ -133,8 +128,8 @@ export function CarouselSection() {
               <button
                 key={`dot-${slide.id}`}
                 className={cn(
-                  "w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300",
-                  index === selectedIndex && "bg-rose-700 w-6"
+                  'w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300',
+                  index === selectedIndex && 'bg-rose-700 w-6'
                 )}
                 onClick={() => emblaApi?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}

@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Pagination,
   PaginationContent,
@@ -11,20 +9,25 @@ import {
   PaginationFirst,
   PaginationLast,
 } from '@/components/ui/pagination';
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function PaginationSection() {
-  // State
-  const [currentPage, setCurrentPage] = useState(1);
+// Props
+type PaginationProps = {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+};
 
-  // Variable
-  const totalPages = 22; //static for now
-
+export default function PaginationSection({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) {
   //Function
   const goToPage = (page: number) => {
     // navigate to pages
     if (page < 1 || page > totalPages) return;
-    setCurrentPage(page);
+    onPageChange(page);
   };
 
   const getVisiblePage = () => {
@@ -72,6 +75,7 @@ export default function PaginationSection() {
               goToPage(1);
             }}
             className={currentPage === 1 ? 'opacity-50 pointer-events-none' : ''}
+            aria-disabled={currentPage === 1}
           />
         </PaginationItem>
 
@@ -84,6 +88,7 @@ export default function PaginationSection() {
               goToPage(currentPage - 1);
             }}
             className={currentPage === 1 ? 'opacity-50 pointer-events-none' : ''}
+            aria-disabled={currentPage === 1}
           ></PaginationPrevious>
         </PaginationItem>
 
@@ -102,6 +107,8 @@ export default function PaginationSection() {
                     goToPage(page);
                   }
                 }}
+                className={currentPage === page ? 'pointer-events-none  cursor-default' : ''}
+                {...(currentPage === Number(page) ? { 'aria-current': 'page' } : {})}
               >
                 {page}
               </PaginationLink>
@@ -130,8 +137,8 @@ export default function PaginationSection() {
               e.preventDefault();
               goToPage(totalPages);
             }}
-            aria-disabled={currentPage === totalPages}
             className={currentPage === totalPages ? 'opacity-50 pointer-events-none' : ''}
+            aria-disabled={currentPage === totalPages}
           />
         </PaginationItem>
       </PaginationContent>
