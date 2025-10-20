@@ -83,5 +83,12 @@
       "register-prompt": "Don’t have an account yet?",
       "register-link": "Create one now!"
     }
-  }
+  },
+  "send-a-new-code": "Send a new code",
+  "verify-otp": "Verify OTP",
+  "need-help": "Need help?",
+  "contact-us": "Contact us",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "We have sent a 6-digit code to user@example.com",
+  "enter-the-otp-code": "Enter the OTP Code",
+  "edit": "Edit"
 }

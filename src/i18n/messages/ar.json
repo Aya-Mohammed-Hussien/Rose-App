@@ -83,5 +83,12 @@
       "register-prompt": "ليس لديك حساب بعد؟",
       "register-link": "أنشئ حسابك الآن!"
     }
-  }
+  },
+  "contact-us": "اتصل بنا",
+  "need-help": "بحاجة الى مساعدة؟",
+  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
+  "send-a-new-code": "إرسال رمز جديد",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
+  "enter-the-otp-code": "أدخل رمز OTP",
+  "edit": "حرر"
 }

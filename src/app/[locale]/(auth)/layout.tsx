@@ -26,7 +26,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
       {/* Left Side - Image */}
       <div className=" relative overflow-hidden  md:block">
         <Image
-          src="/assets/image/132a2f7f5902767a6f99bcab7221e6bf3f2703e8.png"
+          src="/assets/images/132a2f7f5902767a6f99bcab7221e6bf3f2703e8.png"
           alt="Register background"
           fill
           priority
