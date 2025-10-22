@@ -18,7 +18,7 @@ export const authOptions: NextAuthOptions = {
       // Authorize callback handles user authentication via custom backend API
       authorize: async (credentials) => {
         // Send credentials to backend for verification
-        const response = await fetch(`${process.env.API}/auth/signin`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/signin`, {
           method: 'POST',
           body: JSON.stringify({
             email: credentials?.email,
@@ -57,6 +57,7 @@ export const authOptions: NextAuthOptions = {
     // Make token data available in client-side session
     session: ({ session, token }) => {
       session.user = token.user;
+      session.token = token.token;
       return session;
     },
   },

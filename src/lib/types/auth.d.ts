@@ -1,7 +1,7 @@
 export type AuthResponse = {
-  token: string;
   message: string;
   user: {
+    token?: string;
     _id: string;
     firstName: string;
     lastName: string;

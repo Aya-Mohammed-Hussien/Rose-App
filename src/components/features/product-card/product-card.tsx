@@ -33,26 +33,26 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.quantity > 0 ? 'NEW' : 'OUT OF STOCK'}
         </Badge>
 
-        {/* overlay */}
-        <div className="absolute inset-0 bg-[#E6507380]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/*  overlay */}
+        {/*  <div className="absolute inset-0 bg-[#E6507380]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> */}
 
         {/* action buttons */}
-        <div className="absolute inset-0 flex justify-center items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <button
-            aria-label="Heart button"
-            className="w-7 h-7 rounded-full bg-white flex justify-center items-center"
-          >
-            {/* icon */}
-            <Heart width={20} height={20} className="text-[#741C21]" />
-          </button>
-          <button
-            aria-label="Eye button"
-            className="w-7 h-7 rounded-full bg-white flex justify-center items-center"
-          >
-            {/* icon */}
-            <Eye width={20} height={20} className="text-[#741C21]" />
-          </button>
-        </div>
+        {/*
+<div className="absolute inset-0 flex justify-center items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+  <button
+    aria-label="Heart button"
+    className="w-7 h-7 rounded-full bg-white flex justify-center items-center"
+  >
+    <Heart width={20} height={20} className="text-[#741C21]" />
+  </button>
+  <button
+    aria-label="Eye button"
+    className="w-7 h-7 rounded-full bg-white flex justify-center items-center"
+  >
+    <Eye width={20} height={20} className="text-[#741C21]" />
+  </button>
+</div>
+*/}
       </CardContent>
 
       {/* Card details */}
