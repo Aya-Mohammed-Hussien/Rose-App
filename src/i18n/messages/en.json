@@ -53,7 +53,7 @@
       "login-form": {
         "email-label": "Email",
         "password-label": "Password",
-        "forget-password": "Forgot your password?",
+        "forgot-password": "Forgot your password?",
         "login-button": "Login"
       },
       "register-prompt": "Don’t have an account yet?",

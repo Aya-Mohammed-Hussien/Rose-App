@@ -84,10 +84,10 @@ export default function LoginForm() {
 
         {/* Forget Password */}
         <Link
-          href="/forget-password"
+          href="/forgot-password"
           className="text-maroon-700 text-sm font-semibold dark:text-softPink-300 capitalize flex justify-end"
         >
-          {t('forget-password')}
+          {t('forgot-password')}
         </Link>
 
         {/* Error Message  */}
