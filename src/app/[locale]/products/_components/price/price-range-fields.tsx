@@ -1,0 +1,111 @@
+// src/app/products/_components/price/price-range-fields.tsx
+'use client';
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { PriceFilterValues, priceFilterSchema } from '@/lib/schemes/price.schema';
+import SubmissionMessage from '@/components/shared/submission-message';
+import { usePriceFilter } from '../../_hooks/price/use-price-filter';
+import { X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+
+export default function PriceRangeForm() {
+  // Translation
+  const t = useTranslations('price');
+
+  // Form & validation
+  const form = useForm<PriceFilterValues>({
+    defaultValues: { min: undefined, max: undefined },
+    resolver: zodResolver(priceFilterSchema),
+    mode: 'onChange',
+  });
+
+  // Functions
+  const { reset } = usePriceFilter(form);
+
+  // Render
+  return (
+    <Form {...form}>
+      <div className="w-full">
+        {/* Title + Reset */}
+        <div className="flex items-center justify-between mb-[10px]">
+          <h3 className="text-base text-zinc-800 font-semibold">{t('title')}</h3>
+          <button
+            onClick={reset}
+            className="flex items-center justify-center gap-1 text-sm text-red-600"
+          >
+            <X className="w-4 h-4" />
+            {t('reset')}
+          </button>
+        </div>
+
+        {/* Fields Row */}
+        <div className="grid grid-cols-2 gap-3">
+          {/* Min */}
+          <FormField
+            name="min"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm text-zinc-800 font-medium">{t('from')}</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    inputMode="numeric"
+                    placeholder={t('placeholder.min')}
+                    className="h-12 rounded-lg"
+                    value={field.value ?? ''}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      field.onChange(v === '' ? undefined : Number(v));
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Max */}
+          <FormField
+            name="max"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm text-zinc-800 font-medium">{t('to')}</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    inputMode="numeric"
+                    placeholder={t('placeholder.max')}
+                    className="h-12 rounded-lg"
+                    value={field.value ?? ''}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      field.onChange(v === '' ? undefined : Number(v));
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        {/* Error */}
+        <SubmissionMessage>
+          {form.formState.errors.max?.message || form.formState.errors.min?.message}
+        </SubmissionMessage>
+      </div>
+    </Form>
+  );
+}

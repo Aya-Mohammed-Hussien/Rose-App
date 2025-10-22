@@ -1,0 +1,80 @@
+// src/app/_sections/occasion-list.tsx
+'use client';
+
+import { useRef } from 'react';
+import { X } from 'lucide-react';
+import { useOccasionFilterSingle } from '../../_hooks/occasions/use-occasion-filter.single';
+import OccasionCard from './occasion-card';
+import { useOccasions } from '../../_hooks/occasions/useOccasions';
+import { useIntersection } from '../../_hooks/occasions/use-intersection';
+import { useTranslations } from 'next-intl';
+
+export default function OccasionList() {
+  // Translation
+  const t = useTranslations('occasions');
+
+  // State
+  const { selected, isSelected, toggle, reset } = useOccasionFilterSingle();
+
+  // Ref
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  // Queries
+  const { data, isLoading, isError, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useOccasions();
+
+  // Variables
+  const occasions = (data?.pages ?? []).flatMap((p) => p.occasions ?? []);
+
+  // Functions
+  const sentinelRef = useIntersection<HTMLDivElement>(
+    () => {
+      if (hasNextPage && !isFetchingNextPage) fetchNextPage();
+    },
+    { rootRef: scrollRef }
+  );
+
+  // Render
+  if (isLoading) return <p>{t('loading')}</p>;
+  if (isError) return <p className="text-red-500">{t('error')}</p>;
+
+  return (
+    <section className="space-y-2 h-full">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-base font-semibold text-zinc-800">{t('title')}</h2>
+        <button
+          onClick={reset}
+          className="flex items-center justify-center gap-1 text-sm text-red-600"
+        >
+          <X className="w-4 h-4" />
+          {t('reset')}
+        </button>
+      </div>
+
+      {/* Scrollable list */}
+      <div ref={scrollRef} className="h-full overflow-y-auto [&::-webkit-scrollbar]:hidden">
+        {/* Occasion cards */}
+        <div className="grid grid-cols-2 gap-2">
+          {occasions.map((item) => (
+            <OccasionCard
+              key={item._id}
+              occasion={item}
+              selected={isSelected(item._id)}
+              onToggle={toggle}
+            />
+          ))}
+        </div>
+
+        {/* Loader + Sentinel */}
+        {hasNextPage && (
+          <div ref={sentinelRef} className="flex items-center justify-center py-3">
+            <p className="text-sm text-zinc-600">
+              {isFetchingNextPage ? t('loadingMore') : t('scrollToLoad')}
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}

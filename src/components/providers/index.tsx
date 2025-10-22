@@ -14,7 +14,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 
         {/* NextAuth Provider  */}
         <NextAuthProvider>{children}</NextAuthProvider>
-        
       </ReactQueryProvider>
     </NextIntlProvider>
   );
