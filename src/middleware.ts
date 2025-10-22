@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 
 // Auth & Public Routes
-const authRoutes = ['/login', '/register', '/forgot-password', '/products'];
+const authRoutes = ['/login', '/register', '/forgot-password' , '/verify-otp'];
 const publicRoutes = [...authRoutes, '/'];
 
 // Locale Detection
