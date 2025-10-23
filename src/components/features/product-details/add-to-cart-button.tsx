@@ -38,7 +38,7 @@ export default function AddToCartButton({ product }: AddToCartProps) {
               description: 'Something went wrong. Please try again.',
               variant: 'destructive',
             });
-          }, 500);  
+          }, 500);
         },
       }
     );
@@ -49,6 +49,7 @@ export default function AddToCartButton({ product }: AddToCartProps) {
 
   return (
     <Button
+      loading={isPending}
       onClick={handleAddToCart}
       disabled={isOutOfStock || isPending}
       variant="default"

@@ -6,10 +6,4 @@ export const routing = defineRouting({
  
   // Used when no locale matches
   defaultLocale: 'en' ,
-  pathnames: {
-    '/login': {
-      en: '/login',
-      ar: '/login' 
-    }
-  }
 });

@@ -19,6 +19,7 @@ export function useMergeGuestCart() {
     const mergeGuestcart = async () => {
       try {
         for (const item of guestCart) {
+         console.log(`merged item: ${item.id} and ${item.title} and ${item.quantity}`)
           await addToCartAction({ product: item.id, quantity: item.quantity });
         }
         clearGuestCart();

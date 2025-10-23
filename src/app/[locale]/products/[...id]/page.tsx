@@ -15,7 +15,6 @@ export default async function page({ params: { id } }: ProductProps) {
   // Variables
   const slug = id[0];
   const productId = id[1];
-  // console.log('URL Segments:', { slug, productId });
 
   // Function
   const productDetails = await getProductDetails(productId);
