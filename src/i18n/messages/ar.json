@@ -97,5 +97,10 @@
   "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
   "related-products-0": "المنتجات ذات الصلة",
   "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
-  "product-reviews": "مراجعات المنتج"
+  "product-reviews": "مراجعات المنتج",
+  "sign-in": "تسجيل الدخول",
+  "to-add-a-review": "لإضافة مراجعة.",
+  "your-rating": "تقييمك:",
+  "title-0": "عنوان",
+  "review": "مراجعة"
 }

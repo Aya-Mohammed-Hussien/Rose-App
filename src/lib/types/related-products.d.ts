@@ -1,12 +1,16 @@
-import { Product } from '@/lib/types/product';
+export interface RelatedProduct {
+  _id: string;
+  title: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  rateAvg: number;
+  rateCount: number;
+  id: string;
+}
 
-export interface ProductsByCategoryResponse {
+export interface RelatedProductsResponse {
   message: string;
-  metadata: {
-    currentPage: number;
-    totalPages: number;
-    limit: number;
-    totalItems: number;
-  };
-  products: Product[];
+  count: number;
+  relatedProducts: RelatedProduct[];
 }

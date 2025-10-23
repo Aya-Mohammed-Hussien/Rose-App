@@ -8,6 +8,7 @@ import { getReviews } from '@/lib/apis/review-products/review-products';
 import { ApiResponse, Review } from '@/lib/types/review';
 import AddReview from '@/components/features/reviews/_components/add-review';
 import ReviewsSection from '@/components/features/reviews/review-section';
+import { RelatedProduct } from '@/lib/types/related-products';
 
 type ProductPageProps = { params: { id: string } };
 
@@ -26,10 +27,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
     reviews = [];
   }
 
-  let relatedProducts: Product[] = [];
+  let relatedProducts: RelatedProduct[] = [];
   try {
-    const relatedData = await getProductsByCategory(productId); // related products حسب category
-    relatedProducts = relatedData?.products ?? [];
+    const relatedData = await getProductsByCategory(params.id);
+    relatedProducts = relatedData?.relatedProducts ?? [];
   } catch (error) {
     relatedProducts = [];
   }

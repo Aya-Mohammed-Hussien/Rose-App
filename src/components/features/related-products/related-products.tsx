@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Product } from '@/lib/types/product';
 import {
   Carousel,
   CarouselContent,
@@ -12,9 +11,8 @@ import {
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ProductCard from '../product-card/product-card';
 
-// Props
 type RelatedProductsProps = {
-  products: (Product & { isSuperAdmin?: boolean })[];
+  products: any[];
 };
 
 export default function RelatedProducts({ products }: RelatedProductsProps) {
@@ -22,29 +20,27 @@ export default function RelatedProducts({ products }: RelatedProductsProps) {
     return <div className="text-center text-red-600 p-10">No related products found</div>;
   }
 
-  const productsForCard: Product[] = products.map((p) => ({
-    ...p,
-    isSuperAdmin: p.isSuperAdmin ?? false,
-  }));
-
   return (
     <div className="relative w-full">
       <Carousel opts={{ align: 'start' }}>
         <CarouselContent>
-          {productsForCard.map((prod) => (
-            <CarouselItem key={prod._id} className="w-full basis-1/4 p-2">
-              <ProductCard product={prod} />
+          {products.map((prod: any) => (
+            <CarouselItem key={prod?._id ?? Math.random()} className="w-full basis-1/4 p-2">
+              <ProductCard product={prod} hideBadge />
             </CarouselItem>
           ))}
         </CarouselContent>
 
         {/* previous arrow */}
-        <CarouselPrevious className="absolute left-[-15px] top-[40%] text-white hover:text-white bg-[#A6252A] hover:bg-[#A6252A] border-none shadow-md rounded-full w-10 h-10 flex items-center justify-center">
-          <ChevronLeft className="w-5 h-5 text-white" />
+        <CarouselPrevious className="absolute left-[-15px] top-[40%] text-white  hover:text-white  bg-[#A6252A] hover:bg-[#A6252A] border-none shadow-md rounded-full w-10 h-10 ">
+          {' '}
+          {/* icon */}
+          <ChevronLeft className="w-5 h-5 text-white" />{' '}
         </CarouselPrevious>
 
         {/* next arrow */}
-        <CarouselNext className="absolute right-[-15px] top-[40%] text-white hover:text-white bg-[#A6252A] hover:bg-[#A6252A] border-none shadow-md rounded-full w-10 h-10 flex items-center justify-center">
+        <CarouselNext className="absolute right-[-15px] top-[40%] text-white hover:text-white  bg-[#A6252A] hover:bg-[#A6252A] border-none shadow-md rounded-full w-10 h-10 ">
+          {/* icon */}
           <ChevronRight className="w-5 h-5 text-white" />
         </CarouselNext>
       </Carousel>
