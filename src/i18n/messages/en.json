@@ -90,5 +90,12 @@
   "contact-us": "Contact us",
   "we-have-sent-a-6-digit-code-to-user-example-com": "We have sent a 6-digit code to user@example.com",
   "enter-the-otp-code": "Enter the OTP Code",
-  "edit": "Edit"
+  "edit": "Edit",
+  "no-related-products-found": "No related products found.",
+  "related-products": "Related Products",
+  "failed-to-load-related-products": "Failed to load related products",
+  "no-related-products-found-0": "No related products found",
+  "related-products-0": "Related Products",
+  "no-related-products-found-1": "No related products found.",
+  "product-reviews": "Product Reviews"
 }

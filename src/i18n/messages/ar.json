@@ -90,5 +90,12 @@
   "send-a-new-code": "إرسال رمز جديد",
   "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
   "enter-the-otp-code": "أدخل رمز OTP",
-  "edit": "حرر"
+  "edit": "حرر",
+  "no-related-products-found": "لم يتم العثور على منتجات مشابهه.",
+  "related-products": "المنتجات ذات الصلة",
+  "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
+  "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
+  "related-products-0": "المنتجات ذات الصلة",
+  "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
+  "product-reviews": "مراجعات المنتج"
 }

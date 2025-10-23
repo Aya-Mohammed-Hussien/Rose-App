@@ -1,22 +1,38 @@
-import * as React from "react"
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+import { useFormField } from './form';
 
-import { cn } from "@/lib/utils"
+const Textarea = React.forwardRef<HTMLTextAreaElement, React.ComponentProps<'textarea'>>(
+  ({ className, ...props }, ref) => {
+    const { error } = useFormField();
 
-const Textarea = React.forwardRef<
-  HTMLTextAreaElement,
-  React.ComponentProps<"textarea">
->(({ className, ...props }, ref) => {
-  return (
-    <textarea
-      className={cn(
-        "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        className
-      )}
-      ref={ref}
-      {...props}
-    />
-  )
-})
-Textarea.displayName = "Textarea"
+    return (
+      <textarea
+        ref={ref}
+        {...props}
+        className={cn(
+          // --- Base layout and sizing ---
+          'flex min-h-[3.0625rem] w-full rounded-[0.625rem] p-4 text-base md:text-sm',
+          // --- Border and background (default) ---
+          'border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-700',
+          // --- Hover states ---
+          'hover:border-zinc-400 dark:hover:border-zinc-500',
+          // --- Focus states ---
+          'focus-visible:outline-none focus-visible:border-maroon-600 dark:focus-visible:border-softPink-400',
+          // --- Placeholder text color ---
+          'placeholder:text-zinc-400',
+          // --- Disabled states ---
+          'disabled:cursor-not-allowed disabled:opacity-50',
+          // --- Error state  ---
+          error && 'border-red-600 dark:border-red-500',
+          // --- Additional custom styles passed as props ---
+          className
+        )}
+      />
+    );
+  }
+);
 
-export { Textarea }
+Textarea.displayName = 'Textarea';
+
+export { Textarea };

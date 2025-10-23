@@ -59,12 +59,12 @@ export default function ProductCard({ product }: ProductCardProps) {
       <CardFooter className="border-none flex  flex-row mt-3 justify-between p-0">
         <div className="flex flex-col gap-3 w-3/4  ">
           {/* title */}
-          <h3 className="font-semibold text-[18px] truncate w-[250px] text-[#741C21]">
+          <h3 className="font-semibold text-[18px] truncate w-[250px] text-[#741C21] ms-2">
             {product.title.length > 30 ? `${product.title.slice(0, 30)}...` : product.title}
           </h3>
 
           {/* rating */}
-          <div className="flex flex-row gap-1">
+          <div className="flex flex-row gap-1 ms-2">
             {Array.from({ length: 5 }, (_, i) => (
               <Star
                 key={i}
@@ -76,7 +76,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
 
           {/* price */}
-          <p className="font-medium text-base flex gap-1">
+          <p className="font-medium text-base flex gap-1 ms-2">
             {/* price after discount */}
             <span className="text-[#741C21]  uppercase">
               {product.priceAfterDiscount
