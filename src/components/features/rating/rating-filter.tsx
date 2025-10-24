@@ -1,35 +1,27 @@
 'use client';
 
 import ResetButton from '@/components/shared/reset-button';
-import { useRouter } from '@/i18n/navigation';
+import { useUrlParams } from '@/hooks/params/use-url-params';
 import { cn } from '@/lib/utils';
 import { Star } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import React from 'react';
 
 export default function RatingFilter() {
-  // Navigation
-  const router = useRouter();
+  // Hooks
+  const { setParam, deleteParam } = useUrlParams();
   const searchParams = useSearchParams();
+
+  // Variables
   const selectedRating = searchParams.get('rateAvg');
 
   // Functions
   const handleSelctedRating = (rating: string) => {
-    // Read existing query params
-    const params = new URLSearchParams(searchParams.toString());
-    // Set rating filter param
-    params.set('rateAvg', rating);
-    // Update URL
-    router.push(`?${params.toString()}`, { scroll: false });
+    setParam('rateAvg', rating);
   };
 
   const handleReset = () => {
-    // Read existing query params
-    const params = new URLSearchParams(searchParams.toString());
-    // Remove query param
-    params.delete('rateAvg');
-    // Update URL
-    router.push(`?${params.toString()}`, { scroll: false });
+    deleteParam('rateAvg');
   };
   return (
     // Rating Section

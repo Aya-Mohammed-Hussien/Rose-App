@@ -3,18 +3,19 @@
 import React from 'react';
 import { Button } from '../ui/button';
 import { RotateCcw } from 'lucide-react';
-import { usePathname, useRouter } from '@/i18n/navigation';
 import { useSearchParams } from 'next/navigation';
+import { useUrlParams } from '@/hooks/params/use-url-params';
 
 export default function ResetAllButton() {
   // Navigation
-  const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  // Hooks
+  const { deleteAll } = useUrlParams();
 
   // Functions
   const handleResetAll = () => {
-    router.push(pathname, { scroll: false });
+    deleteAll();
   };
   return (
     // Button

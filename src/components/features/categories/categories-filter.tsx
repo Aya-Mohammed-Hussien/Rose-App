@@ -3,7 +3,7 @@
 import ResetButton from '@/components/shared/reset-button';
 import CategoriesFilterSkeleton from '@/components/skeletons/categories-filter.skeleton';
 import { useCategory } from '@/hooks/category/use-category';
-import { useRouter } from '@/i18n/navigation';
+import { useUrlParams } from '@/hooks/params/use-url-params';
 import { CategoriesResponse } from '@/lib/types/category';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -12,35 +12,23 @@ import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default function CategoriesFilter() {
-  // Navigation
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get('category');
-
   // Hooks
   const { categories, error, isLoading, fetchNextPage, hasNextPage } = useCategory();
+  const { setParam, deleteParam } = useUrlParams();
+  const searchParams = useSearchParams();
 
   // Variables
+  const selectedCategory = searchParams.get('category');
   const allCategories =
     categories?.pages.flatMap((page: CategoriesResponse) => page.categories) ?? [];
 
   // Function
   const handleSelectedCategory = (id: string) => {
-    // Read existing query params
-    const params = new URLSearchParams(searchParams.toString());
-    // Set category filter param
-    params.set('category', id);
-    // Update URL without reloading
-    router.push(`?${params.toString()}`, { scroll: false });
+    setParam('category', id);
   };
 
   const handleReset = () => {
-    // Read existing query params
-    const params = new URLSearchParams(searchParams.toString());
-    // Remove category filter param
-    params.delete('category');
-    // Upadte URL
-    router.push(`?${params.toString()}`, { scroll: false });
+    deleteParam('category');
   };
 
   // Loading State
