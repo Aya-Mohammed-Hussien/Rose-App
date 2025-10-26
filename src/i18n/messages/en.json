@@ -84,6 +84,29 @@
       "register-link": "Create one now!"
     }
   },
+  "price": {
+    "title": "Price",
+    "reset": "Reset",
+    "from": "From",
+    "to": "To",
+    "placeholder": {
+      "min": "0",
+      "max": "1000000"
+    },
+    "error": {
+      "min": "Minimum must be 0 or greater",
+      "max": "Maximum must be 1,000,000 or less",
+      "invalidRange": "Minimum must be less than or equal to maximum"
+    }
+  },
+  "occasions": {
+    "title": "Occasions",
+    "reset": "Reset",
+    "loading": "Loading occasions...",
+    "error": "Failed to load occasions.",
+    "loadingMore": "Loading more…",
+    "scrollToLoad": "Scroll to load more"
+  },
   "Cart": {
     "addedSuccess": "{product} was added to your cart successfully!",
     "addFailed": "Something went wrong. Please try again.",

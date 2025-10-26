@@ -5,6 +5,9 @@ export type Occasion = {
   image: string;
   isSuperAdmin: boolean;
   productsCount: number;
+  selected?: boolean;
+  disabled?: boolean;
+  onToggle?: (id: string) => void;
 };
 
 export type Metadata = {
@@ -18,4 +21,15 @@ export type OccasionsApiResponse = {
   message: string;
   metadata: Metadata;
   occasions: Occasion[];
+};
+
+export type OccasionListProps = {
+  occasions: Occasion[];
+};
+
+export type OccasionCardProps = {
+  occasion: Occasion;
+  selected?: boolean;
+  disabled?: boolean;
+  onToggle?: (id: string) => void;
 };
