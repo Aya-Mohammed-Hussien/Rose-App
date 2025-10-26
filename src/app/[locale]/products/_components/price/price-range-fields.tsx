@@ -1,4 +1,3 @@
-// src/app/products/_components/price/price-range-fields.tsx
 'use client';
 
 import {
@@ -17,6 +16,7 @@ import SubmissionMessage from '@/components/shared/submission-message';
 import { usePriceFilter } from '../../_hooks/price/use-price-filter';
 import { X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/button';
 
 export default function PriceRangeForm() {
   // Translation
@@ -25,7 +25,7 @@ export default function PriceRangeForm() {
   // Form & validation
   const form = useForm<PriceFilterValues>({
     defaultValues: { min: undefined, max: undefined },
-    resolver: zodResolver(priceFilterSchema),
+    resolver: zodResolver(priceFilterSchema(t)),
     mode: 'onChange',
   });
 
@@ -39,13 +39,16 @@ export default function PriceRangeForm() {
         {/* Title + Reset */}
         <div className="flex items-center justify-between mb-[10px]">
           <h3 className="text-base text-zinc-800 font-semibold">{t('title')}</h3>
-          <button
-            onClick={reset}
-            className="flex items-center justify-center gap-1 text-sm text-red-600"
-          >
-            <X className="w-4 h-4" />
-            {t('reset')}
-          </button>
+          {(form.watch('min') !== undefined || form.watch('max') !== undefined) && (
+            <Button
+              onClick={reset}
+              variant="ghost"
+              className="flex items-center justify-center gap-1 text-sm text-red-600 hover:bg-transparent"
+            >
+              <X className="w-4 h-4" />
+              {t('reset')}
+            </Button>
+          )}
         </div>
 
         {/* Fields Row */}
@@ -70,7 +73,6 @@ export default function PriceRangeForm() {
                     }}
                   />
                 </FormControl>
-                <FormMessage />
               </FormItem>
             )}
           />
@@ -95,7 +97,6 @@ export default function PriceRangeForm() {
                     }}
                   />
                 </FormControl>
-                <FormMessage />
               </FormItem>
             )}
           />

@@ -1,4 +1,3 @@
-// src/app/products/_hooks/occasions/useOccasions.ts
 'use client';
 
 import { useInfiniteQuery } from '@tanstack/react-query';

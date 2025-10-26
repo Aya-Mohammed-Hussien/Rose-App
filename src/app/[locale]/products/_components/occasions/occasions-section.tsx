@@ -1,4 +1,3 @@
-// src/app/_sections/OccasionsSection.tsx
 'use client';
 
 import OccasionList from './occasion-list';

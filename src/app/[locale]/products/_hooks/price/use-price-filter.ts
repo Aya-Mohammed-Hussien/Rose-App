@@ -1,15 +1,16 @@
-// src/app/products/_hooks/use-price-filter.ts
 'use client';
 
 import { useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { PriceFilterValues } from '@/lib/schemes/price.schema';
 import { UseFormReturn } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 
-// Syncs price filter form with URL params
+// Navigation
 export function usePriceFilter(form: UseFormReturn<PriceFilterValues>) {
   const router = useRouter();
   const sp = useSearchParams();
+  const t = useTranslations('price.error');
 
   // Load values from URL on mount
   useEffect(() => {

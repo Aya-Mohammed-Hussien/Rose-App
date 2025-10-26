@@ -1,4 +1,3 @@
-// src/app/products/_hooks/occasions/use-intersection.ts
 'use client';
 
 import { RefObject, useEffect, useRef } from 'react';
@@ -30,7 +29,7 @@ export function useIntersection<T extends HTMLElement>(
       {
         root: rootRef?.current ?? null, // Optional scroll container
         rootMargin, // Trigger before reaching view
-        threshold,  // Percentage of visibility to trigger
+        threshold, // Percentage of visibility to trigger
       }
     );
 

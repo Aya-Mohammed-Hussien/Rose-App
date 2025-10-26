@@ -1,13 +1,13 @@
-// src/app/_sections/occasion-list.tsx
 'use client';
 
 import { useRef } from 'react';
 import { X } from 'lucide-react';
 import { useOccasionFilterSingle } from '../../_hooks/occasions/use-occasion-filter.single';
 import OccasionCard from './occasion-card';
-import { useOccasions } from '../../_hooks/occasions/useOccasions';
+import { useOccasions } from '../../_hooks/occasions/use-occasions';
 import { useIntersection } from '../../_hooks/occasions/use-intersection';
 import { useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/button';
 
 export default function OccasionList() {
   // Translation
@@ -43,13 +43,16 @@ export default function OccasionList() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-base font-semibold text-zinc-800">{t('title')}</h2>
-        <button
-          onClick={reset}
-          className="flex items-center justify-center gap-1 text-sm text-red-600"
-        >
-          <X className="w-4 h-4" />
-          {t('reset')}
-        </button>
+        {selected.length > 0 && (
+          <Button
+            onClick={reset}
+            variant="ghost"
+            className="flex items-center justify-center gap-1 text-sm text-red-600 hover:bg-transparent"
+          >
+            <X className="w-4 h-4" />
+            {t('reset')}
+          </Button>
+        )}
       </div>
 
       {/* Scrollable list */}

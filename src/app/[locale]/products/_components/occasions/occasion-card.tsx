@@ -1,4 +1,3 @@
-// src/app/_sections/occasion-card.tsx
 'use client';
 
 import Image from 'next/image';
