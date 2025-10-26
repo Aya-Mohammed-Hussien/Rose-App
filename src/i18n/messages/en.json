@@ -107,6 +107,12 @@
     "loadingMore": "Loading more…",
     "scrollToLoad": "Scroll to load more"
   },
+  "Cart": {
+    "addedSuccess": "{product} was added to your cart successfully!",
+    "addFailed": "Something went wrong. Please try again.",
+    "outOfStock": "Out Of Stock",
+    "addToCart": "Add to cart"
+  },
   "send-a-new-code": "Send a new code",
   "verify-otp": "Verify OTP",
   "need-help": "Need help?",

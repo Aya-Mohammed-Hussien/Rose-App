@@ -34,3 +34,8 @@ export interface ProductsByOccasionResponse {
   metadata: ProductsMetadata;
   products: Product[];
 }
+
+export interface ProductDetailsResponse {
+  message: string;
+  product: Product;
+}

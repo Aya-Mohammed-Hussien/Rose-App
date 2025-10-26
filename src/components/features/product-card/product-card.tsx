@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { CardContent, CardFooter } from '@/components/ui/card';
 import { Heart, Eye, ShoppingCart, Star } from 'lucide-react';
 import { Product } from '@/lib/types/product';
 import { Badge } from '@/components/ui/badge';

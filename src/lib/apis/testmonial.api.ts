@@ -10,10 +10,8 @@ export async function getFeaturedTestimonials(): Promise<TestimonialsResponse> {
     );
     const payload: TestimonialsResponse = await response.json();
     if (!response.ok) {
-      console.log("Error while fetching testimonails:", payload.message);
       return payload as TestimonialErrorResponse;
     }
-    console.log("Featured Testimonails", payload);
     return payload as TestimonialSuccessResponse;
   } catch (error) {
     console.log("Error while getting featured testmonials", error);
