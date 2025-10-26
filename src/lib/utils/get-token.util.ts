@@ -11,7 +11,6 @@ export async function getToken() {
     });
     return jwt?.token;
   } catch (error) {
-    console.log(error);
     return null;
   }
 }

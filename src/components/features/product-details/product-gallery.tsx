@@ -36,30 +36,37 @@ export default function ProductGallery({ images, title, coverImage }: ProductGal
       {/* Gallery */}
       <Carousel opts={{ align: 'start' }} className="w-full select-none relative">
         <CarouselContent className=" flex justify-start ms-0 gap-2.5">
-          {allImages.map((src, index) => (
-            <CarouselItem
-              key={index}
-              className="basis-[91px] cursor-pointer flex-shrink-0 px-0"
-              onClick={() => {
-                setSelectedImage(src);
-              }}
-            >
-              <CardContent className="p-0 m-0 relative cursor-pointer">
-                <Image
-                  src={src}
-                  alt={`${title} - image ${index + 1}`}
-                  width={91}
-                  height={111}
-                  className="rounded-md object-cover w-[91px] h-[111px]"
-                />
+          {allImages.map((src, index) => {
+            const isSelected = selectedImage === src;
+            return (
+              <CarouselItem
+                key={index}
+                className="basis-[91px] cursor-pointer flex-shrink-0 px-0"
+                onClick={() => {
+                  setSelectedImage(src);
+                }}
+              >
+                <CardContent
+                  className={`p-0 m-0 relative cursor-pointer ${
+                    isSelected ? 'border-2 border-maroon-600 rounded-md' : ''
+                  }`}
+                >
+                  <Image
+                    src={src}
+                    alt={`${title} - image ${index + 1}`}
+                    width={91}
+                    height={111}
+                    className="rounded-md object-cover w-[91px] h-[111px]"
+                  />
 
-                {/* Overlay only for non-active image */}
-                {selectedImage !== src && (
-                  <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] rounded-md transition-opacity duration-200 hover:opacity-0" />
-                )}
-              </CardContent>
-            </CarouselItem>
-          ))}
+                  {/* Overlay only for non-active image */}
+                  {selectedImage !== src && (
+                    <div className=" absolute inset-0 bg-[rgba(0,0,0,0.3)] rounded-md transition-opacity duration-200 hover:opacity-0" />
+                  )}
+                </CardContent>
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
 
         {/* Show arrow only if there are more than 6 images */}

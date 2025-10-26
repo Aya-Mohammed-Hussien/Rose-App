@@ -1,9 +1,7 @@
-'use client';
-
 import { useSession } from 'next-auth/react';
-import { clearGuestCart, getGuestCart } from '../cart-storage';
+import { clearGuestCart, getGuestCart } from '../../../../lib/utils/cart-storage';
 import { useEffect } from 'react';
-import { addToCartAction } from '../_actions/add-to-cart.action';
+import { addToCartAction } from '../../../../app/[locale]/cart/_actions/add-to-cart.action';
 
 export function useMergeGuestCart() {
   const { data: session } = useSession();
@@ -19,7 +17,6 @@ export function useMergeGuestCart() {
     const mergeGuestcart = async () => {
       try {
         for (const item of guestCart) {
-         console.log(`merged item: ${item.id} and ${item.title} and ${item.quantity}`)
           await addToCartAction({ product: item.id, quantity: item.quantity });
         }
         clearGuestCart();

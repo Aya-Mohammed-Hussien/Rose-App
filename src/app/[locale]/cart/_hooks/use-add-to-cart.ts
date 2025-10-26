@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { addToCartAction } from '../_actions/add-to-cart.action';
 import { useSession } from 'next-auth/react';
-import { addItemToGuestCart, productToCartItem } from '../cart-storage';
+import { addItemToGuestCart, productToCartItem } from '../../../../lib/utils/cart-storage';
 import { Product } from '@/lib/types/product';
 
 export default function useAddToCart() {

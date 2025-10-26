@@ -3,8 +3,9 @@
 import { Button } from '@/components/ui/button';
 import { Product } from '@/lib/types/product';
 import { ShoppingCart } from 'lucide-react';
-import useAddToCart from '../adding-to-cart/_hooks/use-add-to-cart';
+import useAddToCart from '../../../app/[locale]/cart/_hooks/use-add-to-cart';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslations } from 'next-intl';
 
 // props
 type AddToCartProps = {
@@ -12,6 +13,9 @@ type AddToCartProps = {
 };
 
 export default function AddToCartButton({ product }: AddToCartProps) {
+  // Translations
+  const t = useTranslations('Cart');
+
   // Hooks
   const { toast } = useToast();
 
@@ -23,19 +27,17 @@ export default function AddToCartButton({ product }: AddToCartProps) {
     addToCart(
       { product },
       {
-        onSuccess: (result) => {
-          console.log('Add to cart success:', result);
+        onSuccess: () => {
           setTimeout(() => {
             toast({
-              description: `${product.title} was added to your cart successfully! `,
+              description: t('addedSuccess', { product: product.title }),
             });
           }, 500);
         },
-        onError: (error) => {
-          console.error('Add to cart failed:', error);
+        onError: () => {
           setTimeout(() => {
             toast({
-              description: 'Something went wrong. Please try again.',
+              description: t('addFailed'),
               variant: 'destructive',
             });
           }, 500);
@@ -56,7 +58,7 @@ export default function AddToCartButton({ product }: AddToCartProps) {
       className="h-[3.0625rem] flex-grow text-white dark:text-zinc-800 text-base font-medium"
     >
       <ShoppingCart size={25} />
-      {isOutOfStock ? 'Out Of Stock' : 'Add to cart'}
+      {isOutOfStock ? t('outOfStock') : t('addToCart')}
     </Button>
   );
 }

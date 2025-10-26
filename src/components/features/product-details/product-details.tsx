@@ -17,7 +17,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     // Product Details Section
     <section className="w-1/2">
       {/* Product Title */}
-      <h2 className="font-semibold text-3xl text-zinc-800 dark:text-zinc-50 mb-2">
+      <h2 className="font-semibold text-3xl text-zinc-800 dark:text-zinc-50 mb-2 truncate max-w-[400px]">
         {product.title}
       </h2>
 
@@ -68,7 +68,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       </div>
 
       {/* Description */}
-      <div className="mb-4 h-[19.1875rem] overflow-auto text-zinc-600 text-base font-normal dark:text-zinc-400 pt-4">
+      <div className="mb-4 h-[19rem] overflow-auto text-zinc-600 text-base font-normal dark:text-zinc-400 pt-4">
         {product.description}
       </div>
 

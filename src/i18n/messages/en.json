@@ -59,5 +59,11 @@
       "register-prompt": "Don’t have an account yet?",
       "register-link": "Create one now!"
     }
+  },
+  "Cart": {
+    "addedSuccess": "{product} was added to your cart successfully!",
+    "addFailed": "Something went wrong. Please try again.",
+    "outOfStock": "Out Of Stock",
+    "addToCart": "Add to cart"
   }
 }

@@ -59,5 +59,11 @@
       "register-prompt": "ليس لديك حساب بعد؟",
       "register-link": "أنشئ حسابك الآن!"
     }
+  },
+  "Cart": {
+    "addedSuccess": "تمت إضافة {product} إلى سلة التسوق بنجاح!",
+    "addFailed": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "outOfStock": "نفذت الكمية",
+    "addToCart": "أضف إلى السلة"
   }
 }
