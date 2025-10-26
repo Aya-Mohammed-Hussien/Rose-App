@@ -1,44 +1,33 @@
-import { CarouselSection, GiftCategories, InfoBar } from '.';
-import BestSelling from '@/components/features/best-selling/best-selling';
-import Occasions from '@/components/features/occasions/occasions';
 import BestSellingSkeleton from '@/components/skeletons/best-selling.skeleton';
 import OccasionsSkeleton from '@/components/skeletons/occasions.skeleton';
-import { getOccasions } from '@/lib/apis/occasions/occasion.api';
-import { getBestSellingProducts } from '@/lib/apis/products/best-selling.api';
-import { getProductsByOccasion } from '@/lib/apis/products/products-by-occasion.api';
 import React, { Suspense } from 'react';
-
-// export default function Page() {
-//   return (
-//     <div className="max-w-7xl mx-auto flex flex-col gap-10 mt-10 mb-3">
-//       <CarouselSection />
-//       <GiftCategories />
-//       <InfoBar />
-//     </div>
-//   );
-// }
+import { CarouselSection } from './_components/carousel-section/carousel-section';
+import { GiftCategories } from './_components/gift-categories/gift-categories';
+import { InfoBar } from './_components/infobar/info-bar';
+import OccasionsSection from './_components/server/occasions-section';
+import BestSellingSection from './_components/server/best-selling-section';
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
-  // variables
-  const occasionsData = await getOccasions();
-  const productsData = searchParams.occasion
-    ? await getProductsByOccasion(searchParams.occasion)
-    : null;
-  const bestSellingData = await getBestSellingProducts();
+  // Variables
+  const occasionId = searchParams?.occasion;
 
   return (
     <main className="flex flex-col  gap-32 py-12">
+      {/* Carousel Section */}
       <CarouselSection />
+
+      {/* Gift Section */}
       <GiftCategories />
       <InfoBar />
-      {/* best selling section */}
+
+      {/* Best Selling Section */}
       <Suspense fallback={<BestSellingSkeleton />}>
-        <BestSelling bestSelling={bestSellingData.products} />
+        <BestSellingSection />
       </Suspense>
 
-      {/* most popular section */}
+      {/* Occasions Section */}
       <Suspense fallback={<OccasionsSkeleton />}>
-        <Occasions occasions={occasionsData.occasions} products={productsData?.products || []} />
+        <OccasionsSection occasionId={occasionId} />
       </Suspense>
     </main>
   );

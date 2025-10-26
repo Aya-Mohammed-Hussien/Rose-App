@@ -11,7 +11,7 @@
     },
     "top-nav": {
       "search-placeholder": "What awesome gift are you looking for?",
-      "login": "login",
+      "login": "Login",
       "locale-button": "العربية"
     }
   },
@@ -28,6 +28,30 @@
       "privacy": "Privacy Policy",
       "faq": "FAQs"
     }
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "subtitle": "Don’t worry, we’ll help you recover your account.",
+    "email": "Email address",
+    "placeholder": "you@example.com",
+    "button": "Continue",
+    "loading": "Sending...",
+    "waitMessage": "Please wait until the timer ends before requesting again.",
+    "countdownMessage": "You cannot ask for another OTP right now, please wait for {seconds} seconds",
+    "error": "An error occurred while sending, please try again.",
+    "noAccount": "Don’t have an account?",
+    "createAccount": "Create yours"
+  },
+  "resetPassword": {
+    "title": "Create a new password",
+    "subtitle": "Set a strong password to secure your account.",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "button": "Reset Password",
+    "loading": "Resetting...",
+    "error": "Something went wrong, please try again.",
+    "help": "Need help?",
+    "contact": "Contact us"
   },
   "register": {
     "titleAuth": " Become part of our family! ",
@@ -65,5 +89,12 @@
     "addFailed": "Something went wrong. Please try again.",
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
-  }
+  },
+  "send-a-new-code": "Send a new code",
+  "verify-otp": "Verify OTP",
+  "need-help": "Need help?",
+  "contact-us": "Contact us",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "We have sent a 6-digit code to user@example.com",
+  "enter-the-otp-code": "Enter the OTP Code",
+  "edit": "Edit"
 }

@@ -82,7 +82,7 @@ export default function LoginForm() {
           )}
         />
 
-        {/* Forget Password */}
+        {/* Forgot Password */}
         <Link
           href="/forgot-password"
           className="text-maroon-700 text-sm font-semibold dark:text-softPink-300 capitalize flex justify-end"
