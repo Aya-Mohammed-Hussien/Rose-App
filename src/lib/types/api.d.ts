@@ -1,5 +1,3 @@
-// subscribe success and error response & ...
-
 declare type SuccessResponse<T> = {
   message: string;
 } & T;
