@@ -31,7 +31,7 @@ export default function ReviewProducts({ reviews }: ReviewProductsProps) {
           return (
             <article
               key={_id}
-              className={cn('bg-white border-gray-200 shadow-sm p-5 flex flex-col gap-3 min-h-48')}
+              className={'bg-white border-gray-200 shadow-sm p-5 flex flex-col gap-3 min-h-48'}
             >
               {/* Header */}
               <header className={cn('flex items-center gap-3')}>

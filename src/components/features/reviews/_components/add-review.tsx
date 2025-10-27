@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import {
   Form,
@@ -12,14 +11,14 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Loader2, Star } from 'lucide-react';
-import { reviewSchema, ReviewValues } from '@/lib/schemes/add-review.schema';
+import { Star } from 'lucide-react';
+import { useReviewSchema, ReviewValues } from '@/lib/schemes/add-review.schema';
 import { useTranslations } from 'next-intl';
-import { useAddReview } from '../_hooks/use-review';
+import { useAddReview } from '../../../../hooks/review/use-review';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 type AddReviewProps = {
@@ -30,11 +29,16 @@ export default function ReviewForm({ product }: AddReviewProps) {
   // Translations
   const t = useTranslations();
 
+  // Variable
+  const STAR_COUNT = 5;
+
+  // Schema
+  const { reviewSchema } = useReviewSchema();
   // next-auth session
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const isAuthenticated = status === 'authenticated';
 
-  //  ==== FORM INITIALIZATION ====
+  //  Form
   const form = useForm<ReviewValues>({
     defaultValues: {
       rating: 0,
@@ -43,25 +47,43 @@ export default function ReviewForm({ product }: AddReviewProps) {
     },
     resolver: zodResolver(reviewSchema),
   });
+
+  // Toast
   const { toast } = useToast();
 
-  //Form state
-  const { isSubmitted, isValid } = form.formState;
-
-  // ==== MUTATION ====
-  const { mutate, isError, error, isSuccess } = useAddReview();
+  // Mutation
+  const { mutate, isPending } = useAddReview();
 
   const onSubmit: SubmitHandler<ReviewValues> = async (values) => {
     const payload = {
       ...values,
       product: Array.isArray(product) ? product[0] : product,
     };
+
     mutate(payload, {
-      onSuccess: () =>
+      onSuccess: (data) => {
+        // First, guard against string responses
+        if (typeof data !== 'object' || data === null) {
+          toast({
+            title: 'Unexpected response',
+            description: String(data),
+            variant: 'destructive',
+          });
+          return;
+        }
+
+        // ✅ Otherwise, it's a SuccessResponse
+        if ('error' in data) {
+          toast({
+            title: 'You have already reviewed this product',
+          });
+          return;
+        }
         toast({
           title: 'Review submitted successfully!',
-          description: 'Review submitted successfully!',
-        }),
+          description: data.message || 'Thank you for your feedback!',
+        });
+      },
     });
   };
 
@@ -81,7 +103,7 @@ export default function ReviewForm({ product }: AddReviewProps) {
                 <div className="flex items-center gap-2">
                   <FormLabel className="whitespace-nowrap">{t('your-rating')}</FormLabel>
                   <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => {
+                    {Array.from({ length: STAR_COUNT }).map((_, i) => {
                       const ratingValue = i + 1;
                       const isSelected = ratingValue <= field.value;
                       return (
@@ -145,10 +167,11 @@ export default function ReviewForm({ product }: AddReviewProps) {
           {/* Submit */}
           <Button
             type="submit"
-            disabled={!isValid || !isAuthenticated}
-            className="w-full font-primary font-normal text-base leading-none tracking-normal text-white bg-[#A6252A] hover:bg-[#A6252A] rounded-xl px-4 py-3 mt-4 focus:outline-none active:outline-none transition-none shadow-none"
+            loading={isPending}
+            disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)}
+            className="w-full font-primary font-normal text-base leading-none tracking-normal text-white bg-[#A6252A] hover:bg-[#A6252A] rounded-xl px-4 py-3 mt-4 focus:outline-none active:outline-none transition-none shadow-none flex items-center justify-center gap-2"
           >
-            {isAuthenticated ? 'Add Review' : 'Sign in to add review'}
+            {isAuthenticated ? t('add-review') : t('sign-in-to-add-review')}
           </Button>
         </form>
 

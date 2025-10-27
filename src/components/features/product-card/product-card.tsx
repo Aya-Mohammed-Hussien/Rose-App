@@ -6,10 +6,12 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Heart, Eye, ShoppingCart, Star } from 'lucide-react';
 import { Product } from '@/lib/types/product';
 import { Badge } from '@/components/ui/badge';
+import { RelatedProduct } from '@/lib/types/related-products';
+import { cn } from '@/lib/utils';
 
 // props
 type ProductCardProps = {
-  product: Product;
+  product: Product | RelatedProduct;
   hideBadge?: boolean;
 };
 
@@ -24,18 +26,19 @@ export default function ProductCard({ product, hideBadge = false }: ProductCardP
           alt={product.title}
           className="w-full h-full border-none rounded-xl object-cover group-hover:scale-105 transition-transform duration-300"
         />
-
         {/* Badge */}
         {!hideBadge && (
           <Badge
-            className={`flex justify-center items-center absolute ${
-              product.quantity > 0 ? 'bg-zinc-100 text-zinc-700' : 'bg-red-600'
-            }  rounded-2xl top-3 right-3 text-[12px]`}
+            className={cn(
+              'flex justify-center items-center absolute rounded-2xl top-3 right-3 text-[12px]',
+              'quantity' in product && product.quantity > 0
+                ? 'bg-zinc-100 text-zinc-700'
+                : 'bg-red-600 text-white'
+            )}
           >
-            {product.quantity > 0 ? 'NEW' : 'OUT OF STOCK'}
+            {'quantity' in product && product.quantity > 0 ? 'NEW' : 'OUT OF STOCK'}
           </Badge>
         )}
-
         <div className="absolute inset-0 bg-[#E6507380]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="absolute inset-0 flex justify-center items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <button className="w-7 h-7 rounded-full bg-white flex justify-center items-center">

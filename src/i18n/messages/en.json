@@ -54,17 +54,17 @@
     "contact": "Contact us"
   },
   "register": {
-    "titleAuth": " Become part of our family! ",
+    "titleAuth": "Become part of our family!",
     "confirmPassword": "Confirm Password",
     "password": "Password",
-    "email": "Email ",
-    "firstname": "Firstname ",
-    "lastname": "Lastname ",
-    "alreadyAccount": "Already have an account? ",
-    "login": "login ",
-    "CreateAccount": " Create Account",
+    "email": "Email",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "alreadyAccount": "Already have an account?",
+    "login": "Login",
+    "CreateAccount": "Create Account",
     "gender": "Gender",
-    "phone": "Phone "
+    "phone": "Phone"
   },
   "auth": {
     "login": {
@@ -102,5 +102,24 @@
   "to-add-a-review": "to add a review.",
   "your-rating": "Your rating:",
   "title-0": "Title",
-  "review": "Review"
+  "review": "Review",
+  "general-rating": "General rating",
+  "no-related-products-found-2": "No related products found",
+  "rating-is-required": "Rating Is Required",
+  "validation": {
+    "review": {
+      "rating": {
+        "min": "Rating must be at least 1",
+        "max": "Rating cannot exceed 5"
+      },
+      "title": {
+        "required": "Title is required"
+      },
+      "comment": {
+        "required": "Comment is required"
+      }
+    }
+  },
+  "add-review": "Add Review",
+  "sign-in-to-add-review": "Sign in to add review"
 }
