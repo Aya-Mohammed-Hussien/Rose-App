@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Pagination,
   PaginationContent,
@@ -12,22 +10,25 @@ import {
   PaginationLast,
 } from '@/components/ui/pagination';
 import React from 'react';
-import { useRouter } from 'next/navigation';
 
 // Props
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
+  onPageChange: (page: number) => void;
 };
 
-export default function PaginationSection({ currentPage, totalPages }: PaginationProps) {
-  const router = useRouter();
-
+export default function PaginationSection({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) {
+  if (!totalPages || totalPages < 1) return null;
   //Function
   const goToPage = (page: number) => {
     // navigate to pages
     if (page < 1 || page > totalPages) return;
-    router.push(`?page=${page}`);
+    onPageChange(page);
   };
 
   const getVisiblePage = () => {

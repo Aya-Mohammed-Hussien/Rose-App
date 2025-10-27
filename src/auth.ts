@@ -1,7 +1,6 @@
 import { NextAuthOptions, User } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { JSON_HEADER } from './lib/constants/shared.constant';
-
 // NextAuth configuration options
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -28,14 +27,11 @@ export const authOptions: NextAuthOptions = {
             ...JSON_HEADER,
           },
         });
-
         const payload: ApiResponse<User> = await response.json();
-
         // If API returns an error, throw to fail authentication
         if ('error' in payload) {
           throw new Error(payload.error);
         }
-
         // Return user and token data to NextAuth
         return {
           id: payload.user._id,
@@ -57,7 +53,6 @@ export const authOptions: NextAuthOptions = {
     // Make token data available in client-side session
     session: ({ session, token }) => {
       session.user = token.user;
-      session.token = token.token;
       return session;
     },
   },
