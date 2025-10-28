@@ -14,6 +14,7 @@ export default function RatingFilter() {
 
   // Variables
   const selectedRating = searchParams.get('rateAvg');
+  const rating: number[] = [1, 2, 3, 4, 5];
 
   // Functions
   const handleSelctedRating = (rating: string) => {
@@ -36,7 +37,7 @@ export default function RatingFilter() {
 
       {/* Rating Container */}
       <div className="flex gap-2">
-        {[1, 2, 3, 4, 5].map((rating) => (
+        {rating.map((rating) => (
           // Label
           <label htmlFor={`rating-${rating}`} key={rating} className="cursor-pointer">
             {/* Hidden input */}

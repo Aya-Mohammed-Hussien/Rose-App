@@ -7,11 +7,9 @@ import { useSearchParams } from 'next/navigation';
 import { useUrlParams } from '@/hooks/params/use-url-params';
 
 export default function ResetAllButton() {
-  // Navigation
-  const searchParams = useSearchParams();
-
   // Hooks
   const { deleteAll } = useUrlParams();
+  const searchParams = useSearchParams();
 
   // Functions
   const handleResetAll = () => {

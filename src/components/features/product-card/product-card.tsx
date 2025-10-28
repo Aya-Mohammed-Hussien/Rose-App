@@ -33,9 +33,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.quantity > 0 ? 'NEW' : 'OUT OF STOCK'}
         </Badge>
 
-        {/* overlay */}
-        <div className="absolute inset-0 bg-[#E6507380]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
         {/* action buttons */}
         <div className="absolute inset-0 flex justify-center items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <button
@@ -91,7 +88,6 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* cart button */}
-
         <button
           aria-label="Add to cart"
           className="bg-[#A6252A]  hover:bg-[#A6252A]/90 mb-1 w-11 h-11 rounded-full flex flex-none self-end justify-center items-center"
