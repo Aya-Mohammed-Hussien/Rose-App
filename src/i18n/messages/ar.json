@@ -54,12 +54,12 @@
     "contact": "تواصل معنا"
   },
   "register": {
-    "titleAuth": " كن جزءًا من عائلتنا",
+    "titleAuth": "كن جزءًا من عائلتنا",
     "confirmPassword": "تأكيد كلمة المرور",
     "password": "كلمة المرور",
     "email": "البريد الإلكتروني",
-    "firstname": "الاسم الاول",
-    "lastname": "الاسم الاخير",
+    "firstname": "الاسم الأول",
+    "lastname": "الاسم الأخير",
     "alreadyAccount": "هل لديك حساب؟",
     "login": "تسجيل الدخول",
     "CreateAccount": "إنشاء حساب",
@@ -83,5 +83,83 @@
       "register-prompt": "ليس لديك حساب بعد؟",
       "register-link": "أنشئ حسابك الآن!"
     }
-  }
+  },
+  "price": {
+    "title": "السعر",
+    "reset": "إعادة تعيين",
+    "from": "من",
+    "to": "إلى",
+    "placeholder": {
+      "min": "0",
+      "max": "1000000"
+    },
+    "error": {
+      "min": "الحد الأدنى يجب أن يكون 0 أو أكثر",
+      "max": "الحد الأقصى يجب ألا يتجاوز 1,000,000",
+      "invalidRange": "الحد الأدنى يجب أن يكون أقل من أو يساوي الحد الأقصى"
+    }
+  },
+  "occasions": {
+    "title": "المناسبات",
+    "reset": "إعادة التعيين",
+    "loading": "جارٍ تحميل المناسبات...",
+    "error": "فشل تحميل المناسبات.",
+    "loadingMore": "جارٍ تحميل المزيد...",
+    "scrollToLoad": "قم بالتمرير لتحميل المزيد"
+  },
+  "Cart": {
+    "addedSuccess": "تمت إضافة {product} إلى سلة التسوق بنجاح!",
+    "addFailed": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "outOfStock": "نفذت الكمية",
+    "addToCart": "أضف إلى السلة"
+  },
+  "contact-us": "اتصل بنا",
+  "need-help": "بحاجة إلى مساعدة؟",
+  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
+  "send-a-new-code": "إرسال رمز جديد",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
+  "enter-the-otp-code": "أدخل رمز OTP",
+  "edit": "حرر",
+  "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
+  "related-products": "المنتجات ذات الصلة",
+  "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
+  "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
+  "related-products-0": "المنتجات ذات الصلة",
+  "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
+  "product-reviews": "مراجعات المنتج",
+  "sign-in": "تسجيل الدخول",
+  "to-add-a-review": "لإضافة مراجعة.",
+  "your-rating": "تقييمك:",
+  "title-0": "عنوان",
+  "review": "مراجعة",
+  "general-rating": "التقييم العام",
+  "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
+  "rating-is-required": "التقييم مطلوب",
+  "reviews": {
+    "validation": {
+      "rating-is-required-0": "التقييم مطلوب",
+      "rating-must-be-at-least-1": "يجب أن يكون التقييم على الأقل 1",
+      "rating-cannot-exceed-5": "لا يمكن أن يتجاوز التقييم 5",
+      "tittle-is-required": "العنوان مطلوب",
+      "title-is-required": "العنوان مطلوب",
+      "review-is-required": "المراجعة مطلوبة",
+      "comment-is-required": "التعليق مطلوب"
+    }
+  },
+  "validation": {
+    "review": {
+      "rating": {
+        "min": "يجب أن يكون التقييم على الأقل 1",
+        "max": "لا يمكن أن يتجاوز التقييم 5"
+      },
+      "title": {
+        "required": "العنوان مطلوب"
+      },
+      "comment": {
+        "required": "التعليق مطلوب"
+      }
+    }
+  },
+  "add-review": "أضف مراجعة",
+  "sign-in-to-add-review": "تسجيل الدخول لإضافة مراجعة"
 }

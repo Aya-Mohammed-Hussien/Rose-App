@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { subscribeSchema, SubscribeValue } from '@/lib/schemes/subscribe.schema';
-import { ArrowRight, LoaderCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubscriptionResponse } from '@/lib/types/subscription';
@@ -47,7 +47,7 @@ export default function SubscribeForm() {
 
   return (
     <Form {...form}>
-      <div className="relative w-full">
+      <div className="relative">
         <form onSubmit={form.handleSubmit(onSubmit)}>
           {/* Input field */}
           <FormField
@@ -59,7 +59,7 @@ export default function SubscribeForm() {
                   {/* Field */}
                   <Input
                     className="bg-zinc-600 dark:bg-zinc-800 text-zinc-400 font-medium text-sm border-0 rounded-full ps-4 focus-visible:ring-0 
-          focus-visible:ring-offset-0 focus:outline-none"
+                              focus-visible:ring-offset-0 focus:outline-none"
                     type="email"
                     {...field}
                     placeholder="Enter Your Email"
@@ -71,21 +71,14 @@ export default function SubscribeForm() {
 
           {/* Subscribe Button */}
           <Button
+            loading={isPending}
             disabled={isPending || (!isValid && isSubmitted)}
             type="submit"
             variant="subscribe"
-            className="absolute top-0 right-0"
+            className="absolute top-0 right-0 h-full"
           >
-            {isPending ? (
-              <div className="animate-spin">
-                <LoaderCircle />
-              </div>
-            ) : (
-              <>
-                Subscribe
-                <ArrowRight size={16} />
-              </>
-            )}
+            Subscribe
+            <ArrowRight size={16} />
           </Button>
         </form>
       </div>

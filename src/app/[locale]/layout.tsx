@@ -7,6 +7,8 @@ import { getTranslations } from 'next-intl/server';
 import { Sarabun, Tajawal } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import localFont from 'next/font/local';
+import Header from '@/components/layout/header/header';
+import Footer from '@/components/layout/footer/footer';
 
 // Generate static params for each layout
 export function generateStaticParams() {
