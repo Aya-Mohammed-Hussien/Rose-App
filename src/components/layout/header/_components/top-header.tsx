@@ -3,6 +3,7 @@ import ToggleLocale from './top-header/toggle-locale';
 import LoginButton from './top-header/login-button';
 import SearchBar from './top-header/search-bar';
 import HeaderIcons from './top-header/header-icons';
+import AddressIcon from './top-header/address-icon';
 export default function TopHeader() {
   return (
     <div
@@ -18,6 +19,9 @@ export default function TopHeader() {
         className="my-1 me-4"
       />
 
+      {/* Address if user logged in  */}
+      <AddressIcon/> 
+      
       {/* Search Bar */}
       <SearchBar />
 
