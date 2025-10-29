@@ -63,9 +63,14 @@ export default async function ProductsPage({
         {/* Category */}
         <CategoriesFilter />
 
+        {/* Occasions */}
+        <OccasionsSection />
+
         {/* Rating */}
         <RatingFilter />
 
+        {/* Price Range */}
+        <PriceRangeForm />
         {/* Reset All */}
         <ResetAllButton />
       </aside>
