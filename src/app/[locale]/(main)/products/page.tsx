@@ -63,7 +63,7 @@ export default async function ProductsPage({
         {/* Category */}
         <CategoriesFilter />
 
-        {/* Occassions */}
+        {/* Occasions */}
         <OccasionsSection />
 
         {/* Rating */}
@@ -71,7 +71,7 @@ export default async function ProductsPage({
 
         {/* Price Range */}
         <PriceRangeForm />
-
+        
         {/* Reset All */}
         <ResetAllButton />
       </aside>
