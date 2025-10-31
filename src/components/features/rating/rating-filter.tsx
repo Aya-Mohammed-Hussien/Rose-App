@@ -26,7 +26,7 @@ export default function RatingFilter() {
   };
   return (
     // Rating Section
-    <section className="w-72  gap-2 flex flex-col">
+    <section className="w-72   gap-2 flex flex-col">
       {/* Header */}
       <header className="flex flex-row justify-between ">
         {/* Title */}
