@@ -1,3 +1,4 @@
+import ToggleLocale from '@/components/layout/header/_components/top-header/toggle-locale';
 import BottomOrnament from '@/components/shared/auth/ornaments/bottom-ornament';
 import TopOrnament from '@/components/shared/auth/ornaments/top-ornament';
 import Image from 'next/image';
@@ -10,8 +11,8 @@ export default function layout({ children }: { children: React.ReactNode }) {
         <div className="w-full max-w-[740px] h-full flex flex-col gap-[10px] opacity-100">
           <div className="flex items-center justify-center p-8 overflow-auto ">
             <div className="max-w-[28.25rem] space-y-10">
-              <div className="mb-10 text-right   text-gray-700 text-sm cursor-pointer ">
-                العربية
+              <div className="mb-10 text-end text-gray-700 text-sm cursor-pointer ">
+                <ToggleLocale />
               </div>
 
               <TopOrnament />
