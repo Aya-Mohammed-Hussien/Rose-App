@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Product } from '@/lib/types/product';
 import { Occasion } from '@/lib/types/occasion';
 import ProductCard from '../product-card/product-card';
-import TitleProduct from '@/components/shared/title-product';
+import TitleProduct from '@/components/shared/products-section-title';
 
 // Props
 type OccasionsProps = {
