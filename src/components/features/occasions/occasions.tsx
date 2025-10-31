@@ -78,7 +78,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
       </header>
 
       {/* product card */}
-      <Card className="grid  shadow-none border-none grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <Card className="grid   shadow-none border-none grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

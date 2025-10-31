@@ -1,24 +1,27 @@
 'use client';
 
 import ProductCard from '@/components/features/product-card/product-card';
-import WishlistButtonWrapper from '@/components/features/wishlist/wishlist-button-wrapper';
 import { useRouter, useSearchParams } from 'next/navigation';
 import PaginationSection from '@/components/features/pagination/pagination';
 import { ProductsByOccasionResponse } from '@/lib/types/product';
 
 type Props = {
-  data: ProductsByOccasionResponse;
+  productsData: ProductsByOccasionResponse;
 };
 
 const PRODUCT_LIMIT_PER_PAGE = 12;
 
-export default function Products({ data }: Props) {
+export default function Products({ productsData }: Props) {
+  // Hooks
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { products, metadata } = data;
+
+  // Variables
+  const { products, metadata } = productsData;
   const { currentPage, totalPages: apiTotalPages } = metadata;
   const productsOnThisPage = products.length;
 
+  // Functions
   const handlePageChange = (page: number) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set('page', String(page));
@@ -43,10 +46,10 @@ export default function Products({ data }: Props) {
     <>
       {/* Products Section */}
       <section className="flex flex-wrap justify-start p-6 gap-6">
+        {/* Looping on products */}
         {products.length > 0 ? (
           products.map((product) => (
             <div key={product._id} className="relative w-[30%] min-w-[250px] flex-shrink-0">
-              <div className="absolute top-3 left-3 z-10"></div>
               <ProductCard product={product} />
             </div>
           ))
@@ -59,7 +62,6 @@ export default function Products({ data }: Props) {
       <div className="flex justify-center mt-10">
         <PaginationSection
           currentPage={currentPage}
-          // Pass the corrected total pages to the pagination component
           totalPages={effectiveTotalPages}
           onPageChange={handlePageChange}
         />
