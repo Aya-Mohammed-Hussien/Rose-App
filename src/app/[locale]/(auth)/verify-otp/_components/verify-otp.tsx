@@ -11,6 +11,8 @@ import { otpSchema, OtpValues } from '@/lib/schemes/verify-otp';
 import ResendOtp from '../_resend-otp/resend-otp';
 import { useTranslations } from 'next-intl';
 import useVerify from '../_hooks/use-verify';
+import { Loader2 } from 'lucide-react';
+import { de } from 'zod/v4/locales';
 
 export default function VerifyForm() {
   // Translations
@@ -30,7 +32,7 @@ export default function VerifyForm() {
   const onSubmit: SubmitHandler<OtpValues> = (values) => {
     verify(values, {
       onSuccess: () => {
-        router.push('/login');
+        router.push('/reset-password');
       },
     });
   };
@@ -74,14 +76,8 @@ export default function VerifyForm() {
           )}
         />
         {/* Submit Code button */}
-        <div className="w-full border-b border-[#E4E4E7] pb-8 pe-4">
-          <Button
-            className="w-full font-primary font-normal text-base leading-none tracking-normal
-                   text-white bg-[#A6252A] hover:bg-[#A6252A]
-                   rounded-xl px-4 py-3 mt-4
-                   focus:outline-none active:outline-none
-                   transition-none shadow-none"
-          >
+        <div className="w-full border-b flex justify-center border-[#E4E4E7] pb-8 pe-4">
+          <Button className="w-full" variant={'default'}>
             {t('verify-otp')}
           </Button>
         </div>

@@ -23,6 +23,7 @@ export default function PaginationSection({
   totalPages,
   onPageChange,
 }: PaginationProps) {
+  if (!totalPages || totalPages < 1) return null;
   //Function
   const goToPage = (page: number) => {
     // navigate to pages
