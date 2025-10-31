@@ -63,7 +63,7 @@ export default async function ProductsPage({
         {/* Category */}
         <CategoriesFilter />
 
-        {/* Occassions */}
+        {/* Occasions */}
         <OccasionsSection />
 
         {/* Rating */}

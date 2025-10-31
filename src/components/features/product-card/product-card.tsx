@@ -3,11 +3,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { CardContent, CardFooter } from '@/components/ui/card';
-import { ShoppingCart, Star } from 'lucide-react';
+import { LoaderCircle, ShoppingCart, Star } from 'lucide-react';
 import { Product } from '@/lib/types/product';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import WishlistButton from '../wishlist/wishlist-icons';
+import useAddToCart from '../../../app/[locale]/cart/_hooks/use-add-to-cart';
+import { useToast } from '@/hooks/use-toast';
+import { useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/button';
 
 // props
 type ProductCardProps = {
@@ -16,6 +20,42 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product, hideBadge = false }: ProductCardProps) {
+  // Translations
+  const t = useTranslations('Cart');
+
+  // Hooks
+  const { toast } = useToast();
+
+  // Mutation
+  const { isPending, addToCart } = useAddToCart();
+
+  // Functions
+  const handleAddToCart = () => {
+    addToCart(
+      { product },
+      {
+        onSuccess: () => {
+          setTimeout(() => {
+            toast({
+              description: t('addedSuccess', { product: product.title }),
+            });
+          }, 500);
+        },
+        onError: () => {
+          setTimeout(() => {
+            toast({
+              description: t('addFailed'),
+              variant: 'destructive',
+            });
+          }, 500);
+        },
+      }
+    );
+  };
+
+  // variables
+  const isOutOfStock = product.quantity <= 0;
+
   return (
     <div key={product._id}>
       {/* Product card */}
@@ -77,12 +117,18 @@ export default function ProductCard({ product, hideBadge = false }: ProductCardP
         </div>
 
         {/* cart button */}
-        <button
+        <Button
+          onClick={handleAddToCart}
+          disabled={isOutOfStock || isPending}
           aria-label="Add to cart"
-          className="bg-[#A6252A] hover:bg-[#A6252A]/90 mb-1 w-11 h-11 rounded-full flex flex-none self-end justify-center items-center"
-        >
-          <ShoppingCart className="text-white w-6 h-6" />
-        </button>
+          className="bg-[#A6252A] hover:bg-[#A6252A]/90 mb-1 w-11 h-11 rounded-full flex flex-none self-end justify-center items-center">
+          {isPending ? (
+            // Loading spinner
+              <LoaderCircle className="text-maroon-600 w-6 h-6 animate-spin"/>
+          ) : (
+            <ShoppingCart className="text-white w-6 h-6" />
+          )}
+        </Button>
       </CardFooter>
     </div>
   );
