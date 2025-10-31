@@ -20,15 +20,16 @@ export default async function ProductsPage({
       <aside className="w-[280px] flex-shrink-0 flex flex-col gap-8 mx-4 my-11">
         {/* Category */}
         <CategoriesFilter />
-
+        <hr className="border-t border-gray-200 " />
         {/* Occassions */}
         <OccasionsSection />
-
+        <hr className="border-t border-gray-200 " />
         {/* Rating */}
         <RatingFilter />
-
+        <hr className="border-t border-gray-200 " />
         {/* Price Range */}
         <PriceRangeForm />
+        <hr className="border-t border-gray-200 " />
         {/* Reset All */}
         <ResetAllButton />
       </aside>

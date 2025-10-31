@@ -13,13 +13,15 @@ export default async function page({ searchParams }: { searchParams: { occasion?
   const occasionId = searchParams?.occasion;
 
   return (
-    <main className="flex flex-col  gap-32 py-12">
-      {/* Carousel Section */}
-      <CarouselSection />
+    <main className="flex flex-col  gap-28 py-10">
+      <div>
+        {/* Carousel Section */}
+        <CarouselSection />
 
-      {/* Gift Section */}
-      <GiftCategories />
-      <InfoBar />
+        {/* Gift Section */}
+        <GiftCategories />
+        <InfoBar />
+      </div>
 
       {/* Best Selling Section */}
       <Suspense fallback={<BestSellingSkeleton />}>
