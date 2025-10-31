@@ -40,7 +40,7 @@ export default function OccasionList() {
   if (isError) return <p className="text-red-500">{t('error')}</p>;
 
   return (
-    <section className="space-y-2 h-full">
+    <section className=" h-full">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-base font-semibold text-zinc-800">{t('title')}</h2>

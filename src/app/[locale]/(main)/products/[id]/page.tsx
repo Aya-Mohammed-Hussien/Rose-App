@@ -33,7 +33,7 @@ export default async function page({ params: { id } }: ProductProps) {
         {/* Product Details */}
         <ProductDetails product={productDetails.product} />
       </div>
-      <div className="px-20 py-10 flex flex-col gap-10">
+      <div className=" py-10 flex flex-col gap-10">
         {/* Reviews */}
         <Suspense fallback={<Skeleton className="h-40 w-full" />}>
           <ReviewSectionServer productId={productId} />

@@ -1,30 +1,34 @@
 'use client';
 
-import { addToWishlist } from '@/lib/actions/wishlist/add-wishlist.action';
+import { deleteFromWishlist } from '@/lib/actions/wishlist/delete-wishlist.action';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '../use-toast';
 
 /**
- * Custom React Query hook to handle adding a product to the user's wishlist.
+ * Custom React Query hook to handle removing a product from the user's wishlist.
  *
  * @description
- * This hook wraps the `addToWishlist` API call inside a `useMutation` handler.
- * It provides a clean interface for performing the mutation while automatically
- * handling success and error states, invalidating related queries, and showing
- * user feedback via toast notifications.
+ * This hook encapsulates the logic for calling the `deleteFromWishlist` API
+ * and managing its side effects. It uses React Query’s `useMutation` to perform
+ * the deletion request, automatically refresh the wishlist cache, and display
+ * user feedback via toast notifications in case of success or failure.
  *
+ * Returns a standard mutation object containing:
+ * - `mutate`: function to trigger the delete request
+ * - `isPending`: boolean indicating loading state
+ * - `error`: error object if the mutation failed
  */
-export const useAddToWishlist = () => {
+export const useDeleteWishlist = () => {
   // Access the query client to manually refresh cache after a successful mutation
   const queryClient = useQueryClient();
 
   // Toast for user notifications on success or error
   const { toast } = useToast();
 
-  // Configure mutation behavior for adding a product to wishlist
+  // Configure mutation behavior for removing a product from wishlist
   const mutation = useMutation({
     //  Function that performs the actual API call
-    mutationFn: (productId: { productId: string }) => addToWishlist(productId),
+    mutationFn: (productId: string) => deleteFromWishlist(productId),
 
     /**
      * Called when the mutation succeeds.

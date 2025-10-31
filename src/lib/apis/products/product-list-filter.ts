@@ -20,7 +20,7 @@ export async function getProducts(searchParams: Record<string, any>) {
   console.log('Fetching:', url);
 
   try {
-    const res = await fetch(url, { cache: 'no-store' }); // عدل لو عايز caching
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) {
       throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`);
     }

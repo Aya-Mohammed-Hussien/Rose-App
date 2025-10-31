@@ -1,17 +1,10 @@
 'use client';
 
 import React from 'react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import { ArrowRight, ChevronLeft, ChevronRight, VectorSquare } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Product } from '@/lib/types/product';
-import ProductCard from '../product-card/product-card';
 import { Button } from '@/components/ui/button';
+import ProductCarousel from '../product-carousel/product-carousel';
 
 // Props
 type BestSellingProps = {
@@ -52,37 +45,7 @@ export default function BestSelling({ bestSelling }: BestSellingProps) {
 
         {/* Carousel */}
         <div className="col-span-3 relative">
-          <Carousel
-            opts={{
-              align: 'start',
-            }}
-            className="w-full  "
-          >
-            {/* content */}
-            <CarouselContent>
-              {/* product card (carousel item) */}
-              {bestSelling.map((product) => (
-                <CarouselItem className=" w-full basis-1/3" key={product._id}>
-                  <div className="p-1">
-                    <ProductCard product={product} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            {/* previous arrow */}
-            <CarouselPrevious className="absolute left-[-15px] top-[40%] text-white  hover:text-white  bg-[#A6252A] hover:bg-[#A6252A] border-none shadow-md rounded-full w-10 h-10 ">
-              {' '}
-              {/* icon */}
-              <ChevronLeft className="w-5 h-5 text-white" />{' '}
-            </CarouselPrevious>
-
-            {/* next arrow */}
-            <CarouselNext className="absolute right-[-15px] top-[40%] text-white hover:text-white  bg-[#A6252A] hover:bg-[#A6252A] border-none shadow-md rounded-full w-10 h-10 ">
-              {/* icon */}
-              <ChevronRight className="w-5 h-5 text-white" />
-            </CarouselNext>
-          </Carousel>
+          <ProductCarousel products={bestSelling} itemsPerView={3} />
         </div>
       </div>
     </section>

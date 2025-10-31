@@ -1,21 +1,18 @@
 'use server';
 
-import { JSON_HEADER } from '@/lib/constants/shared.constant';
-import { AddToWishlistPayload, WishlistResponse } from '@/lib/types/wishlist';
+import { WishlistResponse } from '@/lib/types/wishlist';
 import { getToken } from '@/lib/utils/get-token.util';
 
-export const addToWishlist = async (productId: AddToWishlistPayload): Promise<WishlistResponse> => {
+export const deleteFromWishlist = async (productId: string): Promise<WishlistResponse> => {
   try {
     const token = await getToken();
     if (!token) {
       throw new Error('No access token found');
     }
     const baseURL = process.env.NEXT_PUBLIC_API;
-    const response = await fetch(`${baseURL}/wishlist`, {
-      method: 'POST',
-      body: JSON.stringify(productId),
+    const response = await fetch(`${baseURL}/wishlist/${productId}`, {
+      method: 'DELETE',
       headers: {
-        ...JSON_HEADER,
         Authorization: `Bearer ${token}`,
       },
     });
@@ -26,8 +23,6 @@ export const addToWishlist = async (productId: AddToWishlistPayload): Promise<Wi
     }
     return payload as WishlistResponse;
   } catch (error: any) {
-    throw new Error(
-      error.message === 'No access token found' ? 'You should login first!' : error.message
-    );
+    throw new Error(error.message || 'Something went wrong!');
   }
 };
