@@ -71,7 +71,6 @@ export default async function ProductsPage({
 
         {/* Price Range */}
         <PriceRangeForm />
-
         {/* Reset All */}
         <ResetAllButton />
       </aside>

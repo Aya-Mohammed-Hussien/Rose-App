@@ -28,7 +28,10 @@ export function useOccasionFilterSingle() {
   // Toggle selection (add/remove)
   const toggle = useCallback(
     (id: string) =>
-      setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id])),
+      setSelected((prev) => {
+        if (!prev.includes(id) && prev.length >= 2) return prev;
+        return prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id];
+      }),
     []
   );
 
