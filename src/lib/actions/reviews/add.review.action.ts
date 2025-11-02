@@ -2,7 +2,7 @@
 
 import { JSON_HEADER } from '@/lib/constants/shared.constant';
 import { AddReviewResponse, ReviewData } from '@/lib/types/add-review';
-import { getToken } from '@/lib/utils/get-token';
+import { getToken } from '@/lib/utils/get-token.util';
 
 export const AddReviewAction = async (
   formData: ReviewData

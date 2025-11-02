@@ -119,6 +119,21 @@
     "outOfStock": "نفذت الكمية",
     "addToCart": "أضف إلى السلة"
   },
+  "Addresses": {
+    "addresses": "عناويني",
+    "add-address": "اضف عنوان جديد",
+    "deliver-to": "توصيل الي",
+    "Home": "المنزل",
+    "Family": "العائلة",
+    "Work": "العمل",
+    "no-addresses": "لا توجد عناوين",
+    "delete-address-description": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete-success-message": "تم حذف العنوان بنجاح",
+    "delete-error-message": "فشل حذف العنوان",
+    "update-address-info": "تحديث بيانات العنوان"
+  },
   "contact-us": "اتصل بنا",
   "need-help": "بحاجة إلى مساعدة؟",
   "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
