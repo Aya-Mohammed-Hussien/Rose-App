@@ -13,7 +13,8 @@ export default async function RelatedProductsServer({ productId }: Props) {
   return (
     <>
       <RelatedProductsUi />
-      <RelatedProducts products={relatedProducts} />;
+      {/* @ts-expect-error we intentionally treat RelatedProduct[] as Product[] */}
+      <RelatedProducts products={relatedProducts} />
     </>
   );
 }

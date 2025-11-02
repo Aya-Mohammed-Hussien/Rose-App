@@ -1,21 +1,23 @@
-export type Category = {
-  _id: string;
-  name: string;
-  slug: string;
-  image: string;
-  isSuperAdmin: boolean;
-  productsCount: number;
-};
-
-export type Metadata = {
+export interface Metadata {
   currentPage: number;
   limit: number;
   totalPages: number;
   totalItems: number;
-};
+}
 
-export type CategoryApiResponse = {
+export interface Category {
+  _id: string;
+  name: string;
+  slug: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+  isSuperAdmin: boolean;
+  productsCount: number;
+}
+
+export interface CategoriesResponse {
   message: string;
   metadata: Metadata;
-  occasions: Category[];
-};
+  categories: Category[];
+}

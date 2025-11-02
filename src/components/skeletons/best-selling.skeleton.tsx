@@ -1,63 +1,79 @@
+'use client';
+
 import React from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
+/**
+ * Skeleton placeholder for a single product card.
+ * This component mimics the structure of your ProductCard
+ * with an image, title, price, and an action button.
+ */
+export function ProductCardSkeleton() {
+  return (
+    <div className="flex flex-col gap-3 p-1">
+      {/* Product Image Placeholder */}
+      <Skeleton className="h-56 w-full rounded-lg" />
+      {/* Product Title Placeholder */}
+      <Skeleton className="h-5 w-3/4" />
+      {/* Product Price Placeholder */}
+      <Skeleton className="h-5 w-1/2" />
+      {/* "Add to Cart" or "View" Button Placeholder */}
+      <Skeleton className="h-9 w-full rounded-md mt-1" />
+    </div>
+  );
+}
+
+/**
+ * Skeleton loader for the BestSelling component.
+ * It matches the layout (aside + carousel) and replaces all
+ * dynamic content with skeleton placeholders.
+ */
 export default function BestSellingSkeleton() {
   return (
-    <section className="p-6 mx-14">
+    // Best Selling Section Skeleton
+    <section className="px-20">
       <div className="grid grid-cols-4 gap-9">
-        {/* aside skeleton */}
-        <aside className="col-span-1 flex flex-col gap-4">
-          <Skeleton className="h-6 w-32" /> {/* small title */}
-          <Skeleton className="h-8 w-full" /> {/* big heading line 1 */}
-          <Skeleton className="h-8 w-3/4" /> {/* big heading line 2 */}
-          <div className="space-y-2">
+        {/* Aside Skeleton */}
+        <aside className="col-span-1 flex flex-col gap-3">
+          {/* Title ("best selling") */}
+          <Skeleton className="h-5 w-24" />
+
+          {/* Heading (h4) */}
+          <div className="flex flex-col gap-2 mt-1">
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-3/4" />
+          </div>
+
+          {/* Description (p) */}
+          <div className="flex flex-col gap-2 mt-2">
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-5/6" />
-            <Skeleton className="h-4 w-4/6" />
           </div>
-          <div className="mt-auto">
-            <Skeleton className="h-10 w-40 rounded-lg" /> {/* button */}
-          </div>
+
+          {/* Button ("Explore gifts") */}
+          {/* mt-auto pushes this skeleton to the bottom of the flex column */}
+          <Skeleton className="h-10 w-36 rounded-lg mt-auto" />
         </aside>
 
-        {/* carousel skeleton */}
-        <div className="col-span-3">
-          <div className="flex gap-4 overflow-x-auto py-2">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="min-w-[280px] max-w-[320px] flex-shrink-0 flex flex-col gap-3"
-              >
-                {/* card image */}
-                <Skeleton className="h-[272px] w-full rounded-xl" />
+        {/* Carousel Skeleton */}
+        <div className="col-span-3 relative">
+          {/* Previous Arrow Placeholder */}
+          <Skeleton className="absolute left-[-15px] top-[40%] rounded-full w-10 h-10" />
 
-                {/* card footer */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <Skeleton className="h-5 w-48 rounded" />
-                    <div className="flex gap-1 mt-2">
-                      {Array.from({ length: 5 }).map((__, idx) => (
-                        <Skeleton key={idx} className="h-4 w-4 rounded" />
-                      ))}
-                    </div>
-                    <div className="mt-3">
-                      <Skeleton className="h-5 w-28 rounded" />
-                    </div>
-                  </div>
-
-                  <div className="flex-none self-end">
-                    <Skeleton className="h-11 w-11 rounded-full" />
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* This grid simulates the visible items in the carousel.
+            The original component shows 3 items (basis-1/3).
+          */}
+          <div className="grid grid-cols-3 gap-4">
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
           </div>
 
-          {/* arrows placeholders (optional, to match layout) */}
-          <div className="flex justify-between mt-4">
-            <Skeleton className="h-10 w-10 rounded-full" />
-            <Skeleton className="h-10 w-10 rounded-full" />
-          </div>
+          {/* Next Arrow Placeholder */}
+          <Skeleton className="absolute right-[-15px] top-[40%] rounded-full w-10 h-10" />
         </div>
       </div>
     </section>

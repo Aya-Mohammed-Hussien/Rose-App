@@ -21,7 +21,7 @@ export default function LoginButton() {
       <Link href="/login">
         <Button
           variant="ghost"
-          className="p-0 m-0 text-zinc-700 dark:text-zinc-50 font-normal text-base"
+          className="p-0 m-0 text-zinc-700 dark:text-zinc-50 font-normal text-base hover:bg-transparent"
         >
           {t('login')}
         </Button>

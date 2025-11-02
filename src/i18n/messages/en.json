@@ -12,7 +12,13 @@
     "top-nav": {
       "search-placeholder": "What awesome gift are you looking for?",
       "login": "Login",
-      "locale-button": "العربية"
+      "locale-button": "العربية",
+      "hello": "Hello",
+      "profile": "My Profile",
+      "addresses": "My Addresses",
+      "orders": "My Orders",
+      "dashboard": "Dashboard",
+      "logout": "Log out"
     }
   },
   "footer": {

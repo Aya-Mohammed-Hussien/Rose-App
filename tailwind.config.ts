@@ -13,6 +13,7 @@ const config: Config = {
         sarabun: ['var(--font-sarabun)', 'sans-serif'],
         tajawal: ['var(--font-tajawal)', 'sans-serif'],
         edwardian: ['var(--font-edwardian)'],
+        inter: ['var(--font-inter)']
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -89,6 +90,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('tailwind-scrollbar-hide')],
 };
 export default config;

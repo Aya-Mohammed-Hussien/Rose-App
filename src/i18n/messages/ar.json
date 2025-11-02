@@ -12,7 +12,13 @@
     "top-nav": {
       "search-placeholder": "ما الهدية الرائعة التي تبحث عنها؟",
       "login": "تسجيل الدخول",
-      "locale-button": "English"
+      "locale-button": "English",
+      "hello": "مرحباً",
+      "profile": "ملفي الشخصي",
+      "addresses": "عناويني",
+      "orders": "طلباتي",
+      "dashboard": "لوحة التحكم",
+      "logout": "تسجيل الخروج"
     }
   },
   "footer": {
