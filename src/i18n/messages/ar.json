@@ -113,6 +113,49 @@
     "outOfStock": "نفذت الكمية",
     "addToCart": "أضف إلى السلة"
   },
+  "CartList": {
+    "title": "سلة التسوق",
+    "singleProduct": "منتج",
+    "multipleProducts": "منتجات",
+    "loading": "جارٍ تحميل السلة...",
+    "loadError": "فشل تحميل السلة",
+    "empty": "سلتك فارغة 🛒",
+    "continueShopping": "تابع التسوق"
+  },
+  "CartItem": {
+    "ratingLabel": "التقييم",
+    "ratingsCountLabel": "تقييمات",
+    "removeButton": "إزالة",
+    "quantityLabel": "الكمية",
+    "currency": "ج.م"
+  },
+  "ClearCartButton": {
+    "clearCart": "إفراغ السلة",
+    "clearing": "جارٍ الإفراغ...",
+    "confirmMessage": "هل أنت متأكد أنك تريد إفراغ السلة؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد"
+  },
+  "ProductCard": {
+    "badges": {
+      "outOfStock": "غير متوفر",
+      "new": "جديد",
+      "hot": "الأكثر مبيعًا"
+    },
+    "price": {
+      "currency": "ج.م"
+    },
+    "buttons": {
+      "addToCart": "أضف إلى السلة",
+      "adding": "جارٍ الإضافة..."
+    },
+    "rating": {
+      "label": "التقييم"
+    }
+  },
+  "TitleProduct": {
+    "productsYouMayLike": "منتجات قد تعجبك"
+  },
   "contact-us": "اتصل بنا",
   "need-help": "بحاجة إلى مساعدة؟",
   "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",

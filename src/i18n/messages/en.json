@@ -113,6 +113,49 @@
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
   },
+  "CartList": {
+    "title": "Cart",
+    "singleProduct": "product",
+    "multipleProducts": "products",
+    "loading": "Loading cart...",
+    "loadError": "Failed to load cart",
+    "empty": "Your cart is empty 🛒",
+    "continueShopping": "Continue Shopping"
+  },
+  "CartItem": {
+    "ratingLabel": "Rating",
+    "ratingsCountLabel": "Ratings",
+    "removeButton": "Remove",
+    "quantityLabel": "Quantity",
+    "currency": "EGP"
+  },
+  "ClearCartButton": {
+    "clearCart": "Clear Cart",
+    "clearing": "Clearing…",
+    "confirmMessage": "Are you sure you want to clear your cart?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "ProductCard": {
+    "badges": {
+      "outOfStock": "Out of stock",
+      "new": "New",
+      "hot": "Hot"
+    },
+    "price": {
+      "currency": "EGP"
+    },
+    "buttons": {
+      "addToCart": "Add to cart",
+      "adding": "Adding..."
+    },
+    "rating": {
+      "label": "Rating"
+    }
+  },
+  "TitleProduct": {
+    "productsYouMayLike": "Products you may like"
+  },
   "send-a-new-code": "Send a new code",
   "verify-otp": "Verify OTP",
   "need-help": "Need help?",
