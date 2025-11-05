@@ -197,5 +197,19 @@
   "enter-the-otp-code": "أدخل رمز OTP",
   "contact-us": "اتصل بنا",
   "otp-code-send-successfully": "تم ارسال كود التأكيد بنجاح",
-  "your-password-has-been-successfully-reset": "لقد تم إعادة تعيين كلمة المرور الخاصة بك بنجاح."
+  "your-password-has-been-successfully-reset": "لقد تم إعادة تعيين كلمة المرور الخاصة بك بنجاح.",
+  "no-orders-found": "لم يتم العثور على أي اوردر",
+  "payment-method": "طريقة الدفع",
+  "delivery-status": "حالة التسليم",
+  "delivered": "تم التوصيل",
+  "pending": "قيد الانتظار",
+  "canceled": "تم الإلغاء",
+  "order-items": "عناصر الطلب",
+  "no-items-in-this-order": "لا توجد عناصر في هذا الطلب",
+  "show-all": "إظهار الكل",
+  "orders": "طلبات",
+  "status": "الحاله",
+  "paid": "✓ مدفوع",
+  "total-price": "السعر الإجمالي",
+  "egp": "جنيه مصري"
 }

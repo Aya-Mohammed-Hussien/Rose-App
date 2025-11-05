@@ -210,5 +210,19 @@
   "passwords-dont-match-repassword": "Passwords don't match RePassword",
   "passwords-not-match-repassword": "Passwords Not match RePassword",
   "passwords-not-match": "Passwords not match",
-  "your-password-has-been-successfully-reset": "Your password has been successfully reset."
+  "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
+  "no-orders-found": "No orders found",
+  "payment-method": "Payment Method",
+  "delivery-status": "Delivery Status",
+  "delivered": "Delivered",
+  "pending": "Pending",
+  "canceled": "Canceled",
+  "order-items": "Order Items",
+  "no-items-in-this-order": "No items in this order",
+  "show-all": "Show All",
+  "orders": "Orders",
+  "status": "Status",
+  "paid": "✓ Paid",
+  "total-price": "Total Price",
+  "egp": "EGP"
 }
