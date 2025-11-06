@@ -11,7 +11,7 @@ const authRoutes = [
   '/reset-password',
   '/reset-password',
 ];
-const publicRoutes = ['/', '/products', '/cart'];
+const publicRoutes = ['/', '/products', '/cart', '/shopping'];
 // Locale Detection
 const intlMiddleWare = createMiddleware(routing);
 export default async function middelware(request: NextRequest) {
