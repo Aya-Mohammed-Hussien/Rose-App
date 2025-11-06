@@ -132,7 +132,15 @@
     "confirm": "تأكيد",
     "delete-success-message": "تم حذف العنوان بنجاح",
     "delete-error-message": "فشل حذف العنوان",
-    "update-address-info": "تحديث بيانات العنوان"
+    "update-address-info": "تحديث بيانات العنوان",
+    "enter-address-details": "ادخل تفاصيل العنوان",
+    "find-your-location": "ابحث عن موقعك",
+    "add-address-form": "اضف العنوان",
+    "next-button": "التالي",
+    "city": "المدينة",
+    "address": "العنوان",
+    "phone": "رقم الهاتف",
+    "find-location-button" : "ابحث عن موقعي"
   },
   "contact-us": "اتصل بنا",
   "need-help": "بحاجة إلى مساعدة؟",

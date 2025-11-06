@@ -1,12 +1,12 @@
 'use client';
 
 import * as React from 'react';
-import AddAddressContent from './add-address-content';
-import UpdateAddressContent from './update-address-content';
 import { DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useTranslations } from 'next-intl';
-import AddAddress from './add-address';
+import AddAddress from './add-address-button';
 import AddressesList from './addresses-list';
+import AddressWizard from './address-wizard';
+import { Address } from '@/lib/types/addresses';
 
 export default function AddressesModal() {
   // translations
@@ -14,14 +14,16 @@ export default function AddressesModal() {
 
   //states
   const [view, setView] = React.useState<'list' | 'add' | 'update'>('list');
-  const [step, setStep] = React.useState<1 | 2>(1);
+  const [selectedAddress, setSelectedAddress] = React.useState<Address | null>(null);
 
   return (
     <DialogContent
-      className="flex flex-col min-w-[53.125rem] max-h-[35.4375rem] ps-6"
+      className={`flex flex-col min-w-[53.125rem] ps-6 ${view === 'list' ? 'max-h-[35.4375rem]' : 'max-h-[41.625rem]'}`}
       showCloseIcon={false}
     >
-      <DialogHeader className="flex flex-row justify-between items-center border-b border-zinc-200 pb-4 flex-shrink-0">
+      <DialogHeader
+        className={`flex flex-row justify-between items-center flex-shrink-0 ${view === 'list'} "border-b border-zinc-200 pb-4"`}
+      >
         {/* Modal Title */}
         <DialogTitle className="font-bold text-3xl text-zinc-800 capitalize">
           {view === 'list' && t('addresses')}
@@ -34,10 +36,10 @@ export default function AddressesModal() {
       </DialogHeader>
 
       <div className="flex-1 overflow-y-scroll">
-        {view === 'list' && <AddressesList setView={setView} />}
-        {view === 'add' && <AddAddressContent step={step} setStep={setStep} setView={setView} />}
-        {view === 'update' && (
-          <UpdateAddressContent step={step} setStep={setStep} setView={setView} />
+        {view === 'list' && <AddressesList setView={setView} setSelectedAddress={setSelectedAddress}/>}
+        {view === 'add' && <AddressWizard mode="add" initialData={null} />}
+        {view === 'update' && selectedAddress && (
+          <AddressWizard mode="update" initialData={selectedAddress} />
         )}
       </div>
     </DialogContent>

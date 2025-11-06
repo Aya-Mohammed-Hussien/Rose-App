@@ -132,7 +132,15 @@
     "confirm": "Confirm",
     "delete-success-message": "Address deleted successfully",
     "delete-error-message": "Failed to delete the address",
-    "update-address-info": "Update Address Info"
+    "update-address-info": "Update Address Info",
+    "enter-address-details": "Enter address details",
+    "find-your-location": "Find Your Location",
+    "add-address-form": "Add Address",
+    "next-button": "Next",
+    "city" :"City",
+    "address":"Address",
+    "phone":"Phone",
+    "find-location-button" : "Find My Location"
   },
   "send-a-new-code": "Send a new code",
   "verify-otp": "Verify OTP",

@@ -5,15 +5,16 @@ import { useGetAddresses } from '@/hooks/addresses/use-user-addresses';
 import { Address } from '@/lib/types/addresses';
 import { MapPin, Phone } from 'lucide-react';
 import DeleteAddress from './delete-address-modal';
-import EditAddress from './update-address';
+import EditAddress from './update-address-button';
 import { useLocale, useTranslations } from 'next-intl';
 import AddressListSkeleton from '@/components/skeletons/address-list.skeleton';
 
 interface AddressListProps {
   setView: React.Dispatch<React.SetStateAction<'list' | 'add' | 'update'>>;
+  setSelectedAddress:React.Dispatch<React.SetStateAction <Address | null> >
 }
 
-export default function AddressesList({ setView }: AddressListProps) {
+export default function AddressesList({ setView , setSelectedAddress }: AddressListProps) {
   // Translations
   const t = useTranslations('Addresses');
 
@@ -72,7 +73,7 @@ export default function AddressesList({ setView }: AddressListProps) {
               ${isArabic ? `left-0 -translate-x-1/2` : `right-0  translate-x-1/2`} `}
             >
               {/* Edit Address Button */}
-              <EditAddress setView={setView} />
+              <EditAddress setView={setView} address={add} setSelectedAddress={setSelectedAddress}/>
 
               {/* Delete Address Button */}
               <DeleteAddress addressId={add._id} />
