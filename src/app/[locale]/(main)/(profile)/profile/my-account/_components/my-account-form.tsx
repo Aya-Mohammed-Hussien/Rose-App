@@ -21,16 +21,6 @@ import { PhoneInput } from '@/components/ui/phone-input';
 import { GetUserResponse } from '@/lib/types/user-data';
 import { useEditProfile } from '@/hooks/profile/use-edit-profile';
 import { useUploadProfileImage } from '@/hooks/profile/use-upload-profile-image';
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
 import { useDeleteAccount } from '@/hooks/profile/use-delete-account.action';
 import ConfirmationModal from '@/components/shared/confirmation-modal';
 
@@ -40,6 +30,9 @@ type MyAccountProps = {
 };
 
 export default function MyAccountForm({ userData }: MyAccountProps) {
+  // State
+  const [preview, setPreview] = useState<string | null>(null);
+
   // Ref
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -47,9 +40,6 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
   const { mutate: editProfile, isPending } = useEditProfile();
   const { deleteMyAccount, isPendingDelete } = useDeleteAccount();
   const { uploadImage, isPendingImage } = useUploadProfileImage();
-
-  // State
-  const [preview, setPreview] = useState<string | null>(null);
 
   // Form
   const form = useForm<profileValues>({
@@ -62,6 +52,7 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
       gender: GENDER.MALE,
     },
   });
+  const { isDirty } = form.formState;
 
   // Functions
   // Submit handler for saving profile changes
@@ -295,12 +286,22 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
           <div className="w-full h-[6.5rem] flex items-end justify-between">
             {/* Confirmation Modal */}
             <ConfirmationModal
-              deleteMyAccount={deleteMyAccount}
+              deleteAction={deleteMyAccount}
               isPendingDelete={isPendingDelete}
+              deleteButtonTitle="Delete My Account"
+              confirmButtonTitle="Yes, delete"
+              cancelButtonTitle="Nope, not doing it"
+              questionTitle="Are you sure you want to delete your account?"
+              warningTitle="This action is permanent and cannot be undone."
             />
 
             {/* Save Button */}
-            <Button disabled={isPending} type="submit" className="px-4 py-3" variant="default">
+            <Button
+              disabled={isPending || !isDirty}
+              type="submit"
+              className="px-4 py-3"
+              variant="default"
+            >
               Save Changes
               {/* Pending State*/}
               {isPending && <Loader2 className="animate-spin" />}

@@ -9,9 +9,7 @@ export const profileSchema = z.object({
     .trim()
     .regex(/^[a-zA-Z\u0600-\u06FF\s'-]+$/, 'Invalid name format')
     .min(2, 'Name must be at least 2 characters')
-    .max(30, 'Name must be less than 30 characters')
-    .or(z.literal(''))
-    .optional(),
+    .max(30, 'Name must be less than 30 characters'),
 
   // last name
   lastName: z
@@ -19,23 +17,17 @@ export const profileSchema = z.object({
     .trim()
     .regex(/^[a-zA-Z\u0600-\u06FF\s'.-]+$/, 'Invalid name format')
     .min(2, 'Name must be at least 2 characters')
-    .max(30, 'Name must be less than 30 characters')
-    .or(z.literal(''))
-    .optional(),
+    .max(30, 'Name must be less than 30 characters'),
 
   // email
-  email: z.email('Invalid email address').trim().or(z.literal('')).optional(),
+  email: z.string().trim().min(1, 'Email is required').email('Invalid email address'),
 
   // phone
   phone: z
     .string()
     .trim()
-    .optional()
-    .or(z.literal(''))
-    .refine(
-      (value) => !value || isValidPhoneNumber(value, 'EG'),
-      'Please enter a valid phone number'
-    ),
+    .min(1, 'Phone is required')
+    .refine((value) => isValidPhoneNumber(value), 'Please enter a valid phone number'),
 
   // gender
   gender: z.enum(GENDER),

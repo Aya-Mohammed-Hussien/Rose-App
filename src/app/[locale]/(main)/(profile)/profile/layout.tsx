@@ -9,12 +9,21 @@ function cn(...classes: Array<string | false | null | undefined>) {
 
 export default function ProfileLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex m-5 gap-9 min-h-screen">
-      {/* Sidebar */}
-      <Sidebar />
+    <>
+      <div className="flex gap-9 flex-col m-5">
+        {/* Title */}
+        <div className="text-zinc-800 font-bold text-5xl">
+          <h1>Update Profile</h1>
+        </div>
 
-      {/* Main Content - 3/4 width */}
-      <main className="flex-1">{children}</main>
-    </div>
+        <div className="flex  gap-9 min-h-screen">
+          {/* Sidebar */}
+          <Sidebar />
+
+          {/* Main Content - 3/4 width */}
+          <main className="flex-1">{children}</main>
+        </div>
+      </div>
+    </>
   );
 }

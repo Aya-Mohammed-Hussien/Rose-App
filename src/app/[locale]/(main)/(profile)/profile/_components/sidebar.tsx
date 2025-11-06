@@ -31,7 +31,6 @@ export default function Sidebar() {
   return (
     // Sidebar Section
     <aside className="w-1/4 border border-zinc-100 flex flex-col justify-between bg-zinc-50 rounded-lg p-4">
-
       {/* Navigation */}
       <nav className="space-y-2">
         {navLinks.map((link) => {

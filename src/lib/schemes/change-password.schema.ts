@@ -1,7 +1,8 @@
 import z from 'zod';
 
 const passwordSchema = z
-  .string('Password is required')
+  .string()
+  .min(1, 'Password is required')
   .regex(/^(?=.*[0-9]).*$/, 'Password must contain one digit from 1 to 9')
   .regex(/^(?=.*[a-z]).*$/, 'Password must contain one lowercase letter')
   .regex(/^(?=.*[A-Z]).*$/, 'Password must contain one uppercase letter')

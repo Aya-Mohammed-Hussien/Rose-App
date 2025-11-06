@@ -127,7 +127,7 @@ export default function ChangePasswordForm() {
           {/* Change Password  */}
           <div className="w-full h-[6.5rem] flex items-end justify-end ">
             {/* Change Password Button */}
-            <Button type="submit" variant={'default'}>
+            <Button disabled={isPending } type="submit" variant={'default'}>
               Change Password
               {/* Icon */}
               {isPending && <Loader2 className="animate-spin" />}
