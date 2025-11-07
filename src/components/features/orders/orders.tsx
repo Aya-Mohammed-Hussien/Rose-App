@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import type { Order } from '@/lib/types/orders';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { FormattedDate } from '../format-date/format-date';
+import { useFormattedDate } from '@/hooks/format-date/formatted-date';
 
 export default function OrderCard({ order }: { order: Order }) {
   // Translations
@@ -29,7 +29,7 @@ export default function OrderCard({ order }: { order: Order }) {
 
     return { isBlurred, isHidden };
   };
-  const formatDate = FormattedDate();
+  const formatDate = useFormattedDate();
   return (
     <Card>
       <CardHeader className="bg-[#A6252A] text-white px-4 py-3 rounded-t-lg">

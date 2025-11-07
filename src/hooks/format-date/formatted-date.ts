@@ -1,6 +1,6 @@
 import { useFormatter } from 'next-intl';
 
-export function FormattedDate() {
+export function useFormattedDate() {
   const format = useFormatter();
 
   return (date: string | Date) =>
