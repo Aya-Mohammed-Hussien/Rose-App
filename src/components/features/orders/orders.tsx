@@ -3,57 +3,24 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import {
-  Banknote,
-  CheckCheck,
-  ChevronDown,
-  ChevronUp,
-  Star,
-  TriangleAlert,
-  Truck,
-} from 'lucide-react';
+import { Banknote, CheckCheck, ChevronDown, Star, TriangleAlert, Truck } from 'lucide-react';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import type { Order } from '@/lib/types/orders';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-
-// Format Date
-function formatDate(dateString: any) {
-  const year = dateString.slice(0, 4);
-  const monthNumber = Number(dateString.slice(5, 7)) - 1;
-  const day = dateString.slice(8, 10);
-  const hour24 = Number(dateString.slice(11, 13));
-  const minute = dateString.slice(14, 16);
-
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  const AmPm = hour24 >= 12 ? 'PM' : 'AM';
-  const hour12 = hour24 % 12 || 12;
-
-  return `${day} ${months[monthNumber]}, ${year} at ${hour12}:${minute}${AmPm}`;
-}
+import { FormattedDate } from '../format-date/format-date';
 
 export default function OrderCard({ order }: { order: Order }) {
   // Translations
   const t = useTranslations();
+
   //  State For Button Show All
   const [showAll, setShowAll] = useState(false);
+
   // Show First Two Element Only
   const initialVisibleElement = 2;
+
   // Fun To Handle Blur and Hidden Cards
   const getVisibilityState = (idx: number) => {
     const isBlurred = !showAll && idx >= initialVisibleElement && idx < initialVisibleElement + 2;
@@ -62,7 +29,7 @@ export default function OrderCard({ order }: { order: Order }) {
 
     return { isBlurred, isHidden };
   };
-
+  const formatDate = FormattedDate();
   return (
     <Card>
       <CardHeader className="bg-[#A6252A] text-white px-4 py-3 rounded-t-lg">
@@ -76,7 +43,7 @@ export default function OrderCard({ order }: { order: Order }) {
         </div>
       </CardHeader>
 
-      <CardContent className="p-4 bg-[#E4E4E7]">
+      <CardContent className="p-4 bg-zinc-50">
         <div className="border-b-2 border-gray-300 pb-3">
           <div className="flex justify-between items-center">
             <div className="flex gap-3 items-center text-primary">
@@ -106,7 +73,7 @@ export default function OrderCard({ order }: { order: Order }) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 bg-[#E4E4E7] mt-2">
+        <div className="flex flex-col gap-3 bg-zinc-50 mt-2">
           <div className="flex items-center gap-2">
             <p className="font-semibold text-[#27272A] ">{t('payment-method')}</p> :{' '}
             <Banknote width={20} height={20} strokeWidth={1.5} />
@@ -116,7 +83,7 @@ export default function OrderCard({ order }: { order: Order }) {
             <p className="font-semibold text-[#27272A]">{t('delivery-status')} :</p>
 
             {order.isDelivered ? (
-              <span className="text-[#009966] flex items-center gap-1">
+              <span className="text-green-600 flex items-center gap-1">
                 <CheckCheck width={20} height={20} strokeWidth={1.5} />
                 {t('delivered')}
               </span>

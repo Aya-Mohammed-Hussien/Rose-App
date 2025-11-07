@@ -9,7 +9,7 @@ export const getOrders = async (): Promise<GetOrdersResponse> => {
     return { error: 'No access token found' };
   }
   try {
-    const res = await fetch(`https://flower.elevateegy.com/api/v1/orders`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/orders`, {
       method: 'GET',
       headers: {
         ...JSON_HEADER,
@@ -18,13 +18,13 @@ export const getOrders = async (): Promise<GetOrdersResponse> => {
     });
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch reviews: ${res.statusText}`);
+      throw new Error(`Failed to fetch Orders: ${res.statusText}`);
     }
 
     const data: GetOrdersResponse = await res.json();
     return data;
   } catch (error) {
-    console.error('Error fetching reviews:', error);
-    throw new Error('Failed to fetch reviews');
+    console.error('Error fetching orders:', error);
+    throw new Error('Failed to fetch orders');
   }
 };

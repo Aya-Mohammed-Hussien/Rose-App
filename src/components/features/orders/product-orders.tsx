@@ -19,7 +19,7 @@ export default async function ProductOrders() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {orders.map((order) => (
         <OrderCard key={order._id} order={order} />
       ))}
