@@ -4,6 +4,7 @@ import { deleteAccount } from '@/lib/actions/profile/delete-account.action';
 import { useMutation } from '@tanstack/react-query';
 import { useToast } from '../use-toast';
 import { useRouter } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 /**
  * Custom hook to handle deleting the current user account.
@@ -15,6 +16,9 @@ import { useRouter } from '@/i18n/navigation';
  *   - isPendingDelete: boolean indicating if the mutation is in progress
  */
 export const useDeleteAccount = () => {
+  // translation
+  const t = useTranslations('profile.my-account.toast');
+
   // Hooks
   const { toast } = useToast();
   const router = useRouter();
@@ -28,7 +32,7 @@ export const useDeleteAccount = () => {
     onSuccess: () => {
       toast({
         variant: 'default',
-        description: 'Your account has been deleted successfully',
+        description: t('success-message'),
       });
 
       // Redirect user to login page after deleting account
@@ -39,7 +43,7 @@ export const useDeleteAccount = () => {
     onError: (error) => {
       toast({
         variant: 'destructive',
-        description: error.message || 'Unexpected error occurred',
+        description: error.message || t('error-message'),
       });
     },
   });

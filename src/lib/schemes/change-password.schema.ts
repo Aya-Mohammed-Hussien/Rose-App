@@ -1,31 +1,34 @@
 import z from 'zod';
 
-const passwordSchema = z
-  .string()
-  .min(1, 'Password is required')
-  .regex(/^(?=.*[0-9]).*$/, 'Password must contain one digit from 1 to 9')
-  .regex(/^(?=.*[a-z]).*$/, 'Password must contain one lowercase letter')
-  .regex(/^(?=.*[A-Z]).*$/, 'Password must contain one uppercase letter')
-  .regex(/^(?=.*\W).*$/, 'Password must contain one special character')
-  .regex(/^(?!.* ).*$/, 'Password must not contain any spaces')
-  .regex(/^.{8,25}$/, 'Password must be 8-25 characters long');
+export const PasswordFieldSchema = (t: (key: string) => string) =>
+  z
+    .string()
+    .min(1, t('password.minimum'))
+    .regex(/^(?=.*[0-9]).*$/, t('password.digit'))
+    .regex(/^(?=.*[a-z]).*$/, t('password.lowercase'))
+    .regex(/^(?=.*[A-Z]).*$/, t('password.uppercase'))
+    .regex(/^(?=.*\W).*$/, t('password.special-character'))
+    .regex(/^(?!.* ).*$/, t('password.spaces'))
+    .regex(/^.{8,25}$/, t('password.range'));
 
-export const changePasswordSchema = z
-  .object({
-    password: passwordSchema,
-    newPassword: passwordSchema,
-    confirmNewPassword: z.string().min(1, 'Please confirm your password'),
-  })
-  // new password should not be the same old password
-  .refine((data) => data.newPassword !== data.password, {
-    message: 'New password must be different from old password',
-    path: ['newPassword'],
-  })
+export const changePasswordSchema = (t: (key: string) => string) =>
+  z
+    .object({
+      password: PasswordFieldSchema(t),
+      newPassword: PasswordFieldSchema(t),
+      confirmNewPassword: z.string().min(1, t('new-password.minimum')),
+    })
+    // newPassword must be different from old password
+    .refine((data) => data.newPassword !== data.password, {
+      message: t('new-password.new-different-old'),
+      path: ['newPassword'],
+    })
+    // confirm must match newPassword
+    .refine((data) => data.confirmNewPassword === data.newPassword, {
+      message: t('confirm-new-password.confirm-match-new-password'),
+      path: ['confirmNewPassword'],
+    });
 
-  // re password should match  new password
-  .refine((data) => data.confirmNewPassword === data.newPassword, {
-    message: "Passwords don't match",
-    path: ['confirmNewPassword'],
-  });
-
-export type changePasswordValues = z.infer<typeof changePasswordSchema>;
+export type PasswordFieldSchema = ReturnType<typeof PasswordFieldSchema>;
+export type ChangePasswordZodSchema = ReturnType<typeof changePasswordSchema>;
+export type changePasswordValues = z.infer<ReturnType<typeof changePasswordSchema>>;

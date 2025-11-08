@@ -113,6 +113,86 @@
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
   },
+  "profile": {
+    "my-account": {
+      "upload-photo": "Upload Photo",
+      "upload-photo-description": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "email": "Email",
+      "phone-number": "Phone",
+      "gender": "Gender",
+      "delete-account": "Delete My Account",
+      "save-changes": "Save Changes",
+      "confirmation-modal": {
+        "confirm-button-title": "Yes, delete",
+        "cancel-button-title": "Nope, not doing it",
+        "question-title": "Are you sure you want to delete your account?",
+        "warning-title": "This action is permanent and cannot be undone."
+      },
+      "toast": {
+        "success-message": "Your account has been deleted successfully",
+        "error-message": "Unexpected error occurred",
+        "edit-profile-success": "Your profile changes have been saved successfully.",
+        "edit-profile-error": "Something went wrong while saving profile.",
+        "upload-image-success": "Profile image updated successfully",
+        "upload-image-error": "Failed to upload image"
+      },
+      "validation": {
+        "first-name": {
+          "format": "Invalid name format",
+          "minimum": "Name must be at least 2 characters",
+          "maximum": "Name must be less than 30 characters"
+        },
+        "last-name": {
+          "format": "Invalid name format",
+          "minimum": "Name must be at least 2 characters",
+          "maximum": "Name must be less than 30 characters"
+        },
+        "email": {
+          "minimum": "Email is required",
+          "invalid-email": "Invalid email address"
+        },
+        "phone": {
+          "minimum": "Phone is required",
+          "valid-phone": "Please enter a valid phone number"
+        }
+      }
+    },
+    "change-password": {
+      "old-password": "Old Password",
+      "new-password": "New Password",
+      "confirm-new-password": "Confirm New Password",
+      "change-password-button": "Change Password",
+      "toast": {
+        "success-message": "Your password has been changed successfully"
+      },
+      "validation": {
+        "password": {
+          "minimum": "Password is required",
+          "digit": "Password must contain one digit from 1 to 9",
+          "lowercase": "Password must contain one lowercase letter",
+          "uppercase": "Password must contain one uppercase letter",
+          "special-character": "Password must contain one special character",
+          "spaces": "Password must not contain any spaces",
+          "range": "Password must be 8-25 characters long"
+        },
+        "new-password": {
+          "minimum": "Please confirm your password",
+          "new-different-old": "New password must be different from old password"
+        },
+        "confirm-new-password": {
+          "confirm-match-new-password": "Passwords don't match"
+        }
+      }
+    },
+    "title": "Update Profile",
+    "sidebar": {
+      "change-password": "Change Password",
+      "my-account": "My Account",
+      "logout-button": "Logout"
+    }
+  },
   "send-a-new-code": "Send a new code",
   "verify-otp": "Verify OTP",
   "need-help": "Need help?",
@@ -150,5 +230,9 @@
     }
   },
   "add-review": "Add Review",
-  "sign-in-to-add-review": "Sign in to add review"
+  "sign-in-to-add-review": "Sign in to add review",
+  "confirmation-modal": {
+    "deleting": "Deleting..."
+  },
+  "cancel-button-title": "Nope, not doing it"
 }

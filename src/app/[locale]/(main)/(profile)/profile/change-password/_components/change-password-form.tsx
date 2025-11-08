@@ -14,10 +14,16 @@ import { useChangePassword } from '@/hooks/profile/use-change-password';
 import { changePasswordSchema, changePasswordValues } from '@/lib/schemes/change-password.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 export default function ChangePasswordForm() {
+  // Translation
+  const t = useTranslations('profile.change-password');
+  const tValidation = useTranslations('profile.change-password.validation');
+  const schema = changePasswordSchema(tValidation);
+
   // Mutation
   const { updatePassword, isPending } = useChangePassword();
 
@@ -28,7 +34,7 @@ export default function ChangePasswordForm() {
       newPassword: '',
       confirmNewPassword: '',
     },
-    resolver: zodResolver(changePasswordSchema),
+    resolver: zodResolver(schema),
   });
 
   // Functions
@@ -48,7 +54,9 @@ export default function ChangePasswordForm() {
             render={({ field }) => (
               <FormItem>
                 {/* Old Password label */}
-                <FormLabel className="font-medium  text-base text-zinc-800">Old Password</FormLabel>
+                <FormLabel className="font-medium  text-base text-zinc-800">
+                  {t('old-password')}
+                </FormLabel>
                 <div className="w-full">
                   {/*  Old Password input */}
                   <FormControl>
@@ -77,7 +85,9 @@ export default function ChangePasswordForm() {
             render={({ field }) => (
               <FormItem>
                 {/* New Password label */}
-                <FormLabel className="font-medium  text-base text-zinc-800">New Password</FormLabel>
+                <FormLabel className="font-medium  text-base text-zinc-800">
+                  {t('new-password')}
+                </FormLabel>
                 <div className="w-full">
                   {/*  New Password input */}
                   <FormControl>
@@ -104,7 +114,7 @@ export default function ChangePasswordForm() {
               <FormItem className=" ">
                 {/* Confirm New Password label */}
                 <FormLabel className="font-medium  text-base text-zinc-800">
-                  Confirm New Password
+                  {t('confirm-new-password')}
                 </FormLabel>
                 <div className="w-full">
                   {/* Confirm New Password input */}
@@ -127,8 +137,8 @@ export default function ChangePasswordForm() {
           {/* Change Password  */}
           <div className="w-full h-[6.5rem] flex items-end justify-end ">
             {/* Change Password Button */}
-            <Button disabled={isPending } type="submit" variant={'default'}>
-              Change Password
+            <Button disabled={isPending} type="submit" variant={'default'}>
+              {t('change-password-button')}
               {/* Icon */}
               {isPending && <Loader2 className="animate-spin" />}
             </Button>

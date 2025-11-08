@@ -2,35 +2,37 @@ import { isValidPhoneNumber } from 'react-phone-number-input';
 import z from 'zod';
 import { GENDER } from '../constants/auth.constant';
 
-export const profileSchema = z.object({
-  // first name
-  firstName: z
-    .string()
-    .trim()
-    .regex(/^[a-zA-Z\u0600-\u06FF\s'-]+$/, 'Invalid name format')
-    .min(2, 'Name must be at least 2 characters')
-    .max(30, 'Name must be less than 30 characters'),
+export const ProfileSchema = (t: (key: string) => string) =>
+  z.object({
+    // First Name
+    firstName: z
+      .string()
+      .trim()
+      .regex(/^[a-zA-Z\u0600-\u06FF\s'-]+$/, t('first-name.format'))
+      .min(2, t('first-name.minimum'))
+      .max(30, t('first-name.maximum')),
 
-  // last name
-  lastName: z
-    .string()
-    .trim()
-    .regex(/^[a-zA-Z\u0600-\u06FF\s'.-]+$/, 'Invalid name format')
-    .min(2, 'Name must be at least 2 characters')
-    .max(30, 'Name must be less than 30 characters'),
+    // Last Name
+    lastName: z
+      .string()
+      .trim()
+      .regex(/^[a-zA-Z\u0600-\u06FF\s'.-]+$/, t('last-name.format'))
+      .min(2, t('last-name.minimum'))
+      .max(30, t('last-name.maximum')),
 
-  // email
-  email: z.string().trim().min(1, 'Email is required').email('Invalid email address'),
+    // Email
+    email: z.string().trim().min(1, t('email.minimum')).email(t('email.invalid-email')),
 
-  // phone
-  phone: z
-    .string()
-    .trim()
-    .min(1, 'Phone is required')
-    .refine((value) => isValidPhoneNumber(value), 'Please enter a valid phone number'),
+    // Phone
+    phone: z
+      .string()
+      .trim()
+      .min(1, t('phone.minimum'))
+      .refine((value) => isValidPhoneNumber(value), t('phone.valid-phone')),
 
-  // gender
-  gender: z.enum(GENDER),
-});
+    // Gender
+    gender: z.enum(GENDER),
+  });
 
-export type profileValues = z.infer<typeof profileSchema>;
+export type ProfileSchemaType = ReturnType<typeof ProfileSchema>;
+export type profileValues = z.infer<ProfileSchemaType>;

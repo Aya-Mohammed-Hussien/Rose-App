@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { CloudUpload, Loader2, Trash } from 'lucide-react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { profileSchema, profileValues } from '@/lib/schemes/profile.schema';
+import { ProfileSchema, profileValues } from '@/lib/schemes/profile.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { GENDER } from '@/lib/constants/auth.constant';
 import {
@@ -23,6 +23,7 @@ import { useEditProfile } from '@/hooks/profile/use-edit-profile';
 import { useUploadProfileImage } from '@/hooks/profile/use-upload-profile-image';
 import { useDeleteAccount } from '@/hooks/profile/use-delete-account.action';
 import ConfirmationModal from '@/components/shared/confirmation-modal';
+import { useTranslations } from 'next-intl';
 
 // Props
 type MyAccountProps = {
@@ -30,6 +31,11 @@ type MyAccountProps = {
 };
 
 export default function MyAccountForm({ userData }: MyAccountProps) {
+  // Translation
+  const t = useTranslations('profile.my-account');
+  const tValidation = useTranslations('profile.my-account.validation');
+  const profileSchema = ProfileSchema(tValidation);
+
   // State
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -45,11 +51,11 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
   const form = useForm<profileValues>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      gender: GENDER.MALE,
+      firstName: userData.user.firstName || '',
+      lastName: userData.user.lastName || '',
+      email: userData.user.email || '',
+      phone: userData.user.phone || '',
+      gender: (userData.user.gender as profileValues['gender']) || GENDER.MALE,
     },
   });
   const { isDirty } = form.formState;
@@ -162,11 +168,9 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
         {/* Info */}
         <div className="flex flex-col  h-16 gap-4">
           {/* Title */}
-          <h3 className="text-xl text-zinc-800 font-semibold">Upload Photo</h3>
+          <h3 className="text-xl text-zinc-800 font-semibold">{t('upload-photo')}</h3>
           {/* Description */}
-          <p className="text-base text-zinc-500">
-            You can upload a .jpg, .png, or .gif photo with max size of 5MB.
-          </p>
+          <p className="text-base text-zinc-500">{t('upload-photo-description')}</p>
         </div>
       </header>
 
@@ -182,7 +186,9 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
               render={({ field }) => (
                 <FormItem>
                   {/* FirstName Label */}
-                  <FormLabel className="font-medium text-base text-zinc-800">First name</FormLabel>
+                  <FormLabel className="font-medium text-base text-zinc-800">
+                    {t('first-name')}
+                  </FormLabel>
                   <FormControl>
                     {/* FirstName Input */}
                     <Input placeholder="Ahmed" className="w-full h-12" {...field} />
@@ -200,7 +206,9 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
               render={({ field }) => (
                 <FormItem>
                   {/* LastName Label */}
-                  <FormLabel className="font-medium text-base text-zinc-800">Last name</FormLabel>
+                  <FormLabel className="font-medium text-base text-zinc-800">
+                    {t('last-name')}
+                  </FormLabel>
                   <FormControl>
                     {/* LastName Input */}
                     <Input placeholder="Abdullah" className="w-full h-12" {...field} />
@@ -219,7 +227,7 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
             render={({ field }) => (
               <FormItem>
                 {/* Email Label */}
-                <FormLabel className="text-base font-medium">Email</FormLabel>
+                <FormLabel className="text-base font-medium">{t('email')}</FormLabel>
                 <FormControl>
                   {/* Email Input */}
                   <Input
@@ -242,7 +250,7 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
             render={({ field }) => (
               <FormItem>
                 {/* Phone Label */}
-                <FormLabel className="text-base font-medium">Phone</FormLabel>
+                <FormLabel className="text-base font-medium">{t('phone-number')}</FormLabel>
                 <FormControl>
                   {/* Phone Input */}
                   <PhoneInput
@@ -266,7 +274,7 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
               <FormItem>
                 {/* Gender Label */}
                 <FormLabel aria-disabled className="text-base text-zinc-400 font-medium">
-                  Gender
+                  {t('gender')}
                 </FormLabel>
                 <FormControl>
                   {/* Gender Input */}
@@ -288,11 +296,19 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
             <ConfirmationModal
               deleteAction={deleteMyAccount}
               isPendingDelete={isPendingDelete}
-              deleteButtonTitle="Delete My Account"
-              confirmButtonTitle="Yes, delete"
-              cancelButtonTitle="Nope, not doing it"
-              questionTitle="Are you sure you want to delete your account?"
-              warningTitle="This action is permanent and cannot be undone."
+              confirmButtonTitle={t('confirmation-modal.confirm-button-title')}
+              cancelButtonTitle={t('confirmation-modal.cancel-button-title')}
+              questionTitle={t('confirmation-modal.question-title')}
+              warningTitle={t('confirmation-modal.warning-title')}
+              triggerButton={
+                <Button
+                  type="button"
+                  className="text-maroon-500 hover:bg-red-600 transition-all duration-200 hover:text-white px-4 py-3"
+                  variant="ghost"
+                >
+                  {t('delete-account')}
+                </Button>
+              }
             />
 
             {/* Save Button */}
@@ -302,7 +318,7 @@ export default function MyAccountForm({ userData }: MyAccountProps) {
               className="px-4 py-3"
               variant="default"
             >
-              Save Changes
+              {t('save-changes')}
               {/* Pending State*/}
               {isPending && <Loader2 className="animate-spin" />}
             </Button>

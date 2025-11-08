@@ -5,6 +5,7 @@ import { changePasswordValues } from '@/lib/schemes/change-password.schema';
 import { useMutation } from '@tanstack/react-query';
 import { useToast } from '../use-toast';
 import { useRouter } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 /**
  * Custom hook to handle changing user password.
@@ -16,6 +17,9 @@ import { useRouter } from '@/i18n/navigation';
  *   - isPending: boolean indicating if the mutation is in progress
  */
 export const useChangePassword = () => {
+  // Translation
+  const t = useTranslations('profile.change-password.toast');
+
   // Hooks
   const { toast } = useToast();
   const router = useRouter();
@@ -30,7 +34,7 @@ export const useChangePassword = () => {
     onSuccess: () => {
       toast({
         variant: 'default',
-        description: 'Your password has been changed successfully',
+        description: t('success-message'),
       });
 
       // Redirect user to login page after short delay

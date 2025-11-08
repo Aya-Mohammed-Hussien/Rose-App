@@ -13,6 +13,8 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Trash, Loader2 } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import { cn } from '@/lib/utils';
 
 // Props
 type ConfirmationModalProps = {
@@ -20,9 +22,9 @@ type ConfirmationModalProps = {
   deleteAction: () => void;
   confirmButtonTitle: string;
   cancelButtonTitle: string;
-  deleteButtonTitle: string;
   questionTitle: string;
   warningTitle?: string;
+  triggerButton: React.ReactNode;
 };
 
 export default function ConfirmationModal({
@@ -30,22 +32,18 @@ export default function ConfirmationModal({
   deleteAction,
   confirmButtonTitle,
   cancelButtonTitle,
-  deleteButtonTitle,
   questionTitle,
   warningTitle,
+  triggerButton,
 }: ConfirmationModalProps) {
+  // Translation
+  const t = useTranslations('confirmation-modal');
+  const locale = useLocale();
+
   return (
     <Dialog>
       {/* Delete Button */}
-      <DialogTrigger asChild>
-        <Button
-          type="button"
-          className="text-maroon-500 hover:bg-red-600 transition-all duration-200 hover:text-white px-4 py-3"
-          variant="ghost"
-        >
-          {deleteButtonTitle}
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{triggerButton}</DialogTrigger>
 
       {/* Confirmation Modal */}
       <DialogContent
@@ -69,7 +67,14 @@ export default function ConfirmationModal({
 
               {/* Warning */}
               {warningTitle && (
-                <span className="text-base text-maroon-500 font-normal">{warningTitle}</span>
+                <span
+                  className={cn(
+                    ' text-maroon-500 font-normal',
+                    locale === 'ar' ? 'text-lg break-after-all mx-1' : 'text-base'
+                  )}
+                >
+                  {warningTitle}
+                </span>
               )}
             </DialogDescription>
           </div>
@@ -97,7 +102,7 @@ export default function ConfirmationModal({
             >
               {isPendingDelete ? (
                 <span className="flex items-center justify-center gap-2">
-                  Deleting...
+                  {t('deleting')}
                   <Loader2 className="animate-spin h-4 w-4" />
                 </span>
               ) : (

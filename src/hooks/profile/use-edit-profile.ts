@@ -4,6 +4,7 @@ import { editProfile } from '@/lib/actions/profile/edit-profile.action';
 import { useMutation } from '@tanstack/react-query';
 import { useToast } from '../use-toast';
 import { profileValues } from '@/lib/schemes/profile.schema';
+import { useTranslations } from 'next-intl';
 
 /**
  * Custom hook to handle editing the user's profile.
@@ -17,6 +18,9 @@ import { profileValues } from '@/lib/schemes/profile.schema';
  *   - error: the error object if mutation fails
  */
 export const useEditProfile = () => {
+  // translation
+  const t = useTranslations('profile.my-account.toast');
+
   // Hooks
   const { toast } = useToast();
 
@@ -26,16 +30,16 @@ export const useEditProfile = () => {
     mutationFn: (userData: Omit<profileValues, 'gender'>) => editProfile(userData),
 
     // On successful edit profile
-    onSuccess: (data) => {
+    onSuccess: (d) => {
       toast({
         variant: 'default',
-        description: 'Your profile changes have been saved successfully.',
+        description: t('edit-profile-success'),
       });
     },
 
     // On Error during editing profile
     onError: (error: Error) => {
-      const errorMessage = error?.message || 'Something went wrong while saving profile.';
+      const errorMessage = error?.message || t('edit-profile-error');
       toast({
         variant: 'destructive',
         description: errorMessage,

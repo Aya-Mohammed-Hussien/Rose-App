@@ -3,6 +3,7 @@
 import { uploadProfileImage } from '@/lib/actions/profile/upload-profile-image.action';
 import { useMutation } from '@tanstack/react-query';
 import { useToast } from '../use-toast';
+import { useTranslations } from 'next-intl';
 
 /**
  * Custom hook to handle uploading a user's profile image.
@@ -15,6 +16,9 @@ import { useToast } from '../use-toast';
  *   - isPendingImage: boolean indicating if the upload is in progress
  */
 export const useUploadProfileImage = () => {
+  // Translation
+  const t = useTranslations('profile.my-account.toast');
+
   // Hooks
   const { toast } = useToast();
 
@@ -26,14 +30,14 @@ export const useUploadProfileImage = () => {
     // On successful upload profile image
     onSuccess: () => {
       toast({
-        title: 'Profile image updated successfully',
+        title: t('upload-image-success'),
       });
     },
 
     // On Error during uploading profile image
     onError: (error) => {
       toast({
-        title: 'Failed to upload image',
+        title: t('upload-image-error'),
         description: String(error.message),
         variant: 'destructive',
       });

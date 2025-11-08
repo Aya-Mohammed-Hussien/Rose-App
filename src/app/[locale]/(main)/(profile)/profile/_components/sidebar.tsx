@@ -5,12 +5,17 @@ import { Link, usePathname } from '@/i18n/navigation';
 import { Lock, LogOut, UserRoundPen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { signOut } from 'next-auth/react';
+import { useLocale, useTranslations } from 'next-intl';
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Sidebar() {
+  // Translations
+  const locale = useLocale();
+  const t = useTranslations('profile.sidebar');
+
   // Hooks
   const pathname = usePathname();
 
@@ -18,13 +23,13 @@ export default function Sidebar() {
   const navLinks = [
     {
       href: '/profile/my-account',
-      label: 'My Account',
+      label: t('my-account'),
       icon: UserRoundPen,
     },
 
     {
       href: '/profile/change-password',
-      label: 'Change Password',
+      label: t('change-password'),
       icon: Lock,
     },
   ];
@@ -60,7 +65,8 @@ export default function Sidebar() {
         onClick={() => signOut({ callbackUrl: '/login' })}
         className="bg-zinc-100 text-maroon-500 px-4 py-3 hover:text-zinc-50 transition-colors  duration-300 flex gap-2"
       >
-        <LogOut className="rotate-180" size={20} /> Logout
+        <LogOut className={cn(locale === 'ar' ? 'rotate-0' : 'rotate-180')} size={20} />{' '}
+        {t('logout-button')}
       </Button>
     </aside>
   );
