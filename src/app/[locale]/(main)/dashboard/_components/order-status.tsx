@@ -1,5 +1,4 @@
 import React from 'react';
-import { OrdersStatusChart } from './charts/order-status-chart';
 
 export default async function OrderStatus() {
   const orderStatistics = await getOrderStatistics();
