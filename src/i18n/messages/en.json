@@ -180,6 +180,14 @@
       "passwords-not-match": "Passwords Not Match"
     }
   },
+  "dashboard": {
+    "all_categories": "All Categories",
+    "product_count": "{count , plural , =0 {product} one {Product} other {products}}",
+    "total_products": "Total products",
+    "total_orders": "Total orders",
+    "total_categories": "Total categories",
+    "total_revenue": "Total revenue"
+  },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",
   "email": "Email",
