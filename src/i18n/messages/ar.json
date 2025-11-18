@@ -90,6 +90,12 @@
       "register-link": "أنشئ حسابك الآن!"
     }
   },
+  "dashboard": {
+    "overview-product-top-and-stock": {
+      "Top Selling Products": " المنتجات الأكثر مبيعا",
+      "Low Stock Products": " المنتجات منخفضة المخزون"
+    }
+  },
   "price": {
     "title": "السعر",
     "reset": "إعادة تعيين",

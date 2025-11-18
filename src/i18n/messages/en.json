@@ -90,6 +90,12 @@
       "register-link": "Create one now!"
     }
   },
+  "dashboard": {
+    "overview-product-top-and-stock": {
+      "Top Selling Products": " Top Selling Products",
+      "Low Stock Products": "  Low Stock Products "
+    }
+  },
   "price": {
     "title": "Price",
     "reset": "Reset",
