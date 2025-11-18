@@ -15,7 +15,7 @@ export const getOrderStatistics = async (): Promise<GetOrderStatisticsResponse> 
     }
 
     // Send a GET request to the "statistics" API endpoint
-    const response = await fetch(`${baseURL}/addresses`, {
+    const response = await fetch(`${baseURL}/statistics/orders`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
