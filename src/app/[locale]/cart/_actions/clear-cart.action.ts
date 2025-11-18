@@ -1,6 +1,5 @@
 'use server';
 
-// ===============================================================
 // Functions
 // Clears all items from the user's cart.
 import { getToken } from '@/lib/utils/get-token';
@@ -15,7 +14,6 @@ export async function clearCartAction() {
   const res = await fetch(`${API}/cart`, {
     method: 'DELETE',
     headers: { Authorization: `Bearer ${token}` },
-    cache: 'no-store',
   });
 
   // --- Handle possible errors ---
@@ -24,7 +22,8 @@ export async function clearCartAction() {
     try {
       const data = await res.json();
       if (data?.message) message = data.message;
-    } catch {}
-    throw new Error(message);
+    } catch {
+      throw new Error(message);
+    }
   }
 }

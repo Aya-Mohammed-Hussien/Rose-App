@@ -1,6 +1,5 @@
 'use server';
 
-// ===============================================================
 // Functions
 // Removes a specific item from the user's cart using its ID.
 import { getToken } from '@/lib/utils/get-token';

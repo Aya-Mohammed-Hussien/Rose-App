@@ -1,12 +1,10 @@
 'use client';
 
-// ===============================================================
 // Hooks
 // Custom hook to remove a single cart item using React Query mutation.
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { removeCartItemAction } from '../_actions/remove-item.action';
 
-// ===============================================================
 // Functions
 export function useRemoveItemAction() {
   const queryClient = useQueryClient(); // Access the global query cache

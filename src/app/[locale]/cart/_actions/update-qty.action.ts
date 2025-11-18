@@ -1,6 +1,5 @@
 'use server';
 
-// ===============================================================
 // Functions
 // Handles updating a cart item's quantity on the server.
 // Requires user authentication via token.
@@ -10,8 +9,10 @@ export async function updateCartItemQtyAction({ id, quantity }: { id: string; qu
   // --- Get token for authenticated request ---
   const token = await getToken();
   if (!token) throw new Error('Unauthorized');
-  console.log("id,quantity",id,quantity);
-  
+
+  // --- Prevent quantity from exceeding 20 ---
+  if (quantity > 20) quantity = 20;
+
   // --- Send PUT request to update quantity ---
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cart/${id}`, {
     method: 'PUT',

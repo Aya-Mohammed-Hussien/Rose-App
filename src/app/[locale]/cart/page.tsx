@@ -8,8 +8,8 @@ import { getRecommendedProducts } from '@/lib/apis/cart/prouducts-you-may-like.a
 import CartList from './_components/cart-list';
 import TitleProduct from '@/components/shared/products-section-title';
 import ProductCarousel from '@/components/features/product-carousel/product-carousel';
+import { getCart } from '@/lib/apis/cart/cart.api';
 
-// ===============================================================
 // Functions
 export default async function CartPage() {
   // --- Get current user session ---
@@ -18,7 +18,6 @@ export default async function CartPage() {
 
   // --- Fetch recommended products for the user ---
   const recommended = userId ? await getRecommendedProducts(userId) : [];
-  const hasRecommendations = recommended && recommended.length > 0;
 
   // --- Render main page layout ---
   return (
@@ -26,13 +25,11 @@ export default async function CartPage() {
       {/* Cart list section */}
       <CartList />
 
-      {/* Recommended products section (if available) */}
-      {hasRecommendations && (
-        <section>
-          <TitleProduct title="productsYouMayLike" />
-          <ProductCarousel products={recommended} itemsPerView={4} />
-        </section>
-      )}
+      {/* Recommended products section */}
+      <section>
+        <TitleProduct title="productsYouMayLike" />
+        <ProductCarousel products={recommended} itemsPerView={4} />
+      </section>
     </main>
   );
 }

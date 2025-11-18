@@ -30,58 +30,53 @@ export default function CartItem({
   price,
   quantity: initialQty,
 }: CartItemFromHook) {
-  // ===============================================================
   // Translation
-  // ===============================================================
   const t = useTranslations('CartItem');
 
-  // ===============================================================
   // Hooks
-  // ===============================================================
   // Initialize form with validation for quantity field
   const form = useForm<QuantityValues>({
     resolver: zodResolver(quantitySchema),
     defaultValues: { quantity: initialQty },
   });
 
-  // ===============================================================
   // Mutations
-  // ===============================================================
   // Hook to remove item from cart
   const remove = useRemoveItemAction();
   // Hook to update item quantity in cart
   const updateQty = useUpdateCartItemQty();
 
-  // ===============================================================
   // Functions
-  // ===============================================================
   // Increase product quantity by 1 and update backend
   const handleIncrease = () => {
-    const newQty = form.getValues('quantity') + 1;
-    form.setValue('quantity', newQty);
-    updateQty.mutate({ id, quantity: newQty });
-  };
-
-  // Decrease product quantity (not below 1) and update backend
-  const handleDecrease = () => {
-    const current = form.getValues('quantity');
-    if (current > 1) {
-      const newQty = current - 1;
+    const currentQty = form.getValues('quantity');
+    if (currentQty < 20) {
+      const newQty = currentQty + 1;
       form.setValue('quantity', newQty);
       updateQty.mutate({ id, quantity: newQty });
     }
   };
 
-  // ===============================================================
+  // Decrease product quantity (not below 1) and update backend
+  const handleDecrease = () => {
+    const current = form.getValues('quantity');
+
+    if (current > 1) {
+      const newQty = current - 1;
+      form.setValue('quantity', newQty);
+      updateQty.mutate({ id, quantity: newQty });
+    } else {
+      // remove item if quantity goes below 1
+      remove.mutate(id);
+    }
+  };
+
   // Effects
-  // ===============================================================
   useEffect(() => {
     form.setValue('quantity', initialQty, { shouldValidate: false, shouldDirty: false });
   }, [initialQty, form]);
 
-  // ===============================================================
   // Render
-  // ===============================================================
   // Display product card with image, info, rating, and quantity controls
   return (
     <div className="flex relative py-5">
@@ -164,9 +159,17 @@ export default function CartItem({
                       <Input
                         type="number"
                         min={1}
+                        max={20}
                         {...field}
                         value={field.value}
-                        onChange={(e) => field.onChange(Math.max(1, Number(e.target.value) || 1))}
+                        onChange={(e) => {
+                          const value = Math.min(20, Math.max(1, Number(e.target.value) || 1));
+                          field.onChange(value);
+                        }}
+                        onBlur={() => {
+                          const qty = form.getValues('quantity');
+                          updateQty.mutate({ id, quantity: qty });
+                        }}
                         className="h-12 w-24 border border-zinc-300 text-sm text-zinc-400 focus-visible:ring-0"
                       />
 

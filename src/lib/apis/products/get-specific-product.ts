@@ -1,17 +1,17 @@
-// API Function: getRecommendedProducts
-// Fetches product recommendations for a given user ID
+// API Function: getProduct
+// Fetches product details for a given product ID
 
 import { getToken } from '@/lib/utils/get-token.util';
 
-export async function getRecommendedProducts(userId: string) {
+export async function getProduct(productId: string) {
   // --- Base API URL ---
   const baseUrl = process.env.NEXT_PUBLIC_API;
 
   // --- Get user token (for authorization) ---
   const token = await getToken();
 
-  // --- Request recommended products from backend ---
-  const res = await fetch(`${baseUrl}/related/recommendations/${userId}`, {
+  // --- Request product data from backend ---
+  const res = await fetch(`${baseUrl}/products/${productId}`, {
     cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
@@ -21,10 +21,10 @@ export async function getRecommendedProducts(userId: string) {
 
   // --- Handle failed requests ---
   if (!res.ok) {
-    throw new Error('Failed to fetch recommended products');
+    throw new Error('Failed to fetch product');
   }
 
-  // --- Parse and return recommendations ---
+  // --- Parse and return product data ---
   const data = await res.json();
-  return data.recommendations;
+  return data;
 }
