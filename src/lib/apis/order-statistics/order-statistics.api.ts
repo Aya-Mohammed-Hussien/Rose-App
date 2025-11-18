@@ -15,7 +15,7 @@ export const GetOrderStatistics = async (): Promise<GetOrderStatisticsResponse> 
     }
 
     // Send a GET request to the "statistics" API endpoint
-    const response = await fetch(`${baseURL}/statistics/orders`, {
+    const response = await fetch(`${baseURL}/addresses`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -26,13 +26,13 @@ export const GetOrderStatistics = async (): Promise<GetOrderStatisticsResponse> 
 
     // If the response status is not OK, throw an error with the server message
     if (!response.ok || 'error' in payload) {
-      throw new Error('failed to fetch orders statistics');
+      throw new Error('failed to fetch addresses');
     }
 
     // Return the server response
     return payload;
   } catch (error) {
     // Catch any unexpected errors and return a descriptive message
-    throw error || 'Unexpected error while getting orders statistics';
+    throw error || 'Unexpected error while getting addresses';
   }
 };
