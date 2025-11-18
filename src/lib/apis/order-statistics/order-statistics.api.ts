@@ -1,7 +1,7 @@
 import { GetOrderStatisticsResponse } from '@/lib/types/order-statistics';
 import { getToken } from '@/lib/utils/get-token.util';
 
-export const GetOrderStatistics = async (): Promise<GetOrderStatisticsResponse> => {
+export const getOrderStatistics = async (): Promise<GetOrderStatisticsResponse> => {
   try {
     // Retrieve the access token from cookies
     const token = await getToken();
