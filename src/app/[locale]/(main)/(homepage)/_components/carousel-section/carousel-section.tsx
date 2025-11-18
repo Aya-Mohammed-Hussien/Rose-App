@@ -60,7 +60,7 @@ export function CarouselSection() {
   }, [emblaApi]);
 
   return (
-    <div className="container   sm:px-6 lg:px-20 mb-6 ">
+    <div className="container  mb-6 ">
       <div className=" mx-auto grid grid-cols-1 lg:grid-cols-4 gap-2 items-center ">
         {/*  Left Card */}
         <div className="relative w-full max-w-sm h-[440px] rounded-2xl overflow-hidden p-6 flex flex-col gap-3 lg:col-span-1 before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/70 before:to-transparent before:z-[1]">

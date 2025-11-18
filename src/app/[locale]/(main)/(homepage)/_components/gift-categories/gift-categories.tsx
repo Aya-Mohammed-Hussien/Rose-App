@@ -24,8 +24,8 @@ export function GiftCategories() {
   ];
 
   return (
-    <div className="container mx-auto  sm:px-6 lg:px-20 mb-10  ">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 ">
+    <div className="mx-auto mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
         {giftCategories.map((card) => (
           <div
             key={card.id}

@@ -21,15 +21,19 @@ export default async function ProductsPage({
         {/* Category */}
         <CategoriesFilter />
         <hr className="border-t border-gray-200 " />
+
         {/* Occassions */}
         <OccasionsSection />
         <hr className="border-t border-gray-200 " />
+
         {/* Rating */}
         <RatingFilter />
         <hr className="border-t border-gray-200 " />
+
         {/* Price Range */}
         <PriceRangeForm />
         <hr className="border-t border-gray-200 " />
+        
         {/* Reset All */}
         <ResetAllButton />
       </aside>

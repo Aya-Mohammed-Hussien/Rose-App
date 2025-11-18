@@ -12,7 +12,13 @@
     "top-nav": {
       "search-placeholder": "ما الهدية الرائعة التي تبحث عنها؟",
       "login": "تسجيل الدخول",
-      "locale-button": "English"
+      "locale-button": "English",
+      "hello": "مرحباً",
+      "profile": "ملفي الشخصي",
+      "addresses": "عناويني",
+      "orders": "طلباتي",
+      "dashboard": "لوحة التحكم",
+      "logout": "تسجيل الخروج"
     }
   },
   "footer": {
@@ -63,7 +69,7 @@
     "alreadyAccount": "هل لديك حساب؟",
     "login": "تسجيل الدخول",
     "CreateAccount": "إنشاء حساب",
-    "gender": "العمر",
+    "gender": "الجنس",
     "phone": "رقم الهاتف"
   },
   "auth": {
@@ -156,13 +162,6 @@
   "TitleProduct": {
     "productsYouMayLike": "منتجات قد تعجبك"
   },
-  "contact-us": "اتصل بنا",
-  "need-help": "بحاجة إلى مساعدة؟",
-  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
-  "send-a-new-code": "إرسال رمز جديد",
-  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
-  "enter-the-otp-code": "أدخل رمز OTP",
-  "edit": "حرر",
   "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
   "related-products": "المنتجات ذات الصلة",
   "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
@@ -178,16 +177,30 @@
   "general-rating": "التقييم العام",
   "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
   "rating-is-required": "التقييم مطلوب",
+  "otp": {
+    "sendNewCode": "إرسال رمز جديد",
+    "verifyOtp": "التحقق من رمز OTP",
+    "needHelp": "تحتاج مساعدة؟",
+    "contactUs": "اتصل بنا",
+    "sentCode": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى {email}",
+    "enterCode": "أدخل رمز OTP",
+    "edit": "تعديل"
+  },
+  "relatedProducts": {
+    "title": "المنتجات ذات الصلة",
+    "noProducts": "لم يتم العثور على منتجات ذات صلة.",
+    "loadError": "فشل في تحميل المنتجات ذات الصلة"
+  },
   "reviews": {
-    "validation": {
-      "rating-is-required-0": "التقييم مطلوب",
-      "rating-must-be-at-least-1": "يجب أن يكون التقييم على الأقل 1",
-      "rating-cannot-exceed-5": "لا يمكن أن يتجاوز التقييم 5",
-      "tittle-is-required": "العنوان مطلوب",
-      "title-is-required": "العنوان مطلوب",
-      "review-is-required": "المراجعة مطلوبة",
-      "comment-is-required": "التعليق مطلوب"
-    }
+    "title": "مراجعات المنتج",
+    "signInPrompt": "تسجيل الدخول لإضافة مراجعة.",
+    "yourRating": "تقييمك:",
+    "reviewTitle": "العنوان",
+    "reviewComment": "المراجعة",
+    "generalRating": "التقييم العام",
+    "addReview": "أضف مراجعة",
+    "signInToReview": "تسجيل الدخول لإضافة مراجعة",
+    "ratingRequired": "التقييم مطلوب"
   },
   "validation": {
     "review": {
@@ -201,8 +214,46 @@
       "comment": {
         "required": "التعليق مطلوب"
       }
+    },
+    "email": {
+      "required": "البريد الإلكتروني مطلوب",
+      "invalid": "البريد الإلكتروني غير صحيح"
+    },
+    "otp": {
+      "required": "من فضلك أدخل الرمز المكوّن من 6 أرقام",
+      "length": "يجب أن يتكون الرمز من 6 أرقام"
+    },
+    "password": {
+      "email-is-required": "البريد الإلكتروني مطلوب",
+      "invalid-email-address": "",
+      "invalid-email-address-0": "عنوان البريد الإلكتروني غير صالح",
+      "password-must-contain-one-digit-from-1-to-9": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
+      "password-must-contain-one-lowercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
+      "password-must-contain-one-uppercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
+      "password-must-contain-one-special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
+      "password-must-not-contain-any-spaces": "يجب ألا تحتوي على أي مسافات",
+      "password-must-be-8-25-characters-long": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا",
+      "please-confirm-your-password": "يرجى تأكيد كلمة المرور الخاصة بك",
+      "passwords-dont-match-repassword": "كلمات المرور غير متطابقه",
+      "passwords-not-match-repassword": "كلمات المرور غير متطابقه",
+      "passwords-not-match": "كلمات المرور غير متطابقة"
     }
   },
-  "add-review": "أضف مراجعة",
-  "sign-in-to-add-review": "تسجيل الدخول لإضافة مراجعة"
+  "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
+  "forgot-password": "هل نسيت كلمة السر",
+  "dont-have-an-account": "ليس لديك حساب؟",
+  "create-yours": "إنشاء لك",
+  "continue": "استمر",
+  "email": "بريد إلكتروني",
+  "dont-have-an-account-yet": "ليس لديك حساب حتى الآن؟",
+  "create-one-now": "قم بإنشاء ايميل الآن!",
+  "email-send-successfully": "تم إرسال البريد الإلكتروني بنجاح ",
+  "send-a-new-code": "إرسال رمز جديد",
+  "verify-otp": "التحقق من Otp",
+  "we-have-sent-a-6-digit-code-to": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى",
+  "edit": "حرر",
+  "enter-the-otp-code": "أدخل رمز OTP",
+  "contact-us": "اتصل بنا",
+  "otp-code-send-successfully": "تم ارسال كود التأكيد بنجاح",
+  "your-password-has-been-successfully-reset": "لقد تم إعادة تعيين كلمة المرور الخاصة بك بنجاح."
 }

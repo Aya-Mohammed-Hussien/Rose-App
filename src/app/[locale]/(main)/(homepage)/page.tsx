@@ -6,15 +6,14 @@ import { GiftCategories } from './_components/gift-categories/gift-categories';
 import { InfoBar } from './_components/infobar/info-bar';
 import OccasionsSection from './_components/server/occasions-section';
 import BestSellingSection from './_components/server/best-selling-section';
-import Categories from '@/components/features/categories/categories-filter';
 
 export default async function page({ searchParams }: { searchParams: { occasion?: string } }) {
   // Variables
   const occasionId = searchParams?.occasion;
 
   return (
-    <main className="flex flex-col  gap-28 py-10">
-      <div>
+    <main className="flex flex-col gap-28 py-10">
+      <div className='px-20'>
         {/* Carousel Section */}
         <CarouselSection />
 

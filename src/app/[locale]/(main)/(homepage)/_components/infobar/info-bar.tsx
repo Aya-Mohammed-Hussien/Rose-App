@@ -30,8 +30,8 @@ export function InfoBar() {
   ];
 
   return (
-    <div className="container mx-auto  sm:px-6 lg:px-20   ">
-      <div className="container mx-auto  rounded-md p-7 bg-[#fcebea]">
+    <div className="mx-auto">
+      <div className="mx-auto rounded-md p-7 bg-[#fcebea]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {features.map((item) => (
             <div
