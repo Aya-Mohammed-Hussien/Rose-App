@@ -8,7 +8,6 @@ import { Sarabun, Tajawal , Inter  } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import localFont from 'next/font/local';
 
-
 // Generate static params for each layout
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
