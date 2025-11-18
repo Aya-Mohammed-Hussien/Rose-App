@@ -119,6 +119,64 @@
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
   },
+  "CartList": {
+    "title": "Cart",
+    "singleProduct": "product",
+    "multipleProducts": "products",
+    "loading": "Loading cart...",
+    "loadError": "Failed to load cart",
+    "empty": "Your cart is empty 🛒",
+    "continueShopping": "Continue Shopping"
+  },
+  "CartItem": {
+    "ratingLabel": "Rating",
+    "ratingsCountLabel": "Ratings",
+    "removeButton": "Remove",
+    "quantityLabel": "Quantity",
+    "currency": "EGP"
+  },
+  "ClearCartButton": {
+    "clearCart": "Clear Cart",
+    "clearing": "Clearing…",
+    "confirmMessage": "Are you sure you want to clear your cart?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "ProductCard": {
+    "badges": {
+      "outOfStock": "Out of stock",
+      "new": "New",
+      "hot": "Hot"
+    },
+    "price": {
+      "currency": "EGP"
+    },
+    "buttons": {
+      "addToCart": "Add to cart",
+      "adding": "Adding..."
+    },
+    "rating": {
+      "label": "Rating"
+    }
+  },
+  "TitleProduct": {
+    "productsYouMayLike": "Products you may like"
+  },
+  "no-related-products-found": "No related products found.",
+  "related-products": "Related Products",
+  "failed-to-load-related-products": "Failed to load related products",
+  "no-related-products-found-0": "No related products found",
+  "related-products-0": "Related Products",
+  "no-related-products-found-1": "No related products found.",
+  "product-reviews": "Product Reviews",
+  "sign-in": "Sign in",
+  "to-add-a-review": "to add a review.",
+  "your-rating": "Your rating:",
+  "title-0": "Title",
+  "review": "Review",
+  "general-rating": "General rating",
+  "no-related-products-found-2": "No related products found",
+  "rating-is-required": "Rating Is Required",
   "otp": {
     "sendNewCode": "Send a new code",
     "verifyOtp": "Verify OTP",
