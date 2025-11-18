@@ -21,7 +21,7 @@ import { PhoneInput } from '@/components/ui/phone-input';
 import { GetUserResponse } from '@/lib/types/user-data';
 import { useEditProfile } from '@/hooks/profile/use-edit-profile';
 import { useUploadProfileImage } from '@/hooks/profile/use-upload-profile-image';
-import { useDeleteAccount } from '@/hooks/profile/use-delete-account.action';
+import { useDeleteAccount } from '@/hooks/profile/use-delete-account';
 import ConfirmationModal from '@/components/shared/confirmation-modal';
 import { useTranslations } from 'next-intl';
 

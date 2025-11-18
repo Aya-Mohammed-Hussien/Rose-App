@@ -29,12 +29,12 @@ export default function ProductCard({ product }: ProductCardProps) {
   const isHot = quantity > 0 ? (sold / quantity) * 100 >= 20 : sold >= 100; // check if product is hot
 
   return (
-    <div key={product._id}>
+    <div className="w-[15.9625rem]" key={product._id}>
       {' '}
       {/* Product card wrapper */}
       <Link href={`/products/${product._id}`}>
         {/* Card content */}
-        <CardContent className="p-0 h-[272px] border-none rounded-xl w-full relative group overflow-hidden flex cursor-pointer">
+        <CardContent className="p-0 h-[272px]  border-none rounded-xl w-full relative group overflow-hidden flex cursor-pointer">
           {/* Wishlist button */}
           <div className="absolute z-50 top-3 left-3">
             <WishlistButton productId={product._id} />

@@ -3,7 +3,10 @@ import ToggleLocale from './top-header/toggle-locale';
 import LoginButton from './top-header/login-button';
 import SearchBar from './top-header/search-bar';
 import HeaderIcons from './top-header/header-icons';
-export default function TopHeader() {
+import { getUserData } from '@/lib/apis/profile/user-data.api';
+
+export default async function TopHeader() {
+  const userData = await getUserData();
   return (
     <div
       className="px-9 bg-white dark:bg-zinc-800 flex justify-center items-center text-zinc-700
@@ -20,6 +23,8 @@ export default function TopHeader() {
 
       {/* Search Bar */}
       <SearchBar />
+
+      <div>{userData.user.firstName}</div>
 
       {/* Login */}
       <LoginButton />

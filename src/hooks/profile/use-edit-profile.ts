@@ -30,7 +30,7 @@ export const useEditProfile = () => {
     mutationFn: (userData: Omit<profileValues, 'gender'>) => editProfile(userData),
 
     // On successful edit profile
-    onSuccess: (d) => {
+    onSuccess: () => {
       toast({
         variant: 'default',
         description: t('edit-profile-success'),
