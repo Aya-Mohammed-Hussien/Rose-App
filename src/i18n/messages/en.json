@@ -234,5 +234,16 @@
   "confirmation-modal": {
     "deleting": "Deleting..."
   },
-  "cancel-button-title": "Nope, not doing it"
+  "cancel-button-title": "Nope, not doing it",
+  "order-statistics": {
+    "orders-status": "Orders Status",
+    "revenue": {
+      "title": "Revenue",
+      "monthly-button": "Monthly",
+      "last-week-button": "Last Week"
+    },
+    "completed": "Completed",
+    "in-progress": "In progress",
+    "canceled": "Canceled"
+  }
 }

@@ -244,5 +244,16 @@
   },
   "confirmation-modal": {
     "deleting": "جارٍ الحذف..."
+  },
+  "order-statistics": {
+    "orders-status": "حالة الطلبات",
+    "revenue": {
+      "title": "الربح",
+      "monthly-button": "شهريا",
+      "last-week-button": "الأسبوع الماضي"
+    },
+    "completed": "مكتمل",
+    "in-progress": "في تَقَدم",
+    "canceled": "تم الإلغاء"
   }
 }
