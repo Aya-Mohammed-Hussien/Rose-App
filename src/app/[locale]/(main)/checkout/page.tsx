@@ -5,11 +5,17 @@ import Summary from './_components/summary';
 import { getCart } from '@/lib/apis/cart/cart.api';
 
 export default async function Page() {
+  // Addresses API
   const addresses = await getAddresses();
+  // Cart API
   const cart = await getCart();
+
   return (
     <main className="flex gap-10  mx-8 my-5">
+      {/* Checkout Flow - Controller */}
       <CheckoutFlow addresses={addresses} />
+
+      {/* Summary Section */}
       <Summary cartData={cart} />
     </main>
   );

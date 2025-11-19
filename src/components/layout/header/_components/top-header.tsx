@@ -3,10 +3,12 @@ import ToggleLocale from './top-header/toggle-locale';
 import LoginButton from './top-header/login-button';
 import SearchBar from './top-header/search-bar';
 import HeaderIcons from './top-header/header-icons';
-import { getUserData } from '@/lib/apis/profile/user-data.api';
-
+import HeaderDropdownMenu from './top-header/header-dropdown-menu';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/auth';
 export default async function TopHeader() {
-  const userData = await getUserData();
+  const session = await getServerSession(authOptions);
+
   return (
     <div
       className="px-9 bg-white dark:bg-zinc-800 flex justify-center items-center text-zinc-700
@@ -24,10 +26,8 @@ export default async function TopHeader() {
       {/* Search Bar */}
       <SearchBar />
 
-      <div>{userData.user.firstName}</div>
-
-      {/* Login */}
-      <LoginButton />
+      {/* Dropdown Menu for authenticated user & Login button for guests */}
+      {!session ? <LoginButton /> : <HeaderDropdownMenu session={session.user} />}
 
       {/* Icons  */}
       <HeaderIcons />

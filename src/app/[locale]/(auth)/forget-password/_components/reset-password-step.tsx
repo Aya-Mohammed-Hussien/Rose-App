@@ -1,5 +1,3 @@
-'use client';
-
 import SubmissionMessage from '@/components/shared/submission-message';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,67 +8,74 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/password-input';
-import { Link } from '@/i18n/navigation';
-import { LoginValues, useLoginSchema } from '@/lib/schemes/auth.schema';
+import { createPasswordValues, usePasswordValues } from '@/lib/schemes/forgotPassword.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
+import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import useLogin from '../_hooks/use-login';
-
-export default function LoginForm() {
+import { UseReset } from '../_hooks/use-reset';
+import { ResetData } from '@/lib/types/forgot-password';
+import { toast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+// Props
+type Props = {
+  email: string;
+};
+export default function ResetPasswordStep({ email }: Props) {
   // Translations
-  const t = useTranslations('auth.login.login-form');
-
-  const { loginSchema } = useLoginSchema();
+  const t = useTranslations();
+  // Navigate
+  const router = useRouter();
+  // Schema
+  const { passwordValues } = usePasswordValues();
   // Form
-  const form = useForm<LoginValues>({
+  const form = useForm<createPasswordValues>({
+    resolver: zodResolver(passwordValues),
     defaultValues: {
-      email: '',
-      password: '',
+      email: email,
+      newPassword: '',
+      rePassword: '',
     },
-    resolver: zodResolver(loginSchema),
   });
-
   // Mutation
-  const { isPending, error, login } = useLogin();
+  const { error, isPending, mutate: reset } = UseReset();
 
-  //Functions
-  const onSubmit: SubmitHandler<LoginValues> = (values) => {
-    login(values);
+  //Function
+  const onSubmit: SubmitHandler<createPasswordValues> = (values) => {
+    // Transform form data to match API expectations
+    const payload: ResetData = {
+      email: values.email,
+      newPassword: values.newPassword,
+    };
+    const payloadSender = {
+      email: payload.email,
+      newPassword: payload.newPassword,
+      rePassword: payload.newPassword,
+    };
+
+    // Router
+    reset(payloadSender, {
+      // Show success toast
+      onSuccess: () => {
+        router.push('/');
+        toast({
+          title: t('your-password-has-been-successfully-reset'),
+        });
+      },
+    });
   };
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-[25.375rem]">
         {/* Email */}
         <FormField
-          name="email"
+          name="newPassword"
           control={form.control}
           render={({ field }) => (
             <FormItem className="mb-4">
               {/* Form Label */}
-              <FormLabel>{t('email-label')}</FormLabel>
-
-              {/* Field */}
-              <FormControl>
-                <Input {...field} placeholder="user@example.com" type="email" />
-              </FormControl>
-              {/* Feedback */}
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* Password */}
-        <FormField
-          name="password"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem className="mb-2.5">
-              {/* Form Label */}
-              <FormLabel>{t('password-label')}</FormLabel>
+              <FormLabel>Password</FormLabel>
 
               {/* Field */}
               <FormControl>
@@ -82,13 +87,24 @@ export default function LoginForm() {
           )}
         />
 
-        {/* Forgot Password */}
-        <Link
-          href="/forget-password"
-          className="text-maroon-700 text-sm font-semibold dark:text-softPink-300 capitalize flex justify-end"
-        >
-          {t('forgot-password')}
-        </Link>
+        {/* Password */}
+        <FormField
+          name="rePassword"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem className="mb-2.5">
+              {/* Form Label */}
+              <FormLabel>Confirm Password</FormLabel>
+
+              {/* Field */}
+              <FormControl>
+                <PasswordInput {...field} placeholder="********" type="password" />
+              </FormControl>
+              {/* Feedback */}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         {/* Error Message  */}
         <SubmissionMessage>{error?.message}</SubmissionMessage>
@@ -101,7 +117,7 @@ export default function LoginForm() {
           disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)}
           className="capitalize w-full mt-9"
         >
-          {t('login-button')}
+          Reset Password
         </Button>
       </form>
     </Form>

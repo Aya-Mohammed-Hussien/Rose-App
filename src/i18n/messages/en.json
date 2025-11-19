@@ -12,7 +12,13 @@
     "top-nav": {
       "search-placeholder": "What awesome gift are you looking for?",
       "login": "Login",
-      "locale-button": "العربية"
+      "locale-button": "العربية",
+      "hello": "Hello",
+      "profile": "My Profile",
+      "addresses": "My Addresses",
+      "orders": "My Orders",
+      "dashboard": "Dashboard",
+      "logout": "Log out"
     }
   },
   "footer": {
@@ -31,7 +37,7 @@
   },
   "forgotPassword": {
     "title": "Forgot Password",
-    "subtitle": "Don’t worry, we’ll help you recover your account.",
+    "subtitle": "Don't worry, we'll help you recover your account.",
     "email": "Email address",
     "placeholder": "you@example.com",
     "button": "Continue",
@@ -39,7 +45,7 @@
     "waitMessage": "Please wait until the timer ends before requesting again.",
     "countdownMessage": "You cannot ask for another OTP right now, please wait for {seconds} seconds",
     "error": "An error occurred while sending, please try again.",
-    "noAccount": "Don’t have an account?",
+    "noAccount": "Don't have an account?",
     "createAccount": "Create yours"
   },
   "resetPassword": {
@@ -80,7 +86,7 @@
         "forgot-password": "Forgot your password?",
         "login-button": "Login"
       },
-      "register-prompt": "Don’t have an account yet?",
+      "register-prompt": "Don't have an account yet?",
       "register-link": "Create one now!"
     }
   },
@@ -215,6 +221,31 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
+  "otp": {
+    "sendNewCode": "Send a new code",
+    "verifyOtp": "Verify OTP",
+    "needHelp": "Need help?",
+    "contactUs": "Contact us",
+    "sentCode": "We have sent a 6-digit code to {email}",
+    "enterCode": "Enter the OTP Code",
+    "edit": "Edit"
+  },
+  "relatedProducts": {
+    "title": "Related Products",
+    "noProducts": "No related products found.",
+    "loadError": "Failed to load related products"
+  },
+  "reviews": {
+    "title": "Product Reviews",
+    "signInPrompt": "Sign in to add a review.",
+    "yourRating": "Your rating:",
+    "reviewTitle": "Title",
+    "reviewComment": "Review",
+    "generalRating": "General rating",
+    "addReview": "Add Review",
+    "signInToReview": "Sign in to add review",
+    "ratingRequired": "Rating Is Required"
+  },
   "validation": {
     "review": {
       "rating": {
@@ -234,5 +265,72 @@
   "confirmation-modal": {
     "deleting": "Deleting..."
   },
-  "cancel-button-title": "Nope, not doing it"
+  "cancel-button-title": "Nope, not doing it",
+  "email": {
+    "required": "Email is required",
+    "invalid": "Invalid email address"
+  },
+  "otp": {
+    "required": "Please enter the 6-digit code",
+    "length": "The code must be 6 digits"
+  },
+  "password": {
+    "email-is-required": "Email is Required",
+    "invalid-email-address-0": "Invalid email address",
+    "password-must-contain-one-digit-from-1-to-9": "Password must contain one digit from 1 to 9",
+    "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
+    "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
+    "password-must-contain-one-special-character": "Password must contain one special character",
+    "password-must-not-contain-any-spaces": "ust not contain any spaces",
+    "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
+    "please-confirm-your-password": "Please confirm your password",
+    "passwords-dont-match-repassword": "Passwords don't match RePassword",
+    "passwords-not-match-repassword": "Passwords Not match RePassword",
+    "passwords-not-match": "Passwords Not Match"
+  },
+  "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
+  "forgot-password": "ForgotPassword",
+  "email": "Email",
+  "don't-have-an-account": "Don't Have an Account",
+  "create-yours": "Create yours",
+  "don't-have-an-account-yet": "Don’t have an account yet?",
+  "create-one-now": "Create one now!",
+  "email-send-successfully": "Email Send successfully",
+  "dont-have-an-account-yet": "Don’t have an account yet?",
+  "send-a-new-code": "Send a new code",
+  "verify-otp": "Verify Otp",
+  "we-have-sent-a-6-digit-code-to": "We have sent a 6-digit code to",
+  "edit": "Edit",
+  "enter-the-otp-code": "Enter the OTP Code",
+  "contact-us": "Contact Us",
+  "otp-code-send-successfully": "Otp Code Send Successfully",
+  "continue": "Continue",
+  "email-is-required": "Email is required",
+  "invalid-email-address": "Invalid email address",
+  "invalid-email-address-0": "Invalid email address",
+  "password-must-contain-one-digit-from-1-to-9": "Password must contain one digit from 1 to 9",
+  "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
+  "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
+  "password-must-contain-one-special-character": "Password must contain one special character",
+  "password-must-not-contain-any-spaces": "Password must not contain any spaces",
+  "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
+  "please-confirm-your-password": "Please confirm your password",
+  "passwords-dont-match-repassword": "Passwords don't match RePassword",
+  "passwords-not-match-repassword": "Passwords Not match RePassword",
+  "passwords-not-match": "Passwords not match",
+  "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
+  "no-orders-found": "No orders found",
+  "payment-method": "Payment Method",
+  "delivery-status": "Delivery Status",
+  "delivered": "Delivered",
+  "pending": "Pending",
+  "canceled": "Canceled",
+  "order-items": "Order Items",
+  "no-items-in-this-order": "No items in this order",
+  "show-all": "Show All",
+  "orders": "Orders",
+  "status": "Status",
+  "paid": "✓ Paid",
+  "total-price": "Total Price",
+  "egp": "EGP"
 }
