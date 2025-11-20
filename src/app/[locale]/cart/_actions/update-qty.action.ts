@@ -1,9 +1,10 @@
 'use server';
 
+import { getToken } from "@/lib/utils/get-token.util";
+
 // Functions
 // Handles updating a cart item's quantity on the server.
 // Requires user authentication via token.
-import { getToken } from '@/lib/utils/get-token';
 
 export async function updateCartItemQtyAction({ id, quantity }: { id: string; quantity: number }) {
   // --- Get token for authenticated request ---

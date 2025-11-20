@@ -162,6 +162,19 @@
   "TitleProduct": {
     "productsYouMayLike": "منتجات قد تعجبك"
   },
+  "dashboardNav": {
+    "overview": "نظرة عامة",
+    "categories": "التصنيفات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  },
+  "previewButton": {
+    "previewWebsite": "معاينة الموقع"
+  },
+  "UserMenuItems": {
+    "account": "الحساب",
+    "logout": "تسجيل الخروج"
+  },
   "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
   "related-products": "المنتجات ذات الصلة",
   "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",

@@ -12,6 +12,7 @@ export default async function middelware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const pathnameWithoutLocale = '/' + pathname.split('/').slice(2).join('/') || '/';
   const token = await getToken({ req: request });
+
   // 1-Auth routes
   if (authRoutes.includes(pathnameWithoutLocale)) {
     if (token) {
@@ -22,6 +23,7 @@ export default async function middelware(request: NextRequest) {
       return response;
     }
   }
+
   // 2-Allow unauthenticated users to access public routes + product details
   if (
     publicRoutes.includes(pathnameWithoutLocale) ||
@@ -29,6 +31,7 @@ export default async function middelware(request: NextRequest) {
   ) {
     return response;
   }
+
   // 3- Protect other routes ,redirect unauthenticated users
   if (!token) {
     // - Unauthenticated , redirect to login
@@ -36,6 +39,12 @@ export default async function middelware(request: NextRequest) {
     redirectUrl.searchParams.set('callbackUrl', pathname);
     return NextResponse.redirect(redirectUrl);
   }
+
+  // admin-only protection for dashboard
+  if (pathnameWithoutLocale.startsWith('/dashboard') && token.user.role !== 'admin') {
+    return NextResponse.redirect(new URL('/', request.nextUrl.origin));
+  }
+
   // 4- Authenticated users can access protected routes
   return response;
 }

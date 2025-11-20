@@ -3,6 +3,7 @@ declare interface User {
   firstName: string;
   lastName: string;
   photo: string;
+  email: string;
 }
 
 declare interface FeaturedTestimonials {

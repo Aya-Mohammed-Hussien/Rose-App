@@ -238,6 +238,19 @@
       "passwords-not-match": "Passwords Not Match"
     }
   },
+   "dashboardNav": {
+    "overview": "Overview",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "products": "Products"
+  },
+  "previewButton": {
+    "previewWebsite": "Preview website"
+  },
+  "UserMenuItems": {
+    "account": "Account",
+    "logout": "Log out"
+  },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",
   "email": "Email",

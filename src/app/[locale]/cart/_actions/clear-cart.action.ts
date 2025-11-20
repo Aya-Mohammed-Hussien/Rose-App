@@ -1,8 +1,9 @@
 'use server';
 
+import { getToken } from "@/lib/utils/get-token.util";
+
 // Functions
 // Clears all items from the user's cart.
-import { getToken } from '@/lib/utils/get-token';
 
 const API = process.env.NEXT_PUBLIC_API;
 export async function clearCartAction() {
