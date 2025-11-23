@@ -109,7 +109,7 @@ export default function CategoriesFilter() {
                   <div
                     className={cn(
                       // base
-                      'flex-1   capitalize pl-2 text-zinc-800  font-medium ',
+                      'flex-1 capitalize pl-2 text-zinc-800  font-medium ',
                       // isActive
                       !isSelected ? 'bg-zinc-200 hover:bg-zinc-300' : 'bg-maroon-50'
                     )}
