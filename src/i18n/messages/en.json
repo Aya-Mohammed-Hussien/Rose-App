@@ -90,6 +90,7 @@
       "register-link": "Create one now!"
     }
   },
+
   "price": {
     "title": "Price",
     "reset": "Reset",
@@ -286,7 +287,7 @@
     "total_orders": "Total orders",
     "total_categories": "Total categories",
     "total_revenue": "Total revenue",
-    "no_categories_found" :"No Categories Found"
+    "no_categories_found": "No Categories Found"
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",
