@@ -186,7 +186,8 @@
     "total_products": "Total products",
     "total_orders": "Total orders",
     "total_categories": "Total categories",
-    "total_revenue": "Total revenue"
+    "total_revenue": "Total revenue",
+    "no_categories_found" :"No Categories Found"
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",

@@ -13,7 +13,7 @@ export const getOverallStatistics = async (): Promise<OverallStatisticsResponse>
     const token = await getToken();
 
     // Send a GET request to the /categories endpoint
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API}/statistics/overall`, {
+    const response = await fetch(`${process.env.API_URL}/statistics/overall`, {
       method: 'GET',
       headers: {
         // Include the token in the Authorization header
