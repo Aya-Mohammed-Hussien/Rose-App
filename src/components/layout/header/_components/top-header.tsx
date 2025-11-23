@@ -31,7 +31,7 @@ export default async function TopHeader() {
       <SearchBar />
 
       {/* Dropdown Menu for authenticated user & Login button for guests */}
-      {!session ? <LoginButton /> : <HeaderDropdownMenu session ={session.user}/>}
+      {!session ? <LoginButton /> : <HeaderDropdownMenu session={session.user} />}
 
       {/* Icons  */}
       <HeaderIcons />

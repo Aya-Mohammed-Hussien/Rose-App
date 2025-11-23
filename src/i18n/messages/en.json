@@ -37,7 +37,7 @@
   },
   "forgotPassword": {
     "title": "Forgot Password",
-    "subtitle": "Don’t worry, we’ll help you recover your account.",
+    "subtitle": "Don't worry, we'll help you recover your account.",
     "email": "Email address",
     "placeholder": "you@example.com",
     "button": "Continue",
@@ -45,7 +45,7 @@
     "waitMessage": "Please wait until the timer ends before requesting again.",
     "countdownMessage": "You cannot ask for another OTP right now, please wait for {seconds} seconds",
     "error": "An error occurred while sending, please try again.",
-    "noAccount": "Don’t have an account?",
+    "noAccount": "Don't have an account?",
     "createAccount": "Create yours"
   },
   "resetPassword": {
@@ -86,16 +86,11 @@
         "forgot-password": "Forgot your password?",
         "login-button": "Login"
       },
-      "register-prompt": "Don’t have an account yet?",
+      "register-prompt": "Don't have an account yet?",
       "register-link": "Create one now!"
     }
   },
-  "dashboard": {
-    "overview-product-top-and-stock": {
-      "Top Selling Products": " Top Selling Products",
-      "Low Stock Products": "  Low Stock Products "
-    }
-  },
+
   "price": {
     "title": "Price",
     "reset": "Reset",
@@ -125,13 +120,86 @@
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
   },
-  "send-a-new-code": "Send a new code",
-  "verify-otp": "Verify OTP",
-  "need-help": "Need help?",
-  "contact-us": "Contact us",
-  "we-have-sent-a-6-digit-code-to-user-example-com": "We have sent a 6-digit code to user@example.com",
-  "enter-the-otp-code": "Enter the OTP Code",
-  "edit": "Edit",
+  "profile": {
+    "my-account": {
+      "upload-photo": "Upload Photo",
+      "upload-photo-description": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "email": "Email",
+      "phone-number": "Phone",
+      "gender": "Gender",
+      "delete-account": "Delete My Account",
+      "save-changes": "Save Changes",
+      "confirmation-modal": {
+        "confirm-button-title": "Yes, delete",
+        "cancel-button-title": "Nope, not doing it",
+        "question-title": "Are you sure you want to delete your account?",
+        "warning-title": "This action is permanent and cannot be undone."
+      },
+      "toast": {
+        "success-message": "Your account has been deleted successfully",
+        "error-message": "Unexpected error occurred",
+        "edit-profile-success": "Your profile changes have been saved successfully.",
+        "edit-profile-error": "Something went wrong while saving profile.",
+        "upload-image-success": "Profile image updated successfully",
+        "upload-image-error": "Failed to upload image"
+      },
+      "validation": {
+        "first-name": {
+          "format": "Invalid name format",
+          "minimum": "Name must be at least 2 characters",
+          "maximum": "Name must be less than 30 characters"
+        },
+        "last-name": {
+          "format": "Invalid name format",
+          "minimum": "Name must be at least 2 characters",
+          "maximum": "Name must be less than 30 characters"
+        },
+        "email": {
+          "minimum": "Email is required",
+          "invalid-email": "Invalid email address"
+        },
+        "phone": {
+          "minimum": "Phone is required",
+          "valid-phone": "Please enter a valid phone number"
+        }
+      }
+    },
+    "change-password": {
+      "old-password": "Old Password",
+      "new-password": "New Password",
+      "confirm-new-password": "Confirm New Password",
+      "change-password-button": "Change Password",
+      "toast": {
+        "success-message": "Your password has been changed successfully"
+      },
+      "validation": {
+        "password": {
+          "minimum": "Password is required",
+          "digit": "Password must contain one digit from 1 to 9",
+          "lowercase": "Password must contain one lowercase letter",
+          "uppercase": "Password must contain one uppercase letter",
+          "special-character": "Password must contain one special character",
+          "spaces": "Password must not contain any spaces",
+          "range": "Password must be 8-25 characters long"
+        },
+        "new-password": {
+          "minimum": "Please confirm your password",
+          "new-different-old": "New password must be different from old password"
+        },
+        "confirm-new-password": {
+          "confirm-match-new-password": "Passwords don't match"
+        }
+      }
+    },
+    "title": "Update Profile",
+    "sidebar": {
+      "change-password": "Change Password",
+      "my-account": "My Account",
+      "logout-button": "Logout"
+    }
+  },
   "no-related-products-found": "No related products found.",
   "related-products": "Related Products",
   "failed-to-load-related-products": "Failed to load related products",
@@ -147,6 +215,33 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
+  "otp": {
+    "sendNewCode": "Send a new code",
+    "verifyOtp": "Verify OTP",
+    "needHelp": "Need help?",
+    "contactUs": "Contact us",
+    "sentCode": "We have sent a 6-digit code to {email}",
+    "enterCode": "Enter the OTP Code",
+    "edit": "Edit",
+    "required": "Please enter the 6-digit code",
+    "length": "The code must be 6 digits"
+  },
+  "relatedProducts": {
+    "title": "Related Products",
+    "noProducts": "No related products found.",
+    "loadError": "Failed to load related products"
+  },
+  "reviews": {
+    "title": "Product Reviews",
+    "signInPrompt": "Sign in to add a review.",
+    "yourRating": "Your rating:",
+    "reviewTitle": "Title",
+    "reviewComment": "Review",
+    "generalRating": "General rating",
+    "addReview": "Add Review",
+    "signInToReview": "Sign in to add review",
+    "ratingRequired": "Rating Is Required"
+  },
   "validation": {
     "review": {
       "rating": {
@@ -162,5 +257,67 @@
     }
   },
   "add-review": "Add Review",
-  "sign-in-to-add-review": "Sign in to add review"
+  "sign-in-to-add-review": "Sign in to add review",
+  "confirmation-modal": {
+    "deleting": "Deleting..."
+  },
+  "cancel-button-title": "Nope, not doing it",
+  "email": {
+    "required": "Email is required",
+    "invalid": "Invalid email address"
+  },
+  "password": {
+    "email-is-required": "Email is Required",
+    "invalid-email-address-0": "Invalid email address",
+    "password-must-contain-one-digit-from-1-to-9": "Password must contain one digit from 1 to 9",
+    "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
+    "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
+    "password-must-contain-one-special-character": "Password must contain one special character",
+    "password-must-not-contain-any-spaces": "ust not contain any spaces",
+    "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
+    "please-confirm-your-password": "Please confirm your password",
+    "passwords-dont-match-repassword": "Passwords don't match RePassword",
+    "passwords-not-match-repassword": "Passwords Not match RePassword",
+    "passwords-not-match": "Passwords Not Match"
+  },
+  "dashboard": {
+    "all_categories": "All Categories",
+    "product_count": "{count , plural , =0 {product} one {Product} other {products}}",
+    "total_products": "Total products",
+    "total_orders": "Total orders",
+    "total_categories": "Total categories",
+    "total_revenue": "Total revenue",
+    "no_categories_found": "No Categories Found"
+  },
+  "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
+  "forgot-password": "ForgotPassword",
+  "don't-have-an-account": "Don't Have an Account",
+  "create-yours": "Create yours",
+  "don't-have-an-account-yet": "Don’t have an account yet?",
+  "create-one-now": "Create one now!",
+  "email-send-successfully": "Email Send successfully",
+  "dont-have-an-account-yet": "Don’t have an account yet?",
+  "send-a-new-code": "Send a new code",
+  "verify-otp": "Verify Otp",
+  "we-have-sent-a-6-digit-code-to": "We have sent a 6-digit code to",
+  "edit": "Edit",
+  "enter-the-otp-code": "Enter the OTP Code",
+  "contact-us": "Contact Us",
+  "otp-code-send-successfully": "Otp Code Send Successfully",
+  "continue": "Continue",
+  "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
+  "no-orders-found": "No orders found",
+  "payment-method": "Payment Method",
+  "delivery-status": "Delivery Status",
+  "delivered": "Delivered",
+  "pending": "Pending",
+  "canceled": "Canceled",
+  "order-items": "Order Items",
+  "no-items-in-this-order": "No items in this order",
+  "show-all": "Show All",
+  "orders": "Orders",
+  "status": "Status",
+  "paid": "✓ Paid",
+  "total-price": "Total Price",
+  "egp": "EGP"
 }

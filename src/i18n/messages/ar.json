@@ -69,7 +69,7 @@
     "alreadyAccount": "هل لديك حساب؟",
     "login": "تسجيل الدخول",
     "CreateAccount": "إنشاء حساب",
-    "gender": "العمر",
+    "gender": "الجنس",
     "phone": "رقم الهاتف"
   },
   "auth": {
@@ -90,12 +90,7 @@
       "register-link": "أنشئ حسابك الآن!"
     }
   },
-  "dashboard": {
-    "overview-product-top-and-stock": {
-      "Top Selling Products": " المنتجات الأكثر مبيعا",
-      "Low Stock Products": " المنتجات منخفضة المخزون"
-    }
-  },
+
   "price": {
     "title": "السعر",
     "reset": "إعادة تعيين",
@@ -125,38 +120,30 @@
     "outOfStock": "نفذت الكمية",
     "addToCart": "أضف إلى السلة"
   },
-  "contact-us": "اتصل بنا",
-  "need-help": "بحاجة إلى مساعدة؟",
-  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
-  "send-a-new-code": "إرسال رمز جديد",
-  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
-  "enter-the-otp-code": "أدخل رمز OTP",
-  "edit": "حرر",
-  "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
-  "related-products": "المنتجات ذات الصلة",
-  "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
-  "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
-  "related-products-0": "المنتجات ذات الصلة",
-  "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
-  "product-reviews": "مراجعات المنتج",
-  "sign-in": "تسجيل الدخول",
-  "to-add-a-review": "لإضافة مراجعة.",
-  "your-rating": "تقييمك:",
-  "title-0": "عنوان",
-  "review": "مراجعة",
-  "general-rating": "التقييم العام",
-  "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
-  "rating-is-required": "التقييم مطلوب",
+  "otp": {
+    "sendNewCode": "إرسال رمز جديد",
+    "verifyOtp": "التحقق من رمز OTP",
+    "needHelp": "تحتاج مساعدة؟",
+    "contactUs": "اتصل بنا",
+    "sentCode": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى {email}",
+    "enterCode": "أدخل رمز OTP",
+    "edit": "تعديل"
+  },
+  "relatedProducts": {
+    "title": "المنتجات ذات الصلة",
+    "noProducts": "لم يتم العثور على منتجات ذات صلة.",
+    "loadError": "فشل في تحميل المنتجات ذات الصلة"
+  },
   "reviews": {
-    "validation": {
-      "rating-is-required-0": "التقييم مطلوب",
-      "rating-must-be-at-least-1": "يجب أن يكون التقييم على الأقل 1",
-      "rating-cannot-exceed-5": "لا يمكن أن يتجاوز التقييم 5",
-      "tittle-is-required": "العنوان مطلوب",
-      "title-is-required": "العنوان مطلوب",
-      "review-is-required": "المراجعة مطلوبة",
-      "comment-is-required": "التعليق مطلوب"
-    }
+    "title": "مراجعات المنتج",
+    "signInPrompt": "تسجيل الدخول لإضافة مراجعة.",
+    "yourRating": "تقييمك:",
+    "reviewTitle": "العنوان",
+    "reviewComment": "المراجعة",
+    "generalRating": "التقييم العام",
+    "addReview": "أضف مراجعة",
+    "signInToReview": "تسجيل الدخول لإضافة مراجعة",
+    "ratingRequired": "التقييم مطلوب"
   },
   "validation": {
     "review": {
@@ -170,8 +157,154 @@
       "comment": {
         "required": "التعليق مطلوب"
       }
+    },
+    "email": {
+      "required": "البريد الإلكتروني مطلوب",
+      "invalid": "البريد الإلكتروني غير صحيح"
+    },
+    "otp": {
+      "required": "من فضلك أدخل الرمز المكوّن من 6 أرقام",
+      "length": "يجب أن يتكون الرمز من 6 أرقام"
+    },
+    "password": {
+      "email-is-required": "البريد الإلكتروني مطلوب",
+      "invalid-email-address": "",
+      "invalid-email-address-0": "عنوان البريد الإلكتروني غير صالح",
+      "password-must-contain-one-digit-from-1-to-9": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
+      "password-must-contain-one-lowercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
+      "password-must-contain-one-uppercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
+      "password-must-contain-one-special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
+      "password-must-not-contain-any-spaces": "يجب ألا تحتوي على أي مسافات",
+      "password-must-be-8-25-characters-long": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا",
+      "please-confirm-your-password": "يرجى تأكيد كلمة المرور الخاصة بك",
+      "passwords-dont-match-repassword": "كلمات المرور غير متطابقه",
+      "passwords-not-match-repassword": "كلمات المرور غير متطابقه",
+      "passwords-not-match": "كلمات المرور غير متطابقة"
     }
   },
+  "dashboard": {
+    "all_categories": "كل الفئات",
+    "product_count": "{count, plural, =0 {منتج} one {منتج} two {منتج} few {منتجات} many {منتج} other {منتج}}",
+    "total_products": "إجمالي المنتجات",
+    "total_orders": "إجمالي الطلبات",
+    "total_categories": "إجمالي الفئات",
+    "total_revenue": "إجمالي الإيرادات",
+    "no_categories_found": "لا توجد فئات"
+  },
+  "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
+  "forgot-password": "هل نسيت كلمة السر",
+  "dont-have-an-account": "ليس لديك حساب؟",
+  "create-yours": "إنشاء لك",
+  "continue": "استمر",
+  "email": "بريد إلكتروني",
+  "dont-have-an-account-yet": "ليس لديك حساب حتى الآن؟",
+  "create-one-now": "قم بإنشاء ايميل الآن!",
+  "email-send-successfully": "تم إرسال البريد الإلكتروني بنجاح ",
+  "send-a-new-code": "إرسال رمز جديد",
+  "verify-otp": "التحقق من Otp",
+  "we-have-sent-a-6-digit-code-to": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى",
+  "edit": "حرر",
+  "enter-the-otp-code": "أدخل رمز OTP",
+  "contact-us": "اتصل بنا",
+  "otp-code-send-successfully": "تم ارسال كود التأكيد بنجاح",
+  "your-password-has-been-successfully-reset": "لقد تم إعادة تعيين كلمة المرور الخاصة بك بنجاح.",
+  "no-orders-found": "لم يتم العثور على أي اوردر",
+  "payment-method": "طريقة الدفع",
+  "delivery-status": "حالة التسليم",
+  "delivered": "تم التوصيل",
+  "pending": "قيد الانتظار",
+  "canceled": "تم الإلغاء",
+  "order-items": "عناصر الطلب",
+  "no-items-in-this-order": "لا توجد عناصر في هذا الطلب",
+  "show-all": "إظهار الكل",
+  "orders": "طلبات",
+  "status": "الحاله",
+  "paid": "✓ مدفوع",
+  "total-price": "السعر الإجمالي",
+  "egp": "جنيه مصري",
   "add-review": "أضف مراجعة",
-  "sign-in-to-add-review": "تسجيل الدخول لإضافة مراجعة"
+  "sign-in-to-add-review": "تسجيل الدخول لإضافة مراجعة",
+  "profile": {
+    "my-account": {
+      "upload-photo": "تحميل الصورة",
+      "upload-photo-description": "يمكنك رفع صورة بصيغة ‎.jpg أو ‎.png أو ‎.gif بحدّ أقصى 5 ميجابايت.",
+      "first-name": "الاسم الأول",
+      "last-name": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "phone-number": "رقم الهاتف",
+      "gender": "النوع",
+      "delete-account": "حذف حسابي",
+      "save-changes": "حفظ التغييرات",
+      "confirmation-modal": {
+        "confirm-button-title": "نعم احذف",
+        "cancel-button-title": "لا، لا تفعل ذلك",
+        "question-title": "هل أنت متأكد أنك تريد حذف حسابك؟",
+        "warning-title": "هذا الإجراء دائم ولا يمكن التراجع عنه."
+      },
+      "toast": {
+        "success-message": "لقد تم حذف حسابك بنجاح",
+        "error-message": "حدث خطأ غير متوقع",
+        "edit-profile-success": "تم حفظ تغييرات ملفك الشخصي بنجاح.",
+        "edit-profile-error": "حدث خطأ ما أثناء حفظ الملف الشخصي.",
+        "upload-image-success": "تم تحديث صورة الملف الشخصي بنجاح",
+        "upload-image-error": "فشل تحميل الصورة"
+      },
+      "validation": {
+        "first-name": {
+          "format": "تنسيق الاسم غير صالح",
+          "minimum": "يجب أن يتكون الاسم من حرفين على الأقل",
+          "maximum": "يجب أن يكون الاسم أقل من 30 حرفًا"
+        },
+        "last-name": {
+          "format": "تنسيق الاسم غير صالح",
+          "maximum": "يجب أن يكون الاسم أقل من 30 حرفًا",
+          "minimum": "يجب أن يتكون الاسم من حرفين على الأقل"
+        },
+        "email": {
+          "minimum": "البريد الإلكتروني مطلوب",
+          "invalid-email": "عنوان البريد الإلكتروني غير صالح"
+        },
+        "phone": {
+          "minimum": "الهاتف مطلوب",
+          "valid-phone": "الرجاء إدخال رقم هاتف صالح"
+        }
+      }
+    },
+    "change-password": {
+      "old-password": "كلمة المرور القديمة",
+      "new-password": "كلمة المرور الجديدة",
+      "confirm-new-password": "تأكيد كلمة المرور الجديدة",
+      "change-password-button": "تغيير كلمة المرور",
+      "toast": {
+        "success-message": "لقد تم تغيير كلمة المرور الخاصة بك بنجاح"
+      },
+      "validation": {
+        "password": {
+          "minimum": "كلمة المرور مطلوبة",
+          "digit": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
+          "lowercase": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
+          "uppercase": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
+          "special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
+          "spaces": "يجب ألا تحتوي كلمة المرور على أية مسافات",
+          "range": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا"
+        },
+        "new-password": {
+          "minimum": "يرجى تأكيد كلمة المرور الخاصة بك",
+          "new-different-old": "كلمة المرور الجديدة يجب أن تكون مختلفة عن كلمة المرور القديمة"
+        },
+        "confirm-new-password": {
+          "confirm-match-new-password": "كلمات المرور غير متطابقة"
+        }
+      }
+    },
+    "title": "تحديث الملف الشخصي",
+    "sidebar": {
+      "change-password": "تغيير كلمة المرور",
+      "my-account": "حسابي",
+      "logout-button": "تسجيل الخروج"
+    }
+  },
+  "confirmation-modal": {
+    "deleting": "جارٍ الحذف..."
+  }
 }
