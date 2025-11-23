@@ -3,8 +3,8 @@ import { routing } from './i18n/routing';
 import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 // Auth & Public Routes
-const authRoutes = ['/login', '/register', '/forgot-password', '/verify-otp', '/reset-password'];
-const publicRoutes = ['/', '/products', '/cart'];
+const authRoutes = ['/login', '/register', '/forgot-password', 'forget-password'];
+const publicRoutes = ['/', '/products', '/cart' , "/dashboard"];
 // Locale Detection
 const intlMiddleWare = createMiddleware(routing);
 export default async function middelware(request: NextRequest) {
