@@ -30,13 +30,13 @@ import Link from "next/link";
 type MyAccountProps = {
     userData: GetUserResponse;
 };
-
 export default function ProfileAccount({ userData }: MyAccountProps) {
 
     // Translation
     const t = useTranslations('profile.my-account');
     const tValidation = useTranslations('profile.my-account.validation');
     const profileSchema = ProfileSchema(tValidation);
+
     // State
     const [preview, setPreview] = useState<string | null>(null);
 
@@ -55,11 +55,12 @@ export default function ProfileAccount({ userData }: MyAccountProps) {
 
     // Ref
     const fileInputRef = useRef<HTMLInputElement>(null);
+
     // Trigger file input click
     const handleUploadClick = () => {
         fileInputRef.current?.click();
     };
-    // Mutation
+
     // Mutation
     const { mutate: editProfile, isPending } = useEditProfile();
     const { deleteMyAccount, isPendingDelete } = useDeleteAccount();
@@ -89,12 +90,14 @@ export default function ProfileAccount({ userData }: MyAccountProps) {
             });
         }
     };
+
     // Functions
     // Submit handler for saving profile changes
     const onSubmit: SubmitHandler<profileValues> = (value) => {
         const { gender, ...payload } = value;
         editProfile(payload);
     };
+
     // Effects
     useEffect(() => {
         // Fill form inputs when user data is loaded from server
@@ -111,7 +114,11 @@ export default function ProfileAccount({ userData }: MyAccountProps) {
             setPreview(null);
         }
     }, [userData, form]);
-    return <section className="w-full my-5 ">
+
+    return <section className="w-full my-5  ">
+        <h4 className="text-zinc-800 font-semibold text-2xl m-5 w-3/4">
+            {t('account-settings')}
+        </h4>
         <header className="w-full flex items-center gap-4 h-28  shadow-sm p-5 ">
             {/* Profile Picture */}
             <div className="relative">
@@ -125,7 +132,6 @@ export default function ProfileAccount({ userData }: MyAccountProps) {
                         {userData.user.firstName?.charAt(0).toUpperCase()}
                         {userData.user.lastName?.charAt(0).toUpperCase()}
                     </AvatarFallback>
-
                     {/* Show loader overlay while uploading */}
                     {isPendingImage && (
                         <div className="absolute inset-0 bg-white/60 flex items-center justify-center rounded-full">
@@ -169,7 +175,6 @@ export default function ProfileAccount({ userData }: MyAccountProps) {
             </div>
         </header>
         <Form {...form}>
-            {/* ✨ أضفت shadow-md و rounded-lg و p-6 لحاوية النموذج */}
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[0.625rem] shadow-md rounded-lg p-6 mt-4">
                 {/* First Name and Last Name Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-5">

@@ -162,8 +162,10 @@
         "phone": {
           "minimum": "Phone is required",
           "valid-phone": "Please enter a valid phone number"
-        }
-      }
+        },
+        "account-settings": "Account Settings"
+      },
+      "account-settings": "Account Settings"
     },
     "change-password": {
       "old-password": "Old Password",
@@ -200,9 +202,9 @@
     }
   },
   "send-a-new-code": "Send a new code",
-  "verify-otp": "Verify OTP",
+  "verify-otp": "Verify Otp",
   "need-help": "Need help?",
-  "contact-us": "Contact us",
+  "contact-us": "Contact Us",
   "we-have-sent-a-6-digit-code-to-user-example-com": "We have sent a 6-digit code to user@example.com",
   "enter-the-otp-code": "Enter the OTP Code",
   "edit": "Edit",
@@ -222,13 +224,8 @@
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
   "otp": {
-    "sendNewCode": "Send a new code",
-    "verifyOtp": "Verify OTP",
-    "needHelp": "Need help?",
-    "contactUs": "Contact us",
-    "sentCode": "We have sent a 6-digit code to {email}",
-    "enterCode": "Enter the OTP Code",
-    "edit": "Edit"
+    "required": "Please enter the 6-digit code",
+    "length": "The code must be 6 digits"
   },
   "relatedProducts": {
     "title": "Related Products",
@@ -266,14 +263,7 @@
     "deleting": "Deleting..."
   },
   "cancel-button-title": "Nope, not doing it",
-  "email": {
-    "required": "Email is required",
-    "invalid": "Invalid email address"
-  },
-  "otp": {
-    "required": "Please enter the 6-digit code",
-    "length": "The code must be 6 digits"
-  },
+  "email": "Email",
   "password": {
     "email-is-required": "Email is Required",
     "invalid-email-address-0": "Invalid email address",
@@ -290,19 +280,13 @@
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",
-  "email": "Email",
   "don't-have-an-account": "Don't Have an Account",
   "create-yours": "Create yours",
   "don't-have-an-account-yet": "Don’t have an account yet?",
   "create-one-now": "Create one now!",
   "email-send-successfully": "Email Send successfully",
   "dont-have-an-account-yet": "Don’t have an account yet?",
-  "send-a-new-code": "Send a new code",
-  "verify-otp": "Verify Otp",
   "we-have-sent-a-6-digit-code-to": "We have sent a 6-digit code to",
-  "edit": "Edit",
-  "enter-the-otp-code": "Enter the OTP Code",
-  "contact-us": "Contact Us",
   "otp-code-send-successfully": "Otp Code Send Successfully",
   "continue": "Continue",
   "email-is-required": "Email is required",
@@ -332,5 +316,6 @@
   "status": "Status",
   "paid": "✓ Paid",
   "total-price": "Total Price",
-  "egp": "EGP"
+  "egp": "EGP",
+  "account-settings": "Account Settings"
 }

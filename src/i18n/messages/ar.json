@@ -257,8 +257,10 @@
         "phone": {
           "minimum": "الهاتف مطلوب",
           "valid-phone": "الرجاء إدخال رقم هاتف صالح"
-        }
-      }
+        },
+        "account-settings": "اعدادات الحساب "
+      },
+      "account-settings": "إعدادات الحساب"
     },
     "change-password": {
       "old-password": "كلمة المرور القديمة",
