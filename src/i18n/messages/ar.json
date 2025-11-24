@@ -188,7 +188,22 @@
     "total_orders": "إجمالي الطلبات",
     "total_categories": "إجمالي الفئات",
     "total_revenue": "إجمالي الإيرادات",
-    "no_categories_found": "لا توجد فئات"
+    "no_categories_found": "لا توجد فئات",
+    "add_a_new_product": "اضف منتج جديد",
+    "product_validation": {
+      "product_title": "عنوان المنتج مطلوب",
+      "description": "وصف المنتج مطلوب",
+      "price": "الرجاء إدخال سعر صحيح",
+      "quantity": "كمية المنتج مطلوبة",
+      "product_cover": "صورة الغلاف مطلوبة",
+      "product_gallery": "صور معرض المنتج مطلوبة",
+      "category": "الرجاء اختيار فئة للمنتج",
+      "occasion": "الرجاء اختيار مناسبة للمنتج",
+      "add_product_message": {
+        "successful_adding": "تمت إضافة المنتج بنجاح",
+        "Failed_adding": "فشل في إضافة المنتج"
+      }
+    }
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
   "forgot-password": "هل نسيت كلمة السر",

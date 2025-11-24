@@ -286,7 +286,22 @@
     "total_orders": "Total orders",
     "total_categories": "Total categories",
     "total_revenue": "Total revenue",
-    "no_categories_found" :"No Categories Found"
+    "no_categories_found" :"No Categories Found",
+    "add_a_new_product":"Add a New Product",
+    "product_validation":{
+      "product_title":"Product title is required",
+      "description":"Product description is required",
+      "price":"Please enter a valid price",
+      "quantity":"Product quantity is required",
+      "product_cover":"Product cover is required",
+      "product_gallery":"Product gallery images are required",
+      "category":"Please select a category for the product",
+      "occasion":"Please select an occasion for the product",
+      "add_product_message":{
+        "successful_adding":"Product added successfully",
+        "Failed_adding":"Failed to add product"
+      }
+    }
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",
