@@ -90,6 +90,7 @@
       "register-link": "أنشئ حسابك الآن!"
     }
   },
+
   "price": {
     "title": "السعر",
     "reset": "إعادة تعيين",
@@ -180,6 +181,15 @@
       "passwords-not-match-repassword": "كلمات المرور غير متطابقه",
       "passwords-not-match": "كلمات المرور غير متطابقة"
     }
+  },
+  "dashboard": {
+    "all_categories": "كل الفئات",
+    "product_count": "{count, plural, =0 {منتج} one {منتج} two {منتج} few {منتجات} many {منتج} other {منتج}}",
+    "total_products": "إجمالي المنتجات",
+    "total_orders": "إجمالي الطلبات",
+    "total_categories": "إجمالي الفئات",
+    "total_revenue": "إجمالي الإيرادات",
+    "no_categories_found": "لا توجد فئات"
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
   "forgot-password": "هل نسيت كلمة السر",

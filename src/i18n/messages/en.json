@@ -90,6 +90,7 @@
       "register-link": "Create one now!"
     }
   },
+
   "price": {
     "title": "Price",
     "reset": "Reset",
@@ -224,6 +225,13 @@
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
   "otp": {
+    "sendNewCode": "Send a new code",
+    "verifyOtp": "Verify OTP",
+    "needHelp": "Need help?",
+    "contactUs": "Contact us",
+    "sentCode": "We have sent a 6-digit code to {email}",
+    "enterCode": "Enter the OTP Code",
+    "edit": "Edit",
     "required": "Please enter the 6-digit code",
     "length": "The code must be 6 digits"
   },
@@ -264,6 +272,10 @@
   },
   "cancel-button-title": "Nope, not doing it",
   "email": "Email",
+  "email": {
+    "required": "Email is required",
+    "invalid": "Invalid email address"
+  },
   "password": {
     "email-is-required": "Email is Required",
     "invalid-email-address-0": "Invalid email address",
@@ -278,6 +290,15 @@
     "passwords-not-match-repassword": "Passwords Not match RePassword",
     "passwords-not-match": "Passwords Not Match"
   },
+  "dashboard": {
+    "all_categories": "All Categories",
+    "product_count": "{count , plural , =0 {product} one {Product} other {products}}",
+    "total_products": "Total products",
+    "total_orders": "Total orders",
+    "total_categories": "Total categories",
+    "total_revenue": "Total revenue",
+    "no_categories_found": "No Categories Found"
+  },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",
   "don't-have-an-account": "Don't Have an Account",
@@ -289,19 +310,6 @@
   "we-have-sent-a-6-digit-code-to": "We have sent a 6-digit code to",
   "otp-code-send-successfully": "Otp Code Send Successfully",
   "continue": "Continue",
-  "email-is-required": "Email is required",
-  "invalid-email-address": "Invalid email address",
-  "invalid-email-address-0": "Invalid email address",
-  "password-must-contain-one-digit-from-1-to-9": "Password must contain one digit from 1 to 9",
-  "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
-  "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
-  "password-must-contain-one-special-character": "Password must contain one special character",
-  "password-must-not-contain-any-spaces": "Password must not contain any spaces",
-  "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
-  "please-confirm-your-password": "Please confirm your password",
-  "passwords-dont-match-repassword": "Passwords don't match RePassword",
-  "passwords-not-match-repassword": "Passwords Not match RePassword",
-  "passwords-not-match": "Passwords not match",
   "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
   "no-orders-found": "No orders found",
   "payment-method": "Payment Method",
