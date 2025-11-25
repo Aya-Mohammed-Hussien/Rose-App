@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Product } from '@/lib/types/product';
 import { Occasion } from '@/lib/types/occasion';
 import ProductCard from '../product-card/product-card';
+import TitleProduct from '@/components/shared/products-section-title';
 
 // Props
 type OccasionsProps = {
@@ -54,12 +55,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
       {/* header */}
       <header className="flex flex-row justify-between items-center">
         {/* title */}
-        <h3 className="relative font-bold text-[#741C21] text-4xl">
-          <span className="relative z-50">Most Popular</span>
-          <span className="absolute bg-red-100 left-0 top-7 rounded-e-lg w-3/4 h-4"></span>
-          <span className="absolute left-0 -bottom-1 w-16 h-[3px] bg-red-500"></span>
-        </h3>
-
+        <TitleProduct title="Most Popular" />
         {/* navigation */}
         <div className="flex flex-wrap gap-6">
           {occasions.map((occasion) => (
