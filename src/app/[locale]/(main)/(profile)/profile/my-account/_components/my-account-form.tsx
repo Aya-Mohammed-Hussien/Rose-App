@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { CloudUpload, Loader2, Trash } from 'lucide-react';
+import { CloudUpload, Loader2 } from 'lucide-react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ProfileSchema, profileValues } from '@/lib/schemes/profile.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
