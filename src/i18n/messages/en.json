@@ -113,6 +113,29 @@
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
   },
+  "CartList": {
+    "title": "Cart",
+    "singleProduct": "product",
+    "multipleProducts": "products",
+    "loading": "Loading cart...",
+    "loadError": "Failed to load cart",
+    "empty": "Your cart is empty 🛒",
+    "continueShopping": "Continue Shopping"
+  },
+  "CartItem": {
+    "ratingLabel": "Rating",
+    "ratingsCountLabel": "Ratings",
+    "removeButton": "Remove",
+    "quantityLabel": "Quantity",
+    "currency": "EGP"
+  },
+  "ClearCartButton": {
+    "clearCart": "Clear Cart",
+    "clearing": "Clearing…",
+    "confirmMessage": "Are you sure you want to clear your cart?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
   "profile": {
     "my-account": {
       "upload-photo": "Upload Photo",
@@ -222,7 +245,7 @@
       }
     }
   },
-   "dashboardNav": {
+  "dashboardNav": {
     "overview": "Overview",
     "categories": "Categories",
     "occasions": "Occasions",

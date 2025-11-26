@@ -1,11 +1,12 @@
 'use client';
 
-import { getCart } from '@/lib/apis/cart/cart.api';
+// ===============================================================
 // Hooks
 // Custom React Query hook for fetching the user's cart data.
-
+import { getCart } from '@/lib/apis/cart/cart.api';
 import { useQuery } from '@tanstack/react-query';
 
+// ===============================================================
 // Functions
 export function useCart() {
   return useQuery({

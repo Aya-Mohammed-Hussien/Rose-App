@@ -1,10 +1,12 @@
+// ===============================================================
 // Route Handler (GET)
 // Fetches the authenticated user's cart data from the API and returns a simplified response.
 
 import { NextResponse } from 'next/server';
-import { CartResponse, CartItemFromHook } from '@/lib/types/cart';
 import { getToken } from '@/lib/utils/get-token.util';
+import { CartResponse, CartItemFromHook } from '@/lib/types/cart';
 
+// ===============================================================
 // Functions
 export async function GET() {
   try {
