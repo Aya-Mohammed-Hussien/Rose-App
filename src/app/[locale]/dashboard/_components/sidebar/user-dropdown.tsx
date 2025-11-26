@@ -8,7 +8,6 @@ import { cn } from '@/lib/utils';
 
 export function UserMenuItems() {
   // Translation
-  // - Get localized labels for menu items
   const locale = useLocale();
   const t = useTranslations('UserMenuItems');
 
@@ -16,17 +15,9 @@ export function UserMenuItems() {
     <>
       {/* Account option */}
       <DropdownMenuItem
-        className={cn(
-          'flex items-center cursor-pointer',
-          locale === 'ar' && 'flex-row-reverse' // RTL support
-        )}
+        className={cn('flex items-center cursor-pointer', locale === 'ar' && 'flex-row-reverse')}
       >
-        <UserIcon
-          className={cn(
-            'h-4 w-4',
-            locale === 'ar' ? 'ml-2' : 'mr-2' // Spacing adjustment per locale direction
-          )}
-        />
+        <UserIcon className={cn('h-4 w-4', locale === 'ar' ? 'ml-2' : 'mr-2')} />
         <span>{t('account')}</span>
       </DropdownMenuItem>
 
@@ -34,7 +25,7 @@ export function UserMenuItems() {
 
       {/* Logout option */}
       <DropdownMenuItem
-        onClick={handleLogout} // Trigger logout action
+        onClick={handleLogout}
         className={cn('flex items-center cursor-pointer', locale === 'ar' && 'flex-row-reverse')}
       >
         <LogOut className={cn('h-4 w-4', locale === 'ar' ? 'ml-2' : 'mr-2')} />

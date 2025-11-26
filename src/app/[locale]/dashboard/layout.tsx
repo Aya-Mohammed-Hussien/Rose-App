@@ -1,5 +1,5 @@
 // src/app/[locale]/dashboard/layout.tsx
-import { Sidebar } from './_components/(sidebar)/sidebar';
+import { Sidebar } from './_components/sidebar/sidebar';
 import { useLocale } from 'next-intl';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

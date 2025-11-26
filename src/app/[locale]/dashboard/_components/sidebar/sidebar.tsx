@@ -7,12 +7,9 @@ import { getProfileData } from '@/lib/apis/dashboard/user.api';
 import PreviewWebsiteButton from './preview-website-button';
 
 export async function Sidebar() {
-  // Get user token
-  const token = await getToken();
-
   // Fetch logged user data
   const user = await getProfileData();
-  
+
   return (
     <aside className="flex h-screen w-76 flex-col border-r bg-white">
       <ScrollArea className="flex-1 px-4 py-6">
