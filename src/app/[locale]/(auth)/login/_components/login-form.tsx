@@ -74,7 +74,7 @@ export default function LoginForm() {
 
               {/* Field */}
               <FormControl>
-                <PasswordInput {...field} placeholder="********" type="password"/>
+                <PasswordInput {...field} placeholder="********" type="password" />
               </FormControl>
               {/* Feedback */}
               <FormMessage />
@@ -84,7 +84,7 @@ export default function LoginForm() {
 
         {/* Forgot Password */}
         <Link
-          href="/forgot-password"
+          href="/forget-password"
           className="text-maroon-700 text-sm font-semibold dark:text-softPink-300 capitalize flex justify-end"
         >
           {t('forgot-password')}

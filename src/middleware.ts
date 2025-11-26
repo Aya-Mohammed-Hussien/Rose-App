@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 // Auth & Public Routes
 const authRoutes = ['/login', '/register', '/forgot-password', 'forget-password'];
-const publicRoutes = ['/', '/products', '/cart'];
+const publicRoutes = ['/', '/products', '/cart' , "/dashboard"];
 // Locale Detection
 const intlMiddleWare = createMiddleware(routing);
 export default async function middelware(request: NextRequest) {
@@ -12,6 +12,19 @@ export default async function middelware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const pathnameWithoutLocale = '/' + pathname.split('/').slice(2).join('/') || '/';
   const token = await getToken({ req: request });
+
+  //  Redirect /profile → /profile/my-account
+  if (pathnameWithoutLocale === '/profile' || pathnameWithoutLocale === '/profile/') {
+    if (token) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/profile/my-account';
+      return NextResponse.redirect(url);
+    } else {
+      const loginUrl = new URL('/login', request.nextUrl.origin);
+      loginUrl.searchParams.set('callbackUrl', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+  }
 
   // 1-Auth routes
   if (authRoutes.includes(pathnameWithoutLocale)) {
