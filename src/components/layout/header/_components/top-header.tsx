@@ -6,6 +6,7 @@ import HeaderIcons from './top-header/header-icons';
 import HeaderDropdownMenu from './top-header/header-dropdown-menu';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/auth';
+import AddressIcon from './top-header/address-icon';
 export default async function TopHeader() {
   const session = await getServerSession(authOptions);
 
@@ -23,11 +24,14 @@ export default async function TopHeader() {
         className="my-1 me-4"
       />
 
+      {/* Address if user logged in  */}
+      <AddressIcon/> 
+      
       {/* Search Bar */}
       <SearchBar />
 
       {/* Dropdown Menu for authenticated user & Login button for guests */}
-      {!session ? <LoginButton /> : <HeaderDropdownMenu session ={session.user}/>}
+      {!session ? <LoginButton /> : <HeaderDropdownMenu session={session.user} />}
 
       {/* Icons  */}
       <HeaderIcons />
