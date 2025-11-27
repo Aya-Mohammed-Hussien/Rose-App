@@ -21,7 +21,7 @@ export default function FooterLinks() {
 
   return (
     <div className="ps-4">
-      <p className="text-softPink-300 text-lg font-semibold">{t("title")}</p>
+      <p className="text-softPink-300 text-lg font-semibold">{t('title')}</p>
       <ul className="text-zinc-100 text-base font-medium tracking-normal space-y-1.5 list-none leading-none">
         {links.map(({ key, href }) => (
           <li key={key}>

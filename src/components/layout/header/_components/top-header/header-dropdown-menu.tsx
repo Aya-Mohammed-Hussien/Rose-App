@@ -15,14 +15,14 @@ import { useTranslations } from 'next-intl';
 
 // Props
 type userNames = {
-  firstName :string ,
-  lastName:string
-}
+  firstName: string;
+  lastName: string;
+};
 type DropdownMenuProps = {
-  session : userNames
-}
+  session: userNames;
+};
 
-export default function HeaderDropdownMenu({session} : DropdownMenuProps ) {
+export default function HeaderDropdownMenu({ session }: DropdownMenuProps) {
   // Translations
   const t = useTranslations('header.top-nav');
   const pathname = usePathname();
@@ -35,8 +35,10 @@ export default function HeaderDropdownMenu({session} : DropdownMenuProps ) {
   const isArabic = pathname.startsWith('/ar');
 
   return (
-    <DropdownMenu >
-      <div className={`border-e border-zinc-200 dark:border-e-zinc-700 pe-4 py-1.5 flex gap-1 items-center ${isArabic ? `flex-row-reverse` : 'flex-row'}`}>
+    <DropdownMenu>
+      <div
+        className={`border-e border-zinc-200 dark:border-e-zinc-700 pe-4 py-1.5 flex gap-1 items-center ${isArabic ? `flex-row-reverse` : 'flex-row'}`}
+      >
         {/* Hello + user firstname */}
         <div className="flex flex-col leading-none ">
           <span className="text-zinc-500 font-normal text-[0.75rem] leading-none">

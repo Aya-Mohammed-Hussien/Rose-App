@@ -23,7 +23,6 @@ export default async function Categories() {
       {isEmpty ? (
         <p className="text-zinc-500 text-sm font-inter">{t('no_categories_found')}</p>
       ) : (
-
         // All Categories with fixed height and scroll
         <ul className="space-y-2.5 max-h-[14.5625rem] overflow-y-auto scrollbar-hide">
           {categories.map((category) => (
@@ -31,7 +30,6 @@ export default async function Categories() {
               key={category._id}
               className="border-b flex justify-between border-[rgba(0,0,0,0.08)] pb-2.5"
             >
-              
               {/* Category name */}
               <span className="text-zinc-800 font-inter text-base font-normal capitalize">
                 {category.name}

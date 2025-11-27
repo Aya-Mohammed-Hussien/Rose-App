@@ -20,7 +20,7 @@ export default function useAddToCart() {
         // Guest user => send to local storage
         const item = productToCartItem(data.product);
         addItemToGuestCart(item);
-        // to show the loading for guest users as this is not async operation 
+        // to show the loading for guest users as this is not async operation
         await new Promise((res) => setTimeout(res, 500));
         return item;
       }

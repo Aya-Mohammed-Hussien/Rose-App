@@ -12,7 +12,13 @@
     "top-nav": {
       "search-placeholder": "What awesome gift are you looking for?",
       "login": "Login",
-      "locale-button": "العربية"
+      "locale-button": "العربية",
+      "hello": "Hello",
+      "profile": "My Profile",
+      "addresses": "My Addresses",
+      "orders": "My Orders",
+      "dashboard": "Dashboard",
+      "logout": "Log out"
     }
   },
   "footer": {
@@ -215,6 +221,15 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
+  "dashboard": {
+    "all_categories": "All Categories",
+    "product_count": "{count , plural , =0 {product} one {Product} other {products}}",
+    "total_products": "Total products",
+    "total_orders": "Total orders",
+    "total_categories": "Total categories",
+    "total_revenue": "Total revenue",
+    "no_categories_found": "No Categories Found"
+  },
   "validation": {
     "review": {
       "rating": {
@@ -245,5 +260,18 @@
     "completed": "Completed",
     "in-progress": "In progress",
     "canceled": "Canceled"
+  },
+  "not-found-page": {
+    "header": "This page does not exist.",
+    "description": "We couldn't find the page your are looking for, please make sure you are in the right path."
+  },
+  "error-page": {
+    "header": "Oops, something went wrong!",
+    "description": "Something unexpected happened, please refresh the page or try again shortly."
+  },
+  "unauthorized-page": {
+    "header": "You are not authorized to access this page.",
+    "description": "If you think this is wrong, please contact the support.",
+    "go-to-home-button": "Go to Homepage"
   }
 }

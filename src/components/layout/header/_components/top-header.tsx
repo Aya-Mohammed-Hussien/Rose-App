@@ -25,8 +25,8 @@ export default async function TopHeader() {
       />
 
       {/* Address if user logged in  */}
-      <AddressIcon/> 
-      
+      <AddressIcon />
+
       {/* Search Bar */}
       <SearchBar />
 

@@ -23,7 +23,6 @@ export async function GET() {
     const payload: AddressesResponse = await response.json();
     console.log('addresses', payload);
     return NextResponse.json(payload);
-    
   } catch (error) {
     console.error('Error fetching addresses:', error);
     return NextResponse.json(

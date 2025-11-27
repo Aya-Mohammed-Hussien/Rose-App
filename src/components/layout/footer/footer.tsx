@@ -3,7 +3,6 @@ import FooterLinks from './_components/footer-links';
 import SubscribeForm from './_components/subscribe-form';
 
 export default function Footer() {
-
   return (
     <footer className="bg-zinc-800 w-full py-10 px-20 flex justify-between items-start dark:bg-gray-900">
       {/* Logo & links section */}
@@ -22,7 +21,7 @@ export default function Footer() {
         </div>
 
         {/* Links  */}
-      <FooterLinks/>
+        <FooterLinks />
       </div>
 
       {/* subscrib section */}

@@ -11,7 +11,7 @@ export default function FirstRow({ locale }: FirstRowProps) {
   return (
     <section className="flex items-center gap-6 pb-6">
       {/* Overall statistics */}
-      <Suspense fallback={<KPICardsSkeleton/>}>
+      <Suspense fallback={<KPICardsSkeleton />}>
         <KPICards locale={locale} />
       </Suspense>
 
