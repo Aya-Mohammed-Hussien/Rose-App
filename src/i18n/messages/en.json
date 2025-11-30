@@ -12,13 +12,7 @@
     "top-nav": {
       "search-placeholder": "What awesome gift are you looking for?",
       "login": "Login",
-      "locale-button": "العربية",
-      "hello": "Hello",
-      "profile": "My Profile",
-      "addresses": "My Addresses",
-      "orders": "My Orders",
-      "dashboard": "Dashboard",
-      "logout": "Log out"
+      "locale-button": "العربية"
     }
   },
   "footer": {
@@ -37,7 +31,7 @@
   },
   "forgotPassword": {
     "title": "Forgot Password",
-    "subtitle": "Don't worry, we'll help you recover your account.",
+    "subtitle": "Don’t worry, we’ll help you recover your account.",
     "email": "Email address",
     "placeholder": "you@example.com",
     "button": "Continue",
@@ -45,7 +39,7 @@
     "waitMessage": "Please wait until the timer ends before requesting again.",
     "countdownMessage": "You cannot ask for another OTP right now, please wait for {seconds} seconds",
     "error": "An error occurred while sending, please try again.",
-    "noAccount": "Don't have an account?",
+    "noAccount": "Don’t have an account?",
     "createAccount": "Create yours"
   },
   "resetPassword": {
@@ -86,7 +80,7 @@
         "forgot-password": "Forgot your password?",
         "login-button": "Login"
       },
-      "register-prompt": "Don't have an account yet?",
+      "register-prompt": "Don’t have an account yet?",
       "register-link": "Create one now!"
     }
   },
@@ -118,6 +112,29 @@
     "addFailed": "Something went wrong. Please try again.",
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
+  },
+  "CartList": {
+    "title": "Cart",
+    "singleProduct": "product",
+    "multipleProducts": "products",
+    "loading": "Loading cart...",
+    "loadError": "Failed to load cart",
+    "empty": "Your cart is empty 🛒",
+    "continueShopping": "Continue Shopping"
+  },
+  "CartItem": {
+    "ratingLabel": "Rating",
+    "ratingsCountLabel": "Ratings",
+    "removeButton": "Remove",
+    "quantityLabel": "Quantity",
+    "currency": "EGP"
+  },
+  "ClearCartButton": {
+    "clearCart": "Clear Cart",
+    "clearing": "Clearing…",
+    "confirmMessage": "Are you sure you want to clear your cart?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
   },
   "profile": {
     "my-account": {
@@ -214,33 +231,6 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
-  "otp": {
-    "sendNewCode": "Send a new code",
-    "verifyOtp": "Verify OTP",
-    "needHelp": "Need help?",
-    "contactUs": "Contact us",
-    "sentCode": "We have sent a 6-digit code to {email}",
-    "enterCode": "Enter the OTP Code",
-    "edit": "Edit",
-    "required": "Please enter the 6-digit code",
-    "length": "The code must be 6 digits"
-  },
-  "relatedProducts": {
-    "title": "Related Products",
-    "noProducts": "No related products found.",
-    "loadError": "Failed to load related products"
-  },
-  "reviews": {
-    "title": "Product Reviews",
-    "signInPrompt": "Sign in to add a review.",
-    "yourRating": "Your rating:",
-    "reviewTitle": "Title",
-    "reviewComment": "Review",
-    "generalRating": "General rating",
-    "addReview": "Add Review",
-    "signInToReview": "Sign in to add review",
-    "ratingRequired": "Rating Is Required"
-  },
   "validation": {
     "review": {
       "rating": {
@@ -255,15 +245,14 @@
       }
     }
   },
-  "add-review": "Add Review",
-  "sign-in-to-add-review": "Sign in to add review",
-  "confirmation-modal": {
-    "deleting": "Deleting..."
+  "dashboardNav": {
+    "overview": "Overview",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "products": "Products"
   },
-  "cancel-button-title": "Nope, not doing it",
-  "email": {
-    "required": "Email is required",
-    "invalid": "Invalid email address"
+  "previewButton": {
+    "previewWebsite": "Preview website"
   },
   "password": {
     "email-is-required": "Email is Required",
@@ -301,10 +290,14 @@
         "successful_adding":"Product added successfully",
         "Failed_adding":"Failed to add product"
       }
-    }
+    },
+  "UserMenuItems": {
+    "account": "Account",
+    "logout": "Log out"
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "Worry not, we'll send you instructions to help you reset it",
   "forgot-password": "ForgotPassword",
+  "email": "Email",
   "don't-have-an-account": "Don't Have an Account",
   "create-yours": "Create yours",
   "don't-have-an-account-yet": "Don’t have an account yet?",
@@ -319,19 +312,19 @@
   "contact-us": "Contact Us",
   "otp-code-send-successfully": "Otp Code Send Successfully",
   "continue": "Continue",
-  "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
-  "no-orders-found": "No orders found",
-  "payment-method": "Payment Method",
-  "delivery-status": "Delivery Status",
-  "delivered": "Delivered",
-  "pending": "Pending",
-  "canceled": "Canceled",
-  "order-items": "Order Items",
-  "no-items-in-this-order": "No items in this order",
-  "show-all": "Show All",
-  "orders": "Orders",
-  "status": "Status",
-  "paid": "✓ Paid",
-  "total-price": "Total Price",
-  "egp": "EGP"
+  "email-is-required": "Email is required",
+  "invalid-email-address": "Invalid email address",
+  "invalid-email-address-0": "Invalid email address",
+  "password-must-contain-one-digit-from-1-to-9": "Password must contain one digit from 1 to 9",
+  "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
+  "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
+  "password-must-contain-one-special-character": "Password must contain one special character",
+  "password-must-not-contain-any-spaces": "Password must not contain any spaces",
+  "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
+  "please-confirm-your-password": "Please confirm your password",
+  "passwords-dont-match-repassword": "Passwords don't match RePassword",
+  "passwords-not-match-repassword": "Passwords Not match RePassword",
+  "passwords-not-match": "Passwords not match",
+  "your-password-has-been-successfully-reset": "Your password has been successfully reset."
+}
 }

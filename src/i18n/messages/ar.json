@@ -90,6 +90,7 @@
       "register-link": "أنشئ حسابك الآن!"
     }
   },
+
   "price": {
     "title": "السعر",
     "reset": "إعادة تعيين",
@@ -119,6 +120,77 @@
     "outOfStock": "نفذت الكمية",
     "addToCart": "أضف إلى السلة"
   },
+  "CartList": {
+    "title": "سلة التسوق",
+    "singleProduct": "منتج",
+    "multipleProducts": "منتجات",
+    "loading": "جارٍ تحميل السلة...",
+    "loadError": "فشل تحميل السلة",
+    "empty": "سلتك فارغة 🛒",
+    "continueShopping": "تابع التسوق"
+  },
+  "CartItem": {
+    "ratingLabel": "التقييم",
+    "ratingsCountLabel": "تقييمات",
+    "removeButton": "إزالة",
+    "quantityLabel": "الكمية",
+    "currency": "ج.م"
+  },
+  "ClearCartButton": {
+    "clearCart": "إفراغ السلة",
+    "clearing": "جارٍ الإفراغ...",
+    "confirmMessage": "هل أنت متأكد أنك تريد إفراغ السلة؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد"
+  },
+  "ProductCard": {
+    "badges": {
+      "outOfStock": "غير متوفر",
+      "new": "جديد",
+      "hot": "الأكثر مبيعًا"
+    },
+    "price": {
+      "currency": "ج.م"
+    },
+    "buttons": {
+      "addToCart": "أضف إلى السلة",
+      "adding": "جارٍ الإضافة..."
+    },
+    "rating": {
+      "label": "التقييم"
+    }
+  },
+  "TitleProduct": {
+    "productsYouMayLike": "منتجات قد تعجبك"
+  },
+  "dashboardNav": {
+    "overview": "نظرة عامة",
+    "categories": "التصنيفات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  },
+  "previewButton": {
+    "previewWebsite": "معاينة الموقع"
+  },
+  "UserMenuItems": {
+    "account": "الحساب",
+    "logout": "تسجيل الخروج"
+  },
+  "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
+  "related-products": "المنتجات ذات الصلة",
+  "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
+  "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
+  "related-products-0": "المنتجات ذات الصلة",
+  "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
+  "product-reviews": "مراجعات المنتج",
+  "sign-in": "تسجيل الدخول",
+  "to-add-a-review": "لإضافة مراجعة.",
+  "your-rating": "تقييمك:",
+  "title-0": "عنوان",
+  "review": "مراجعة",
+  "general-rating": "التقييم العام",
+  "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
+  "rating-is-required": "التقييم مطلوب",
   "otp": {
     "sendNewCode": "إرسال رمز جديد",
     "verifyOtp": "التحقق من رمز OTP",
@@ -281,8 +353,10 @@
         "phone": {
           "minimum": "الهاتف مطلوب",
           "valid-phone": "الرجاء إدخال رقم هاتف صالح"
-        }
-      }
+        },
+        "account-settings": "اعدادات الحساب "
+      },
+      "account-settings": "إعدادات الحساب"
     },
     "change-password": {
       "old-password": "كلمة المرور القديمة",
@@ -320,5 +394,16 @@
   },
   "confirmation-modal": {
     "deleting": "جارٍ الحذف..."
+  },
+  "order-statistics": {
+    "orders-status": "حالة الطلبات",
+    "revenue": {
+      "title": "الربح",
+      "monthly-button": "شهريا",
+      "last-week-button": "الأسبوع الماضي"
+    },
+    "completed": "مكتمل",
+    "in-progress": "في تَقَدم",
+    "canceled": "تم الإلغاء"
   }
 }
