@@ -1,22 +1,28 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { ProductsHeader } from './products-header';
 import { ProductsTable } from './products-table';
 import PaginationSection from '@/components/features/pagination/pagination';
-import { Product } from '@/lib/types/product';
+import { Product, ProductsMetadata } from '@/lib/types/product';
 
 type AllProductsPageProps = {
   products: Product[];
+  metadata: ProductsMetadata;
 };
 
-const PAGE_SIZE = 12;
-
-export function AllProductsPage({ products }: AllProductsPageProps) {
+export function AllProductsPage({ products, metadata }: AllProductsPageProps) {
   // State
   const [search, setSearch] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
+
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const currentPage = metadata.currentPage ?? 1;
+  const totalPages = metadata.totalPages ?? 1;
 
   // Variables
   const filteredProducts = useMemo(
@@ -24,20 +30,17 @@ export function AllProductsPage({ products }: AllProductsPageProps) {
     [products, search]
   );
 
-  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PAGE_SIZE));
-
-  const pageItems = useMemo(() => {
-    const start = (page - 1) * PAGE_SIZE;
-    return filteredProducts.slice(start, start + PAGE_SIZE);
-  }, [filteredProducts, page]);
-
   // Functions
   const handleRowClick = (id: string) => {
     setSelectedId(id);
   };
 
   const handlePageChange = (nextPage: number) => {
-    setPage(nextPage);
+    // نغيّر الـ page في الـ URL عشان السيرفر يجيب صفحة جديدة من الـ API
+    const params = new URLSearchParams(searchParams?.toString());
+    params.set('page', nextPage.toString());
+
+    router.push(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -46,12 +49,16 @@ export function AllProductsPage({ products }: AllProductsPageProps) {
       <ProductsHeader search={search} onSearchChange={setSearch} />
 
       {/* Table */}
-      <ProductsTable products={pageItems} selectedId={selectedId} onRowClick={handleRowClick} />
+      <ProductsTable
+        products={filteredProducts}
+        selectedId={selectedId}
+        onRowClick={handleRowClick}
+      />
 
       {/* Pagination */}
       <div className="mt-6 flex justify-center">
         <PaginationSection
-          currentPage={page}
+          currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />

@@ -15,7 +15,8 @@ export const deleteProduct = async (productId: string) => {
     });
 
     const payload = await res.json();
-
+    console.log(payload);
+    
     if (!res.ok) {
       throw new Error(payload?.error || 'Failed to delete product');
     }

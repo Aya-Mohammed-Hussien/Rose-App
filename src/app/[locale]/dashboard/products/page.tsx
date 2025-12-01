@@ -11,12 +11,12 @@ export default async function ProductsRoutePage({ searchParams }: ProductsRouteP
   try {
     const page = searchParams?.page ? Number(searchParams.page) || 1 : 1;
 
-    const { products } = await getDashboardProducts({
+    const { products, metadata } = await getDashboardProducts({
       page,
-      limit: 12,
+      limit: 12, // 12 في الصفحة الواحدة
     });
 
-    return <AllProductsPage products={products} />;
+    return <AllProductsPage products={products} metadata={metadata} />;
   } catch (error) {
     console.error(error);
     return <div>Failed to load products.</div>;

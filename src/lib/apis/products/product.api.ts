@@ -15,7 +15,7 @@ export async function getDashboardProducts(options?: {
   const token = await getToken();
 
   const page = options?.page ?? 1;
-  const limit = options?.limit ?? 12; // نفس limit بتاع الفرونت
+  const limit = options?.limit ?? 12;
 
   const res = await fetch(
     `https://flower.elevateegy.com/api/v1/products?page=${page}&limit=${limit}`,
