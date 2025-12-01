@@ -275,22 +275,38 @@
     "total_orders": "Total orders",
     "total_categories": "Total categories",
     "total_revenue": "Total revenue",
-    "no_categories_found" :"No Categories Found",
-    "add_a_new_product":"Add a New Product",
-    "product_validation":{
-      "product_title":"Product title is required",
-      "description":"Product description is required",
-      "price":"Please enter a valid price",
-      "quantity":"Product quantity is required",
-      "product_cover":"Product cover is required",
-      "product_gallery":"Product gallery images are required",
-      "category":"Please select a category for the product",
-      "occasion":"Please select an occasion for the product",
-      "add_product_message":{
-        "successful_adding":"Product added successfully",
-        "Failed_adding":"Failed to add product"
+    "no_categories_found": "No Categories Found",
+    "add_a_new_product": "Add a New Product",
+    "product_validation": {
+      "product_title": "Product title is required",
+      "description": "Product description is required",
+      "price": "Please enter a valid price",
+      "quantity": "Product quantity is required",
+      "product_cover": "Product cover is required",
+      "product_gallery": "Product gallery images are required",
+      "category": "Please select a category for the product",
+      "occasion": "Please select an occasion for the product",
+      "add_product_message": {
+        "successful_adding": "Product added successfully",
+        "Failed_adding": "Failed to add product"
       }
     },
+    "productsHeader": {
+      "title": "All Products",
+      "addNewProduct": "Add a new product",
+      "searchPlaceholder": "Search...",
+      "searchTooLong": "Search is too long"
+    },
+    "productsTable": {
+      "name": "Name",
+      "price": "Price",
+      "quantity": "Quantity",
+      "sales": "Sales",
+      "ratings": "Ratings",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
   "UserMenuItems": {
     "account": "Account",
     "logout": "Log out"
@@ -326,5 +342,4 @@
   "passwords-not-match-repassword": "Passwords Not match RePassword",
   "passwords-not-match": "Passwords not match",
   "your-password-has-been-successfully-reset": "Your password has been successfully reset."
-}
 }

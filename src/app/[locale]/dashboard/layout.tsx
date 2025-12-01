@@ -1,17 +1,18 @@
-// src/app/[locale]/dashboard/layout.tsx
 import { Sidebar } from './_components/sidebar/sidebar';
 import { useLocale } from 'next-intl';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const locale = useLocale(); // next-intl hook
+  const locale = useLocale();
 
   return (
-    <div className="flex" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      {/* Sidebar */}
-      <Sidebar />
+    <div className="flex min-h-screen bg-[#fafafa]" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      {/* SIDEBAR */}
+      <div className="h-screen sticky top-0">
+        <Sidebar />
+      </div>
 
-      {/* Dashboard content */}
-      <main className="flex-1 p-6 bg-[#fafafa] min-h-screen">{children}</main>
+      {/* CONTENT */}
+      <main className="flex-1 overflow-y-auto px-8 py-6">{children}</main>
     </div>
   );
 }

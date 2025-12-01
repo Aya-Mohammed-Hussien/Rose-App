@@ -39,3 +39,14 @@ export interface ProductDetailsResponse {
   message: string;
   product: Product;
 }
+
+export interface ProductsHeaderProps  {
+  search: string;
+  onSearchChange: (value: string) => void;
+};
+
+export interface ProductsTableProps {
+  products: Product[];
+  selectedId: string | null;
+  onRowClick: (id: string) => void;
+}

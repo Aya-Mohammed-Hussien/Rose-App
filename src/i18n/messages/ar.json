@@ -275,6 +275,21 @@
         "successful_adding": "تمت إضافة المنتج بنجاح",
         "Failed_adding": "فشل في إضافة المنتج"
       }
+    },
+    "productsHeader": {
+      "title": "كل المنتجات",
+      "addNewProduct": "إضافة منتج جديد",
+      "searchPlaceholder": "ابحث…",
+      "searchTooLong": "البحث طويل جدًا"
+    },
+    "productsTable": {
+      "name": "الاسم",
+      "price": "السعر",
+      "quantity": "الكمية",
+      "sales": "المبيعات",
+      "ratings": "التقييمات",
+      "edit": "تعديل",
+      "delete": "حذف"
     }
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
