@@ -21,3 +21,20 @@ export const getCategories = async (page: number = 1): Promise<CategoriesRespons
     throw error;
   }
 };
+
+// Fetch function to get all categories
+export const getAllCategories = async () => {
+  // Send GET request
+  const response = await fetch(`/api/dashboard-categories`);
+
+  // Parse response into JSON
+  const payload: CategoriesResponse = await response.json();
+
+  // Handle unsuccessful response
+  if (!response.ok) {
+    throw new Error(payload.message || 'Failed to fetch categories');
+  }
+
+  // Return data
+  return payload;
+};

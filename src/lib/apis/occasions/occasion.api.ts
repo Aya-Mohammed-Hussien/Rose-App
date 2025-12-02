@@ -18,3 +18,21 @@ export const getOccasions = async (page = 1, limit = 4): Promise<OccasionsApiRes
   // Return parsed JSON data
   return response.json();
 };
+
+
+// Fetch all occasions from the local API route
+export const getAllOccasions = async () => {
+  // Send GET request
+  const response = await fetch(`/api/dashboard-occasions`);
+
+  // Parse response into JSON
+  const payload: OccasionsApiResponse = await response.json();
+
+  // Handle unsuccessful response
+  if (!response.ok) {
+    throw new Error(payload.message || 'Failed to fetch occasions');
+  }
+
+  // Return data
+  return payload;
+};

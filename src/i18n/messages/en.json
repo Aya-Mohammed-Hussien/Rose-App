@@ -305,8 +305,28 @@
       "ratings": "Ratings",
       "edit": "Edit",
       "delete": "Delete"
-    }
-  },
+      },
+      "update_product_message": {
+        "successful_updating": "Product updated successfully",
+        "Failed_updating": "Failed to update product"
+      }
+    },
+    "product_form": {
+      "title": "Title",
+      "description": "Description",
+      "price": "Price",
+      "discount": "Discount",
+      "price_after_discount": "Price after discount",
+      "quantity": "Quantity",
+      "cover_image": "Product cover image",
+      "gallery": "Product gallery",
+      "category": "Category",
+      "occasion": "Occasion",
+      "add_product_button": "Add Product",
+      "update_product": "Update Product",
+      "View_product_cover": "View product cover",
+      "View_product_gallery": "View product gallery"
+    },
   "UserMenuItems": {
     "account": "Account",
     "logout": "Log out"

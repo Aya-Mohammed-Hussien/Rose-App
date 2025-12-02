@@ -1,10 +1,9 @@
 'use client';
 
 import { useToast } from '@/hooks/use-toast';
+import { addProductAction } from '@/lib/actions/product/add-product.action';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
-import { ProductValues } from '@/lib/schemes/product.schema';
-import { addProduct } from '@/lib/actions/product/add-product.action';
 
 /**
  * Custom hook to handle adding a new product.
@@ -28,7 +27,7 @@ export const useAddProduct = () => {
   // React query mutation for adding a new product
   const { mutate: addNewProduct, isPending , error } = useMutation({
     // mutationFn receives the product data
-    mutationFn: (productData: ProductValues) => addProduct(productData),
+    mutationFn: (formData: FormData) => addProductAction(formData),
 
     // On successful adding product
     onSuccess: () => {
