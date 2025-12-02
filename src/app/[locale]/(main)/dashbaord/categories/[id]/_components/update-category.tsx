@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useUpdateCategory } from '../_hooks/use-update-category';
 import { UpdateCategoryFormData, UpdateCategorySchema } from '@/lib/schemes/update-category.schema';
-import { useState } from 'react';
+import { useMemo } from 'react';
 import { ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
@@ -17,9 +17,8 @@ export default function UpdateCategoryForm({ id, name, image, }: { id: string; n
     // Translations
     const t = useTranslations();
 
-    // Variable
-    const [imagePreview, setImagePreview] = useState<string>(image);
-
+    // State
+    const imagePreview = useMemo(() => image, [image]);
     // Schema
     const { updateSchema } = UpdateCategorySchema();
 
@@ -53,16 +52,20 @@ export default function UpdateCategoryForm({ id, name, image, }: { id: string; n
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 mt-10 bg-white shadow-md p-6 rounded-lg">
 
-                    {/* Name */}
+                    {/* Name  */}
                     <FormField
                         name="name"
                         control={form.control}
                         render={({ field }) => (
                             <FormItem>
+                                {/*  Label */}
                                 <FormLabel className="font-medium text-base text-zinc-800 flex items-center gap-1">
-                                    {t('name-0')} <span className="text-red-500">*</span>
+                                    {t('name-0')}
+                                    {/* Red asterisk to indicate required field */}
+                                    <span className="text-red-500">*</span>
                                 </FormLabel>
 
+                                {/* Input Control */}
                                 <FormControl>
                                     <Input
                                         placeholder="Enter Category Name"
@@ -71,6 +74,7 @@ export default function UpdateCategoryForm({ id, name, image, }: { id: string; n
                                     />
                                 </FormControl>
 
+                                {/*  Error  Message  */}
                                 <FormMessage />
                             </FormItem>
                         )}

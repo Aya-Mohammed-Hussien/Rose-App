@@ -37,20 +37,21 @@ export default function AddCategory() {
     const onSubmit: SubmitHandler<AddNewCategory> = (formValues) => {
         mutate(formValues, {
             onSuccess: () => {
+                // Show success toast
                 toast({ description: t('category-added-successfully-0') });
+                // Reset form
                 form.reset();
             },
-            onError: (err: any) => {
-                const errorMessage = err.message || 'Error adding category';
-
-                if (errorMessage.includes('already exists')) {
+            onError: (err: Error) => {
+                // Handle duplicate name 
+                if (err.message === 'DUPLICATE_NAME') {
                     form.setError('name', {
                         type: 'manual',
-                        message: errorMessage,
+                        message: t('category-name-already-exists'),
                     });
                 } else {
                     toast({
-                        description: errorMessage,
+                        description: err.message || t('error-adding-category'),
                         variant: 'destructive'
                     });
                 }
@@ -122,6 +123,7 @@ export default function AddCategory() {
                                     </div>
                                 </FormControl>
 
+                                {/* Error Message */}
                                 <FormMessage />
                             </FormItem>
                         )}

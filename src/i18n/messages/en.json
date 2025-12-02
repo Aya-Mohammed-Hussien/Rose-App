@@ -325,5 +325,7 @@
   "products-0": "products",
   "products-1": "products",
   "category-added-successfully": "Category added successfully!",
-  "category-added-successfully-0": "Category added successfully!"
+  "category-added-successfully-0": "Category added successfully!",
+  "category-name-already-exists": "اسم الفئه موجود بالفعل ",
+  "error-adding-category": "فشل في اضافه فئه "
 }

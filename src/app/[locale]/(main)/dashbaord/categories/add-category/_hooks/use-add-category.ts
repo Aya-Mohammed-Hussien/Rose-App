@@ -1,24 +1,29 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AddNewCategory } from '@/lib/schemes/add-categories.schema';
 import { addCategory } from '@/lib/apis/categories/add-category.api';
 
 export const useAddNewCategory = () => {
-  const { mutate, isPending, error } = useMutation({
+  const queryClient = useQueryClient();
+
+  const { mutate, isPending, error, isSuccess } = useMutation({
     mutationFn: async (data: AddNewCategory) => {
-      // Form Data
+      // Prepare form data for API request
       const formData = new FormData();
       formData.append('name', data.name);
 
+      // Optionally append image if provided
       if (data.image) formData.append('image', data.image);
 
+      // Call API
       const result = await addCategory(formData);
 
+      // Handle API errors
       if (result.error) {
-        let errorMessage = result.error;
+        const errorMessage = result.error;
 
-        // Exist Name
+        // Check for duplicate name error (MongoDB E11000)
         if (errorMessage.includes('E11000') || errorMessage.includes('duplicate key')) {
-          errorMessage = 'Category name already exists. Please use a different name.';
+          throw new Error('DUPLICATE_NAME'); // Throw specific error code
         }
 
         throw new Error(errorMessage);
@@ -27,12 +32,15 @@ export const useAddNewCategory = () => {
       return result;
     },
     onSuccess: () => {
-      return 'Category added successfully';
-    },
-    onError: () => {
-      return 'Failed To Add Category';
+      // Invalidate categories query to refetch updated list
+      queryClient.invalidateQueries({ queryKey: ['categories'] });
     },
   });
 
-  return { mutate, isPending, error };
+  return {
+    mutate,
+    isPending,
+    error,
+    isSuccess,
+  };
 };

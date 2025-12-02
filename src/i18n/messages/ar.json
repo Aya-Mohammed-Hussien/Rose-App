@@ -422,5 +422,7 @@
   "image-size-must-be-less-than-5mb": "يجب أن يكون حجم الصورة أقل من 5 ميغابايت",
   "products-1": "منتجات",
   "category-added-successfully": "تمت إضافة الفئة بنجاح!",
-  "category-added-successfully-0": "تمت إضافة الفئة بنجاح!"
+  "category-added-successfully-0": "تمت إضافة الفئة بنجاح!",
+  "category-name-already-exists": "Category Name Already Exist",
+  "error-adding-category": "Error Add Category"
 }

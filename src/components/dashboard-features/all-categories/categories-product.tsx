@@ -13,14 +13,11 @@ export default async function CategoriesProduct({ searchParams }: PageProps) {
 
     // Data
     const data = await getAllCategories(currentPage);
-    
 
-    return (
-        <div>
-            <AllCategoriesProduct
-                products={data.categories}
-                metadata={data.metadata}
-            />
-        </div>
+
+    return (<AllCategoriesProduct
+        products={data.categories}
+        metadata={data.metadata}
+    />
     );
 }

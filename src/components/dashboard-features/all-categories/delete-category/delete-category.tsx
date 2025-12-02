@@ -10,14 +10,15 @@ import { useTranslations } from 'next-intl';
 interface DeleteCategoryButtonProps {
     categoryId: string;
 }
-
 export default function DeleteCategoryButton({ categoryId }: DeleteCategoryButtonProps) {
 
     // Translations
     const t = useTranslations();
 
-    // Variable
-    const [isLoading, setIsLoading] = useState(false)
+    // State
+    const [isLoading, setIsLoading] = useState(false);
+
+    // Hook
     const router = useRouter()
 
     //Toast
@@ -42,7 +43,7 @@ export default function DeleteCategoryButton({ categoryId }: DeleteCategoryButto
                 });
                 router.refresh();
             }
-        } catch (error) {
+        } catch {
             toast({
                 variant: 'destructive',
                 title: t('error-0'),
