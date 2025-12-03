@@ -20,10 +20,10 @@ export const updateProductAction = async (productId: string, data: UpdateProduct
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log('RESPONSE STATUS:', response.status);
+
     // Parse the server response
     const payload = await response.json();
-    console.log('SERVER RESPONSE:', payload);
+
     if (!response.ok) {
       throw new Error(payload.error || 'Something went wrong');
     }

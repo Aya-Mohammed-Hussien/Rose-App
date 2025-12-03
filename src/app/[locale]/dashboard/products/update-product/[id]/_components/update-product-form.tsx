@@ -53,6 +53,7 @@ export default function UpdateProductForm({ product }: UpdateProductProps) {
 
   //Function
   const onSubmit: SubmitHandler<UpdateProductValues> = (data) => {
+    console.log(data)
     const { occasion, discount, ...payload } = data;
     updateProduct(payload);
   };
@@ -260,6 +261,7 @@ export default function UpdateProductForm({ product }: UpdateProductProps) {
           variant="default"
           type="submit"
           loading={isPending}
+          disabled={isPending || (!form.formState.isValid && form.formState.isSubmitted)}
           className="w-[46.625rem] mt-[7.625rem]"
         >
           {t('update_product')}

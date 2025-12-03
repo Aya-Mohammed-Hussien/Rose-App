@@ -18,6 +18,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import SelectCategoryField from './select-category-field';
 import SelectOccasionField from './select-occasion-field';
 import { Button } from '@/components/ui/button';
+import { Upload } from 'lucide-react';
 
 export default function AddNewProductForm() {
   //Translations
@@ -44,6 +45,7 @@ export default function AddNewProductForm() {
     resolver: zodResolver(productSchema),
   });
 
+  // Function
   const onSubmit: SubmitHandler<ProductValues> = (values) => {
     const formData = new FormData();
     formData.append('title', values.title);
@@ -129,9 +131,12 @@ export default function AddNewProductForm() {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-[15.125rem]">
+                {/* Form Label */}
                 <FormLabel>
                   {t('price')} <span className="text-red-600 font-medium text-sm">*</span>
                 </FormLabel>
+
+                {/* Form Field */}
                 <FormControl>
                   <Input
                     placeholder="Example: 5000"
@@ -152,16 +157,19 @@ export default function AddNewProductForm() {
               </FormItem>
             )}
           />
-          
+
           {/* Product Discount */}
           <FormField
             name="discount"
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-[15.125rem]">
+                {/* Form Label */}
                 <FormLabel>
                   {t('discount')} <span className="text-red-600 font-medium text-sm">*</span>
                 </FormLabel>
+
+                {/* Form field */}
                 <FormControl>
                   <Input
                     placeholder="Example: 5"
@@ -190,10 +198,12 @@ export default function AddNewProductForm() {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-[15.125rem]">
+                {/* Form label */}
                 <FormLabel>
                   {t('price_after_discount')}{' '}
                   <span className="text-red-600 font-medium text-sm">*</span>
                 </FormLabel>
+                {/* Form field */}
                 <FormControl className="bg-zinc-100 border-none">
                   <Input
                     {...field}
@@ -226,7 +236,7 @@ export default function AddNewProductForm() {
                   placeholder="Example: 200"
                   step={1}
                   min={0}
-                  value={field.value === undefined ? ' ' : field.value}
+                  value={field.value === undefined ? '' : field.value}
                   onChange={(e) => {
                     const value = e.target.value;
                     field.onChange(value === '' ? 0 : Number(value));
@@ -248,16 +258,29 @@ export default function AddNewProductForm() {
             control={form.control}
             render={({ field }) => (
               <FormItem className="mb-[1.125rem] w-[22.75rem]">
+                {/* Form label */}
                 <FormLabel>
-                  {t('cover_image')} <span className="text-red-600 font-medium text-sm">*</span>
+                  {t('cover_image')} <span className="text-red-500">*</span>
                 </FormLabel>
-                <FormControl>
-                  <Input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => field.onChange(e.target.files?.[0] || null)}
-                  />
-                </FormControl>
+
+                <div className="relative">
+                  {/* Form Field */}
+                  <FormControl>
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      className="opacity-0 absolute inset-0 cursor-pointer z-10"
+                      onChange={(e) => field.onChange(e.target.files?.[0] || null)}
+                    />
+                  </FormControl>
+                  <div className="flex items-center justify-end gap-2 pointer-events-none h-[3.0625rem] w-full rounded-[0.625rem] p-4 text-base md:text-sm border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 placeholder:text-zinc-400">
+                    <Upload size={18} className="text-maroon-500" />
+                    <span className="text-maroon-500 font-inter text-sm font-normal">
+                      {field.value?.name || 'Upload file'}
+                    </span>
+                  </div>
+                </div>
+
                 <FormMessage />
               </FormItem>
             )}
@@ -269,19 +292,34 @@ export default function AddNewProductForm() {
             control={form.control}
             render={({ field }) => (
               <FormItem className="mb-[1.125rem] w-[22.75rem]">
+                {/* Form Label */}
                 <FormLabel>
                   {t('gallery')} <span className="text-red-600 font-medium text-sm">*</span>
                 </FormLabel>
-                <FormControl>
-                  <Input
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={(e) =>
-                      field.onChange(e.target.files ? Array.from(e.target.files) : [])
-                    }
-                  />
-                </FormControl>
+
+                <div className="relative">
+                  {/* Form field */}
+                  <FormControl>
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      className="opacity-0 absolute inset-0 cursor-pointer z-10"
+                      onChange={(e) =>
+                        field.onChange(e.target.files ? Array.from(e.target.files) : [])
+                      }
+                    />
+                  </FormControl>
+                  <div className="flex items-center justify-end gap-2 pointer-events-none h-[3.0625rem] w-full rounded-[0.625rem] p-4 text-base md:text-sm border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 placeholder:text-zinc-400">
+                    <Upload size={18} className="text-maroon-500" />
+                    <span className="text-maroon-500 font-inter text-sm font-normal">
+                      {field.value && field.value.length > 0
+                        ? `${field.value.length} file${field.value.length > 1 ? 's' : ''} selected`
+                        : 'Upload files'}
+                    </span>
+                  </div>
+                </div>
+
                 <FormMessage />
               </FormItem>
             )}

@@ -32,13 +32,11 @@ export const useUpdateProduct = (productId: string) => {
   } = useMutation({
     // mutationFn receives the product data
     mutationFn: (data: UpdateProductValues) => {
-      console.log('MUTATION FUNCTION CALLED WITH:', data);
       return updateProductAction(productId, data);
     },
 
     // On successful updating product
     onSuccess: () => {
-      console.log("SUCCESS!!");
       toast({
         description: t('successful_updating'),
       });
@@ -46,7 +44,6 @@ export const useUpdateProduct = (productId: string) => {
 
     // On Error during updating product
     onError: (error: Error) => {
-      console.log("MUTATION ERROR:", error);
       const errorMessage = error?.message || t('Failed_updating');
       toast({
         variant: 'destructive',
