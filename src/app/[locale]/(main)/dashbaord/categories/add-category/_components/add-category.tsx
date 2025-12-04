@@ -5,11 +5,11 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input'
 import { AddNewCategory, useAddCategory } from '@/lib/schemes/add-categories.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Upload } from 'lucide-react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useAddNewCategory } from '../_hooks/use-add-category'
 import { useToast } from '@/hooks/use-toast'
 import { useTranslations } from 'next-intl'
+import ImageUploadInput from './image-upload-Input'
 
 export default function AddCategory() {
     // Translations
@@ -95,35 +95,20 @@ export default function AddCategory() {
                         name="image"
                         render={({ field }) => (
                             <FormItem>
+                                {/* Field Label */}
                                 <FormLabel className="flex items-center gap-1 font-medium text-base text-zinc-800">
                                     {t('category-image')}
                                     <span className="text-red-500">*</span>
                                 </FormLabel>
 
                                 <FormControl>
-                                    <div
-                                        className="w-3/4 h-10 border border-zinc-300 rounded-xl flex items-center justify-between px-3 cursor-pointer"
-                                        onClick={() => document.getElementById("category-image")?.click()}
-                                    >
-                                        <span className="text-sm text-zinc-500">
-                                            {field.value ? field.value.name : ""}
-                                        </span>
-
-                                        <span className="text-red-500 flex items-center gap-1 text-sm">
-                                            <Upload size={18} />
-                                            {t('upload-file')}
-                                        </span>
-                                        <Input
-                                            id="category-image"
-                                            type="file"
-                                            className=" hidden"
-                                            accept="image/*"
-                                            onChange={(e) => field.onChange(e.target.files?.[0])}
-                                        />
-                                    </div>
+                                    <ImageUploadInput
+                                        selectedFile={field.value}
+                                        onFileSelect={field.onChange}
+                                        uploadLabel={t('upload-file')}
+                                    />
                                 </FormControl>
 
-                                {/* Error Message */}
                                 <FormMessage />
                             </FormItem>
                         )}

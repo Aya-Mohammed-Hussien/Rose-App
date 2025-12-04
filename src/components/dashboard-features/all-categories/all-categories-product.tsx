@@ -127,7 +127,7 @@ export default function AllCategoriesProduct({ products, metadata }: AllCategori
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={3} className="text-center text-gray-500 py-8">
-                                    {t('no-categories-found-matching-0')} "{searchQuery}"
+                                    {t('no-categories-found-matching-0')} {searchQuery}
                                 </TableCell>
                             </TableRow>
                         )}

@@ -1,35 +1,4 @@
-export interface Category {
-  _id: string;
-  name: string;
-  slug: string;
-  image: string;
-  createdAt: string;
-  updatedAt: string;
-  isSuperAdmin: boolean;
-  productsCount: number;
-}
-
-export interface CategoriesMetadata {
-  currentPage: number;
-  limit: number;
-  totalPages: number;
-  totalItems: number;
-}
-
-export interface CategoriesResponse {
-  message: string;
-  metadata: CategoriesMetadata;
-  categories: Category[];
-}
-
-export interface CategoryResponse {
-  message: string;
-  category: Category;
-}
-
-export interface ErrorResponse {
-  message: string;
-}
+import { CategoryResponse, ErrorResponse } from '@/lib/types/specific-categorty';
 
 export async function getSpacificCategory(categoryId: string) {
   try {
@@ -38,9 +7,9 @@ export async function getSpacificCategory(categoryId: string) {
       headers: {
         'Content-Type': 'application/json',
       },
-
       next: { tags: ['category'] },
     });
+
     // If API returned error (e.g. 400 / 500)
     if (!res.ok) {
       let errorData: ErrorResponse | null = null;
@@ -57,11 +26,11 @@ export async function getSpacificCategory(categoryId: string) {
     // Success response
     const data: CategoryResponse = await res.json();
     return data;
-  } catch (err: any) {
+  } catch (err) {
     // Fallback error handler
     return {
       data: null,
-      error: err?.message || 'Unknown error occurred',
+      error: err instanceof Error ? err.message : 'Unknown error occurred',
     };
   }
 }
