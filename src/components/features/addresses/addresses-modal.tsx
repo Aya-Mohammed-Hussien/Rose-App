@@ -7,22 +7,30 @@ import AddAddress from './add-address-button';
 import AddressesList from './addresses-list';
 import AddressWizard from './address-wizard';
 import { Address } from '@/lib/types/addresses';
+import { cn } from '@/lib/utils';
 
 export default function AddressesModal() {
-  // translations
+  // Translations
   const t = useTranslations('Addresses');
 
-  //states
+  //States
   const [view, setView] = React.useState<'list' | 'add' | 'update'>('list');
   const [selectedAddress, setSelectedAddress] = React.useState<Address | null>(null);
 
   return (
     <DialogContent
-      className={`flex flex-col min-w-[53.125rem] ps-6 ${view === 'list' ? 'max-h-[35.4375rem]' : 'max-h-[41.625rem]'}`}
+      className={cn(
+        'flex flex-col min-w-[53.125rem] ps-6',
+        view === 'list' ? 'max-h-[35.4375rem]' : 'max-h-[41.625rem]'
+      )}
       showCloseIcon={false}
     >
+      {/* Dialog Header */}
       <DialogHeader
-        className={`flex flex-row justify-between items-center flex-shrink-0 ${view === 'list'} "border-b border-zinc-200 pb-4"`}
+        className={cn(
+          'flex flex-row justify-between items-center flex-shrink-0',
+          view === 'list' && 'border-b border-zinc-200 pb-4'
+        )}
       >
         {/* Modal Title */}
         <DialogTitle className="font-bold text-3xl text-zinc-800 capitalize">
@@ -36,10 +44,12 @@ export default function AddressesModal() {
       </DialogHeader>
 
       <div className="flex-1 overflow-y-scroll">
-        {view === 'list' && <AddressesList setView={setView} setSelectedAddress={setSelectedAddress}/>}
-        {view === 'add' && <AddressWizard mode="add" initialData={null} />}
+        {view === 'list' && (
+          <AddressesList setView={setView} setSelectedAddress={setSelectedAddress} />
+        )}
+        {view === 'add' && <AddressWizard mode="add" initialData={null} setView={setView} />}
         {view === 'update' && selectedAddress && (
-          <AddressWizard mode="update" initialData={selectedAddress} />
+          <AddressWizard mode="update" initialData={selectedAddress} setView={setView} />
         )}
       </div>
     </DialogContent>

@@ -6,40 +6,30 @@ import { Address } from '@/lib/types/addresses';
 import { MapPin, Phone } from 'lucide-react';
 import DeleteAddress from './delete-address-modal';
 import EditAddress from './update-address-button';
-import { useLocale, useTranslations } from 'next-intl';
-import AddressListSkeleton from '@/components/skeletons/address-list.skeleton';
+import {useTranslations } from 'next-intl';
+import { AddressListSkeletonWrapper } from '@/components/skeletons/address-list.skeleton';
+import { cn } from '@/lib/utils';
 
 interface AddressListProps {
   setView: React.Dispatch<React.SetStateAction<'list' | 'add' | 'update'>>;
-  setSelectedAddress:React.Dispatch<React.SetStateAction <Address | null> >
+  setSelectedAddress: React.Dispatch<React.SetStateAction<Address | null>>;
 }
 
-export default function AddressesList({ setView , setSelectedAddress }: AddressListProps) {
+export default function AddressesList({ setView, setSelectedAddress }: AddressListProps) {
   // Translations
   const t = useTranslations('Addresses');
 
   // Hooks
-  const locale = useLocale();
   const { addresses, isLoading } = useGetAddresses();
 
   // States
   const [selectedAddressId, setSelectedAddressId] = React.useState('');
 
   // Variables
-  const isArabic = locale === 'ar';
   const labelArray = ['Home', 'Family', 'Work'];
 
   // Show skeleton while fetching data
-  if (isLoading) {
-    const skeletonCount = addresses?.length || 3;
-    return (
-      <div className="flex flex-col gap-4">
-        {Array.from({ length: skeletonCount }).map((_, idx) => (
-          <AddressListSkeleton key={idx} />
-        ))}
-      </div>
-    );
-  }
+  if (isLoading) return <AddressListSkeletonWrapper addresses={addresses} />;
 
   // In case has no addresses yet
   if (addresses?.length === 0 || !addresses)
@@ -58,9 +48,11 @@ export default function AddressesList({ setView , setSelectedAddress }: AddressL
           <div
             key={add._id}
             onClick={() => setSelectedAddressId(add._id)}
-            className={`rounded-2xl cursor-pointer ps-4 mt-3 me-[1.125rem] flex flex-col gap-4 relative border ${isSelected ? `border-maroon-600` : `border-zinc-300`} ${
-              !isLast ? 'mb-9' : ''
-            }`}
+            className={cn(
+              'rounded-2xl cursor-pointer ps-4 mt-3 me-[1.125rem] flex flex-col gap-4 relative border',
+              isSelected ? 'border-maroon-600' : 'border-zinc-300',
+              !isLast && 'mb-9'
+            )}
           >
             {/* Label Tag */}
             <div className="absolute top-0 -translate-y-[60%] bg-white px-1">
@@ -68,12 +60,13 @@ export default function AddressesList({ setView , setSelectedAddress }: AddressL
             </div>
 
             {/* Delete & Edit */}
-            <div
-              className={`absolute flex flex-col gap-1.5 top-1/2 -translate-y-1/2 
-              ${isArabic ? `left-0 -translate-x-1/2` : `right-0  translate-x-1/2`} `}
-            >
+            <div className="absolute flex flex-col gap-1.5 top-1/2 -translate-y-1/2 rtl:left-0 rtl:-translate-x-1/2 ltr:right-0 ltr:translate-x-1/2">
               {/* Edit Address Button */}
-              <EditAddress setView={setView} address={add} setSelectedAddress={setSelectedAddress}/>
+              <EditAddress
+                setView={setView}
+                address={add}
+                setSelectedAddress={setSelectedAddress}
+              />
 
               {/* Delete Address Button */}
               <DeleteAddress addressId={add._id} />

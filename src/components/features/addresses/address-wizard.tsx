@@ -18,9 +18,10 @@ import { Address } from '@/lib/types/addresses';
 interface AddressWizardProps {
   mode: 'add' | 'update';
   initialData: Address | null;
+  setView: React.Dispatch<React.SetStateAction<'list' | 'add' | 'update'>>;
 }
 
-export default function AddressWizard({ mode, initialData }: AddressWizardProps) {
+export default function AddressWizard({ mode, initialData, setView }: AddressWizardProps) {
   // Translation
   const t = useTranslations('Addresses');
 
@@ -63,19 +64,19 @@ export default function AddressWizard({ mode, initialData }: AddressWizardProps)
         onSuccess: () => {
           toast({ description: 'Address added successfully!', variant: 'default' });
           // Refetch addresses after toast
-          setTimeout(() => {
-            queryClient.invalidateQueries({ queryKey: ['addresses'] });
-            setLocation(null);
-            setFormData(null);
-            setStep(1);
-          }, 300);
+          queryClient.invalidateQueries({ queryKey: ['addresses'] });
+          setLocation(null);
+          setFormData(null);
+          setView('list');
         },
         onError: () => {
           toast({ description: 'Failed to add address', variant: 'destructive' });
         },
       });
+
       // In case of updating existing address
     } else {
+      
       // Case of updating address
       updateAddress(
         { values: newAddress, addressId: initialData!._id },
@@ -83,12 +84,10 @@ export default function AddressWizard({ mode, initialData }: AddressWizardProps)
           onSuccess: () => {
             toast({ description: 'Address updated successfully!', variant: 'default' });
             // Refetch addresses after toast
-            setTimeout(() => {
-              queryClient.invalidateQueries({ queryKey: ['addresses'] });
-              setLocation(null);
-              setFormData(null);
-              setStep(1);
-            }, 300);
+            queryClient.invalidateQueries({ queryKey: ['addresses'] });
+            setLocation(null);
+            setFormData(null);
+            setView('list');
           },
           onError: () => {
             toast({ description: 'Failed to update address', variant: 'destructive' });
