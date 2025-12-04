@@ -101,7 +101,7 @@
   font-style: normal;
 }
 
-/* في globals.css أو أي ملف CSS */
+في globals.css أو أي ملف CSS
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

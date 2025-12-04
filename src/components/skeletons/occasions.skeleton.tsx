@@ -33,7 +33,7 @@ export default function OccasionsSkeleton() {
         {/* Render 8 product card skeletons to fill the grid */}
 
         {[...Array(8)].map((_, i) => (
-          <ProductCardSkeleton />
+          <ProductCardSkeleton key={i}/>
         ))}
       </div>
     </section>
