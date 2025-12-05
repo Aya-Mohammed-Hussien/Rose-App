@@ -1,8 +1,11 @@
 import { CategoryResponse, ErrorResponse } from '@/lib/types/specific-categorty';
 
-export async function getSpacificCategory(categoryId: string) {
+export async function getSpecificCategory(categoryId: string) {
   try {
-    const res = await fetch(`https://flower.elevateegy.com/api/v1/categories/${categoryId}`, {
+    // Get the base API URL from environment variables
+    const baseURL = process.env.NEXT_PUBLIC_API;
+
+    const res = await fetch(`${baseURL}/categories/${categoryId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

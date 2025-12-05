@@ -1,25 +1,9 @@
 'use server';
 
-import { CategoryData, UpdateCategoryResponse } from '@/lib/types/add-category';
+import { UpdateCategoryResponse } from '@/lib/types/add-category';
+import { UpdateCategoryError, UpdateCategoryResult } from '@/lib/types/update-category';
 import { getToken } from '@/lib/utils/get-token.util';
-import { revalidatePath } from 'next/cache';
-
-interface UpdateCategoryError {
-  error: string;
-}
-
-interface UpdateCategorySuccess {
-  success: true;
-  message: string;
-  category: CategoryData;
-}
-
-interface UpdateCategoryFailure {
-  success?: false;
-  error: string;
-}
-
-export type UpdateCategoryResult = UpdateCategorySuccess | UpdateCategoryFailure;
+import { revalidateTag } from 'next/cache';
 
 export async function updateCategory(
   categoryId: string,
@@ -31,7 +15,10 @@ export async function updateCategory(
       return { error: 'Session expired. Please login again.' };
     }
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/categories/${categoryId}`, {
+    // Get the base API URL from environment variables
+    const baseURL = process.env.NEXT_PUBLIC_API;
+
+    const res = await fetch(`${baseURL}/categories/${categoryId}`, {
       method: 'PUT',
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -50,7 +37,7 @@ export async function updateCategory(
       return { error: data.error };
     }
 
-    revalidatePath('/categories');
+    revalidateTag('category');
 
     return {
       success: true,

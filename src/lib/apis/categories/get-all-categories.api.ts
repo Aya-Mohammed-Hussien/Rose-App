@@ -3,7 +3,10 @@ import { redirect } from 'next/navigation';
 
 export const getAllCategories = async (page: number = 1) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/categories?page=${page}`, {
+    // Get the base API URL from environment variables
+    const baseURL = process.env.NEXT_PUBLIC_API;
+
+    const res = await fetch(`${baseURL}/categories?page=${page}`, {
       method: 'GET',
       cache: 'no-store',
     });

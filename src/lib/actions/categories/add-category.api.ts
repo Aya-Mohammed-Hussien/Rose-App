@@ -2,6 +2,7 @@
 
 import { DuplicateErrorResponse } from '@/lib/types/add-category';
 import { getToken } from '@/lib/utils/get-token.util';
+import { revalidateTag } from 'next/cache'; // ✅ استيراد revalidateTag
 
 export async function addCategory(formData: FormData) {
   try {
@@ -11,8 +12,11 @@ export async function addCategory(formData: FormData) {
       return { error: 'Session expired. Please login again.' };
     }
 
+    // Get the base API URL from environment variables
+    const baseURL = process.env.NEXT_PUBLIC_API;
+
     // Send Request
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/categories`, {
+    const res = await fetch(`${baseURL}/categories`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -24,7 +28,10 @@ export async function addCategory(formData: FormData) {
       if (data.error.includes('E11000') || data.error.includes('duplicate key')) {
         return { error: 'Category name already exists. Please use a different name.' };
       }
+      return { error: data.error };
     }
+
+    revalidateTag('category');
 
     return data;
   } catch (error) {

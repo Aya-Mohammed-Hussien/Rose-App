@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getSpacificCategory } from "@/lib/apis/categories/get-sepecific-categories.api";
+import { getSpecificCategory } from "@/lib/apis/categories/get-sepecific-categories.api";
 import UpdateCategoryForm from "../[id]/_components/update-category";
 
 interface PageProps {
@@ -11,7 +11,7 @@ export default async function UpdateCategoryPage({ params }: PageProps) {
     const { id } = await params;
 
     // Fetch Data
-    const result = await getSpacificCategory(id);
+    const result = await getSpecificCategory(id);
 
     if ('error' in result || !result.category) {
         notFound();

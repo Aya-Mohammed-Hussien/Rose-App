@@ -316,7 +316,7 @@
   "edit-0": "Edit",
   "add-a-new-category-0": "Add a new category",
   "name-must-be-at-least-2-characters": "Name must be at least 2 characters",
-  "name-cannot-exceed-10-characters": "Name cannot exceed 10 characters",
+  "name-cannot-exceed-10-characters": "Name cannot exceed 20 characters",
   "image-is-required": "Image is required",
   "image-cannot-be-empty": "Image cannot be empty",
   "only-jpeg-png-and-gif-images-are-allowed": "Only JPEG, PNG and GIF images are allowed",

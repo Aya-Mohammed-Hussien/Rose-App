@@ -11,8 +11,11 @@ export async function DeleteCategory(categoryId: string) {
       return { error: 'Session expired. Please login again.' };
     }
 
+    // Get the base API URL from environment variables
+    const baseURL = process.env.NEXT_PUBLIC_API;
+
     // Send Request
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/categories/${categoryId}`, {
+    const res = await fetch(`${baseURL}/categories/${categoryId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,

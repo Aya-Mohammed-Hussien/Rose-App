@@ -10,7 +10,7 @@ export const useAddCategory = () => {
     name: z
       .string()
       .min(2, t('name-must-be-at-least-2-characters'))
-      .max(10, t('name-cannot-exceed-10-characters')),
+      .max(20, t('name-cannot-exceed-10-characters')),
     image: z
       .instanceof(File, { message: t('image-is-required') })
       .refine((file) => file.size > 0, { message: t('image-cannot-be-empty') })

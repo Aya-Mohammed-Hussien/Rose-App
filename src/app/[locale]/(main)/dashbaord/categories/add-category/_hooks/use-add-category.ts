@@ -1,9 +1,10 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { AddNewCategory } from '@/lib/schemes/add-categories.schema';
-import { addCategory } from '@/lib/apis/categories/add-category.api';
+import { addCategory } from '@/lib/actions/categories/add-category.api';
+import { useRouter } from '@/i18n/navigation';
 
 export const useAddNewCategory = () => {
-  const queryClient = useQueryClient();
+  const router = useRouter();
 
   const { mutate, isPending, error, isSuccess } = useMutation({
     mutationFn: async (data: AddNewCategory) => {
@@ -32,8 +33,7 @@ export const useAddNewCategory = () => {
       return result;
     },
     onSuccess: () => {
-      // Invalidate categories query to refetch updated list
-      queryClient.invalidateQueries({ queryKey: ['categories'] });
+      router.push('/dashbaord/categories');
     },
   });
 

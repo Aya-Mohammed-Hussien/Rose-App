@@ -33,7 +33,7 @@ export default function UpdateCategoryForm({ id, name, image, }: { id: string; n
     // Mutation
     const { mutate, isPending } = useUpdateCategory();
 
-    // Functiob
+    // Function 
     const onSubmit: SubmitHandler<UpdateCategoryFormData> = (values) => {
         const formData = new FormData();
 
@@ -48,7 +48,10 @@ export default function UpdateCategoryForm({ id, name, image, }: { id: string; n
 
     return (
         <section className='w-3/5'>
-            <h2 className='font-semibold text-zinc-800 mt-10 text-2xl'>{t('update-category')} : {name}</h2>
+            <h2 className='font-semibold text-zinc-800 mt-10 text-2xl'>
+                {t('update-category', { name })}
+            </h2>
+
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 mt-10 bg-white shadow-md p-6 rounded-lg">
 

@@ -395,7 +395,6 @@
   "add-category": "أضف فئة",
   "upload-file": "تحميل الملف",
   "add-a-new-category": "إضافة فئة جديدة",
-  "update-category": "تحديث الفئة",
   "name-0": "اسم",
   "view-category-image": "عرض صورة الفئة",
   "update-category-0": "تحديث الفئة",
@@ -414,7 +413,7 @@
   "edit-0": "تعديل",
   "add-a-new-category-0": "أضف فئة جديدة",
   "name-must-be-at-least-2-characters": "يجب أن يتكون الاسم من حرفين على الأقل",
-  "name-cannot-exceed-10-characters": "لا يمكن أن يتجاوز الاسم 10 أحرف",
+  "name-cannot-exceed-10-characters": "لا يمكن أن يتجاوز الاسم 20 حرفا",
   "image-is-required": "الصورة مطلوبة",
   "image-cannot-be-empty": "لا يمكن أن تكون الصورة فارغة",
   "only-jpeg-png-and-gif-images-are-allowed": "يُسمح فقط بالصور JPEG وPNG وGIF",
@@ -424,5 +423,6 @@
   "category-added-successfully": "تمت إضافة الفئة بنجاح!",
   "category-added-successfully-0": "تمت إضافة الفئة بنجاح!",
   "category-name-already-exists": "Category Name Already Exist",
-  "error-adding-category": "Error Add Category"
+  "error-adding-category": "Error Add Category",
+  "update-category": "تحديث التصنيف: {name}"
 }

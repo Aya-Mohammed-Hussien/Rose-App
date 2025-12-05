@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation'
-import { DeleteCategory } from '@/lib/apis/categories/delete-category.api'
+import { DeleteCategory } from '@/lib/actions/categories/delete-category.api'
 import ConfirmationModal from '@/components/shared/confirmation-modal';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
