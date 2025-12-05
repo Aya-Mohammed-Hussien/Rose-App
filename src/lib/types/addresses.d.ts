@@ -12,3 +12,4 @@ export interface AddressesResponse {
   message: string;
   addresses: Address[];
 }
+
