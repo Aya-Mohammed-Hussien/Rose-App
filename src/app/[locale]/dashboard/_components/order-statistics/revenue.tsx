@@ -1,5 +1,5 @@
 import React from 'react';
-import { RevenueChart } from './charts/revenue-chart';
+import { RevenueChart } from './revenue-chart';
 import { getOrderStatistics } from '@/lib/apis/order-statistics/order-statistics.api';
 
 export default async function Revenue() {

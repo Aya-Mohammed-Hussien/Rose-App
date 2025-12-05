@@ -65,7 +65,7 @@ export default async function KPICards({ locale }: { locale: string }) {
   ];
 
   return (
-    <section className="h-[20.375rem] w-[30.625rem] grid grid-cols-2 p-6 gap-4 bg-white rounded-2xl">
+    <section className="h-[20.375rem] w-1/2 grid grid-cols-2 p-6 gap-4 bg-white rounded-2xl">
       {overallStatisticsCards.map((card) => (
         <div key={card._id} className={cn('flex flex-col p-4 rounded-xl', card.bg)}>
           {/* Statistics icon */}

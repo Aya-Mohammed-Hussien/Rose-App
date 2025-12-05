@@ -13,7 +13,7 @@ export default async function Categories() {
   const isEmpty = categories.length === 0 || !Array.isArray(categories);
 
   return (
-    <section className="p-6 rounded-2xl bg-white h-[20.375rem] w-[36.375rem]">
+    <section className="p-6 rounded-2xl bg-white h-[20.375rem] w-[38.375rem]">
       {/* Title of all categories */}
       <h3 className="font-semibold text-2xl text-zinc-800 font-inter mb-4">
         {t('all_categories')}

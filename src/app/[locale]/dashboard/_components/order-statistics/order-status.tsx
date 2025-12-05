@@ -1,5 +1,5 @@
 import React from 'react';
-import { OrdersStatusChart } from './charts/order-status-chart';
+import { OrdersStatusChart } from './order-status-chart';
 import { getOrderStatistics } from '@/lib/apis/order-statistics/order-statistics.api';
 
 export default async function OrderStatus() {

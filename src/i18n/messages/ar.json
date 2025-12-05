@@ -196,7 +196,7 @@
     "city": "المدينة",
     "address": "العنوان",
     "phone": "رقم الهاتف",
-    "find-location-button" : "ابحث عن موقعي"
+    "find-location-button": "ابحث عن موقعي"
   },
   "contact-us": "اتصل بنا",
   "need-help": "بحاجة إلى مساعدة؟",
@@ -289,7 +289,11 @@
     "total_orders": "إجمالي الطلبات",
     "total_categories": "إجمالي الفئات",
     "total_revenue": "إجمالي الإيرادات",
-    "no_categories_found": "لا توجد فئات"
+    "no_categories_found": "لا توجد فئات",
+    "overview-product-top-and-stock": {
+      "Top Selling Products": " المنتجات الأكثر مبيعا",
+      "Low Stock Products": " المنتجات منخفضة المخزون"
+    }
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
   "forgot-password": "هل نسيت كلمة السر",

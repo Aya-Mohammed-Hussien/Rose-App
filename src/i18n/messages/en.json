@@ -144,6 +144,7 @@
   },
   "profile": {
     "my-account": {
+      "account-settings": "Account Settings",
       "upload-photo": "Upload Photo",
       "upload-photo-description": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
       "first-name": "First name",
@@ -274,7 +275,11 @@
     "total_orders": "Total orders",
     "total_categories": "Total categories",
     "total_revenue": "Total revenue",
-    "no_categories_found": "No Categories Found"
+    "no_categories_found": "No Categories Found",
+    "overview-product-top-and-stock": {
+      "Top Selling Products": " Top Selling Products",
+      "Low Stock Products": "  Low Stock Products "
+    }
   },
   "validation": {
     "review": {
