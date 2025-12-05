@@ -119,6 +119,107 @@
     "outOfStock": "نفذت الكمية",
     "addToCart": "أضف إلى السلة"
   },
+  "CartList": {
+    "title": "سلة التسوق",
+    "singleProduct": "منتج",
+    "multipleProducts": "منتجات",
+    "loading": "جارٍ تحميل السلة...",
+    "loadError": "فشل تحميل السلة",
+    "empty": "سلتك فارغة 🛒",
+    "continueShopping": "تابع التسوق"
+  },
+  "CartItem": {
+    "ratingLabel": "التقييم",
+    "ratingsCountLabel": "تقييمات",
+    "removeButton": "إزالة",
+    "quantityLabel": "الكمية",
+    "currency": "ج.م"
+  },
+  "ClearCartButton": {
+    "clearCart": "إفراغ السلة",
+    "clearing": "جارٍ الإفراغ...",
+    "confirmMessage": "هل أنت متأكد أنك تريد إفراغ السلة؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد"
+  },
+  "ProductCard": {
+    "badges": {
+      "outOfStock": "غير متوفر",
+      "new": "جديد",
+      "hot": "الأكثر مبيعًا"
+    },
+    "price": {
+      "currency": "ج.م"
+    },
+    "buttons": {
+      "addToCart": "أضف إلى السلة",
+      "adding": "جارٍ الإضافة..."
+    },
+    "rating": {
+      "label": "التقييم"
+    }
+  },
+  "TitleProduct": {
+    "productsYouMayLike": "منتجات قد تعجبك"
+  },
+  "dashboardNav": {
+    "overview": "نظرة عامة",
+    "categories": "التصنيفات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  },
+  "previewButton": {
+    "previewWebsite": "معاينة الموقع"
+  },
+  "UserMenuItems": {
+    "account": "الحساب",
+    "logout": "تسجيل الخروج"
+  },
+  "Addresses": {
+    "addresses": "عناويني",
+    "add-address": "اضف عنوان جديد",
+    "deliver-to": "توصيل الي",
+    "Home": "المنزل",
+    "Family": "العائلة",
+    "Work": "العمل",
+    "no-addresses": "لا توجد عناوين",
+    "delete-address-description": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete-success-message": "تم حذف العنوان بنجاح",
+    "delete-error-message": "فشل حذف العنوان",
+    "update-address-info": "تحديث بيانات العنوان",
+    "enter-address-details": "ادخل تفاصيل العنوان",
+    "find-your-location": "ابحث عن موقعك",
+    "add-address-form": "اضف العنوان",
+    "next-button": "التالي",
+    "city": "المدينة",
+    "address": "العنوان",
+    "phone": "رقم الهاتف",
+    "find-location-button" : "ابحث عن موقعي"
+  },
+  "contact-us": "اتصل بنا",
+  "need-help": "بحاجة إلى مساعدة؟",
+  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
+  "send-a-new-code": "إرسال رمز جديد",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
+  "enter-the-otp-code": "أدخل رمز OTP",
+  "edit": "حرر",
+  "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
+  "related-products": "المنتجات ذات الصلة",
+  "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
+  "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
+  "related-products-0": "المنتجات ذات الصلة",
+  "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
+  "product-reviews": "مراجعات المنتج",
+  "sign-in": "تسجيل الدخول",
+  "to-add-a-review": "لإضافة مراجعة.",
+  "your-rating": "تقييمك:",
+  "title-0": "عنوان",
+  "review": "مراجعة",
+  "general-rating": "التقييم العام",
+  "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
+  "rating-is-required": "التقييم مطلوب",
   "otp": {
     "sendNewCode": "إرسال رمز جديد",
     "verifyOtp": "التحقق من رمز OTP",
