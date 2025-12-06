@@ -268,19 +268,6 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
-  "dashboard": {
-    "all_categories": "All Categories",
-    "product_count": "{count , plural , =0 {product} one {Product} other {products}}",
-    "total_products": "Total products",
-    "total_orders": "Total orders",
-    "total_categories": "Total categories",
-    "total_revenue": "Total revenue",
-    "no_categories_found": "No Categories Found",
-    "overview-product-top-and-stock": {
-      "Top Selling Products": " Top Selling Products",
-      "Low Stock Products": "  Low Stock Products "
-    }
-  },
   "validation": {
     "review": {
       "rating": {
@@ -397,12 +384,6 @@
   "create-one-now": "Create one now!",
   "email-send-successfully": "Email Send successfully",
   "dont-have-an-account-yet": "Don’t have an account yet?",
-  "send-a-new-code": "Send a new code",
-  "verify-otp": "Verify Otp",
-  "we-have-sent-a-6-digit-code-to": "We have sent a 6-digit code to",
-  "edit": "Edit",
-  "enter-the-otp-code": "Enter the OTP Code",
-  "contact-us": "Contact Us",
   "otp-code-send-successfully": "Otp Code Send Successfully",
   "continue": "Continue",
   "email-is-required": "Email is required",
@@ -448,10 +429,6 @@
     "header": "You are not authorized to access this page.",
     "description": "If you think this is wrong, please contact the support.",
     "go-to-home-button": "Go to Homepage"
-  },
-  "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
-  "confirmation-modal": {
-    "deleting": "Deleting"
   },
   "name": "Name",
   "category-image": "Category image",
