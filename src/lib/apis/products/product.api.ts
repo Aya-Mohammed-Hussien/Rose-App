@@ -12,20 +12,18 @@ export async function getDashboardProducts(options?: {
   page?: number;
   limit?: number;
 }): Promise<{ products: Product[]; metadata: ProductsMetadata }> {
+  const api = process.env.API_URL;
   const token = await getToken();
 
   const page = options?.page ?? 1;
   const limit = options?.limit ?? 12;
 
-  const res = await fetch(
-    `https://flower.elevateegy.com/api/v1/products?page=${page}&limit=${limit}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      next: { tags: ['products'] },
-    }
-  );
+  const res = await fetch(`${api}/products?page=${page}&limit=${limit}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    next: { tags: ['products'] },
+  });
 
   if (!res.ok) {
     throw new Error('Failed to fetch products');

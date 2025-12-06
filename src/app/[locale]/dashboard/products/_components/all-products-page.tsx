@@ -13,13 +13,14 @@ type AllProductsPageProps = {
 };
 
 export function AllProductsPage({ products, metadata }: AllProductsPageProps) {
-  // State
-  const [search, setSearch] = useState('');
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-
+  // Navigation
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  // State
+  const [search, setSearch] = useState('');
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const currentPage = metadata.currentPage ?? 1;
   const totalPages = metadata.totalPages ?? 1;
@@ -36,7 +37,6 @@ export function AllProductsPage({ products, metadata }: AllProductsPageProps) {
   };
 
   const handlePageChange = (nextPage: number) => {
-    // نغيّر الـ page في الـ URL عشان السيرفر يجيب صفحة جديدة من الـ API
     const params = new URLSearchParams(searchParams?.toString());
     params.set('page', nextPage.toString());
 

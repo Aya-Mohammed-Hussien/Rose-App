@@ -3,8 +3,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import { deleteProduct } from '../_actions/delete-product.action';
+import { useTranslations } from 'next-intl';
 
 export const useDeleteProduct = () => {
+  // Translation
+  const t = useTranslations('dashboard.productsTable');
+
   // Hooks
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -16,14 +20,14 @@ export const useDeleteProduct = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
       toast({
-        description: 'Product deleted successfully.',
+        description: t('deleteSuccess'),
       });
     },
 
     onError: (error: Error) => {
       toast({
         variant: 'destructive',
-        description: error.message || 'Failed to delete product.',
+        description: error.message || t('deleteError'),
       });
     },
   });

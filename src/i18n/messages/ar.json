@@ -289,7 +289,13 @@
       "sales": "المبيعات",
       "ratings": "التقييمات",
       "edit": "تعديل",
-      "delete": "حذف"
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "deleteQuestion": "هل أنت متأكد أنك تريد حذف هذا المنتج؟",
+      "toast": {
+        "delete-success": "تم حذف المنتج بنجاح.",
+        "delete-error": "فشل حذف المنتج."
+      }
     }
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",

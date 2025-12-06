@@ -13,7 +13,7 @@ export default async function ProductsRoutePage({ searchParams }: ProductsRouteP
 
     const { products, metadata } = await getDashboardProducts({
       page,
-      limit: 12, // 12 في الصفحة الواحدة
+      limit: 12,
     });
 
     return <AllProductsPage products={products} metadata={metadata} />;
