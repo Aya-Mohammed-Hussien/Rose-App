@@ -142,249 +142,9 @@
     "cancel": "إلغاء",
     "confirm": "تأكيد"
   },
-  "ProductCard": {
-    "badges": {
-      "outOfStock": "غير متوفر",
-      "new": "جديد",
-      "hot": "الأكثر مبيعًا"
-    },
-    "price": {
-      "currency": "ج.م"
-    },
-    "buttons": {
-      "addToCart": "أضف إلى السلة",
-      "adding": "جارٍ الإضافة..."
-    },
-    "rating": {
-      "label": "التقييم"
-    }
-  },
-  "TitleProduct": {
-    "productsYouMayLike": "منتجات قد تعجبك"
-  },
-  "dashboardNav": {
-    "overview": "نظرة عامة",
-    "categories": "التصنيفات",
-    "occasions": "المناسبات",
-    "products": "المنتجات"
-  },
-  "previewButton": {
-    "previewWebsite": "معاينة الموقع"
-  },
-  "UserMenuItems": {
-    "account": "الحساب",
-    "logout": "تسجيل الخروج"
-  },
-  "Addresses": {
-    "addresses": "عناويني",
-    "add-address": "اضف عنوان جديد",
-    "deliver-to": "توصيل الي",
-    "Home": "المنزل",
-    "Family": "العائلة",
-    "Work": "العمل",
-    "no-addresses": "لا توجد عناوين",
-    "delete-address-description": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
-    "cancel": "إلغاء",
-    "confirm": "تأكيد",
-    "delete-success-message": "تم حذف العنوان بنجاح",
-    "delete-error-message": "فشل حذف العنوان",
-    "update-address-info": "تحديث بيانات العنوان",
-    "enter-address-details": "ادخل تفاصيل العنوان",
-    "find-your-location": "ابحث عن موقعك",
-    "add-address-form": "اضف العنوان",
-    "next-button": "التالي",
-    "city": "المدينة",
-    "address": "العنوان",
-    "phone": "رقم الهاتف",
-    "find-location-button": "ابحث عن موقعي"
-  },
-  "contact-us": "اتصل بنا",
-  "need-help": "بحاجة إلى مساعدة؟",
-  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
-  "send-a-new-code": "إرسال رمز جديد",
-  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
-  "enter-the-otp-code": "أدخل رمز OTP",
-  "edit": "حرر",
-  "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
-  "related-products": "المنتجات ذات الصلة",
-  "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
-  "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
-  "related-products-0": "المنتجات ذات الصلة",
-  "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
-  "product-reviews": "مراجعات المنتج",
-  "sign-in": "تسجيل الدخول",
-  "to-add-a-review": "لإضافة مراجعة.",
-  "your-rating": "تقييمك:",
-  "title-0": "عنوان",
-  "review": "مراجعة",
-  "general-rating": "التقييم العام",
-  "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
-  "rating-is-required": "التقييم مطلوب",
-  "otp": {
-    "sendNewCode": "إرسال رمز جديد",
-    "verifyOtp": "التحقق من رمز OTP",
-    "needHelp": "تحتاج مساعدة؟",
-    "contactUs": "اتصل بنا",
-    "sentCode": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى {email}",
-    "enterCode": "أدخل رمز OTP",
-    "edit": "تعديل"
-  },
-  "relatedProducts": {
-    "title": "المنتجات ذات الصلة",
-    "noProducts": "لم يتم العثور على منتجات ذات صلة.",
-    "loadError": "فشل في تحميل المنتجات ذات الصلة"
-  },
-  "reviews": {
-    "title": "مراجعات المنتج",
-    "signInPrompt": "تسجيل الدخول لإضافة مراجعة.",
-    "yourRating": "تقييمك:",
-    "reviewTitle": "العنوان",
-    "reviewComment": "المراجعة",
-    "generalRating": "التقييم العام",
-    "addReview": "أضف مراجعة",
-    "signInToReview": "تسجيل الدخول لإضافة مراجعة",
-    "ratingRequired": "التقييم مطلوب"
-  },
-  "validation": {
-    "review": {
-      "rating": {
-        "min": "يجب أن يكون التقييم على الأقل 1",
-        "max": "لا يمكن أن يتجاوز التقييم 5"
-      },
-      "title": {
-        "required": "العنوان مطلوب"
-      },
-      "comment": {
-        "required": "التعليق مطلوب"
-      }
-    },
-    "email": {
-      "required": "البريد الإلكتروني مطلوب",
-      "invalid": "البريد الإلكتروني غير صحيح"
-    },
-    "otp": {
-      "required": "من فضلك أدخل الرمز المكوّن من 6 أرقام",
-      "length": "يجب أن يتكون الرمز من 6 أرقام"
-    },
-    "password": {
-      "email-is-required": "البريد الإلكتروني مطلوب",
-      "invalid-email-address": "",
-      "invalid-email-address-0": "عنوان البريد الإلكتروني غير صالح",
-      "password-must-contain-one-digit-from-1-to-9": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
-      "password-must-contain-one-lowercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
-      "password-must-contain-one-uppercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
-      "password-must-contain-one-special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
-      "password-must-not-contain-any-spaces": "يجب ألا تحتوي على أي مسافات",
-      "password-must-be-8-25-characters-long": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا",
-      "please-confirm-your-password": "يرجى تأكيد كلمة المرور الخاصة بك",
-      "passwords-dont-match-repassword": "كلمات المرور غير متطابقه",
-      "passwords-not-match-repassword": "كلمات المرور غير متطابقه",
-      "passwords-not-match": "كلمات المرور غير متطابقة"
-    }
-  },
-  "dashboard": {
-    "all_categories": "كل الفئات",
-    "product_count": "{count, plural, =0 {منتج} one {منتج} two {منتج} few {منتجات} many {منتج} other {منتج}}",
-    "total_products": "إجمالي المنتجات",
-    "total_orders": "إجمالي الطلبات",
-    "total_categories": "إجمالي الفئات",
-    "total_revenue": "إجمالي الإيرادات",
-    "no_categories_found": "لا توجد فئات",
-    "add_a_new_product": "اضف منتج جديد",
-    "product_validation": {
-      "product_title": "عنوان المنتج مطلوب",
-      "description": "وصف المنتج مطلوب",
-      "price": "الرجاء إدخال سعر صحيح",
-      "quantity": "كمية المنتج مطلوبة",
-      "product_cover": "صورة الغلاف مطلوبة",
-      "product_gallery": "صور معرض المنتج مطلوبة",
-      "category": "الرجاء اختيار فئة للمنتج",
-      "occasion": "الرجاء اختيار مناسبة للمنتج",
-      "add_product_message": {
-        "successful_adding": "تمت إضافة المنتج بنجاح",
-        "Failed_adding": "فشل في إضافة المنتج"
-      },
-      "update_product_message": {
-        "successful_updating": "تمت تعديل المنتج بنجاح",
-        "Failed_updating": "فشل في تعديل المنتج"
-      }
-    },
-    "productsHeader": {
-      "title": "كل المنتجات",
-      "addNewProduct": "إضافة منتج جديد",
-      "searchPlaceholder": "ابحث…",
-      "searchTooLong": "البحث طويل جدًا"
-    },
-    "productsTable": {
-      "name": "الاسم",
-      "price": "السعر",
-      "quantity": "الكمية",
-      "sales": "المبيعات",
-      "ratings": "التقييمات",
-      "edit": "تعديل",
-      "delete": "حذف",
-      "cancel": "إلغاء",
-      "deleteQuestion": "هل أنت متأكد أنك تريد حذف هذا المنتج؟",
-      "toast": {
-        "delete-success": "تم حذف المنتج بنجاح.",
-        "delete-error": "فشل حذف المنتج."
-      }
-    },
-    "product_form": {
-      "title": "الاسم",
-      "description": "الوصف",
-      "price": "السعر",
-      "discount": "الخصم",
-      "price_after_discount": "السعر بعد الخصم",
-      "quantity": "الكمية",
-      "cover_image": "صورة الغلاف",
-      "gallery": "معرض الصور",
-      "category": "الفئة",
-      "occasion": "المناسبة",
-      "add_product_button": "أضف منتج",
-      "update_product": "تعديل المنتج",
-      "View_product_cover": "عرض صورة الغلاف",
-      "View_product_gallery": "عرض معرض الصور",
-    "overview-product-top-and-stock": {
-      "Top Selling Products": " المنتجات الأكثر مبيعا",
-      "Low Stock Products": " المنتجات منخفضة المخزون"
-    }
-  },
-  "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
-  "forgot-password": "هل نسيت كلمة السر",
-  "dont-have-an-account": "ليس لديك حساب؟",
-  "create-yours": "إنشاء لك",
-  "continue": "استمر",
-  "email": "بريد إلكتروني",
-  "dont-have-an-account-yet": "ليس لديك حساب حتى الآن؟",
-  "create-one-now": "قم بإنشاء ايميل الآن!",
-  "email-send-successfully": "تم إرسال البريد الإلكتروني بنجاح ",
-  "send-a-new-code": "إرسال رمز جديد",
-  "verify-otp": "التحقق من Otp",
-  "we-have-sent-a-6-digit-code-to": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى",
-  "edit": "حرر",
-  "enter-the-otp-code": "أدخل رمز OTP",
-  "contact-us": "اتصل بنا",
-  "otp-code-send-successfully": "تم ارسال كود التأكيد بنجاح",
-  "your-password-has-been-successfully-reset": "لقد تم إعادة تعيين كلمة المرور الخاصة بك بنجاح.",
-  "no-orders-found": "لم يتم العثور على أي اوردر",
-  "payment-method": "طريقة الدفع",
-  "delivery-status": "حالة التسليم",
-  "delivered": "تم التوصيل",
-  "pending": "قيد الانتظار",
-  "canceled": "تم الإلغاء",
-  "order-items": "عناصر الطلب",
-  "no-items-in-this-order": "لا توجد عناصر في هذا الطلب",
-  "show-all": "إظهار الكل",
-  "orders": "طلبات",
-  "status": "الحاله",
-  "paid": "✓ مدفوع",
-  "total-price": "السعر الإجمالي",
-  "egp": "جنيه مصري",
-  "add-review": "أضف مراجعة",
-  "sign-in-to-add-review": "تسجيل الدخول لإضافة مراجعة",
   "profile": {
     "my-account": {
+      "account-settings": "إعدادات الحساب",
       "upload-photo": "تحميل الصورة",
       "upload-photo-description": "يمكنك رفع صورة بصيغة ‎.jpg أو ‎.png أو ‎.gif بحدّ أقصى 5 ميجابايت.",
       "first-name": "الاسم الأول",
@@ -416,8 +176,8 @@
         },
         "last-name": {
           "format": "تنسيق الاسم غير صالح",
-          "maximum": "يجب أن يكون الاسم أقل من 30 حرفًا",
-          "minimum": "يجب أن يتكون الاسم من حرفين على الأقل"
+          "minimum": "يجب أن يتكون الاسم من حرفين على الأقل",
+          "maximum": "يجب أن يكون الاسم أقل من 30 حرفًا"
         },
         "email": {
           "minimum": "البريد الإلكتروني مطلوب",
@@ -426,10 +186,8 @@
         "phone": {
           "minimum": "الهاتف مطلوب",
           "valid-phone": "الرجاء إدخال رقم هاتف صالح"
-        },
-        "account-settings": "اعدادات الحساب "
-      },
-      "account-settings": "إعدادات الحساب"
+        }
+      }
     },
     "change-password": {
       "old-password": "كلمة المرور القديمة",
@@ -465,9 +223,192 @@
       "logout-button": "تسجيل الخروج"
     }
   },
+  "Addresses": {
+    "addresses": "عناويني",
+    "add-address": "اضف عنوان جديد",
+    "deliver-to": "توصيل الي",
+    "Home": "المنزل",
+    "Family": "العائلة",
+    "Work": "العمل",
+    "no-addresses": "لا توجد عناوين",
+    "delete-address-description": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete-success-message": "تم حذف العنوان بنجاح",
+    "delete-error-message": "فشل حذف العنوان",
+    "update-address-info": "تحديث بيانات العنوان",
+    "enter-address-details": "ادخل تفاصيل العنوان",
+    "find-your-location": "ابحث عن موقعك",
+    "add-address-form": "اضف العنوان",
+    "next-button": "التالي",
+    "city": "المدينة",
+    "address": "العنوان",
+    "phone": "رقم الهاتف",
+    "find-location-button": "ابحث عن موقعي"
+  },
+  "send-a-new-code": "إرسال رمز جديد",
+  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
+  "need-help": "بحاجة إلى مساعدة؟",
+  "contact-us": "اتصل بنا",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
+  "enter-the-otp-code": "أدخل رمز OTP",
+  "edit": "حرر",
+  "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
+  "related-products": "المنتجات ذات الصلة",
+  "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
+  "no-related-products-found-0": "لم يتم العثور على منتجات ذات صلة",
+  "related-products-0": "المنتجات ذات الصلة",
+  "no-related-products-found-1": "لم يتم العثور على منتجات ذات صلة.",
+  "product-reviews": "مراجعات المنتج",
+  "sign-in": "تسجيل الدخول",
+  "to-add-a-review": "لإضافة مراجعة.",
+  "your-rating": "تقييمك:",
+  "title-0": "عنوان",
+  "review": "مراجعة",
+  "general-rating": "التقييم العام",
+  "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
+  "rating-is-required": "التقييم مطلوب",
+  "validation": {
+    "review": {
+      "rating": {
+        "min": "يجب أن يكون التقييم على الأقل 1",
+        "max": "لا يمكن أن يتجاوز التقييم 5"
+      },
+      "title": {
+        "required": "العنوان مطلوب"
+      },
+      "comment": {
+        "required": "التعليق مطلوب"
+      }
+    }
+  },
+  "dashboardNav": {
+    "overview": "نظرة عامة",
+    "categories": "التصنيفات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  },
+  "previewButton": {
+    "previewWebsite": "معاينة الموقع"
+  },
+  "password": {
+    "email-is-required": "البريد الإلكتروني مطلوب",
+    "invalid-email-address-0": "عنوان البريد الإلكتروني غير صالح",
+    "password-must-contain-one-digit-from-1-to-9": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
+    "password-must-contain-one-lowercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
+    "password-must-contain-one-uppercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
+    "password-must-contain-one-special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
+    "password-must-not-contain-any-spaces": "يجب ألا تحتوي على أي مسافات",
+    "password-must-be-8-25-characters-long": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا",
+    "please-confirm-your-password": "يرجى تأكيد كلمة المرور الخاصة بك",
+    "passwords-dont-match-repassword": "كلمات المرور غير متطابقه",
+    "passwords-not-match-repassword": "كلمات المرور غير متطابقه",
+    "passwords-not-match": "كلمات المرور غير متطابقة"
+  },
+  "dashboard": {
+    "overview-product-top-and-stock": {
+      "Top Selling Products": " المنتجات الأكثر مبيعا",
+      "Low Stock Products": " المنتجات منخفضة المخزون"
+    },
+    "all_categories": "كل الفئات",
+    "product_count": "{count, plural, =0 {منتج} one {منتج} two {منتج} few {منتجات} many {منتج} other {منتج}}",
+    "total_products": "إجمالي المنتجات",
+    "total_orders": "إجمالي الطلبات",
+    "total_categories": "إجمالي الفئات",
+    "total_revenue": "إجمالي الإيرادات",
+    "no_categories_found": "لا توجد فئات",
+    "add_a_new_product": "اضف منتج جديد",
+    "product_validation": {
+      "product_title": "عنوان المنتج مطلوب",
+      "description": "وصف المنتج مطلوب",
+      "price": "الرجاء إدخال سعر صحيح",
+      "quantity": "كمية المنتج مطلوبة",
+      "product_cover": "صورة الغلاف مطلوبة",
+      "product_gallery": "صور معرض المنتج مطلوبة",
+      "category": "الرجاء اختيار فئة للمنتج",
+      "occasion": "الرجاء اختيار مناسبة للمنتج",
+      "add_product_message": {
+        "successful_adding": "تمت إضافة المنتج بنجاح",
+        "Failed_adding": "فشل في إضافة المنتج"
+      },
+      "update_product_message": {
+        "successful_updating": "تمت تعديل المنتج بنجاح",
+        "Failed_updating": "فشل في تعديل المنتج"
+      }
+    },
+    "product_form": {
+      "title": "الاسم",
+      "description": "الوصف",
+      "price": "السعر",
+      "discount": "الخصم",
+      "price_after_discount": "السعر بعد الخصم",
+      "quantity": "الكمية",
+      "cover_image": "صورة الغلاف",
+      "gallery": "معرض الصور",
+      "category": "الفئة",
+      "occasion": "المناسبة",
+      "add_product_button": "أضف منتج",
+      "update_product": "تعديل المنتج",
+      "View_product_cover": "عرض صورة الغلاف",
+      "View_product_gallery": "عرض معرض الصور"
+    },
+    "productsHeader": {
+      "title": "كل المنتجات",
+      "addNewProduct": "إضافة منتج جديد",
+      "searchPlaceholder": "ابحث…",
+      "searchTooLong": "البحث طويل جدًا"
+    },
+    "productsTable": {
+      "name": "الاسم",
+      "price": "السعر",
+      "quantity": "الكمية",
+      "sales": "المبيعات",
+      "ratings": "التقييمات",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "deleteQuestion": "هل أنت متأكد أنك تريد حذف هذا المنتج؟",
+      "toast": {
+        "delete-success": "تم حذف المنتج بنجاح.",
+        "delete-error": "فشل حذف المنتج."
+      }
+    }
+  },
+  "UserMenuItems": {
+    "account": "الحساب",
+    "logout": "تسجيل الخروج"
+  },
+  "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
+  "forgot-password": "هل نسيت كلمة السر",
+  "email": "بريد إلكتروني",
+  "don't-have-an-account": "ليس لديك حساب؟",
+  "create-yours": "إنشاء لك",
+  "don't-have-an-account-yet": "ليس لديك حساب حتى الآن؟",
+  "create-one-now": "قم بإنشاء ايميل الآن!",
+  "email-send-successfully": "تم إرسال البريد الإلكتروني بنجاح ",
+  "dont-have-an-account-yet": "ليس لديك حساب حتى الآن؟",
+  "otp-code-send-successfully": "تم ارسال كود التأكيد بنجاح",
+  "continue": "استمر",
+  "email-is-required": "البريد الإلكتروني مطلوب",
+  "invalid-email-address": "عنوان البريد الإلكتروني غير صالح",
+  "invalid-email-address-0": "عنوان البريد الإلكتروني غير صالح",
+  "password-must-contain-one-digit-from-1-to-9": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
+  "password-must-contain-one-lowercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
+  "password-must-contain-one-uppercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
+  "password-must-contain-one-special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
+  "password-must-not-contain-any-spaces": "يجب ألا تحتوي كلمة المرور على أية مسافات",
+  "password-must-be-8-25-characters-long": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا",
+  "please-confirm-your-password": "يرجى تأكيد كلمة المرور الخاصة بك",
+  "passwords-dont-match-repassword": "كلمات المرور غير متطابقه",
+  "passwords-not-match-repassword": "كلمات المرور غير متطابقه",
+  "passwords-not-match": "كلمات المرور غير متطابقة",
+  "your-password-has-been-successfully-reset": "لقد تم إعادة تعيين كلمة المرور الخاصة بك بنجاح.",
+  "add-review": "أضف مراجعة",
+  "sign-in-to-add-review": "تسجيل الدخول لإضافة مراجعة",
   "confirmation-modal": {
     "deleting": "جارٍ الحذف..."
   },
+  "cancel-button-title": "لا، لا تفعل ذلك",
   "order-statistics": {
     "orders-status": "حالة الطلبات",
     "revenue": {
@@ -497,6 +438,7 @@
   "add-category": "أضف فئة",
   "upload-file": "تحميل الملف",
   "add-a-new-category": "إضافة فئة جديدة",
+  "update-category": "تحديث الفئة",
   "name-0": "اسم",
   "view-category-image": "عرض صورة الفئة",
   "update-category-0": "تحديث الفئة",
@@ -521,11 +463,10 @@
   "only-jpeg-png-and-gif-images-are-allowed": "يُسمح فقط بالصور JPEG وPNG وGIF",
   "image-jpeg-image-jpg-image-png-image-gif": "صورة/jpeg', 'صورة/jpg', 'صورة/png', 'صورة/gif",
   "image-size-must-be-less-than-5mb": "يجب أن يكون حجم الصورة أقل من 5 ميغابايت",
+  "products-0": "منتجات",
   "products-1": "منتجات",
   "category-added-successfully": "تمت إضافة الفئة بنجاح!",
   "category-added-successfully-0": "تمت إضافة الفئة بنجاح!",
-  "category-name-already-exists": "Category Name Already Exist",
-  "error-adding-category": "Error Add Category",
-  "update-category": "تحديث التصنيف: {name}"
-}
+  "category-name-already-exists": "اسم الفئه موجود بالفعل ",
+  "error-adding-category": "فشل في اضافه فئه "
 }
