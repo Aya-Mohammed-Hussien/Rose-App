@@ -6,7 +6,7 @@ export default async function AddProductPage() {
   const t = await getTranslations('dashboard');
 
   return (
-    <div className='bg-zinc-50 ms-[18.9375rem] mt-[4.375rem] pt-7 pe-[1.875rem] ps-4 pb-[4.875rem]'>
+    <div className='bg-zinc-50  pt-7 pe-[1.875rem] ps-4 pb-[4.875rem]'>
       {/* Add new product title */}
       <h3 className="text-2xl font-inter font-semibold text-zinc-800 mb-6">{t('add_a_new_product')}</h3>
 

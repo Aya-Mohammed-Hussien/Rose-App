@@ -1,6 +1,7 @@
 import { ProductDetailsResponse } from '@/lib/types/product';
 
 export const getProductDetails = async (productId: string): Promise<ProductDetailsResponse> => {
+  
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API}/products/${productId}`);
     if (!response.ok) {
@@ -11,4 +12,5 @@ export const getProductDetails = async (productId: string): Promise<ProductDetai
   } catch (error) {
     throw error;
   }
+
 };

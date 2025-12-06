@@ -4,6 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import { updateProductAction, UpdateProductValues } from '@/lib/actions/product/update-product.action';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 /**
  * Custom hook to handle update product.
@@ -20,6 +21,9 @@ import { useTranslations } from 'next-intl';
 export const useUpdateProduct = (productId: string) => {
   // Translation
   const t = useTranslations('dashboard.product_validation.update_product_message');
+
+   // Navigation
+  const router = useRouter();
 
   // Hooks
   const { toast } = useToast();
@@ -40,6 +44,7 @@ export const useUpdateProduct = (productId: string) => {
       toast({
         description: t('successful_updating'),
       });
+      router.push(`/dashboard/products`)
     },
 
     // On Error during updating product

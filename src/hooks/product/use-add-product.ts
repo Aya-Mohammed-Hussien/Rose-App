@@ -4,6 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import { addProductAction } from '@/lib/actions/product/add-product.action';
 import { useMutation } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 /**
  * Custom hook to handle adding a new product.
@@ -21,6 +22,9 @@ export const useAddProduct = () => {
   // Translation
   const t = useTranslations('dashboard.product_validation.add_product_message');
 
+  // Navigation
+  const router = useRouter();
+
   // Hooks
   const { toast } = useToast();
 
@@ -34,6 +38,7 @@ export const useAddProduct = () => {
       toast({
         description: t('successful_adding'),
       });
+      router.push(`/dashboard/products`)
     },
 
     // On Error during adding product

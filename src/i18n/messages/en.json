@@ -289,22 +289,6 @@
       "add_product_message": {
         "successful_adding": "Product added successfully",
         "Failed_adding": "Failed to add product"
-      }
-    },
-    "productsHeader": {
-      "title": "All Products",
-      "addNewProduct": "Add a new product",
-      "searchPlaceholder": "Search...",
-      "searchTooLong": "Search is too long"
-    },
-    "productsTable": {
-      "name": "Name",
-      "price": "Price",
-      "quantity": "Quantity",
-      "sales": "Sales",
-      "ratings": "Ratings",
-      "edit": "Edit",
-      "delete": "Delete"
       },
       "update_product_message": {
         "successful_updating": "Product updated successfully",
@@ -327,6 +311,23 @@
       "View_product_cover": "View product cover",
       "View_product_gallery": "View product gallery"
     },
+    "productsHeader": {
+      "title": "All Products",
+      "addNewProduct": "Add a new product",
+      "searchPlaceholder": "Search...",
+      "searchTooLong": "Search is too long"
+    },
+    "productsTable": {
+      "name": "Name",
+      "price": "Price",
+      "quantity": "Quantity",
+      "sales": "Sales",
+      "ratings": "Ratings",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+
   "UserMenuItems": {
     "account": "Account",
     "logout": "Log out"

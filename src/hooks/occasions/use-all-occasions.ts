@@ -1,4 +1,3 @@
-'use client';
 
 import { getAllOccasions } from '@/lib/apis/occasions/occasion.api';
 import { useQuery } from '@tanstack/react-query';
