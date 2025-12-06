@@ -42,7 +42,7 @@ export default async function middelware(request: NextRequest) {
 
   // admin-only protection for dashboard
   if (pathnameWithoutLocale.startsWith('/dashboard') && token.user.role !== 'admin') {
-    return NextResponse.redirect(new URL('/', request.nextUrl.origin));
+    return NextResponse.redirect(new URL('/unauthorized', request.nextUrl.origin));
   }
 
   // 4- Authenticated users can access protected routes
