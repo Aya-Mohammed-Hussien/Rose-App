@@ -10,6 +10,7 @@ import { Plus, Search } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { ProductsHeaderProps } from '@/lib/types/product';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 // Form & validation
 const searchSchema = z.object({
@@ -21,6 +22,9 @@ type SearchFormValues = z.infer<typeof searchSchema>;
 export function ProductsHeader({ search, onSearchChange }: ProductsHeaderProps) {
   // Translation
   const t = useTranslations('dashboard.productsHeader');
+
+  // Navigation
+  const router = useRouter();
 
   // Form & validation
   const form = useForm<SearchFormValues>({
@@ -45,9 +49,11 @@ export function ProductsHeader({ search, onSearchChange }: ProductsHeaderProps) 
       <div className="flex items-center justify-between gap-4">
         <h1 className="text-2xl font-semibold text-zinc-800">{t('title')}</h1>
 
+        {/* Add new product button */}
         <Button
+          variant="default"
           type="button"
-          className="flex items-center gap-2.5 rounded-xl bg-maroon-600 p-2.5 text-sm font-medium text-white hover:bg-[#a32929]"
+          onClick={() => router.push(`/dashboard/products/add-product`)}
         >
           <Plus className="h-4 w-4" />
           <span>{t('addNewProduct')}</span>

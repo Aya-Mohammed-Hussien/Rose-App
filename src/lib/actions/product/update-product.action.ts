@@ -1,17 +1,22 @@
 'use server';
 
+import { JSON_HEADER } from '@/lib/constants/shared.constant';
+import { ProductValues } from '@/lib/schemes/product.schema';
 import { getToken } from '@/lib/utils/get-token.util';
 
-export const addProductAction = async (formData: FormData) => {
+export type UpdateProductValues = Omit<ProductValues, 'imgCover' | 'images'>;
+
+export const updateProductAction = async (productId: string, data: UpdateProductValues) => {
   try {
     // Retrieve the access token from cookies
     const token = await getToken();
 
-    // Send a POST request to the "add product" API endpoint
-    const response = await fetch(`${process.env.API_URL}/products`, {
-      method: 'POST',
-      body: formData,
+    // Send a Put request to the "update product" API endpoint
+    const response = await fetch(`${process.env.API_URL}/products/${productId}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
       headers: {
+        ...JSON_HEADER,
         Authorization: `Bearer ${token}`,
       },
     });
@@ -19,7 +24,6 @@ export const addProductAction = async (formData: FormData) => {
     // Parse the server response
     const payload = await response.json();
 
-    // If the response status is not OK, throw an error with the server message
     if (!response.ok) {
       throw new Error(payload.error || 'Something went wrong');
     }

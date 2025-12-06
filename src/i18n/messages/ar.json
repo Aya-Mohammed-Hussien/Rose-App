@@ -274,6 +274,10 @@
       "add_product_message": {
         "successful_adding": "تمت إضافة المنتج بنجاح",
         "Failed_adding": "فشل في إضافة المنتج"
+      },
+      "update_product_message": {
+        "successful_updating": "تمت تعديل المنتج بنجاح",
+        "Failed_updating": "فشل في تعديل المنتج"
       }
     },
     "productsHeader": {
@@ -296,6 +300,22 @@
         "delete-success": "تم حذف المنتج بنجاح.",
         "delete-error": "فشل حذف المنتج."
       }
+    },
+    "product_form": {
+      "title": "الاسم",
+      "description": "الوصف",
+      "price": "السعر",
+      "discount": "الخصم",
+      "price_after_discount": "السعر بعد الخصم",
+      "quantity": "الكمية",
+      "cover_image": "صورة الغلاف",
+      "gallery": "معرض الصور",
+      "category": "الفئة",
+      "occasion": "المناسبة",
+      "add_product_button": "أضف منتج",
+      "update_product": "تعديل المنتج",
+      "View_product_cover": "عرض صورة الغلاف",
+      "View_product_gallery": "عرض معرض الصور"
     }
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",

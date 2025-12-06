@@ -30,6 +30,7 @@ export const getCategoriesStatistics = async (): Promise<CategoriesStatisticsRes
     const payload: CategoriesStatisticsResponse = await response.json();
 
     // Return the parsed data
+    console.log(payload)
     return payload;
     
   } catch (error) {
