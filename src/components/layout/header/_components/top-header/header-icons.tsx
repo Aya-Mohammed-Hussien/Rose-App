@@ -9,7 +9,7 @@ export default function HeaderIcons() {
     { id: 2, icon: ShoppingCart, href: '/cart', label: 'Cart' },
     //{ id: 3, icon: Bell, href: '/notifications', label: 'Notifications' },
   ];
-  
+
   return (
     <ul className="flex justify-center items-center gap-2.5 px-4 py-2 border-e border-zinc-200 dark:border-e-zinc-700">
       {icons.map(({ id, icon: Icon, href, label }) => (

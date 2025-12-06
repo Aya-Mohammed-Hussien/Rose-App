@@ -33,7 +33,7 @@ export default async function ProductsPage({
         {/* Price Range */}
         <PriceRangeForm />
         <hr className="border-t border-gray-200 " />
-        
+
         {/* Reset All */}
         <ResetAllButton />
       </aside>

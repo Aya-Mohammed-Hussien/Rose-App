@@ -13,7 +13,7 @@ const config: Config = {
         sarabun: ['var(--font-sarabun)', 'sans-serif'],
         tajawal: ['var(--font-tajawal)', 'sans-serif'],
         edwardian: ['var(--font-edwardian)'],
-        inter: ['var(--font-inter)']
+        inter: ['var(--font-inter)'],
       },
       colors: {
         background: 'hsl(var(--background))',

@@ -28,4 +28,3 @@ declare interface TestimonialErrorResponse {
 }
 
 type TestimonialsResponse = TestimonialSuccessResponse | TestimonialErrorResponse;
-

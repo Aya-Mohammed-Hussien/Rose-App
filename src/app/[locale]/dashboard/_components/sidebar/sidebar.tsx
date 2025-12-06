@@ -11,7 +11,7 @@ export async function Sidebar() {
   const user = await getProfileData();
 
   return (
-    <aside className="flex h-screen w-76 flex-col border-r bg-white">
+    <aside className="flex sticky top-0 h-screen w-76 flex-col border-r bg-white">
       <ScrollArea className="flex-1 px-4 py-6">
         {/* Logo */}
         <div className="mx-auto mb-6 h-28 w-30">

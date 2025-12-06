@@ -1,4 +1,4 @@
-import {OverallStatisticsResponse } from '@/lib/types/statistics';
+import { OverallStatisticsResponse } from '@/lib/types/statistics';
 import { getToken } from '@/lib/utils/get-token.util';
 
 /**
@@ -31,7 +31,6 @@ export const getOverallStatistics = async (): Promise<OverallStatisticsResponse>
 
     // Return the parsed data
     return payload;
-
   } catch (error) {
     // Rethrow the error so it can be handled in the calling code
     throw error;

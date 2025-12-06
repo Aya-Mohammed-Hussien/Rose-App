@@ -5,6 +5,7 @@ It allows users to buy flowers for many occasions such as birthdays, weddings, e
 The app is bilingual, supporting both English and Arabic , and includes a dark mode for a stylish and comfortable viewing experience in any lighting condition.
 
 ## Tech Stack
+
 - Framework: Next.js 14 (App Router)
 - Language: TypeScript
 - Styling: Tailwind CSS
@@ -15,6 +16,7 @@ The app is bilingual, supporting both English and Arabic , and includes a dark m
 - Code Formatting: Prettier
 
 ## Features
+
 - Bilingual support (English & Arabic)
 - Dark mode theme
 - Reusable UI components (buttons, inputs, text areas, etc.)
@@ -22,17 +24,21 @@ The app is bilingual, supporting both English and Arabic , and includes a dark m
 - Organized folder structure and clean codebase
 
 ## Getting Started
+
 First, install dependencies:
 
 ```bash
 yarn install
 ```
+
 Then, run the development server:
 
 ```bash
 yarn dev
 ```
+
 ## Environment Variables
+
 To run this project, you need to set up the following environment variables.
 
 Create a `.env.local` file in the root directory and add:
@@ -77,3 +83,4 @@ This project uses optimized Google Fonts — **Sarabun** for English and **Tajaw
 You can check out [the Next.js GitHub repository](https://github.com/Aya-Mohammed-Hussien/Rose-App) - your feedback and contributions are welcome!
 
 
+```
