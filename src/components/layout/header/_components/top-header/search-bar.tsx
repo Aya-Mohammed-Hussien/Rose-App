@@ -11,7 +11,7 @@ export default function SearchBar() {
   const t = useTranslations('header.top-nav');
 
   // Form
-  const form = useForm()
+  const form = useForm();
 
   return (
     <div className="relative w-full me-8">

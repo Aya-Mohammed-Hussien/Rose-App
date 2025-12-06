@@ -1,4 +1,4 @@
-import { ProductsByOccasionResponse } from "@/lib/types/product";
+import { ProductsByOccasionResponse } from '@/lib/types/product';
 
 export const getProductsByOccasion = async (
   occasionId: string
@@ -8,11 +8,11 @@ export const getProductsByOccasion = async (
       `https://flower.elevateegy.com/api/v1/products?occasion=${occasionId}&limit=12`
     );
     if (!response.ok) {
-      throw new Error("Failed to fetch products");
+      throw new Error('Failed to fetch products');
     }
     const payload: ProductsByOccasionResponse = await response.json();
     return payload;
   } catch (error) {
-    throw new Error("Failed to fetch products");
+    throw new Error('Failed to fetch products');
   }
 };

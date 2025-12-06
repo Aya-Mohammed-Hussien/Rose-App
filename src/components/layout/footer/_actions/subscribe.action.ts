@@ -9,7 +9,7 @@ export async function subscribeAction(data: SubscribeValue) {
     const response = await fetch(`${process.env.API}/subscriptions/subscribe`, {
       method: 'POST',
       headers: {
-        ...JSON_HEADER
+        ...JSON_HEADER,
       },
       body: JSON.stringify(data),
     });

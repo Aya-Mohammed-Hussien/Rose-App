@@ -18,7 +18,7 @@ export default function Page() {
 
         {/* Register Button */}
         <p className="text-sm font-sarabun font-medium text-zinc-700 dark:text-zinc-50 text-center mt-14">
-          {t('auth.login.register-prompt')}{" "}
+          {t('auth.login.register-prompt')}{' '}
           <span className="text-maroon-700 dark:text-softPink-300 font-bold">
             <Link href="/register">{t('auth.login.register-link')}</Link>
           </span>

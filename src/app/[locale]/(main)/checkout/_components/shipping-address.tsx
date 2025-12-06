@@ -1,6 +1,8 @@
 'use client';
 
+import AddressesModal from '@/components/features/addresses/addresses-modal';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { getAddressesResponse, ShippingPayload } from '@/lib/types/address';
 import { cn } from '@/lib/utils';
 import { MoveRight, Phone } from 'lucide-react';
@@ -142,9 +144,14 @@ export default function ShippingAddress({
       </div>
 
       {/*  Add a New Address Button */}
-      <Button variant={'destructive'} className="w-full">
-        Add a New Address
-      </Button>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant={'destructive'} className="w-full">
+            Add a New Address
+          </Button>
+        </DialogTrigger>
+        <AddressesModal />
+      </Dialog>
 
       {/* Separator */}
       <span className="h-px bg-zinc-100 w-full mt-4"></span>

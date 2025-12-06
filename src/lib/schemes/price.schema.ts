@@ -11,7 +11,7 @@ export const priceFilterSchema = (t: (key: string) => string) =>
     })
     // make sure min <= max
     .refine((data) => data.min === undefined || data.max === undefined || data.min <= data.max, {
-      message: t("error.invalidRange"),
+      message: t('error.invalidRange'),
       path: ['max'],
     });
 

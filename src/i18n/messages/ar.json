@@ -90,7 +90,6 @@
       "register-link": "أنشئ حسابك الآن!"
     }
   },
-
   "price": {
     "title": "السعر",
     "reset": "إعادة تعيين",
@@ -176,6 +175,36 @@
     "account": "الحساب",
     "logout": "تسجيل الخروج"
   },
+  "Addresses": {
+    "addresses": "عناويني",
+    "add-address": "اضف عنوان جديد",
+    "deliver-to": "توصيل الي",
+    "Home": "المنزل",
+    "Family": "العائلة",
+    "Work": "العمل",
+    "no-addresses": "لا توجد عناوين",
+    "delete-address-description": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete-success-message": "تم حذف العنوان بنجاح",
+    "delete-error-message": "فشل حذف العنوان",
+    "update-address-info": "تحديث بيانات العنوان",
+    "enter-address-details": "ادخل تفاصيل العنوان",
+    "find-your-location": "ابحث عن موقعك",
+    "add-address-form": "اضف العنوان",
+    "next-button": "التالي",
+    "city": "المدينة",
+    "address": "العنوان",
+    "phone": "رقم الهاتف",
+    "find-location-button": "ابحث عن موقعي"
+  },
+  "contact-us": "اتصل بنا",
+  "need-help": "بحاجة إلى مساعدة؟",
+  "verify-otp": "التحقق من كلمة المرور لمرة واحدة (OTP).",
+  "send-a-new-code": "إرسال رمز جديد",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
+  "enter-the-otp-code": "أدخل رمز OTP",
+  "edit": "حرر",
   "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
   "related-products": "المنتجات ذات الصلة",
   "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
@@ -315,7 +344,10 @@
       "add_product_button": "أضف منتج",
       "update_product": "تعديل المنتج",
       "View_product_cover": "عرض صورة الغلاف",
-      "View_product_gallery": "عرض معرض الصور"
+      "View_product_gallery": "عرض معرض الصور",
+    "overview-product-top-and-stock": {
+      "Top Selling Products": " المنتجات الأكثر مبيعا",
+      "Low Stock Products": " المنتجات منخفضة المخزون"
     }
   },
   "worry-not-well-send-you-instructions-to-help-you-reset-it": "لا تقلق، سنرسل لك تعليمات لمساعدتك في إعادة ضبطه.",
@@ -446,5 +478,54 @@
     "completed": "مكتمل",
     "in-progress": "في تَقَدم",
     "canceled": "تم الإلغاء"
-  }
+  },
+  "not-found-page": {
+    "header": "هذه الصفحة غير موجودة.",
+    "description": "لم نتمكن من العثور على الصفحة التي تبحث عنها، يرجى التأكد من أنك في الطريق الصحيح."
+  },
+  "error-page": {
+    "header": "عفوًا، حدث خطأ ما!",
+    "description": "حدث شيء غير متوقع، يرجى تحديث الصفحة أو المحاولة مرة أخرى قريبًا."
+  },
+  "unauthorized-page": {
+    "header": "غير مصرح لك بالدخول إلى هذه الصفحة.",
+    "description": "إذا كنت تعتقد أن هذا خطأ، يرجى الاتصال بالدعم.",
+    "go-to-home-button": "اذهب إلى الصفحة الرئيسية"
+  },
+  "name": "الاسم",
+  "category-image": "صورة الفئة",
+  "add-category": "أضف فئة",
+  "upload-file": "تحميل الملف",
+  "add-a-new-category": "إضافة فئة جديدة",
+  "name-0": "اسم",
+  "view-category-image": "عرض صورة الفئة",
+  "update-category-0": "تحديث الفئة",
+  "no-categories-found-matching": "لم يتم العثور على فئات مطابقة",
+  "name-1": "الاسم",
+  "products": "منتجات",
+  "no-product-categories-found": "لم يتم العثور على فئات المنتجات",
+  "all-categories": "جميع الفئات",
+  "no-categories-found-matching-0": "لم يتم العثور على فئات مطابقة",
+  "error": "خطأ",
+  "category-deleted-successfully": "تم حذف الفئة بنجاح!",
+  "success": "نجاح",
+  "error-0": "خطأ",
+  "an-unexpected-error-occurred": "حدث خطأ غير متوقع",
+  "delete": "حذف",
+  "edit-0": "تعديل",
+  "add-a-new-category-0": "أضف فئة جديدة",
+  "name-must-be-at-least-2-characters": "يجب أن يتكون الاسم من حرفين على الأقل",
+  "name-cannot-exceed-10-characters": "لا يمكن أن يتجاوز الاسم 20 حرفا",
+  "image-is-required": "الصورة مطلوبة",
+  "image-cannot-be-empty": "لا يمكن أن تكون الصورة فارغة",
+  "only-jpeg-png-and-gif-images-are-allowed": "يُسمح فقط بالصور JPEG وPNG وGIF",
+  "image-jpeg-image-jpg-image-png-image-gif": "صورة/jpeg', 'صورة/jpg', 'صورة/png', 'صورة/gif",
+  "image-size-must-be-less-than-5mb": "يجب أن يكون حجم الصورة أقل من 5 ميغابايت",
+  "products-1": "منتجات",
+  "category-added-successfully": "تمت إضافة الفئة بنجاح!",
+  "category-added-successfully-0": "تمت إضافة الفئة بنجاح!",
+  "category-name-already-exists": "Category Name Already Exist",
+  "error-adding-category": "Error Add Category",
+  "update-category": "تحديث التصنيف: {name}"
+}
 }

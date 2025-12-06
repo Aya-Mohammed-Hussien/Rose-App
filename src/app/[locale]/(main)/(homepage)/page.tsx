@@ -13,7 +13,7 @@ export default async function page({ searchParams }: { searchParams: { occasion?
 
   return (
     <main className="flex flex-col gap-28 py-10">
-      <div className='px-20'>
+      <div className="px-20">
         {/* Carousel Section */}
         <CarouselSection />
 

@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 // Auth & Public Routes
 const authRoutes = ['/login', '/register', '/forgot-password', 'forget-password'];
-const publicRoutes = ['/', '/products', '/cart' , "/dashboard"];
+const publicRoutes = ['/', '/products', '/cart'];
 // Locale Detection
 const intlMiddleWare = createMiddleware(routing);
 export default async function middelware(request: NextRequest) {
@@ -42,7 +42,7 @@ export default async function middelware(request: NextRequest) {
 
   // admin-only protection for dashboard
   if (pathnameWithoutLocale.startsWith('/dashboard') && token.user.role !== 'admin') {
-    return NextResponse.redirect(new URL('/', request.nextUrl.origin));
+    return NextResponse.redirect(new URL('/unauthorized', request.nextUrl.origin));
   }
 
   // 4- Authenticated users can access protected routes

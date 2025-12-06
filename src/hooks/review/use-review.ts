@@ -1,4 +1,4 @@
-import { AddReviewAction } from '@/lib/actions/add.review';
+import { AddReviewAction } from '@/lib/actions/reviews/add.review.action';
 import { ReviewData } from '@/lib/types/add-review';
 import { useMutation } from '@tanstack/react-query';
 

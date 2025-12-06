@@ -2,7 +2,8 @@ import React from 'react';
 import CheckoutFlow from './_components/checkout-flow';
 import { getAddresses } from '@/lib/apis/checkout/addresses.api';
 import Summary from './_components/summary';
-import { getCart } from '@/lib/apis/cart/cart.api';
+import { getCart } from '@/lib/apis/cart/cart-summary.api';
+
 
 export default async function Page() {
   // Addresses API

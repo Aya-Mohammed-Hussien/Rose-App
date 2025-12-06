@@ -1,20 +1,41 @@
+import OrderStatus from "./_components/order-statistics/order-status";
+import Revenue from "./_components/order-statistics/revenue";
+import FirstRow from "./_components/all-categories/first-row";
+import TopSellingProducts from "@/components/features/selling-product/top-selling-product";
+import LowStockProducts from "@/components/features/stock-product/low-stock-product";
+
 // src/app/[locale]/dashboard/page.tsx
-export default function Page() {
+export default function Page({ params }: { params: { locale: string } }) {
+  const { locale } = params;
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Overview</h1>
+    <main >
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-6 bg-white rounded-xl shadow">
-          <h2 className="text-xl font-semibold mb-2">Stats</h2>
-          <p>Dashboard main content goes here...</p>
-        </div>
 
-        <div className="p-6 bg-white rounded-xl shadow">
-          <h2 className="text-xl font-semibold mb-2">Orders</h2>
-          <p>Latest orders or analytics...</p>
+      {/* All Categories Section */}
+      <section>
+        <FirstRow locale={locale} />
+      </section>
+
+      {/* Orders Statistics Section */}
+      <section className="w-full h-[23.8125rem] flex gap-6 pb-6">
+        {/* OrderStatus Section */}
+        <OrderStatus />
+        {/* Revenue Section */}
+        <Revenue />
+      </section>
+
+      <section className="flex gap-6">
+        <div className="w-1/2">
+          <TopSellingProducts />
         </div>
-      </div>
-    </div>
+        <div className="w-1/2">
+          <LowStockProducts />
+        </div>
+      </section>
+
+    </main>
+
+
   );
 }
+

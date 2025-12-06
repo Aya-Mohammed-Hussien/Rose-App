@@ -12,7 +12,13 @@
     "top-nav": {
       "search-placeholder": "What awesome gift are you looking for?",
       "login": "Login",
-      "locale-button": "العربية"
+      "locale-button": "العربية",
+      "hello": "Hello",
+      "profile": "My Profile",
+      "addresses": "My Addresses",
+      "orders": "My Orders",
+      "dashboard": "Dashboard",
+      "logout": "Log out"
     }
   },
   "footer": {
@@ -138,6 +144,7 @@
   },
   "profile": {
     "my-account": {
+      "account-settings": "Account Settings",
       "upload-photo": "Upload Photo",
       "upload-photo-description": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
       "first-name": "First name",
@@ -216,6 +223,36 @@
       "logout-button": "Logout"
     }
   },
+  "Addresses": {
+    "addresses": "My Addresses",
+    "add-address": "Add a New Address",
+    "deliver-to": "Deliver to",
+    "Home": "Home",
+    "Family": "Family",
+    "Work": "Work",
+    "no-addresses": "No Addresses Found",
+    "delete-address-description": "Are you sure you want to delete this address?",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete-success-message": "Address deleted successfully",
+    "delete-error-message": "Failed to delete the address",
+    "update-address-info": "Update Address Info",
+    "enter-address-details": "Enter address details",
+    "find-your-location": "Find Your Location",
+    "add-address-form": "Add Address",
+    "next-button": "Next",
+    "city": "City",
+    "address": "Address",
+    "phone": "Phone",
+    "find-location-button": "Find My Location"
+  },
+  "send-a-new-code": "Send a new code",
+  "verify-otp": "Verify OTP",
+  "need-help": "Need help?",
+  "contact-us": "Contact us",
+  "we-have-sent-a-6-digit-code-to-user-example-com": "We have sent a 6-digit code to user@example.com",
+  "enter-the-otp-code": "Enter the OTP Code",
+  "edit": "Edit",
   "no-related-products-found": "No related products found.",
   "related-products": "Related Products",
   "failed-to-load-related-products": "Failed to load related products",
@@ -231,6 +268,19 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
+  "dashboard": {
+    "all_categories": "All Categories",
+    "product_count": "{count , plural , =0 {product} one {Product} other {products}}",
+    "total_products": "Total products",
+    "total_orders": "Total orders",
+    "total_categories": "Total categories",
+    "total_revenue": "Total revenue",
+    "no_categories_found": "No Categories Found",
+    "overview-product-top-and-stock": {
+      "Top Selling Products": " Top Selling Products",
+      "Low Stock Products": "  Low Stock Products "
+    }
+  },
   "validation": {
     "review": {
       "rating": {
@@ -368,5 +418,75 @@
   "passwords-dont-match-repassword": "Passwords don't match RePassword",
   "passwords-not-match-repassword": "Passwords Not match RePassword",
   "passwords-not-match": "Passwords not match",
-  "your-password-has-been-successfully-reset": "Your password has been successfully reset."
+  "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
+  "add-review": "Add Review",
+  "sign-in-to-add-review": "Sign in to add review",
+  "confirmation-modal": {
+    "deleting": "Deleting..."
+  },
+  "cancel-button-title": "Nope, not doing it",
+  "order-statistics": {
+    "orders-status": "Orders Status",
+    "revenue": {
+      "title": "Revenue",
+      "monthly-button": "Monthly",
+      "last-week-button": "Last Week"
+    },
+    "completed": "Completed",
+    "in-progress": "In progress",
+    "canceled": "Canceled"
+  },
+  "not-found-page": {
+    "header": "This page does not exist.",
+    "description": "We couldn't find the page your are looking for, please make sure you are in the right path."
+  },
+  "error-page": {
+    "header": "Oops, something went wrong!",
+    "description": "Something unexpected happened, please refresh the page or try again shortly."
+  },
+  "unauthorized-page": {
+    "header": "You are not authorized to access this page.",
+    "description": "If you think this is wrong, please contact the support.",
+    "go-to-home-button": "Go to Homepage"
+  },
+  "your-password-has-been-successfully-reset": "Your password has been successfully reset.",
+  "confirmation-modal": {
+    "deleting": "Deleting"
+  },
+  "name": "Name",
+  "category-image": "Category image",
+  "add-category": "Add Category",
+  "upload-file": "Upload file",
+  "add-a-new-category": "Add a New Category",
+  "update-category": "Update Category",
+  "name-0": "Name",
+  "view-category-image": "View Category Image",
+  "update-category-0": "Update Category",
+  "no-categories-found-matching": "No Categories found matching",
+  "name-1": "Name",
+  "products": "Products",
+  "no-product-categories-found": "No Product Categories Found",
+  "all-categories": "All Categories",
+  "no-categories-found-matching-0": "No Categories found matching",
+  "error": "Error",
+  "category-deleted-successfully": "Category deleted successfully!",
+  "success": "Success",
+  "error-0": "Error",
+  "an-unexpected-error-occurred": "An unexpected error occurred",
+  "delete": "Delete",
+  "edit-0": "Edit",
+  "add-a-new-category-0": "Add a new category",
+  "name-must-be-at-least-2-characters": "Name must be at least 2 characters",
+  "name-cannot-exceed-10-characters": "Name cannot exceed 20 characters",
+  "image-is-required": "Image is required",
+  "image-cannot-be-empty": "Image cannot be empty",
+  "only-jpeg-png-and-gif-images-are-allowed": "Only JPEG, PNG and GIF images are allowed",
+  "image-jpeg-image-jpg-image-png-image-gif": "image/jpeg', 'image/jpg', 'image/png', 'image/gif",
+  "image-size-must-be-less-than-5mb": "Image size must be less than 5MB",
+  "products-0": "products",
+  "products-1": "products",
+  "category-added-successfully": "Category added successfully!",
+  "category-added-successfully-0": "Category added successfully!",
+  "category-name-already-exists": "اسم الفئه موجود بالفعل ",
+  "error-adding-category": "فشل في اضافه فئه "
 }

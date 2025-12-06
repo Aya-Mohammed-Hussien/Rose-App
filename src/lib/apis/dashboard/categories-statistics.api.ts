@@ -32,7 +32,6 @@ export const getCategoriesStatistics = async (): Promise<CategoriesStatisticsRes
     // Return the parsed data
     console.log(payload)
     return payload;
-    
   } catch (error) {
     // Rethrow the error so it can be handled in the calling code
     throw error;

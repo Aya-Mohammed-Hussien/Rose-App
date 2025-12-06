@@ -4,10 +4,9 @@ import { hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
-import { Sarabun, Tajawal , Inter  } from 'next/font/google';
+import { Sarabun, Tajawal, Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import localFont from 'next/font/local';
-
 
 // Generate static params for each layout
 export function generateStaticParams() {
@@ -46,7 +45,6 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
 });
-
 
 // Types
 type LayoutProps = {
