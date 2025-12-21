@@ -1,4 +1,4 @@
-import { Sidebar } from './_components/sidebar/sidebar';
+
 import { useLocale } from 'next-intl';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -8,7 +8,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <div className="flex min-h-screen bg-[#fafafa]" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       {/* SIDEBAR */}
       <div className="h-screen sticky top-0">
-        <Sidebar />
+
       </div>
 
       {/* CONTENT */}
