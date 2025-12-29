@@ -43,6 +43,9 @@ export async function GET() {
     return NextResponse.json(cartItems);
   } catch (err) {
     // --- Handle unexpected errors ---
-    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { message: err instanceof Error ? err.message : 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }

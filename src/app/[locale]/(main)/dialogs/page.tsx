@@ -4,13 +4,20 @@ import ImageDialog from '@/components/shared/image-preview-dialog';
 import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
 
-export default function page() {
+export default function Page() {
   // State
-  const [isPending, setisPending] = useState(false);
+  const [isPending, setIsPending] = useState(false);
 
   // Functions
-  const deleteAction = () => {
-    console.log('deleted');
+  const deleteAction = async () => {
+    setIsPending(true);
+    try {
+      // Simulate async operation
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log('deleted');
+    } finally {
+      setIsPending(false);
+    }
   };
 
   return (

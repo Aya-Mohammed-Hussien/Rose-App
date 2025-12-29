@@ -32,7 +32,7 @@ export async function updateOccasion(id: string, form: FormData) {
     }
 
     return data;
-  } catch (error: any) {
-    throw new Error(error.message || 'Something went wrong');
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Something went wrong');
   }
 }

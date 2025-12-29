@@ -4,13 +4,11 @@ import { useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { PriceFilterValues } from '@/lib/schemes/price.schema';
 import { UseFormReturn } from 'react-hook-form';
-import { useTranslations } from 'next-intl';
 
 // Navigation
 export function usePriceFilter(form: UseFormReturn<PriceFilterValues>) {
   const router = useRouter();
   const sp = useSearchParams();
-  const t = useTranslations('price.error');
 
   // Load values from URL on mount
   useEffect(() => {
@@ -21,7 +19,7 @@ export function usePriceFilter(form: UseFormReturn<PriceFilterValues>) {
       min: min ? Number(min) : undefined,
       max: max ? Number(max) : undefined,
     });
-  }, []);
+  }, [form, sp, router]);
 
   // Update URL when form changes
   useEffect(() => {
@@ -38,7 +36,7 @@ export function usePriceFilter(form: UseFormReturn<PriceFilterValues>) {
     });
 
     return () => subscription.unsubscribe();
-  }, [form.watch, sp, router]);
+  }, [form, sp, router]);
 
   // Reset form and clear URL
   const reset = useCallback(() => {

@@ -10,6 +10,11 @@ import {
 } from '@/components/ui/select';
 import { useCategories } from '@/hooks/category/use-all-categories';
 import { useTranslations } from 'next-intl';
+import { UseFormReturn, Path } from 'react-hook-form';
+
+type FormWithCategory = {
+  category: string;
+};
 
 /**
  * SelectCategoryField Component
@@ -19,7 +24,7 @@ import { useTranslations } from 'next-intl';
  * categories using a custom hook (`useCategories`). It displays a loading state
  * while fetching categories.
  */
-export default function SelectCategoryField({ form }: { form: any }) {
+export default function SelectCategoryField<T extends FormWithCategory>({ form }: { form: UseFormReturn<T> }) {
   //Translations
   const t = useTranslations('dashboard.product_form');
 
@@ -28,7 +33,7 @@ export default function SelectCategoryField({ form }: { form: any }) {
 
   return (
     <FormField
-      name="category"
+      name={"category" as Path<T>}
       control={form.control}
       render={({ field }) => (
         <FormItem className="mb-[1.125rem] w-[46.625rem]">

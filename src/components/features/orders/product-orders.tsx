@@ -1,7 +1,6 @@
 import { getOrders } from '@/lib/apis/orders/get-orders';
 import React from 'react';
 import OrderCard from './orders';
-import { useTranslations } from 'next-intl';
 
 export default async function ProductOrders() {
   // Response

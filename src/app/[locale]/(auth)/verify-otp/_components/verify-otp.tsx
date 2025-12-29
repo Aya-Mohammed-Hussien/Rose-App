@@ -11,8 +11,7 @@ import { otpSchema, OtpValues } from '@/lib/schemes/verify-otp';
 import ResendOtp from '../_resend-otp/resend-otp';
 import { useTranslations } from 'next-intl';
 import useVerify from '../_hooks/use-verify';
-import { Loader2 } from 'lucide-react';
-import { de } from 'zod/v4/locales';
+
 
 export default function VerifyForm() {
   // Translations
@@ -26,7 +25,7 @@ export default function VerifyForm() {
     },
   });
   // Mutations
-  const { verify, isPending, error } = useVerify();
+  const { verify, error } = useVerify();
 
   // Function
   const onSubmit: SubmitHandler<OtpValues> = (values) => {

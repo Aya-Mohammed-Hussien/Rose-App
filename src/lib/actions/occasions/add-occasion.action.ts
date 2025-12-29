@@ -40,7 +40,7 @@ export async function addOccasion(form: FormData | { name: string; image?: File 
     }
 
     return data;
-  } catch (error: any) {
-    throw new Error(error.message || 'Something went wrong');
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Something went wrong');
   }
 }

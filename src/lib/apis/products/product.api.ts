@@ -5,7 +5,7 @@ import type { Product, ProductsMetadata } from '@/lib/types/product';
 type ProductsApiRaw = {
   message: string;
   metadata?: ProductsMetadata;
-  products?: any[];
+  products?: Product[];
 };
 
 export async function getDashboardProducts(options?: {
@@ -31,7 +31,7 @@ export async function getDashboardProducts(options?: {
 
   const data: ProductsApiRaw = await res.json();
 
-  const products: Product[] = (data.products || []).map((p: any) => ({
+  const products: Product[] = (data.products || []).map((p: Product) => ({
     ...p,
     quantity: typeof p.quantity === 'number' ? p.quantity : 0,
     sold: typeof p.sold === 'number' ? p.sold : 0,

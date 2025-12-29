@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -33,7 +34,7 @@ type FormType = z.infer<typeof schema>;
 
 export default function UpdateOccasion({ occasion }: { occasion: Occasion }) {
     // State
-    const [preview, setPreview] = useState<string | null>(null);
+    const [preview] = useState<string | null>(null);
 
     // Mutation
     const updateMutation = useUpdateOccasion();
@@ -53,7 +54,7 @@ export default function UpdateOccasion({ occasion }: { occasion: Occasion }) {
                 name: occasion.name || "",
             });
         }
-    }, [occasion]);
+    }, [occasion, form]);
 
     // Functions
     const onSubmit = async (data: FormType) => {
@@ -116,7 +117,7 @@ export default function UpdateOccasion({ occasion }: { occasion: Occasion }) {
 
                                 {/* PREVIEW */}
                                 {preview && (
-                                    <img
+                                    <Image
                                         src={preview}
                                         alt="Preview"
                                         className="w-40 h-40 object-cover rounded-lg border mb-4"

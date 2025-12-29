@@ -82,8 +82,8 @@ export const payWithCredit = async (shippingAddressPayload: ShippingPayload) => 
 
     // If the response status is not OK, throw an error with the server message
     if (!response.ok) {
-      const errorPayload: any = payload;
-      throw new Error(errorPayload.error || errorPayload.message || 'failed to pay with credit');
+      const errorPayload: ErrorResponse = payload;
+      throw new Error(errorPayload.error || 'failed to pay with credit');
     }
 
     // Return the server response

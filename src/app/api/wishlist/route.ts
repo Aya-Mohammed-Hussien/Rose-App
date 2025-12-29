@@ -32,10 +32,10 @@ export const GET = async () => {
 
     // Return data
     return NextResponse.json(payload, { status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       // Handle unexpected errors
-      { message: error.message || 'Internal Server Error' },
+      { message: error instanceof Error ? error.message : 'Internal Server Error' },
       { status: 500 }
     );
   }

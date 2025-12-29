@@ -1,4 +1,4 @@
-export async function getProducts(searchParams: Record<string, any>) {
+export async function getProducts(searchParams: Record<string, string | string[] | undefined>) {
   const params = new URLSearchParams();
   const page = searchParams.page ?? 1;
   const limit = searchParams.limit ?? 12;

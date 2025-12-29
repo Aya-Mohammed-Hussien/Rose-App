@@ -26,10 +26,10 @@ export const useAddOccasion = () => {
       return data;
     },
 
-    onError: (error: any) => {
+    onError: (error: unknown) => {
       toast({
         variant: 'destructive',
-        description: error.message || 'حدث خطأ أثناء إضافة المناسبة',
+        description: error instanceof Error ? error.message : 'حدث خطأ أثناء إضافة المناسبة',
       });
     },
   });

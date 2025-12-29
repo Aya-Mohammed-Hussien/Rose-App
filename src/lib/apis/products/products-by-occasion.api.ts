@@ -12,7 +12,7 @@ export const getProductsByOccasion = async (
     }
     const payload: ProductsByOccasionResponse = await response.json();
     return payload;
-  } catch (error) {
-    throw new Error('Failed to fetch products');
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Failed to fetch products');
   }
 };

@@ -28,7 +28,7 @@ export const getUserData = async (): Promise<GetUserResponse> => {
     }
 
     return payload;
-  } catch (error: any) {
-    throw new Error(error.message || 'Unexpected error while getting user data');
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Unexpected error while getting user data');
   }
 };

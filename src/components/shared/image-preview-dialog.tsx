@@ -77,7 +77,7 @@ export default function ImageDialog({ images, image, trigger }: ImageDialogProps
                     <CardContent className="flex items-center justify-center p-0">
                       <div className="relative h-[400px] w-full bg-slate-100 rounded-md overflow-hidden flex items-center justify-center">
                         {/* Image */}
-                        <img
+                        <Image
                           src={imgSrc}
                           alt={`Slide ${index + 1}`}
                           className="h-full w-full object-cover"

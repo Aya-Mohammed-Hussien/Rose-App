@@ -42,7 +42,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
       params.set('occasion', defaultOccasion);
       router.replace(`?${params.toString()}`);
     }
-  }, [occasions, searchParams]);
+  }, [occasions, searchParams, router]);
 
   // functions
   const handleOccasionClick = (id: string) => {

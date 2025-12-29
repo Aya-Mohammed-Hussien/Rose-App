@@ -1,6 +1,6 @@
 'use client';
 
-import { AllOccasionsProps, Occasion } from '@/lib/types/occasion';
+import { AllOccasionsProps } from '@/lib/types/occasion';
 import {
     Table,
     TableBody,
@@ -59,7 +59,7 @@ export default function AllOccasions({ occasions, metadata, initialSearch = '' }
         params.set('page', '1');
         router.push(`?${params.toString()}`);
         router.refresh();
-    }, [debouncedSearch]);
+    }, [debouncedSearch, router, searchParams]);
 
     // Functions
     const handlePageChange = (page: number) => {
@@ -170,7 +170,7 @@ export default function AllOccasions({ occasions, metadata, initialSearch = '' }
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={3} className="text-center text-gray-500 py-8">
-                                    No Occasions found matching "{searchQuery}"
+                                    {`No Occasions found matching "${searchQuery}"`}
                                 </TableCell>
                             </TableRow>
                         )}

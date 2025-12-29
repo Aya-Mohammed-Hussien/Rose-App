@@ -12,7 +12,7 @@ export async function getToken() {
       secret: process.env.NEXTAUTH_SECRET!,
     });
     return jwt?.token;
-  } catch (error) {
-    return null;
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Failed to get token');
   }
 }

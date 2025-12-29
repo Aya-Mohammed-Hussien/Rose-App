@@ -10,7 +10,7 @@ import ResetAllButton from '@/components/shared/reset-all-button';
 export default async function ProductsPage({
   searchParams = {},
 }: {
-  searchParams?: Record<string, any>;
+  searchParams?: Record<string, string | string[] | undefined>;
 }) {
   const productsData: ProductsByOccasionResponse = await getProducts(searchParams);
 

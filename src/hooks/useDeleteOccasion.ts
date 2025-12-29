@@ -19,10 +19,10 @@ export const useDeleteOccasion = () => {
       });
     },
 
-    onError: (error: any) => {
+    onError: (error: unknown) => {
       toast({
         variant: 'destructive',
-        description: error.message || 'حدث خطأ أثناء حذف المناسبة',
+        description: error instanceof Error ? error.message : 'حدث خطأ أثناء حذف المناسبة',
       });
     },
   });
