@@ -374,7 +374,6 @@
       }
     }
   },
-
   "UserMenuItems": {
     "account": "Account",
     "logout": "Log out"
@@ -469,5 +468,44 @@
   "category-added-successfully": "Category added successfully!",
   "category-added-successfully-0": "Category added successfully!",
   "category-name-already-exists": "اسم الفئه موجود بالفعل ",
-  "error-adding-category": "فشل في اضافه فئه "
+  "error-adding-category": "فشل في اضافه فئه ",
+  "say-it-with-flowers": "Say It with Flowers",
+  "elegant-gifts-for-every-special-moment": "Elegant gifts for every special moment.",
+  "im-buying": "I'm buying!",
+  "sweet-surprises-for-loved-ones": "Sweet Surprises for Loved Ones",
+  "delicious-chocolates-for-any-occasion": "Delicious chocolates for any occasion",
+  "shop-now": "Shop Now",
+  "roses-romance": "Roses & Romance",
+  "show-your-love-in-a-classic-way": "Show your love in a classic way",
+  "discover-more": "Discover More",
+  "starting-from": "Starting from ",
+  "egp": "EGP",
+  "special-gifts-for-the-people-you-love": "Special Gifts For The",
+  "people-you-love": "People You Love",
+  "wedding": "Wedding",
+  "celebrate-her-forever-with-a-gift-she-ll-always-remember": "Celebrate Her Forever with a Gift\nShe’ll Always Remember",
+  "engagement": "Engagement",
+  "honor-the-beginning-of-a-beautiful-journey-together": "Honor the Beginning of a\nBeautiful Journey Together",
+  "anniversary": "Anniversary",
+  "mark-every-year-of-love-with-a-meaningful-surprise": "Mark Every Year of Love with\na Meaningful Surprise",
+  "free-delivery": "Free Delivery",
+  "for-orders-above-120-egp": "For orders above 120 EGP",
+  "get-refund": "Get Refund",
+  "refunds-within-30-days": "Refunds within 30 days",
+  "safe-payment": "Safe Payment",
+  "100-secure-payment": "100% Secure Payment",
+  "24-7-support": "24/7 Support",
+  "contact-us-at-any-time": "Contact us at any time",
+  "check-out": "check out",
+  "what-everyone-s-buying-right-now": "what everyone's",
+  "buying": "buying",
+  "right-now": "right now",
+  "not-sure-what-to-choose-start-with-our-best-sellers-these-are-the-gifts-our-customers-keep-coming-back-for-whether-you-re-celebrating-a-birthday-anniversary-or-wedding-our-top-picks-are-guaranteed-to-leave-a-lasting-impression": "Not sure what to choose? Start with our best sellers, these are the gifts our customers             keep coming back for. Whether you're celebrating a birthday, anniversary or wedding, our             top picks are guaranteed to leave a lasting impression.",
+  "best-selling": "best selling",
+  "explore-gifts": " Explore gifts",
+  "we-have-sent-a-6-digit-code-to": "We Have Sent a 6 Digit Code to",
+  "new-password": "Password",
+  "confirm-password": "Confirm Password",
+  "most-popular": "Most Popular",
+  "productsYouMayLike": "ProductsYouMayLike"
 }

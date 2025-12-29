@@ -22,14 +22,14 @@ export default async function CartPage() {
 
   // --- Render main page layout ---
   return (
-    <main className="container mx-auto flex flex-col gap-12 px-6 md:px-20 py-8">
+    <main className="container mx-auto flex flex-col gap-8 sm:gap-10 lg:gap-12 px-4 sm:px-6 lg:px-20 py-4 sm:py-6 lg:py-8">
       {/* Cart list section */}
       <CartList />
 
       {/* Recommended products section (if available) */}
       {hasRecommendations && (
-        <section>
-          <TitleProduct title="productsYouMayLike" />
+        <section className="px-2 sm:px-0">
+          <TitleProduct title="ProductsYouMayLike" />
           <ProductCarousel products={recommended} itemsPerView={4} />
         </section>
       )}

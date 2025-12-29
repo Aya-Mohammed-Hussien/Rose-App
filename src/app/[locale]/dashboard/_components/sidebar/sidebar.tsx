@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { DashboardNav } from './dashboard-nav';
 import { UserCard } from './user-card';
-import { getToken } from '@/lib/utils/get-token.util';
 import { getProfileData } from '@/lib/apis/dashboard/user.api';
 import PreviewWebsiteButton from './preview-website-button';
 

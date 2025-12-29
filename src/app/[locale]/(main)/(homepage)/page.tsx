@@ -12,8 +12,8 @@ export default async function page({ searchParams }: { searchParams: { occasion?
   const occasionId = searchParams?.occasion;
 
   return (
-    <main className="flex flex-col gap-28 py-10">
-      <div className="px-20">
+    <main className="flex flex-col gap-16 sm:gap-20 lg:gap-28 py-6 sm:py-8 lg:py-10">
+      <div className="px-4 sm:px-6 lg:px-12 xl:px-20">
         {/* Carousel Section */}
         <CarouselSection />
 

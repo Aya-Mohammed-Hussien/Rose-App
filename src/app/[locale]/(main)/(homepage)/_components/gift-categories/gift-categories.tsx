@@ -1,25 +1,28 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export function GiftCategories() {
+  // Translations
+  const t = useTranslations();
   //variables
   const giftCategories = [
     {
       id: 1,
       img: '/assets/images/650ebce97e11985e0c78fa1a2c8b1633ad6865ae.png',
-      tag: 'Wedding',
-      title: 'Celebrate Her Forever with a Gift\nShe’ll Always Remember',
+      tag: t('wedding'),
+      title: t('celebrate-her-forever-with-a-gift-she-ll-always-remember'),
     },
     {
       id: 2,
       img: '/assets/images/9c80f839880ae4729e2ed36e6a6e2ce4c8acf962.png',
-      tag: 'Engagement',
-      title: 'Honor the Beginning of a\nBeautiful Journey Together',
+      tag: t('engagement'),
+      title: t('honor-the-beginning-of-a-beautiful-journey-together'),
     },
     {
       id: 3,
       img: '/assets/images/f1ae11b6a3272e3325efa8c7c66af85509d2b54c.png',
-      tag: 'Anniversary',
-      title: 'Mark Every Year of Love with\na Meaningful Surprise',
+      tag: t('anniversary'),
+      title: t('mark-every-year-of-love-with-a-meaningful-surprise'),
     },
   ];
 

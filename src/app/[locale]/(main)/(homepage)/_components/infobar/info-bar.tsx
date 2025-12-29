@@ -1,31 +1,34 @@
 import { Truck, RefreshCw, ShieldCheck, Headset } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function InfoBar() {
+  // Translations
+  const t = useTranslations();
   //variables
   const features = [
     {
       id: 1,
       icon: Truck,
-      title: 'Free Delivery',
-      desc: 'For orders above 120 EGP',
+      title: t('free-delivery'),
+      desc: t('for-orders-above-120-egp'),
     },
     {
       id: 2,
       icon: RefreshCw,
-      title: 'Get Refund',
-      desc: 'Refunds within 30 days',
+      title: t('get-refund'),
+      desc: t('refunds-within-30-days'),
     },
     {
       id: 3,
       icon: ShieldCheck,
-      title: 'Safe Payment',
-      desc: '100% Secure Payment',
+      title: t('safe-payment'),
+      desc: t('100-secure-payment'),
     },
     {
       id: 4,
       icon: Headset,
-      title: '24/7 Support',
-      desc: 'Contact us at any time',
+      title: t('24-7-support'),
+      desc: t('contact-us-at-any-time'),
     },
   ];
 

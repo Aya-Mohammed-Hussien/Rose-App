@@ -15,31 +15,31 @@ export default async function ProductsPage({
   const productsData: ProductsByOccasionResponse = await getProducts(searchParams);
 
   return (
-    <main className="flex w-full">
+    <main className="flex flex-col lg:flex-row w-full">
       {/* Sidebar */}
-      <aside className="w-[280px] flex-shrink-0 flex flex-col gap-8 mx-4 my-11">
+      <aside className="w-full lg:w-[280px] flex-shrink-0 flex flex-col gap-6 sm:gap-8 px-4 sm:px-6 lg:mx-4 my-6 sm:my-8 lg:my-11">
         {/* Category */}
         <CategoriesFilter />
-        <hr className="border-t border-gray-200 " />
+        <hr className="border-t border-gray-200" />
 
         {/* Occassions */}
         <OccasionsSection />
-        <hr className="border-t border-gray-200 " />
+        <hr className="border-t border-gray-200" />
 
         {/* Rating */}
         <RatingFilter />
-        <hr className="border-t border-gray-200 " />
+        <hr className="border-t border-gray-200" />
 
         {/* Price Range */}
         <PriceRangeForm />
-        <hr className="border-t border-gray-200 " />
+        <hr className="border-t border-gray-200" />
 
         {/* Reset All */}
         <ResetAllButton />
       </aside>
 
       {/* Products section  */}
-      <div className="flex-1 my-11 mr-4">
+      <div className="flex-1 my-6 sm:my-8 lg:my-11 mr-0 lg:mr-4 px-4 sm:px-6 lg:px-0">
         <Products productsData={productsData} />
       </div>
     </main>

@@ -13,8 +13,11 @@ export default async function TopHeader() {
 
   return (
     <div
-      className="px-9 bg-white dark:bg-zinc-800 flex justify-center items-center text-zinc-700
-     dark:text-zinc-50"
+      className="px-4 md:px-9 
+bg-white dark:bg-zinc-800 
+flex flex-wrap md:flex-nowrap 
+justify-center items-center 
+text-zinc-700 dark:text-zinc-50"
     >
       {/* Logo image */}
       <Image

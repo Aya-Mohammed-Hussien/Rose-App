@@ -75,7 +75,7 @@ export default function ResetPasswordStep({ email }: Props) {
           render={({ field }) => (
             <FormItem className="mb-4">
               {/* Form Label */}
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t('new-password')}</FormLabel>
 
               {/* Field */}
               <FormControl>
@@ -94,7 +94,7 @@ export default function ResetPasswordStep({ email }: Props) {
           render={({ field }) => (
             <FormItem className="mb-2.5">
               {/* Form Label */}
-              <FormLabel>Confirm Password</FormLabel>
+              <FormLabel>{t('confirm-password')}</FormLabel>
 
               {/* Field */}
               <FormControl>
