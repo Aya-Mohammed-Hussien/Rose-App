@@ -59,7 +59,7 @@ export default function CartList() {
           cart.map((item: CartItemFromHook) => <CartItem key={item.id} {...item} />)
         ) : (
           // Empty state
-          <p className="text-gray-600 text-center py-6 text-sm sm:text-base">{t('emptyCart')}</p>
+          <p className="text-gray-600 text-center py-6 text-sm sm:text-base">{t('empty')}</p>
         )}
       </div>
 
