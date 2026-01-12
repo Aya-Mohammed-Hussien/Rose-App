@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { getToken } from '@/lib/utils/get-token.util';
 import { GetWishlistResponse } from '@/lib/types/wishlist';
 
+export const dynamic = 'force-dynamic';
+
 export const GET = async () => {
   try {
     // Variables
