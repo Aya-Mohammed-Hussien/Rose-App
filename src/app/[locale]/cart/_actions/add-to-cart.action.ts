@@ -10,46 +10,49 @@ export type AddToCartData = {
 };
 
 export async function addToCartAction(data: AddToCartData) {
+  // Get token
+  const token = await getToken();
+  if (!token) {
+    throw new Error('No access token found. Please log in again.');
+  }
+
+  // Get API URL
+  const apiUrl = process.env.NEXT_PUBLIC_API;
+  if (!apiUrl) {
+    throw new Error('NEXT_PUBLIC_API environment variable is not set');
+  }
+
+  // Send POST request
+  const response = await fetch(`${apiUrl}/cart`, {
+    method: 'POST',
+    headers: {
+      ...JSON_HEADER,
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+    cache: 'no-store',
+  });
+
+  // Check if request failed before parsing
+  if (!response.ok) {
+    let errorMessage = `Failed to add item to cart (${response.status})`;
+    try {
+      const errorData = await response.json();
+      errorMessage = errorData?.message || errorData?.error || errorMessage;
+    } catch {
+      // If response is not JSON, use status text
+      errorMessage = response.statusText || errorMessage;
+    }
+    throw new Error(errorMessage);
+  }
+
+  // Parse response only if OK
   try {
-    // Get token
-    const token = await getToken();
-    if (!token) {
-      throw new Error('No access token found. Please log in again.');
-    }
-
-    // Get API URL
-    const apiUrl = process.env.NEXT_PUBLIC_API;
-    if (!apiUrl) {
-      throw new Error('NEXT_PUBLIC_API environment variable is not set');
-    }
-
-    // Send POST request
-    const response = await fetch(`${apiUrl}/cart`, {
-      method: 'POST',
-      headers: {
-        ...JSON_HEADER,
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(data),
-      cache: 'no-store',
-    });
-
-    // Parse response
     const payload = await response.json();
-
-    // Check if request failed
-    if (!response.ok) {
-      const errorMessage = payload?.message || payload?.error || 'Failed to add item to cart';
-      throw new Error(errorMessage);
-    }
-
-    // Return success response
     return payload;
-  } catch (error) {
-    // Re-throw with proper error message
-    if (error instanceof Error) {
-      throw error;
-    }
-    throw new Error('Unexpected error while adding item to cart');
+  } catch (parseError) {
+    // If response is empty or not JSON, return success anyway
+    // Some APIs return 200 with empty body
+    return { success: true };
   }
 }

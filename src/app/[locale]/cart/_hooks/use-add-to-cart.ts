@@ -10,19 +10,26 @@ export default function useAddToCart() {
 
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (data: { product: Product }) => {
-      // Authenticated user => Send the data to the BE
-      if (session?.user) {
-        return await addToCartAction({
-          product: data.product._id,
-          quantity: 1,
-        });
-      } else {
-        // Guest user => send to local storage
-        const item = productToCartItem(data.product);
-        addItemToGuestCart(item);
-        // to show the loading for guest users as this is not async operation
-        await new Promise((res) => setTimeout(res, 500));
-        return item;
+      try {
+        // Authenticated user => Send the data to the BE
+        if (session?.user) {
+          const result = await addToCartAction({
+            product: data.product._id,
+            quantity: 1,
+          });
+          return result;
+        } else {
+          // Guest user => send to local storage
+          const item = productToCartItem(data.product);
+          addItemToGuestCart(item);
+          // to show the loading for guest users as this is not async operation
+          await new Promise((res) => setTimeout(res, 500));
+          return item;
+        }
+      } catch (err) {
+        // Ensure error is properly thrown
+        const errorMessage = err instanceof Error ? err.message : 'Failed to add item to cart';
+        throw new Error(errorMessage);
       }
     },
 

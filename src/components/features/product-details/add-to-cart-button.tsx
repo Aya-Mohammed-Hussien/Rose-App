@@ -34,11 +34,12 @@ export default function AddToCartButton({ product }: AddToCartProps) {
             });
           }, 500);
         },
-        onError: (error: Error) => {
+        onError: (error: unknown) => {
           console.error('Add to cart error in button:', error);
+          const errorMessage = error instanceof Error ? error.message : String(error) || t('addFailed');
           setTimeout(() => {
             toast({
-              description: error?.message || t('addFailed'),
+              description: errorMessage,
               variant: 'destructive',
             });
           }, 500);

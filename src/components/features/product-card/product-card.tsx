@@ -40,11 +40,12 @@ export default function ProductCard({ product }: ProductCardProps) {
             });
           }, 500);
         },
-        onError: (error: Error) => {
+        onError: (error: unknown) => {
           console.error('Add to cart error in product card:', error);
+          const errorMessage = error instanceof Error ? error.message : String(error) || t('addFailed');
           setTimeout(() => {
             toast({
-              description: error?.message || t('addFailed'),
+              description: errorMessage,
               variant: 'destructive',
             });
           }, 500);
