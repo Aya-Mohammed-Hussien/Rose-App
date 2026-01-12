@@ -47,12 +47,27 @@ export async function GET() {
     // --- Parse response JSON ---
     const data = await res.json();
 
+    // --- Debug: Log the raw response structure ---
+    console.log('Raw cart API response:', JSON.stringify(data, null, 2));
+
     // --- Validate and transform API data into frontend-friendly format ---
     // The API returns: { message, numOfCartItems, cart: { cartItems: [...] } }
     const cartItemsData = data?.cart?.cartItems || [];
 
+    console.log('Cart items data:', cartItemsData);
+    console.log(
+      'Cart items count:',
+      Array.isArray(cartItemsData) ? cartItemsData.length : 'not an array'
+    );
+
     if (!Array.isArray(cartItemsData)) {
       console.error('Cart items is not an array:', cartItemsData);
+      console.error('Response structure:', data);
+      return NextResponse.json([]);
+    }
+
+    if (cartItemsData.length === 0) {
+      console.log('Cart is empty');
       return NextResponse.json([]);
     }
 
@@ -77,9 +92,19 @@ export async function GET() {
           quantity: item.quantity || 1,
         };
 
+        console.log('Transformed cart item:', cartItem);
         return cartItem;
       })
-      .filter((item: CartItemFromHook) => item.id && item.name); // Filter out invalid items
+      .filter((item: CartItemFromHook) => {
+        const isValid = item.id && item.name;
+        if (!isValid) {
+          console.warn('Filtered out invalid cart item:', item);
+        }
+        return isValid;
+      });
+
+    console.log('Final cart items count:', cartItems.length);
+    console.log('Final cart items:', cartItems);
 
     // --- Return simplified cart items ---
     return NextResponse.json(cartItems);

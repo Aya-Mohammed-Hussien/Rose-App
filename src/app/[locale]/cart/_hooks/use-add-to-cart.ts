@@ -27,9 +27,12 @@ export default function useAddToCart() {
       }
     },
 
-    // --- Invalidate cart data after successful add ---
+    // --- Invalidate and refetch cart data after successful add ---
     onSuccess: () => {
+      console.log('Add to cart successful, invalidating cart query...');
       queryClient.invalidateQueries({ queryKey: ['cart'] });
+      // Also refetch immediately to ensure fresh data
+      queryClient.refetchQueries({ queryKey: ['cart'] });
     },
   });
 
