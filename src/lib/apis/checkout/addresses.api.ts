@@ -44,7 +44,7 @@ export const getAddresses = async (): Promise<getAddressesResponse> => {
 
     // If the response contains an error, throw
     if ('error' in payload) {
-      throw new Error(payload.error || 'Failed to fetch addresses');
+      throw new Error((payload.error as string) || 'Failed to fetch addresses');
     }
 
     // Return the server response
