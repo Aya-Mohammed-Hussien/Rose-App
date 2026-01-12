@@ -9,26 +9,42 @@ export const getUserData = async (): Promise<GetUserResponse> => {
     // Base API URL
     const baseURL = process.env.NEXT_PUBLIC_API;
 
+    if (!baseURL) {
+      throw new Error('NEXT_PUBLIC_API environment variable is not set');
+    }
+
     if (!token) {
-      throw new Error('No access token found');
+      throw new Error('No access token found. Please log in again.');
     }
 
     // Fetch user profile data
     const response = await fetch(`${baseURL}/auth/profile-data`, {
       headers: {
         Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
       cache: 'no-store',
     });
 
-    const payload: GetUserResponse = await response.json();
-
+    // Handle network errors
     if (!response.ok) {
-      throw new Error(payload.message || 'Failed to fetch user data');
+      let errorMessage = `Failed to fetch user data: ${response.status} ${response.statusText}`;
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.message || errorMessage;
+      } catch {
+        // If response is not JSON, use the status text
+      }
+      throw new Error(errorMessage);
     }
+
+    // Parse response
+    const payload: GetUserResponse = await response.json();
 
     return payload;
   } catch (error: unknown) {
-    throw new Error(error instanceof Error ? error.message : 'Unexpected error while getting user data');
+    // Log error for debugging
+    console.error('Error fetching user data:', error);
+    throw error instanceof Error ? error : new Error('Unexpected error while getting user data');
   }
 };
