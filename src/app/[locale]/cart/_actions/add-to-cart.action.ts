@@ -30,17 +30,26 @@ export async function addToCartAction(data: AddToCartData) {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
+      cache: 'no-store',
     });
 
-    if (!response.ok) {
-      const errorData = await response
-        .json()
-        .catch(() => ({ message: 'Failed to add item to cart' }));
-      console.error('Failed to add to cart:', response.status, errorData);
-      throw new Error(errorData.message || 'Failed to add item to cart');
+    // Try to parse response as JSON
+    let payload;
+    try {
+      const text = await response.text();
+      payload = text ? JSON.parse(text) : {};
+    } catch (parseError) {
+      console.error('Failed to parse response:', parseError);
+      payload = {};
     }
 
-    const payload = await response.json();
+    if (!response.ok) {
+      const errorMessage =
+        payload?.message || payload?.error || `Failed to add item to cart (${response.status})`;
+      console.error('Failed to add to cart:', response.status, payload);
+      throw new Error(errorMessage);
+    }
+
     console.log('Add to cart success:', payload);
     return payload;
   } catch (error) {

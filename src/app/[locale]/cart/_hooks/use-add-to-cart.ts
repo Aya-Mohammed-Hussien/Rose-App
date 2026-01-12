@@ -10,20 +10,28 @@ export default function useAddToCart() {
 
   const { isPending, error, mutate } = useMutation({
     mutationFn: async (data: { product: Product }) => {
-      // Authenticated user => Send the data to the BE
-      if (session?.user) {
-        const response = await addToCartAction({
-          product: data.product._id,
-          quantity: 1,
-        });
-        return response;
-      } else {
-        // Guest user => send to local storage
-        const item = productToCartItem(data.product);
-        addItemToGuestCart(item);
-        // to show the loading for guest users as this is not async operation
-        await new Promise((res) => setTimeout(res, 500));
-        return item;
+      try {
+        // Authenticated user => Send the data to the BE
+        if (session?.user) {
+          console.log('Adding to cart for authenticated user:', data.product._id);
+          const response = await addToCartAction({
+            product: data.product._id,
+            quantity: 1,
+          });
+          console.log('Add to cart response:', response);
+          return response;
+        } else {
+          // Guest user => send to local storage
+          console.log('Adding to cart for guest user:', data.product._id);
+          const item = productToCartItem(data.product);
+          addItemToGuestCart(item);
+          // to show the loading for guest users as this is not async operation
+          await new Promise((res) => setTimeout(res, 500));
+          return item;
+        }
+      } catch (error) {
+        console.error('Error in mutationFn:', error);
+        throw error;
       }
     },
 
@@ -33,6 +41,9 @@ export default function useAddToCart() {
       queryClient.invalidateQueries({ queryKey: ['cart'] });
       // Also refetch immediately to ensure fresh data
       queryClient.refetchQueries({ queryKey: ['cart'] });
+    },
+    onError: (error) => {
+      console.error('Add to cart error:', error);
     },
   });
 
