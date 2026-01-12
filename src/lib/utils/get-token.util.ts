@@ -3,20 +3,10 @@ import { cookies } from 'next/headers';
 
 export async function getToken() {
   try {
-    // Check if we're in a dynamic context
-    // If cookies() throws an error about dynamic usage, catch it and return null
-    let tokenCookies: string | undefined;
-    try {
-      tokenCookies = cookies().get('next-auth.session-token')?.value;
-    } catch (cookieError: unknown) {
-      // If cookies() fails due to static generation context, return null
-      if (cookieError instanceof Error && cookieError.message.includes('Dynamic server usage')) {
-        // This is expected during static generation, return null gracefully
-        return null;
-      }
-      // Re-throw other cookie errors
-      throw cookieError;
-    }
+    // Get token from cookies
+    // Note: This will throw during static generation if route doesn't have 'force-dynamic'
+    // but we catch and handle it gracefully
+    const tokenCookies = cookies().get('next-auth.session-token')?.value;
 
     if (!tokenCookies) return null;
 
@@ -32,14 +22,21 @@ export async function getToken() {
 
     return jwt?.token || null;
   } catch (error: unknown) {
-    // Log error but don't throw - return null instead
-    // This allows the calling code to handle the missing token gracefully
-    // Only log non-dynamic-usage errors to avoid noise during build
-    if (error instanceof Error && error.message.includes('Dynamic server usage')) {
-      // This is expected during static generation, return null gracefully
-      return null;
+    // Handle errors gracefully
+    // If it's a dynamic server usage error, it's expected during static generation
+    // and the route should have 'export const dynamic = "force-dynamic"' to prevent this
+    if (error instanceof Error) {
+      // Don't log expected dynamic server usage errors during build
+      // These are handled by the route's dynamic configuration
+      if (error.message.includes('Dynamic server usage')) {
+        // Silently return null - this is expected behavior
+        return null;
+      }
+      // Log other errors for debugging
+      console.error('Error decoding token:', error);
+    } else {
+      console.error('Error decoding token:', error);
     }
-    console.error('Error decoding token:', error);
     return null;
   }
 }

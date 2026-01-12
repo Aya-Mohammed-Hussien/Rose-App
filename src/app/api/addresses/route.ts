@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { AddressesResponse } from '@/lib/types/addresses';
 import { getToken } from '@/lib/utils/get-token.util';
 import { NextResponse } from 'next/server';
@@ -10,7 +12,6 @@ import { NextResponse } from 'next/server';
  * revalidateTag('addresses'); // Refreshes any cached data tagged as "addresses"
  * This ensures server cache stays consistent with backend changes.
  */
-export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {

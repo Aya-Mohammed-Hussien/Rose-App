@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // ===============================================================
 // Route Handler (GET)
 // Fetches the authenticated user's cart data from the API and returns a simplified response.
@@ -5,8 +7,6 @@
 import { NextResponse } from 'next/server';
 import { getToken } from '@/lib/utils/get-token.util';
 import { CartResponse, CartItemFromHook } from '@/lib/types/cart';
-
-export const dynamic = 'force-dynamic';
 
 // ===============================================================
 // Functions
