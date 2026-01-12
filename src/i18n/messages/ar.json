@@ -268,20 +268,6 @@
   "general-rating": "التقييم العام",
   "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
   "rating-is-required": "التقييم مطلوب",
-  "validation": {
-    "review": {
-      "rating": {
-        "min": "يجب أن يكون التقييم على الأقل 1",
-        "max": "لا يمكن أن يتجاوز التقييم 5"
-      },
-      "title": {
-        "required": "العنوان مطلوب"
-      },
-      "comment": {
-        "required": "التعليق مطلوب"
-      }
-    }
-  },
   "dashboardNav": {
     "overview": "نظرة عامة",
     "categories": "التصنيفات",
@@ -507,5 +493,71 @@
   "new-password": "كلمة المرور",
   "confirm-password": "تأكيد كلمة المرور",
   "most-popular": "الأكثر شعبية",
-  "productsYouMayLike": "المنتجات التي قد تعجبك"
+  "productsYouMayLike": "المنتجات التي قد تعجبك",
+  "orders": "الطلبات",
+  "total-price": "السعر الإجمالي",
+  "paid": "مدفوع",
+  "status": "الحالة",
+  "payment-method": "طريقة الدفع",
+  "delivery-status": "حالة التوصيل",
+  "delivered": "تم التوصيل",
+  "pending": "قيد التنفيذ",
+  "order-items": "عناصر الطلب",
+  "no-items-in-this-order": "لا توجد عناصر في هذا الطلب",
+  "show-all": "عرض الكل",
+  "checkout": {
+    "summary": "الملخص",
+    "coupon-code": "رمز الكوبون",
+    "applying": "جارٍ التطبيق",
+    "apply-coupon": "تطبيق الكوبون",
+    "no-coupons-applied": "لم يتم تطبيق أي كوبونات",
+    "subtotal": "المجموع الفرعي",
+    "discount": "الخصم",
+    "total": "الإجمالي",
+    "back": "رجوع",
+    "payment-method": "طريقة الدفع",
+    "cash-on-delivery": "الدفع عند الاستلام",
+    "cash-description": "ستدفع نقداً عند توصيل طلبك.",
+    "credit-card": "بطاقة ائتمان",
+    "credit-description": "سيتم توجيهك بأمان إلى Stripe لإتمام الدفع.",
+    "checkout-button": "الدفع",
+    "shipping-address": "عنوان الشحن",
+    "or": "أو",
+    "add-new-address": "إضافة عنوان جديد",
+    "next": "التالي"
+  },
+  "validation": {
+    "review": {
+      "rating": {
+        "min": "يجب أن يكون التقييم على الأقل 1",
+        "max": "لا يمكن أن يتجاوز التقييم 5"
+      },
+      "title": {
+        "required": "العنوان مطلوب"
+      },
+      "comment": {
+        "required": "التعليق مطلوب"
+      }
+    },
+    "email": {
+      "required": "البريد الإلكتروني مطلوب",
+      "invalid": "عنوان البريد الإلكتروني غير صالح"
+    },
+    "otp": {
+      "required": "رمز OTP مطلوب",
+      "length": "يجب أن يتكون رمز OTP من 6 أرقام"
+    },
+    "password": {
+      "email-is-required": "البريد الإلكتروني مطلوب",
+      "invalid-email-address-0": "عنوان البريد الإلكتروني غير صالح",
+      "password-must-contain-one-digit-from-1-to-9": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
+      "password-must-contain-one-lowercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
+      "password-must-contain-one-uppercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
+      "password-must-contain-one-special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
+      "password-must-not-contain-any-spaces": "يجب ألا تحتوي كلمة المرور على أية مسافات",
+      "password-must-be-8-25-characters-long": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا",
+      "please-confirm-your-password": "يرجى تأكيد كلمة المرور الخاصة بك",
+      "passwords-not-match": "كلمات المرور غير متطابقة"
+    }
+  }
 }

@@ -268,20 +268,6 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
-  "validation": {
-    "review": {
-      "rating": {
-        "min": "Rating must be at least 1",
-        "max": "Rating cannot exceed 5"
-      },
-      "title": {
-        "required": "Title is required"
-      },
-      "comment": {
-        "required": "Comment is required"
-      }
-    }
-  },
   "dashboardNav": {
     "overview": "Overview",
     "categories": "Categories",
@@ -298,7 +284,7 @@
     "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
     "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
     "password-must-contain-one-special-character": "Password must contain one special character",
-    "password-must-not-contain-any-spaces": "ust not contain any spaces",
+    "password-must-not-contain-any-spaces": "Password must not contain any spaces",
     "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
     "please-confirm-your-password": "Please confirm your password",
     "passwords-dont-match-repassword": "Passwords don't match RePassword",
@@ -467,8 +453,8 @@
   "products-1": "products",
   "category-added-successfully": "Category added successfully!",
   "category-added-successfully-0": "Category added successfully!",
-  "category-name-already-exists": "اسم الفئه موجود بالفعل ",
-  "error-adding-category": "فشل في اضافه فئه ",
+  "category-name-already-exists": "Category name already exists",
+  "error-adding-category": "Failed to add category",
   "say-it-with-flowers": "Say It with Flowers",
   "elegant-gifts-for-every-special-moment": "Elegant gifts for every special moment.",
   "im-buying": "I'm buying!",
@@ -507,5 +493,71 @@
   "new-password": "Password",
   "confirm-password": "Confirm Password",
   "most-popular": "Most Popular",
-  "productsYouMayLike": "ProductsYouMayLike"
+  "productsYouMayLike": "ProductsYouMayLike",
+  "orders": "Orders",
+  "total-price": "Total Price",
+  "paid": "Paid",
+  "status": "Status",
+  "payment-method": "Payment Method",
+  "delivery-status": "Delivery Status",
+  "delivered": "Delivered",
+  "pending": "Pending",
+  "order-items": "Order Items",
+  "no-items-in-this-order": "No items in this order",
+  "show-all": "Show All",
+  "checkout": {
+    "summary": "Summary",
+    "coupon-code": "Coupon Code",
+    "applying": "Applying",
+    "apply-coupon": "Apply Coupon",
+    "no-coupons-applied": "No coupons applied",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total",
+    "back": "Back",
+    "payment-method": "Payment Method",
+    "cash-on-delivery": "Cash on Delivery",
+    "cash-description": "You'll pay in cash when your order is delivered.",
+    "credit-card": "Credit Card",
+    "credit-description": "You'll be securely redirected to Stripe to complete your payment.",
+    "checkout-button": "Checkout",
+    "shipping-address": "Shipping Address",
+    "or": "OR",
+    "add-new-address": "Add a New Address",
+    "next": "Next"
+  },
+  "validation": {
+    "review": {
+      "rating": {
+        "min": "Rating must be at least 1",
+        "max": "Rating cannot exceed 5"
+      },
+      "title": {
+        "required": "Title is required"
+      },
+      "comment": {
+        "required": "Comment is required"
+      }
+    },
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email address"
+    },
+    "otp": {
+      "required": "OTP code is required",
+      "length": "OTP code must be 6 digits"
+    },
+    "password": {
+      "email-is-required": "Email is required",
+      "invalid-email-address-0": "Invalid email address",
+      "password-must-contain-one-digit-from-1-to-9": "Password must contain one digit from 1 to 9",
+      "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
+      "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
+      "password-must-contain-one-special-character": "Password must contain one special character",
+      "password-must-not-contain-any-spaces": "Password must not contain any spaces",
+      "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
+      "please-confirm-your-password": "Please confirm your password",
+      "passwords-not-match": "Passwords not match"
+    }
+  }
 }
