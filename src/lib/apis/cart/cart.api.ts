@@ -1,4 +1,6 @@
-export async function getCart() {
+import { CartItemFromHook } from '@/lib/types/cart';
+
+export async function getCart(): Promise<CartItemFromHook[]> {
   try {
     // Call API route
     const res = await fetch('/api/cart', { cache: 'no-store' });

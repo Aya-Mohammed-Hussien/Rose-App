@@ -47,12 +47,9 @@ export async function GET() {
     // --- Parse response JSON ---
     const data = await res.json();
 
-    // --- Log for debugging (remove in production if needed) ---
-    console.log('Cart API Response:', JSON.stringify(data, null, 2));
-
     // --- Validate and transform API data into frontend-friendly format ---
-    // Handle both possible response structures
-    const cartItemsData = data?.cart?.cartItems || data?.data?.cart?.cartItems || [];
+    // The API returns: { message, numOfCartItems, cart: { cartItems: [...] } }
+    const cartItemsData = data?.cart?.cartItems || [];
 
     if (!Array.isArray(cartItemsData)) {
       console.error('Cart items is not an array:', cartItemsData);
@@ -80,16 +77,9 @@ export async function GET() {
           quantity: item.quantity || 1,
         };
 
-        // Validate the transformed item
-        if (!cartItem.id || !cartItem.name) {
-          console.warn('Invalid cart item after transformation:', cartItem);
-        }
-
         return cartItem;
       })
       .filter((item: CartItemFromHook) => item.id && item.name); // Filter out invalid items
-
-    console.log('Transformed cart items:', cartItems.length);
 
     // --- Return simplified cart items ---
     return NextResponse.json(cartItems);
