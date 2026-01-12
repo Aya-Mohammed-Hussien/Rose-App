@@ -76,7 +76,7 @@
     "login": {
       "headline": "مرحبًا بعودتك",
       "validation": {
-        "email_required": "البريد الإلكتروني مطلوب",
+        "email": "البريد الإلكتروني مطلوب",
         "email_invalid": "يرجى إدخال بريد إلكتروني صالح",
         "password_required": "كلمة المرور مطلوبة"
       },

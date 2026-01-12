@@ -10,6 +10,7 @@ import { NextResponse } from 'next/server';
  * revalidateTag('addresses'); // Refreshes any cached data tagged as "addresses"
  * This ensures server cache stays consistent with backend changes.
  */
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
