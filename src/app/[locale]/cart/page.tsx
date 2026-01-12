@@ -8,6 +8,7 @@ import { getRecommendedProducts } from '@/lib/apis/cart/prouducts-you-may-like.a
 import CartList from './_components/cart-list';
 import TitleProduct from '@/components/shared/products-section-title';
 import ProductCarousel from '@/components/features/product-carousel/product-carousel';
+import { Product } from '@/lib/types/product';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,7 +21,7 @@ export default async function CartPage() {
     const userId = session?.user?._id;
 
     // --- Fetch recommended products for the user ---
-    let recommended: any[] = [];
+    let recommended: Product[] = [];
     if (userId) {
       try {
         recommended = await getRecommendedProducts(userId);
