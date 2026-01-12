@@ -19,6 +19,7 @@ export const GET = async () => {
     // Send request to API endpoint
     const response = await fetch(`${baseURL}/wishlist`, {
       headers: { Authorization: `Bearer ${token}` },
+      cache: 'no-store',
     });
 
     // Turn response into JSON
