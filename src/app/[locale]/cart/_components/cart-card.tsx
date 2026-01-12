@@ -33,6 +33,12 @@ export default function CartItem({
   // Translation
   const t = useTranslations('CartItem');
 
+  // Validate required fields
+  if (!id || !name) {
+    console.error('CartItem: Missing required fields', { id, name });
+    return null;
+  }
+
   // Hooks
   // Initialize form with validation for quantity field
   const form = useForm<QuantityValues>({
@@ -83,7 +89,23 @@ export default function CartItem({
       {/* ===== LEFT SIDE (PRODUCT IMAGE) ===== */}
       <div className="flex justify-start rtl:pl-2 sm:rtl:pl-4 ltr:pr-2 sm:ltr:pr-4 flex-shrink-0">
         <div className="relative w-20 h-24 sm:w-[100px] sm:h-[120px] lg:w-[117px] lg:h-[140px] rounded-[8px] overflow-hidden bg-white">
-          <Image src={image} alt={name} fill className="object-cover object-center" sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 117px" />
+          {image ? (
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 117px"
+              onError={(e) => {
+                console.error('Failed to load cart item image:', image);
+                // You can set a fallback image here if needed
+              }}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400 text-xs">
+              No Image
+            </div>
+          )}
         </div>
       </div>
 

@@ -44,19 +44,51 @@ export async function GET() {
     }
 
     // --- Parse response JSON ---
-    const data: CartResponse = await res.json();
+    const data = await res.json();
 
-    // --- Transform API data into frontend-friendly format ---
-    const cartItems: CartItemFromHook[] =
-      data?.cart?.cartItems?.map((item) => ({
-        id: item.product._id,
-        name: item.product.title,
-        image: item.product.imgCover,
-        rating: item.product.rateAvg || 0,
-        reviewsCount: item.product.rateCount || 0,
-        price: item.price,
-        quantity: item.quantity,
-      })) || [];
+    // --- Log for debugging (remove in production if needed) ---
+    console.log('Cart API Response:', JSON.stringify(data, null, 2));
+
+    // --- Validate and transform API data into frontend-friendly format ---
+    // Handle both possible response structures
+    const cartItemsData = data?.cart?.cartItems || data?.data?.cart?.cartItems || [];
+
+    if (!Array.isArray(cartItemsData)) {
+      console.error('Cart items is not an array:', cartItemsData);
+      return NextResponse.json([]);
+    }
+
+    const cartItems: CartItemFromHook[] = cartItemsData
+      .filter((item: any) => {
+        // Filter out items without product
+        if (!item?.product) {
+          console.warn('Cart item missing product:', item);
+          return false;
+        }
+        return true;
+      })
+      .map((item: any) => {
+        const product = item.product;
+        const cartItem: CartItemFromHook = {
+          id: product?._id || product?.id || '',
+          name: product?.title || product?.name || 'Unknown Product',
+          image: product?.imgCover || product?.image || product?.imgCover || '',
+          rating: product?.rateAvg || product?.rating || 0,
+          reviewsCount: product?.rateCount || product?.reviewsCount || 0,
+          price: item.price || 0,
+          quantity: item.quantity || 1,
+        };
+
+        // Validate the transformed item
+        if (!cartItem.id || !cartItem.name) {
+          console.warn('Invalid cart item after transformation:', cartItem);
+        }
+
+        return cartItem;
+      })
+      .filter((item: CartItemFromHook) => item.id && item.name); // Filter out invalid items
+
+    console.log('Transformed cart items:', cartItems.length);
 
     // --- Return simplified cart items ---
     return NextResponse.json(cartItems);
