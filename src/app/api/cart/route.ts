@@ -6,6 +6,8 @@ import { NextResponse } from 'next/server';
 import { getToken } from '@/lib/utils/get-token.util';
 import { CartResponse, CartItemFromHook } from '@/lib/types/cart';
 
+export const dynamic = 'force-dynamic';
+
 // ===============================================================
 // Functions
 export async function GET() {
