@@ -14,17 +14,34 @@ export async function GET() {
   try {
     // --- Get auth token from cookies or session ---
     const token = await getToken();
-    if (!token) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+
+    // If no token, return empty array (user not logged in)
+    if (!token) {
+      return NextResponse.json([]);
+    }
 
     // --- Fetch cart data from external API ---
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cart`, {
+    const apiUrl = process.env.NEXT_PUBLIC_API;
+    if (!apiUrl) {
+      console.error('NEXT_PUBLIC_API environment variable is not set');
+      return NextResponse.json([]);
+    }
+
+    const res = await fetch(`${apiUrl}/cart`, {
       headers: { Authorization: `Bearer ${token}` },
       cache: 'no-store',
     });
 
     // --- Handle failed response ---
-    if (!res.ok)
-      return NextResponse.json({ message: 'Failed to fetch cart' }, { status: res.status });
+    if (!res.ok) {
+      // If unauthorized, return empty array
+      if (res.status === 401) {
+        return NextResponse.json([]);
+      }
+      // For other errors, log and return empty array
+      console.error('Failed to fetch cart from external API:', res.status, res.statusText);
+      return NextResponse.json([]);
+    }
 
     // --- Parse response JSON ---
     const data: CartResponse = await res.json();
@@ -45,9 +62,8 @@ export async function GET() {
     return NextResponse.json(cartItems);
   } catch (err) {
     // --- Handle unexpected errors ---
-    return NextResponse.json(
-      { message: err instanceof Error ? err.message : 'Internal Server Error' },
-      { status: 500 }
-    );
+    console.error('Error in cart API route:', err);
+    // Return empty array instead of error to allow UI to show empty state
+    return NextResponse.json([]);
   }
 }

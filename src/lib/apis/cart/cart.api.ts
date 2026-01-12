@@ -1,12 +1,27 @@
 export async function getCart() {
-  // Call API route
-  const res = await fetch('/api/cart', { cache: 'no-store' });
+  try {
+    // Call API route
+    const res = await fetch('/api/cart', { cache: 'no-store' });
 
-  // Handle errors
-  if (!res.ok) throw new Error('Failed to fetch cart');
+    // If unauthorized (401), return empty array (user not logged in)
+    if (res.status === 401) {
+      return [];
+    }
 
-  // Return cart data
-  return res.json();
+    // Handle other errors
+    if (!res.ok) {
+      throw new Error('Failed to fetch cart');
+    }
+
+    // Return cart data
+    return res.json();
+  } catch (error) {
+    // Log error for debugging
+    console.error('Error fetching cart:', error);
+    // Return empty array on error instead of throwing
+    // This allows the UI to show empty cart state
+    return [];
+  }
 }
 
 // import { getCartResponse } from '@/lib/types/cart.api';
