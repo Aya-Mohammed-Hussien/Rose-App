@@ -33,13 +33,7 @@ export default function CartItem({
   // Translation
   const t = useTranslations('CartItem');
 
-  // Validate required fields
-  if (!id || !name) {
-    console.error('CartItem: Missing required fields', { id, name });
-    return null;
-  }
-
-  // Hooks
+  // Hooks - Must be called before any early returns
   // Initialize form with validation for quantity field
   const form = useForm<QuantityValues>({
     resolver: zodResolver(quantitySchema),
@@ -51,6 +45,17 @@ export default function CartItem({
   const remove = useRemoveItemAction();
   // Hook to update item quantity in cart
   const updateQty = useUpdateCartItemQty();
+
+  // Effects
+  useEffect(() => {
+    form.setValue('quantity', initialQty, { shouldValidate: false, shouldDirty: false });
+  }, [initialQty, form]);
+
+  // Validate required fields - after hooks
+  if (!id || !name) {
+    console.error('CartItem: Missing required fields', { id, name });
+    return null;
+  }
 
   // Functions
   // Increase product quantity by 1 and update backend
@@ -77,11 +82,6 @@ export default function CartItem({
     }
   };
 
-  // Effects
-  useEffect(() => {
-    form.setValue('quantity', initialQty, { shouldValidate: false, shouldDirty: false });
-  }, [initialQty, form]);
-
   // Render
   // Display product card with image, info, rating, and quantity controls
   return (
@@ -96,7 +96,7 @@ export default function CartItem({
               fill
               className="object-cover object-center"
               sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 117px"
-              onError={(e) => {
+              onError={() => {
                 console.error('Failed to load cart item image:', image);
                 // You can set a fallback image here if needed
               }}

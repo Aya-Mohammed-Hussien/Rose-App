@@ -6,7 +6,8 @@ export const dynamic = 'force-dynamic';
 
 import { NextResponse } from 'next/server';
 import { getToken } from '@/lib/utils/get-token.util';
-import { CartResponse, CartItemFromHook } from '@/lib/types/cart';
+import { CartItemFromHook } from '@/lib/types/cart';
+import { CartItem } from '@/lib/types/cart.api';
 
 // ===============================================================
 // Functions
@@ -59,7 +60,7 @@ export async function GET() {
     }
 
     const cartItems: CartItemFromHook[] = cartItemsData
-      .filter((item: any) => {
+      .filter((item: CartItem) => {
         // Filter out items without product
         if (!item?.product) {
           console.warn('Cart item missing product:', item);
@@ -67,14 +68,14 @@ export async function GET() {
         }
         return true;
       })
-      .map((item: any) => {
+      .map((item: CartItem) => {
         const product = item.product;
         const cartItem: CartItemFromHook = {
-          id: product?._id || product?.id || '',
-          name: product?.title || product?.name || 'Unknown Product',
-          image: product?.imgCover || product?.image || product?.imgCover || '',
-          rating: product?.rateAvg || product?.rating || 0,
-          reviewsCount: product?.rateCount || product?.reviewsCount || 0,
+          id: product?._id || '',
+          name: product?.title || 'Unknown Product',
+          image: product?.imgCover || '',
+          rating: product?.rateAvg || 0,
+          reviewsCount: product?.rateCount || 0,
           price: item.price || 0,
           quantity: item.quantity || 1,
         };
