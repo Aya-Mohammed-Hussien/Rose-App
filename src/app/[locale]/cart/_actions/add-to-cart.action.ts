@@ -50,7 +50,7 @@ export async function addToCartAction(data: AddToCartData) {
   try {
     const payload = await response.json();
     return payload;
-  } catch (parseError) {
+  } catch {
     // If response is empty or not JSON, return success anyway
     // Some APIs return 200 with empty body
     return { success: true };

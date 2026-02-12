@@ -148,6 +148,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {/* cart button */}
         <Button
+          onPointerDown={(event) => {
+            // Prevent Embla carousel from starting a drag when the user
+            // presses on the add-to-cart button inside a slide.
+            event.stopPropagation();
+          }}
           onClick={handleAddToCart}
           disabled={isOutOfStock || isPending}
           aria-label="Add to cart"

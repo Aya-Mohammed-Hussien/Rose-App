@@ -126,7 +126,8 @@
     "loading": "Loading cart...",
     "loadError": "Failed to load cart",
     "empty": "Your cart is empty 🛒",
-    "continueShopping": "Continue Shopping"
+    "continueShopping": "Continue Shopping",
+    "your-cart-is-empty-wanna-try-shopping-0": "Your cart is empty, wanna try shopping?"
   },
   "CartItem": {
     "ratingLabel": "Rating",
@@ -559,5 +560,7 @@
       "please-confirm-your-password": "Please confirm your password",
       "passwords-not-match": "Passwords not match"
     }
-  }
+  },
+  "your-cart-is-empty-wanna-try-shopping": "Your cart is empty, wanna try shopping?",
+  "your-cart-is-empty-wanna-try-shopping-0": "Your cart is empty, wanna try shopping?"
 }

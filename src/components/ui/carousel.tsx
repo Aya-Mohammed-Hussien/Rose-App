@@ -44,13 +44,15 @@ const Carousel = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
 >(({ orientation = 'horizontal', opts, setApi, plugins, className, children, ...props }, ref) => {
-  const [carouselRef, api] = useEmblaCarousel(
-    {
-      ...opts,
-      axis: orientation === 'horizontal' ? 'x' : 'y',
-    },
-    plugins
-  );
+  // Normalize Embla options and globally disable dragging to avoid rare
+  // pointer-up errors when clicking interactive elements inside slides.
+  const emblaOptions = {
+    ...(opts as any),
+    axis: orientation === 'horizontal' ? 'x' : 'y',
+    draggable: false,
+  } as any;
+
+  const [carouselRef, api] = useEmblaCarousel(emblaOptions, plugins);
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 

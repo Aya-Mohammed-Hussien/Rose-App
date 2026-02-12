@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
@@ -17,9 +16,6 @@ export function CarouselSection() {
   //  State
   const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  //  Ref
-  const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
 
   // variables
   const slides = [
@@ -101,9 +97,6 @@ export function CarouselSection() {
           <Carousel
             className="w-full h-full"
             setApi={setEmblaApi}
-            plugins={[autoplay.current]}
-            onMouseEnter={autoplay.current.stop}
-            onMouseLeave={autoplay.current.reset}
             opts={{
               direction: isRTL ? 'rtl' : 'ltr',
             }}

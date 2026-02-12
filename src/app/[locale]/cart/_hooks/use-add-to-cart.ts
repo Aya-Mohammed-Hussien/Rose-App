@@ -1,3 +1,5 @@
+ 'use client';
+
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { addToCartAction } from '../_actions/add-to-cart.action';
 import { useSession } from 'next-auth/react';
@@ -35,6 +37,7 @@ export default function useAddToCart() {
 
     // --- Invalidate and refetch cart data after successful add ---
     onSuccess: () => {
+      // Update cart query so all client components depending on it re-render.
       queryClient.invalidateQueries({ queryKey: ['cart'] });
       queryClient.refetchQueries({ queryKey: ['cart'] });
     },
