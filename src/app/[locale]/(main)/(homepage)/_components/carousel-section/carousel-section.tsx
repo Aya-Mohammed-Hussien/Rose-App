@@ -1,18 +1,21 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
+import { useTranslations, useLocale } from 'next-intl';
 export function CarouselSection() {
-  //  State
-  const [emblaApi, setEmblaApi] = useState<EmblaCarouselType | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  //  Ref
-  const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
+  // Translations
+  const t = useTranslations();
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+
+  //  State
+  const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   // variables
   const slides = [
@@ -20,33 +23,33 @@ export function CarouselSection() {
       id: 1,
 
       img: '/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
-      title: 'Say It with Flowers',
-      subtitle: 'Elegant gifts for every special moment.',
-      btnText: "I'm buying!",
+      title: t('say-it-with-flowers'),
+      subtitle: t('elegant-gifts-for-every-special-moment'),
+      btnText: t('im-buying'),
     },
     {
       id: 2,
 
       img: '/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
-      title: 'Sweet Surprises for Loved Ones',
-      subtitle: 'Delicious chocolates for any occasion.',
-      btnText: 'Shop Now',
+      title: t('sweet-surprises-for-loved-ones'),
+      subtitle: t('delicious-chocolates-for-any-occasion'),
+      btnText: t('shop-now'),
     },
     {
       id: 3,
 
       img: '/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
-      title: 'Roses & Romance',
-      subtitle: 'Show your love in a classic way.',
-      btnText: 'Discover More',
+      title: t('roses-romance'),
+      subtitle: t('show-your-love-in-a-classic-way'),
+      btnText: t('discover-more'),
     },
     {
       id: 4,
 
       img: '/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
-      title: 'Roses & Romance',
-      subtitle: 'Show your love in a classic way.',
-      btnText: 'Discover More',
+      title: t('roses-romance'),
+      subtitle: t('show-your-love-in-a-classic-way'),
+      btnText: t('discover-more'),
     },
   ];
 
@@ -74,15 +77,16 @@ export function CarouselSection() {
 
           <div className="absolute inset-0 flex flex-col justify-end p-6 text-white gap-2 z-[2]">
             <span className="bg-[#FBEAEA] text-[#A6252A] text-xs px-3 py-1 rounded-full w-fit font-medium capitalize">
-              Starting from 10.99 EGP
+              {t('starting-from')} 10.99 {t('egp')}
             </span>
 
             <h2 className="font-primary font-semibold text-2xl leading-tight capitalize">
-              Special Gifts For The <br /> People You Love
+              {t('special-gifts-for-the-people-you-love')}
+              <br /> {t('people-you-love')}
             </h2>
 
             <button className="flex items-center justify-center gap-2 w-32 h-9 bg-[#FBEAEA] text-[#A6252A] font-medium text-sm px-4 rounded-lg hover:bg-[#FBEAEA] transition capitalize">
-              Shop Now
+              {t('shop-now')}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -93,15 +97,15 @@ export function CarouselSection() {
           <Carousel
             className="w-full h-full"
             setApi={setEmblaApi}
-            plugins={[autoplay.current]}
-            onMouseEnter={autoplay.current.stop}
-            onMouseLeave={autoplay.current.reset}
+            opts={{
+              direction: isRTL ? 'rtl' : 'ltr',
+            }}
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-0">
               {slides.map((slide) => (
                 <CarouselItem
                   key={slide.id}
-                  className="relative h-[440px] overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/70 before:to-transparent before:z-[1]"
+                  className="relative w-full h-[440px] pl-0 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/70 before:to-transparent before:z-[1]"
                 >
                   <Image src={slide.img} alt={slide.title} fill className="object-cover" />
 
@@ -117,17 +121,36 @@ export function CarouselSection() {
             </CarouselContent>
 
             {/*  Navigation Buttons */}
-            <div className="absolute bottom-5 right-6 flex items-center gap-4 bg-[#FFF1F1] rounded-full py-2 px-3">
-              <button onClick={() => emblaApi?.scrollPrev()}>
-                <ChevronLeft size={20} strokeWidth={2.5} />
-              </button>
-              <button onClick={() => emblaApi?.scrollNext()}>
-                <ChevronRight size={20} strokeWidth={2.5} />
-              </button>
+            <div className={cn(
+              "absolute bottom-5 flex items-center gap-4 bg-[#FFF1F1] rounded-full py-2 px-3",
+              isRTL ? "left-6" : "right-6"
+            )}>
+              {isRTL ? (
+                <>
+                  <button onClick={() => emblaApi?.scrollPrev()}>
+                    <ChevronRight size={20} strokeWidth={2.5} />
+                  </button>
+                  <button onClick={() => emblaApi?.scrollNext()}>
+                    <ChevronLeft size={20} strokeWidth={2.5} />
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button onClick={() => emblaApi?.scrollPrev()}>
+                    <ChevronLeft size={20} strokeWidth={2.5} />
+                  </button>
+                  <button onClick={() => emblaApi?.scrollNext()}>
+                    <ChevronRight size={20} strokeWidth={2.5} />
+                  </button>
+                </>
+              )}
             </div>
 
             {/*  Dots Indicator */}
-            <div className="absolute top-4 right-6 flex gap-2">
+            <div className={cn(
+              "absolute top-4 flex gap-2",
+              isRTL ? "left-6" : "right-6"
+            )}>
               {slides.map((slide, index) => (
                 <button
                   key={`dot-${slide.id}`}

@@ -25,9 +25,7 @@ export const addToWishlist = async (productId: AddToWishlistPayload): Promise<Wi
       throw new Error(payload.message);
     }
     return payload as WishlistResponse;
-  } catch (error: any) {
-    throw new Error(
-      error.message === 'No access token found' ? 'You should login first!' : error.message
-    );
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Something went wrong!');
   }
 };

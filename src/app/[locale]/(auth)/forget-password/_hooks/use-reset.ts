@@ -5,11 +5,11 @@ import { createPasswordValues } from '@/lib/schemes/forgotPassword.schema';
 import { useMutation } from '@tanstack/react-query';
 
 export const UseReset = () => {
-  const { mutate, isPending, data, error } = useMutation({
+  const { mutate, isPending, error } = useMutation({
     mutationFn: async (data: createPasswordValues) => {
       const res = await ResetPasswordApi(data);
-      if (res.error) {
-        throw new Error(res.error || 'Something went wrong');
+      if (res.message === 'error') {
+        throw new Error(typeof res.code === 'string' ? res.code : 'Something went wrong');
       }
       return res;
     },

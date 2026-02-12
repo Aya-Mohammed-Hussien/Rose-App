@@ -34,7 +34,7 @@ export const useDeleteWishlist = () => {
      * Called when the mutation succeeds.
      * Invalidates the wishlist query so it refetches with updated data.
      */
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['wishlist'] });
     },
 
@@ -45,7 +45,8 @@ export const useDeleteWishlist = () => {
     onError: (error) => {
       toast({
         variant: 'destructive',
-        description: error.message || 'Something went wrong. Please try again.',
+        description:
+          error instanceof Error ? error.message : 'Something went wrong. Please try again.',
       });
     },
   });

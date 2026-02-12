@@ -41,8 +41,10 @@ export const editProfile = async (
 
     // Return the server response
     return payload;
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Catch any unexpected errors and return a descriptive message
-    throw new Error(error?.message || 'Unexpected error while editing profile');
+    throw new Error(
+      error instanceof Error ? error.message : 'Unexpected error while editing profile'
+    );
   }
 };

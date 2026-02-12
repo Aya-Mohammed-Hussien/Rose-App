@@ -20,12 +20,14 @@ export default function FooterLinks() {
   ];
 
   return (
-    <div className="ps-4">
-      <p className="text-softPink-300 text-lg font-semibold">{t('title')}</p>
-      <ul className="text-zinc-100 text-base font-medium tracking-normal space-y-1.5 list-none leading-none">
+    <div className="ps-0 sm:ps-4 text-center sm:text-left">
+      <p className="text-softPink-300 text-base sm:text-lg font-semibold mb-2 sm:mb-0">{t('title')}</p>
+      <ul className="text-zinc-100 text-sm sm:text-base font-medium tracking-normal space-y-1.5 list-none leading-none">
         {links.map(({ key, href }) => (
           <li key={key}>
-            <Link href={href}>{t(`links.${key}`)}</Link>
+            <Link href={href} className="hover:text-softPink-300 transition-colors">
+              {t(`links.${key}`)}
+            </Link>
           </li>
         ))}
       </ul>

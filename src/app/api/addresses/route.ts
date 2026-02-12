@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { AddressesResponse } from '@/lib/types/addresses';
 import { getToken } from '@/lib/utils/get-token.util';
 import { NextResponse } from 'next/server';

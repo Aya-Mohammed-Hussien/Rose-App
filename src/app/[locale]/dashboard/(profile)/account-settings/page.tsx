@@ -2,6 +2,8 @@ import React from 'react';
 import ProfileAccount from './_components/account-settings';
 import { getUserData } from '@/lib/apis/profile/user-data.api';
 
+export const dynamic = "force-dynamic";
+
 export default async function AccountSettings() {
   const userData = await getUserData();
   return (

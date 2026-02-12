@@ -58,8 +58,8 @@ export default function SubscribeForm() {
                 <FormControl>
                   {/* Field */}
                   <Input
-                    className="bg-zinc-600 dark:bg-zinc-800 text-zinc-400 font-medium text-sm border-0 rounded-full ps-4 focus-visible:ring-0 
-                              focus-visible:ring-offset-0 focus:outline-none"
+                    className="bg-zinc-600 dark:bg-zinc-800 text-zinc-400 font-medium text-xs sm:text-sm border-0 rounded-full ps-3 sm:ps-4 pr-20 sm:pr-24 focus-visible:ring-0 
+                              focus-visible:ring-offset-0 focus:outline-none h-10 sm:h-auto"
                     type="email"
                     {...field}
                     placeholder="Enter Your Email"
@@ -75,10 +75,11 @@ export default function SubscribeForm() {
             disabled={isPending || (!isValid && isSubmitted)}
             type="submit"
             variant="subscribe"
-            className="absolute top-0 right-0 h-full"
+            className="absolute top-0 right-0 h-full text-xs sm:text-sm px-3 sm:px-4"
           >
-            Subscribe
-            <ArrowRight size={16} />
+            <span className="hidden sm:inline">Subscribe</span>
+            <span className="sm:hidden">Sub</span>
+            <ArrowRight size={14} className="sm:w-4 sm:h-4" />
           </Button>
         </form>
       </div>

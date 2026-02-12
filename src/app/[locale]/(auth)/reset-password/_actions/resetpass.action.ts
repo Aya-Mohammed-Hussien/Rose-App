@@ -1,6 +1,6 @@
 'use server';
 
-import { callApi } from '@/lib/utils/client.api';
+import { JSON_HEADER } from '@/lib/constants/shared.constant';
 import { ResetPasswordValues } from '@/lib/schemes/auth.schema';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -13,12 +13,21 @@ export async function resetPasswordAction(values: ResetPasswordValues) {
     confirmPassword: values.confirmPassword,
   };
 
-  const res = await callApi('auth/resetPassword', 'POST', payload);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/resetPassword`, {
+    method: 'POST',
+    headers: {
+      ...JSON_HEADER,
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
 
-  if (res && res.status === 'success') {
+  const response = await res.json();
+
+  if (response && response.status === 'success') {
     cookies().delete('reset_email');
     redirect('/login');
   }
 
-  return res;
+  return response;
 }

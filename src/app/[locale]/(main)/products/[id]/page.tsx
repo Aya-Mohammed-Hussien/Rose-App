@@ -21,8 +21,8 @@ export default async function page({ params: { id } }: ProductProps) {
   const productDetails = await getProductDetails(productId);
 
   return (
-    <div className="flex flex-col px-20 pt-[4.25rem] dark:bg-zinc-800 min-h-screen">
-      <div className="flex gap-[4.375rem] h-[32.6875rem]">
+    <div className="flex flex-col px-4 sm:px-6 lg:px-12 xl:px-20 pt-16 sm:pt-20 lg:pt-[4.25rem] dark:bg-zinc-800 min-h-screen">
+      <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-[4.375rem] min-h-[32.6875rem]">
         {/* Product Gallery */}
         <ProductGallery
           images={productDetails.product.images}
@@ -33,7 +33,7 @@ export default async function page({ params: { id } }: ProductProps) {
         {/* Product Details */}
         <ProductDetails product={productDetails.product} />
       </div>
-      <div className=" py-10 flex flex-col gap-10">
+      <div className="py-6 sm:py-8 lg:py-10 flex flex-col gap-6 sm:gap-8 lg:gap-10">
         {/* Reviews */}
         <Suspense fallback={<Skeleton className="h-40 w-full" />}>
           <ReviewSectionServer productId={productId} />

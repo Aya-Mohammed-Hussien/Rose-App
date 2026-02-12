@@ -76,7 +76,7 @@
     "login": {
       "headline": "Welcome back!",
       "validation": {
-        "email_required": "Your email is required",
+        "email": "Your email is required",
         "email_invalid": "Please enter a valid email address",
         "password_required": "Your password is required"
       },
@@ -126,7 +126,8 @@
     "loading": "Loading cart...",
     "loadError": "Failed to load cart",
     "empty": "Your cart is empty 🛒",
-    "continueShopping": "Continue Shopping"
+    "continueShopping": "Continue Shopping",
+    "your-cart-is-empty-wanna-try-shopping-0": "Your cart is empty, wanna try shopping?"
   },
   "CartItem": {
     "ratingLabel": "Rating",
@@ -268,20 +269,6 @@
   "general-rating": "General rating",
   "no-related-products-found-2": "No related products found",
   "rating-is-required": "Rating Is Required",
-  "validation": {
-    "review": {
-      "rating": {
-        "min": "Rating must be at least 1",
-        "max": "Rating cannot exceed 5"
-      },
-      "title": {
-        "required": "Title is required"
-      },
-      "comment": {
-        "required": "Comment is required"
-      }
-    }
-  },
   "dashboardNav": {
     "overview": "Overview",
     "categories": "Categories",
@@ -298,7 +285,7 @@
     "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
     "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
     "password-must-contain-one-special-character": "Password must contain one special character",
-    "password-must-not-contain-any-spaces": "ust not contain any spaces",
+    "password-must-not-contain-any-spaces": "Password must not contain any spaces",
     "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
     "please-confirm-your-password": "Please confirm your password",
     "passwords-dont-match-repassword": "Passwords don't match RePassword",
@@ -374,7 +361,6 @@
       }
     }
   },
-
   "UserMenuItems": {
     "account": "Account",
     "logout": "Log out"
@@ -468,6 +454,113 @@
   "products-1": "products",
   "category-added-successfully": "Category added successfully!",
   "category-added-successfully-0": "Category added successfully!",
-  "category-name-already-exists": "اسم الفئه موجود بالفعل ",
-  "error-adding-category": "فشل في اضافه فئه "
+  "category-name-already-exists": "Category name already exists",
+  "error-adding-category": "Failed to add category",
+  "say-it-with-flowers": "Say It with Flowers",
+  "elegant-gifts-for-every-special-moment": "Elegant gifts for every special moment.",
+  "im-buying": "I'm buying!",
+  "sweet-surprises-for-loved-ones": "Sweet Surprises for Loved Ones",
+  "delicious-chocolates-for-any-occasion": "Delicious chocolates for any occasion",
+  "shop-now": "Shop Now",
+  "roses-romance": "Roses & Romance",
+  "show-your-love-in-a-classic-way": "Show your love in a classic way",
+  "discover-more": "Discover More",
+  "starting-from": "Starting from ",
+  "egp": "EGP",
+  "special-gifts-for-the-people-you-love": "Special Gifts For The",
+  "people-you-love": "People You Love",
+  "wedding": "Wedding",
+  "celebrate-her-forever-with-a-gift-she-ll-always-remember": "Celebrate Her Forever with a Gift\nShe’ll Always Remember",
+  "engagement": "Engagement",
+  "honor-the-beginning-of-a-beautiful-journey-together": "Honor the Beginning of a\nBeautiful Journey Together",
+  "anniversary": "Anniversary",
+  "mark-every-year-of-love-with-a-meaningful-surprise": "Mark Every Year of Love with\na Meaningful Surprise",
+  "free-delivery": "Free Delivery",
+  "for-orders-above-120-egp": "For orders above 120 EGP",
+  "get-refund": "Get Refund",
+  "refunds-within-30-days": "Refunds within 30 days",
+  "safe-payment": "Safe Payment",
+  "100-secure-payment": "100% Secure Payment",
+  "24-7-support": "24/7 Support",
+  "contact-us-at-any-time": "Contact us at any time",
+  "check-out": "check out",
+  "what-everyone-s-buying-right-now": "what everyone's",
+  "buying": "buying",
+  "right-now": "right now",
+  "not-sure-what-to-choose-start-with-our-best-sellers-these-are-the-gifts-our-customers-keep-coming-back-for-whether-you-re-celebrating-a-birthday-anniversary-or-wedding-our-top-picks-are-guaranteed-to-leave-a-lasting-impression": "Not sure what to choose? Start with our best sellers, these are the gifts our customers             keep coming back for. Whether you're celebrating a birthday, anniversary or wedding, our             top picks are guaranteed to leave a lasting impression.",
+  "best-selling": "best selling",
+  "explore-gifts": " Explore gifts",
+  "we-have-sent-a-6-digit-code-to": "We Have Sent a 6 Digit Code to",
+  "new-password": "Password",
+  "confirm-password": "Confirm Password",
+  "most-popular": "Most Popular",
+  "productsYouMayLike": "ProductsYouMayLike",
+  "orders": "Orders",
+  "total-price": "Total Price",
+  "paid": "Paid",
+  "status": "Status",
+  "payment-method": "Payment Method",
+  "delivery-status": "Delivery Status",
+  "delivered": "Delivered",
+  "pending": "Pending",
+  "order-items": "Order Items",
+  "no-items-in-this-order": "No items in this order",
+  "show-all": "Show All",
+  "checkout": {
+    "summary": "Summary",
+    "coupon-code": "Coupon Code",
+    "applying": "Applying",
+    "apply-coupon": "Apply Coupon",
+    "no-coupons-applied": "No coupons applied",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total",
+    "back": "Back",
+    "payment-method": "Payment Method",
+    "cash-on-delivery": "Cash on Delivery",
+    "cash-description": "You'll pay in cash when your order is delivered.",
+    "credit-card": "Credit Card",
+    "credit-description": "You'll be securely redirected to Stripe to complete your payment.",
+    "checkout-button": "Checkout",
+    "shipping-address": "Shipping Address",
+    "or": "OR",
+    "add-new-address": "Add a New Address",
+    "next": "Next"
+  },
+  "validation": {
+    "review": {
+      "rating": {
+        "min": "Rating must be at least 1",
+        "max": "Rating cannot exceed 5"
+      },
+      "title": {
+        "required": "Title is required"
+      },
+      "comment": {
+        "required": "Comment is required"
+      }
+    },
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email address"
+    },
+    "otp": {
+      "required": "OTP code is required",
+      "length": "OTP code must be 6 digits"
+    },
+    "password": {
+      "email-is-required": "Email is required",
+      "invalid-email-address-0": "Invalid email address",
+      "password-must-contain-one-digit-from-1-to-9": "Password must contain one digit from 1 to 9",
+      "password-must-contain-one-lowercase-letter": "Password must contain one lowercase letter",
+      "password-must-contain-one-uppercase-letter": "Password must contain one uppercase letter",
+      "password-must-contain-one-special-character": "Password must contain one special character",
+      "password-must-not-contain-any-spaces": "Password must not contain any spaces",
+      "password-must-be-8-25-characters-long": "Password must be 8-25 characters long",
+      "please-confirm-your-password": "Please confirm your password",
+      "passwords-not-match": "Passwords not match"
+    }
+  },
+  "your-cart-is-empty-wanna-try-shopping": "Your cart is empty, wanna try shopping?",
+  "your-cart-is-empty-wanna-try-shopping-0": "Your cart is empty, wanna try shopping?"
 }

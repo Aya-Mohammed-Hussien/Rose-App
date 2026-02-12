@@ -5,8 +5,20 @@ import { OrdersByStatus } from '@/lib/types/order-statistics';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { useTranslations } from 'next-intl';
 
+// Maps semantic color names to specific hex codes for the chart library
+const STATUS_COLORS = {
+  'emerald-500': '#00BC7D',
+  'blue-500': '#2B7FFF',
+  'red-600': '#DC2626',
+} as const;
+
 // Calculates the exact X/Y position for labels using polar coordinates (angle & radius)
-const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent }: any) => {
+const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent }: { cx?: number; cy?: number; midAngle?: number; outerRadius?: number; percent?: number }) => {
+  // Handle undefined values
+  if (cx === undefined || cy === undefined || midAngle === undefined || outerRadius === undefined || percent === undefined) {
+    return null;
+  }
+
   const RADIAN = Math.PI / 180;
   const labelRadius = outerRadius; // Places label on the outer edge of the chart
   const x = cx + labelRadius * Math.cos(-midAngle * RADIAN);
@@ -39,13 +51,6 @@ export function OrdersStatusChart({ ordersByStatus }: OrdersStatusChartProps) {
   // Translation
   const t = useTranslations('order-statistics');
 
-  // Maps semantic color names to specific hex codes for the chart library
-  const STATUS_COLORS = {
-    'emerald-500': '#00BC7D',
-    'blue-500': '#2B7FFF',
-    'red-600': '#DC2626',
-  };
-
   // Transforms raw API data into the specific shape Recharts requires
   const processedData = useMemo(() => {
     // Helper to safely find counts or default to 0
@@ -56,7 +61,7 @@ export function OrdersStatusChart({ ordersByStatus }: OrdersStatusChartProps) {
       { name: t('in-progress'), value: getCount('inProgress'), color: STATUS_COLORS['blue-500'] },
       { name: t('canceled'), value: getCount('canceled'), color: STATUS_COLORS['red-600'] },
     ];
-  }, [ordersByStatus]);
+  }, [ordersByStatus, t]);
 
   const total = processedData.reduce((sum, item) => sum + item.value, 0);
   const safeTotal = total === 0 ? 1 : total; // Prevents NaN errors during percentage calculation

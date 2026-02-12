@@ -26,7 +26,10 @@ export const AddReviewAction = async (
     const payload = (await response.json()) as ApiResponse<AddReviewResponse>;
 
     return payload;
-  } catch (error) {
-    return { error: 'Failed to submit review. Please try again later.' };
+  } catch (error: unknown) {
+    return {
+      error:
+        error instanceof Error ? error.message : 'Failed to submit review. Please try again later.',
+    };
   }
 };

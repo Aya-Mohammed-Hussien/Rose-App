@@ -7,7 +7,6 @@ import { useTranslations } from 'next-intl';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import ResendCode from './resend-otp/resend-otp';
 // Props
 type Props = {
@@ -61,7 +60,7 @@ export default function VerifyStep({ setStep, email }: Props) {
               onClick={() => setStep('email')}
               className="text-blue-600 underline ml-1 font-medium cursor-pointer"
             >
-              {t('edit')}
+              {" "}  {t('edit')}
             </span>
           </p>
         </header>

@@ -8,7 +8,7 @@ export const getBestSellingProducts = async (): Promise<ProductsByOccasionRespon
     }
     const payload: ProductsByOccasionResponse = await response.json();
     return payload;
-  } catch (error) {
-    throw new Error('failed to fetch Best Selling Products');
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Failed to fetch Best Selling Products');
   }
 };

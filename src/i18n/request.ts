@@ -1,6 +1,6 @@
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
-import { hasLocale } from 'next-intl';
+import { hasLocale, IntlErrorCode } from 'next-intl';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const requestedLocal = await requestLocale;
@@ -33,6 +33,20 @@ export default getRequestConfig(async ({ requestLocale }) => {
           numberingSystem: isArabic ? 'arab' : 'latn',
         },
       },
+    },
+
+    onError(error) {
+      if (error.code === IntlErrorCode.MISSING_MESSAGE) {
+        console.error('Missing translation:', error.message);
+      }
+    },
+
+    getMessageFallback({ namespace, key, error }) {
+      const path = [namespace, key].filter(Boolean).join('.');
+      if (error.code === IntlErrorCode.MISSING_MESSAGE) {
+        return `${path} is not yet translated`;
+      }
+      return `Translation error: ${path}`;
     },
   };
 });
