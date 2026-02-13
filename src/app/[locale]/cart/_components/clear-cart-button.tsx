@@ -11,7 +11,7 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from '@/components/ui/alert-dialog';
-import { Trash2, X } from 'lucide-react';
+import { BrushCleaning, Trash2, X } from 'lucide-react';
 // import { useClearCart } from '../_hooks/use-clear-cart';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -65,7 +65,7 @@ export default function ClearCartButton({ className, disabled }: Props) {
           )}
           disabled={disabled || isPending}
         >
-          <Trash2 size={18} strokeWidth={2} />
+          <BrushCleaning size={18} strokeWidth={2} />
           {isPending ? t('clearing') : t('clearCart')}
         </Button>
       </AlertDialogTrigger>

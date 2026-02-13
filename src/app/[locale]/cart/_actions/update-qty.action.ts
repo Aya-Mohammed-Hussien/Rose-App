@@ -5,6 +5,7 @@
 // Handles updating a cart item's quantity on the server.
 // Requires user authentication via token.
 import { getToken } from '@/lib/utils/get-token.util';
+import { revalidateTag } from 'next/cache';
 
 export async function updateCartItemQtyAction({ id, quantity }: { id: string; quantity: number }) {
   // --- Get token for authenticated request ---
@@ -26,5 +27,10 @@ export async function updateCartItemQtyAction({ id, quantity }: { id: string; qu
   if (!res.ok) throw new Error('Failed to update quantity');
 
   // --- Return updated cart data ---
-  return res.json();
+  const payload = await res.json();
+
+  // Revalidate cached cart so any summaries and cart views update
+  revalidateTag('cart');
+
+  return payload;
 }

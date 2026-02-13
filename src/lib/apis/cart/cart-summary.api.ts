@@ -19,12 +19,13 @@ export const getCart = async (): Promise<getCartResponse> => {
     }
 
     // Send a GET request to the "cart" API endpoint
+    // Use cache with a "cart" tag so we can revalidate it
     const response = await fetch(`${baseURL}/cart`, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      cache: 'no-store',
+      next: { tags: ['cart'] },
     });
 
     // Handle network errors

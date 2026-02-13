@@ -3,6 +3,7 @@
 import { JSON_HEADER } from '@/lib/constants/shared.constant';
 import { CouponValues } from '@/lib/schemes/coupon.schema';
 import { getToken } from '@/lib/utils/get-token.util';
+import { revalidateTag } from 'next/cache';
 
 export const applyCoupon = async (couponPayload: CouponValues) => {
   try {
@@ -34,6 +35,9 @@ export const applyCoupon = async (couponPayload: CouponValues) => {
     if (!response.ok) {
       throw new Error(payload.error || 'failed to apply coupon');
     }
+
+    // Revalidate any cached cart data so Summary reflects the new totals
+    revalidateTag('cart');
 
     // Return the server response
     return payload;

@@ -2,6 +2,7 @@
 
 import { JSON_HEADER } from '@/lib/constants/shared.constant';
 import { getToken } from '@/lib/utils/get-token.util';
+import { revalidateTag } from 'next/cache';
 
 // Props
 export type AddToCartData = {
@@ -30,7 +31,6 @@ export async function addToCartAction(data: AddToCartData) {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(data),
-    cache: 'no-store',
   });
 
   // Check if request failed before parsing
@@ -49,9 +49,14 @@ export async function addToCartAction(data: AddToCartData) {
   // Parse response only if OK
   try {
     const payload = await response.json();
+
+    // Revalidate cached cart so summary and other server components update
+    revalidateTag('cart');
+
     return payload;
   } catch {
-    // If response is empty or not JSON, return success anyway
+    // If response is empty or not JSON, still revalidate and return success
+    revalidateTag('cart');
     // Some APIs return 200 with empty body
     return { success: true };
   }

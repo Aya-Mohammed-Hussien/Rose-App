@@ -5,8 +5,6 @@ import Summary from './_components/summary';
 import { getCart } from '@/lib/apis/cart/cart-summary.api';
 import { redirect } from 'next/navigation';
 
-export const dynamic = 'force-dynamic';
-
 export default async function Page() {
   try {
     // Addresses API

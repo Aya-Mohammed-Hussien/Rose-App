@@ -13,8 +13,6 @@ import { getCart } from '@/lib/apis/cart/cart-summary.api';
 import type { getCartResponse } from '@/lib/types/cart.api';
 import Header from '@/components/layout/header/header';
 
-export const dynamic = 'force-dynamic';
-
 // ===============================================================
 // Functions
 export default async function CartPage() {

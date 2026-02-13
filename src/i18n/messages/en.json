@@ -127,7 +127,7 @@
     "loadError": "Failed to load cart",
     "empty": "Your cart is empty 🛒",
     "continueShopping": "Continue Shopping",
-    "your-cart-is-empty-wanna-try-shopping-0": "Your cart is empty, wanna try shopping?"
+    "your-cart-is-empty-wanna-try-shopping-0": "Your cart is empty"
   },
   "CartItem": {
     "ratingLabel": "Rating",

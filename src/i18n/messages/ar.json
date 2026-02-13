@@ -127,7 +127,7 @@
     "loadError": "فشل تحميل السلة",
     "empty": "سلتك فارغة 🛒",
     "continueShopping": "تابع التسوق",
-    "your-cart-is-empty-wanna-try-shopping-0": "سلة التسوق الخاصة بك فارغة، هل تريد تجربة التسوق؟"
+    "your-cart-is-empty-wanna-try-shopping-0": "سلة التسوق الخاصة بك فارغة"
   },
   "CartItem": {
     "ratingLabel": "التقييم",
