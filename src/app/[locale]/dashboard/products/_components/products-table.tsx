@@ -14,10 +14,14 @@ import { ProductsTableProps } from '@/lib/types/product';
 import { useDeleteProduct } from '../_hooks/use-delete-product';
 import { useTranslations } from 'next-intl';
 import ConfirmationModal from '@/components/shared/confirmation-modal';
+import { useRouter } from '@/i18n/navigation';
 
 export function ProductsTable({ products, selectedId, onRowClick }: ProductsTableProps) {
   // Translation
   const t = useTranslations('dashboard.productsTable');
+
+  // Navigation
+  const router = useRouter();
 
   // Mutation
   const { deleteProduct, isPending } = useDeleteProduct();
@@ -38,9 +42,8 @@ export function ProductsTable({ products, selectedId, onRowClick }: ProductsTabl
       isSelected,
       isOutOfStock,
       priceToShow,
-      rowClass: `cursor-pointer text-sm transition-colors ${
-        isSelected ? 'bg-maroon-50' : 'hover:bg-gray-50'
-      }`,
+      rowClass: `cursor-pointer text-sm transition-colors ${isSelected ? 'bg-maroon-50' : 'hover:bg-gray-50'
+        }`,
       quantityClass: `font-medium ${isOutOfStock ? 'text-red-600' : 'text-gray-700'}`,
     };
   });
@@ -103,11 +106,12 @@ export function ProductsTable({ products, selectedId, onRowClick }: ProductsTabl
               <TableCell className="text-center">
                 <div className="inline-flex items-center gap-2.5">
                   {/* Edit button */}
+
                   <Button
                     size="sm"
                     variant="outline"
                     className="flex h-7 w-14 items-center justify-center gap-1.5 rounded-md border border-blue-200 bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 hover:bg-blue-100"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={() => { router.push(`/dashboard/products/update-product/${product._id}`) }}
                   >
                     <Pencil className="h-3.5 w-3.5" />
                     {t('edit')}

@@ -10,7 +10,8 @@ import { Plus, Search } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { ProductsHeaderProps } from '@/lib/types/product';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
+
 
 // Form & validation
 const searchSchema = z.object({
