@@ -33,3 +33,13 @@ export type OccasionCardProps = {
   disabled?: boolean;
   onToggle?: (id: string) => void;
 };
+export type AllOccasionsProps = {
+  occasions: Occasion[];
+  metadata: {
+    currentPage: number;
+    limit: number;
+    totalPages: number;
+    totalItems: number;
+  };
+  initialSearch?: string;
+};

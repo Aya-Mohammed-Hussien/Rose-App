@@ -93,7 +93,7 @@ export default function ProfileAccount({ userData }: MyAccountProps) {
   // Functions
   // Submit handler for saving profile changes
   const onSubmit: SubmitHandler<profileValues> = (value) => {
-    const { gender, ...payload } = value;
+    const { ...payload } = value;
     editProfile(payload);
   };
 

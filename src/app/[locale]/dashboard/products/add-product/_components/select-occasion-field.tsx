@@ -10,17 +10,22 @@ import {
 } from '@/components/ui/select';
 import { useOccasions } from '@/hooks/occasions/use-all-occasions';
 import { useTranslations } from 'next-intl';
+import { UseFormReturn, Path } from 'react-hook-form';
 
-export default function SelectOccasionField({ form }: { form: any }) {
+type FormWithOccasion = {
+  occasion: string;
+};
+
+export default function SelectOccasionField<T extends FormWithOccasion>({ form }: { form: UseFormReturn<T> }) {
   //Translations
   const t = useTranslations('dashboard.product_form');
 
   // Hooks
   const { data: occasions, isLoading } = useOccasions();
-  
+
   return (
     <FormField
-      name="occasion"
+      name={"occasion" as Path<T>}
       control={form.control}
       render={({ field }) => (
         <FormItem className="mb-[1.125rem] w-[46.625rem]">

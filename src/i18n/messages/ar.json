@@ -76,7 +76,7 @@
     "login": {
       "headline": "مرحبًا بعودتك",
       "validation": {
-        "email_required": "البريد الإلكتروني مطلوب",
+        "email": "البريد الإلكتروني مطلوب",
         "email_invalid": "يرجى إدخال بريد إلكتروني صالح",
         "password_required": "كلمة المرور مطلوبة"
       },
@@ -126,7 +126,8 @@
     "loading": "جارٍ تحميل السلة...",
     "loadError": "فشل تحميل السلة",
     "empty": "سلتك فارغة 🛒",
-    "continueShopping": "تابع التسوق"
+    "continueShopping": "تابع التسوق",
+    "your-cart-is-empty-wanna-try-shopping-0": "سلة التسوق الخاصة بك فارغة"
   },
   "CartItem": {
     "ratingLabel": "التقييم",
@@ -252,7 +253,7 @@
   "contact-us": "اتصل بنا",
   "we-have-sent-a-6-digit-code-to-user-example-com": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى user@example.com",
   "enter-the-otp-code": "أدخل رمز OTP",
-  "edit": "حرر",
+  "edit": "حرر ",
   "no-related-products-found": "لم يتم العثور على منتجات مشابهة.",
   "related-products": "المنتجات ذات الصلة",
   "failed-to-load-related-products": "فشل في تحميل المنتجات ذات الصلة",
@@ -268,20 +269,6 @@
   "general-rating": "التقييم العام",
   "no-related-products-found-2": "لم يتم العثور على منتجات ذات صلة",
   "rating-is-required": "التقييم مطلوب",
-  "validation": {
-    "review": {
-      "rating": {
-        "min": "يجب أن يكون التقييم على الأقل 1",
-        "max": "لا يمكن أن يتجاوز التقييم 5"
-      },
-      "title": {
-        "required": "العنوان مطلوب"
-      },
-      "comment": {
-        "required": "التعليق مطلوب"
-      }
-    }
-  },
   "dashboardNav": {
     "overview": "نظرة عامة",
     "categories": "التصنيفات",
@@ -468,5 +455,110 @@
   "category-added-successfully": "تمت إضافة الفئة بنجاح!",
   "category-added-successfully-0": "تمت إضافة الفئة بنجاح!",
   "category-name-already-exists": "اسم الفئه موجود بالفعل ",
-  "error-adding-category": "فشل في اضافه فئه "
+  "error-adding-category": "فشل في اضافه فئه ",
+  "say-it-with-flowers": "قلها مع الزهور",
+  "elegant-gifts-for-every-special-moment": "هدايا أنيقة لكل لحظة خاصة.",
+  "im-buying": "أنا أشتري!",
+  "sweet-surprises-for-loved-ones": "مفاجآت حلوة لأحبائهم",
+  "delicious-chocolates-for-any-occasion": "الشوكولاتة اللذيذة في أي مناسبة",
+  "shop-now": "تسوق الآن",
+  "roses-romance": "الورود",
+  "show-your-love-in-a-classic-way": "أظهر حبك بطريقة كلاسيكية",
+  "discover-more": "اكتشف المزيد",
+  "starting-from": "ابتداء من",
+  "egp": "جنيه مصري",
+  "special-gifts-for-the-people-you-love": "هدايا خاصة ل",
+  "people-you-love": "الأشخاص الذين تحبهم",
+  "wedding": "قِرَان",
+  "celebrate-her-forever-with-a-gift-she-ll-always-remember": "احتفل بها إلى الأبد بهدية\n\nسوف تتذكر دائمًا",
+  "engagement": "ارتباط",
+  "honor-the-beginning-of-a-beautiful-journey-together": "تكريم بداية أ\n\nرحلة جميلة معا",
+  "anniversary": "عيد",
+  "mark-every-year-of-love-with-a-meaningful-surprise": "بمناسبة كل عام من الحب مع\n\nمفاجأة ذات مغزى",
+  "free-delivery": "التوصيل مجاني",
+  "for-orders-above-120-egp": "للطلبات فوق 120 جنيه",
+  "get-refund": "الحصول على استرداد",
+  "refunds-within-30-days": "المبالغ المستردة في غضون 30 يوما",
+  "safe-payment": "الدفع الآمن",
+  "100-secure-payment": "دفع آمن بنسبة 100%",
+  "24-7-support": "دعم 24/7",
+  "contact-us-at-any-time": "اتصل بنا في أي وقت",
+  "check-out": "الدفع",
+  "what-everyone-s-buying-right-now": "ما الجميع",
+  "buying": "شراء",
+  "right-now": "الآن",
+  "not-sure-what-to-choose-start-with-our-best-sellers-these-are-the-gifts-our-customers-keep-coming-back-for-whether-you-re-celebrating-a-birthday-anniversary-or-wedding-our-top-picks-are-guaranteed-to-leave-a-lasting-impression": "لست متأكدا ماذا تختار؟ \nابدأ بالأكثر مبيعًا لدينا، فهذه هي الهدايا التي يعود عملاؤنا دائمًا للحصول عليها. \nسواء كنت تحتفل بعيد ميلاد أو ذكرى سنوية أو حفل زفاف، من المؤكد أن أفضل اختياراتنا ستترك انطباعًا دائمًا.",
+  "best-selling": "الأكثر مبيعا",
+  "explore-gifts": "استكشاف الهدايا",
+  "we-have-sent-a-6-digit-code-to": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى",
+  "new-password": "كلمة المرور",
+  "confirm-password": "تأكيد كلمة المرور",
+  "most-popular": "الأكثر شعبية",
+  "productsYouMayLike": "المنتجات التي قد تعجبك",
+  "orders": "الطلبات",
+  "total-price": "السعر الإجمالي",
+  "paid": "مدفوع",
+  "status": "الحالة",
+  "payment-method": "طريقة الدفع",
+  "delivery-status": "حالة التوصيل",
+  "delivered": "تم التوصيل",
+  "pending": "قيد التنفيذ",
+  "order-items": "عناصر الطلب",
+  "no-items-in-this-order": "لا توجد عناصر في هذا الطلب",
+  "show-all": "عرض الكل",
+  "checkout": {
+    "summary": "الملخص",
+    "coupon-code": "رمز الكوبون",
+    "applying": "جارٍ التطبيق",
+    "apply-coupon": "تطبيق الكوبون",
+    "no-coupons-applied": "لم يتم تطبيق أي كوبونات",
+    "subtotal": "المجموع الفرعي",
+    "discount": "الخصم",
+    "total": "الإجمالي",
+    "back": "رجوع",
+    "payment-method": "طريقة الدفع",
+    "cash-on-delivery": "الدفع عند الاستلام",
+    "cash-description": "ستدفع نقداً عند توصيل طلبك.",
+    "credit-card": "بطاقة ائتمان",
+    "credit-description": "سيتم توجيهك بأمان إلى Stripe لإتمام الدفع.",
+    "checkout-button": "الدفع",
+    "shipping-address": "عنوان الشحن",
+    "or": "أو",
+    "add-new-address": "إضافة عنوان جديد",
+    "next": "التالي"
+  },
+  "validation": {
+    "review": {
+      "rating": {
+        "min": "يجب أن يكون التقييم على الأقل 1",
+        "max": "لا يمكن أن يتجاوز التقييم 5"
+      },
+      "title": {
+        "required": "العنوان مطلوب"
+      },
+      "comment": {
+        "required": "التعليق مطلوب"
+      }
+    },
+    "email": {
+      "required": "البريد الإلكتروني مطلوب",
+      "invalid": "عنوان البريد الإلكتروني غير صالح"
+    },
+    "otp": {
+      "required": "رمز OTP مطلوب",
+      "length": "يجب أن يتكون رمز OTP من 6 أرقام"
+    },
+    "password": {
+      "email-is-required": "البريد الإلكتروني مطلوب",
+      "invalid-email-address-0": "عنوان البريد الإلكتروني غير صالح",
+      "password-must-contain-one-digit-from-1-to-9": "يجب أن تحتوي كلمة المرور على رقم واحد من 1 إلى 9",
+      "password-must-contain-one-lowercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد صغير",
+      "password-must-contain-one-uppercase-letter": "يجب أن تحتوي كلمة المرور على حرف واحد كبير",
+      "password-must-contain-one-special-character": "يجب أن تحتوي كلمة المرور على حرف خاص واحد",
+      "password-must-not-contain-any-spaces": "يجب ألا تحتوي كلمة المرور على أية مسافات",
+      "password-must-be-8-25-characters-long": "يجب أن تتكون كلمة المرور من 8 إلى 25 حرفًا",
+      "please-confirm-your-password": "يرجى تأكيد كلمة المرور الخاصة بك",
+      "passwords-not-match": "كلمات المرور غير متطابقة"
+    }
+  }
 }

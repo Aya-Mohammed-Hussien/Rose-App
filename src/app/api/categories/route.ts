@@ -28,6 +28,9 @@ export const GET = async (request: Request) => {
     return NextResponse.json(payload);
   } catch (error) {
     // Handle unexpected errors
-    return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { message: error instanceof Error ? error.message : 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 };

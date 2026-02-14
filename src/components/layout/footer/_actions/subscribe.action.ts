@@ -4,7 +4,9 @@ import { JSON_HEADER } from '@/lib/constants/shared.constant';
 import { SubscribeValue } from '@/lib/schemes/subscribe.schema';
 import { SubscriptionResponse } from '@/lib/types/subscription';
 
-export async function subscribeAction(data: SubscribeValue) {
+export async function subscribeAction(
+  data: SubscribeValue
+): Promise<ApiResponse<SubscriptionResponse>> {
   try {
     const response = await fetch(`${process.env.API}/subscriptions/subscribe`, {
       method: 'POST',
@@ -20,6 +22,6 @@ export async function subscribeAction(data: SubscribeValue) {
     }
     return payload;
   } catch (error) {
-    return error;
+    return { error: error instanceof Error ? error.message : 'An unexpected error occurred' };
   }
 }

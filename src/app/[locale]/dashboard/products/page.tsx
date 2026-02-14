@@ -7,6 +7,9 @@ type ProductsRoutePageProps = {
   };
 };
 
+export const dynamic = "force-dynamic";
+
+
 export default async function ProductsRoutePage({ searchParams }: ProductsRoutePageProps) {
   try {
     const page = searchParams?.page ? Number(searchParams.page) || 1 : 1;

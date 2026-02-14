@@ -22,7 +22,7 @@ export const deleteFromWishlist = async (productId: string): Promise<WishlistRes
       throw new Error(payload.message);
     }
     return payload as WishlistResponse;
-  } catch (error: any) {
-    throw new Error(error.message || 'Something went wrong!');
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Something went wrong!');
   }
 };

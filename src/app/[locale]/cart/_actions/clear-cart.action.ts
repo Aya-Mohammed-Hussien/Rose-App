@@ -4,6 +4,7 @@
 // Functions
 // Clears all items from the user's cart.
 import { getToken } from '@/lib/utils/get-token.util';
+import { revalidateTag } from 'next/cache';
 
 const API = process.env.NEXT_PUBLIC_API;
 export async function clearCartAction() {
@@ -27,4 +28,7 @@ export async function clearCartAction() {
     } catch {}
     throw new Error(message);
   }
+
+  // Successfully cleared the cart: revalidate cached cart summary
+  revalidateTag('cart');
 }

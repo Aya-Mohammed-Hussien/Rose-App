@@ -20,7 +20,7 @@ export function useOccasionFilterSingle() {
     p.delete(PARAM);
     selected.forEach((id) => p.append(PARAM, id));
     router.replace(`?${p.toString()}`, { scroll: false });
-  }, [selected]);
+  }, [selected, router, sp]);
 
   // Check if an ID is selected
   const isSelected = useCallback((id: string) => selected.includes(id), [selected]);

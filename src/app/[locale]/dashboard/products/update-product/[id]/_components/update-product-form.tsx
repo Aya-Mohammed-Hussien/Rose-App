@@ -54,7 +54,7 @@ export default function UpdateProductForm({ product }: UpdateProductProps) {
   //Function
   const onSubmit: SubmitHandler<UpdateProductValues> = (data) => {
     console.log(data)
-    const { occasion, discount, ...payload } = data;
+    const { ...payload } = data;
     updateProduct(payload);
   };
 
@@ -244,7 +244,8 @@ export default function UpdateProductForm({ product }: UpdateProductProps) {
             className="text-blue-600  hover:bg-transparent border-[rgba(0,0,0,0.08)]"
             variant="ghost"
           >
-            <Image size={18} /> {t('View_product_cover')}
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
+            <Image size={18} aria-hidden="true" /> {t('View_product_cover')}
           </Button>
 
           {/* Gallery button */}
@@ -252,7 +253,7 @@ export default function UpdateProductForm({ product }: UpdateProductProps) {
             className="text-blue-600  hover:bg-transparent border-[rgba(0,0,0,0.08)]"
             variant="ghost"
           >
-            <Images size={18} /> {t('View_product_gallery')}
+            <Images size={18} aria-hidden="true" /> {t('View_product_gallery')}
           </Button>
         </div>
 

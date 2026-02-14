@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid h-screen  grid-cols-2 ">
+    <div className="grid h-screen grid-cols-1 lg:grid-cols-2">
       {/* Right Side - Register Form */}
-      <div className="flex items-center justify-center bg-white px-[20px] py-[60px] ">
+      <div className="flex items-center justify-center bg-white px-4 sm:px-6 lg:px-[20px] py-8 sm:py-12 lg:py-[60px]">
         <div className="w-full max-w-[740px] h-full flex flex-col gap-[10px] opacity-100">
-          <div className="flex items-center justify-center p-8 overflow-auto ">
-            <div className="max-w-[28.25rem] space-y-10">
-              <div className="mb-10 text-end text-gray-700 text-sm cursor-pointer ">
+          <div className="flex items-center justify-center p-4 sm:p-6 lg:p-8 overflow-auto">
+            <div className="max-w-full sm:max-w-[28.25rem] space-y-6 sm:space-y-8 lg:space-y-10">
+              <div className="mb-6 sm:mb-8 lg:mb-10 text-end text-gray-700 text-sm cursor-pointer">
                 <ToggleLocale />
               </div>
 
@@ -25,7 +25,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Left Side - Image */}
-      <div className=" relative overflow-hidden  md:block">
+      <div className="hidden lg:block relative overflow-hidden">
         <Image
           src="/assets/images/132a2f7f5902767a6f99bcab7221e6bf3f2703e8.png"
           alt="Register background"

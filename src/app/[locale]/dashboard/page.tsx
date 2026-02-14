@@ -4,8 +4,14 @@ import FirstRow from "./_components/all-categories/first-row";
 import TopSellingProducts from "@/components/features/selling-product/top-selling-product";
 import LowStockProducts from "@/components/features/stock-product/low-stock-product";
 
+export const dynamic = "force-dynamic";
+
 // src/app/[locale]/dashboard/page.tsx
 export default function Page({ params }: { params: { locale: string } }) {
+
+
+
+
   const { locale } = params;
   return (
     <main >

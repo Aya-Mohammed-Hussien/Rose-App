@@ -28,6 +28,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { PasswordInput } from '@/components/ui/password-input';
+import { AuthResponse } from '@/lib/types/auth';
 
 export default function RegisterForm() {
   //Translations
@@ -56,8 +57,13 @@ export default function RegisterForm() {
   //Function
   const onSubmit: SubmitHandler<RegisterValues> = (values) => {
     mutate(values, {
-      onSuccess: (res: any) => {
-        if (res?.message === 'success') {
+      onSuccess: (res: ApiResponse<AuthResponse>) => {
+        if ('error' in res) {
+          toast({
+            title: '⚠️ فشل التسجيل',
+            description: res.error || 'حدث خطأ أثناء إنشاء الحساب.',
+          });
+        } else if (res.message === 'success') {
           const firstName = res.user?.firstName ?? '';
           const lastName = res.user?.lastName ?? '';
 
@@ -69,11 +75,6 @@ export default function RegisterForm() {
           setTimeout(() => {
             router.push('/login');
           }, 2000);
-        } else if (res?.error) {
-          toast({
-            title: '⚠️ فشل التسجيل',
-            description: res.error || 'حدث خطأ أثناء إنشاء الحساب.',
-          });
         } else {
           toast({
             title: '❓ استجابة غير متوقعة',
@@ -82,16 +83,10 @@ export default function RegisterForm() {
         }
       },
 
-      onError: (err: any) => {
-        const message =
-          err?.response?.data?.error ||
-          err?.response?.data?.message ||
-          err?.message ||
-          'حدث خطأ غير متوقع. حاول لاحقاً.';
-
+      onError: (err: unknown) => {
         toast({
           title: '❌ خطأ في الخادم',
-          description: message,
+          description: err instanceof Error ? err.message : 'حدث خطأ غير متوقع. حاول لاحقاً.',
         });
       },
     });

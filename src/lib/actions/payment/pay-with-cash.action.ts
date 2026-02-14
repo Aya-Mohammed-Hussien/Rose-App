@@ -3,6 +3,7 @@
 import { JSON_HEADER } from '@/lib/constants/shared.constant';
 import { ShippingPayload } from '@/lib/types/address';
 import { getToken } from '@/lib/utils/get-token.util';
+import { revalidateTag } from 'next/cache';
 
 export const payWithCash = async (shippingAddressPayload: ShippingPayload) => {
   try {
@@ -34,6 +35,9 @@ export const payWithCash = async (shippingAddressPayload: ShippingPayload) => {
     if (!response.ok) {
       throw new Error(payload.error || payload.message || 'failed to pay with cash');
     }
+
+    // Revalidate cart data so UI shows an empty cart after successful order
+    revalidateTag('cart');
 
     // Return the server response
     return payload;

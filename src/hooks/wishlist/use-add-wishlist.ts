@@ -30,7 +30,7 @@ export const useAddToWishlist = () => {
      * Called when the mutation succeeds.
      * Invalidates the wishlist query so it refetches with updated data.
      */
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['wishlist'] });
     },
 

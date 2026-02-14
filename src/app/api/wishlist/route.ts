@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from 'next/server';
 import { getToken } from '@/lib/utils/get-token.util';
 import { GetWishlistResponse } from '@/lib/types/wishlist';
@@ -17,6 +19,7 @@ export const GET = async () => {
     // Send request to API endpoint
     const response = await fetch(`${baseURL}/wishlist`, {
       headers: { Authorization: `Bearer ${token}` },
+      cache: 'no-store',
     });
 
     // Turn response into JSON
@@ -32,10 +35,10 @@ export const GET = async () => {
 
     // Return data
     return NextResponse.json(payload, { status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       // Handle unexpected errors
-      { message: error.message || 'Internal Server Error' },
+      { message: error instanceof Error ? error.message : 'Internal Server Error' },
       { status: 500 }
     );
   }

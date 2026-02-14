@@ -40,10 +40,12 @@ export default function ProductCard({ product }: ProductCardProps) {
             });
           }, 500);
         },
-        onError: () => {
+        onError: (error: unknown) => {
+          console.error('Add to cart error in product card:', error);
+          const errorMessage = error instanceof Error ? error.message : String(error) || t('addFailed');
           setTimeout(() => {
             toast({
-              description: t('addFailed'),
+              description: errorMessage,
               variant: 'destructive',
             });
           }, 500);
@@ -69,12 +71,12 @@ export default function ProductCard({ product }: ProductCardProps) {
   const isHot = quantity > 0 ? (sold / quantity) * 100 >= 20 : sold >= 100; // check if product is hot
 
   return (
-    <div className="w-[15.9625rem]" key={product._id}>
+    <div className="w-full max-w-[15.9625rem] mx-auto" key={product._id}>
       {' '}
       {/* Product card wrapper */}
       <Link href={`/products/${product._id}`}>
         {/* Card content */}
-        <CardContent className="p-0 h-[272px]  border-none rounded-xl w-full relative group overflow-hidden flex cursor-pointer">
+        <CardContent className="p-0 h-[240px] sm:h-[260px] lg:h-[272px] border-none rounded-xl w-full relative group overflow-hidden flex cursor-pointer">
           {/* Wishlist button */}
           <div className="absolute z-50 top-3 left-3">
             <WishlistButton productId={product._id} />
@@ -94,11 +96,10 @@ export default function ProductCard({ product }: ProductCardProps) {
             {/* New / Out of Stock badge */}
             {(product.quantity <= 0 || isNew) && (
               <Badge
-                className={`flex justify-center items-center uppercase  ${
-                  product.quantity <= 0
-                    ? 'bg-red-600 hover:bg-red-600' // Out of Stock
-                    : 'bg-zinc-100 hover:bg-zinc-100 text-zinc-700' // New
-                }  rounded-2xl  text-[12px]`}
+                className={`flex justify-center items-center uppercase  ${product.quantity <= 0
+                  ? 'bg-red-600 hover:bg-red-600' // Out of Stock
+                  : 'bg-zinc-100 hover:bg-zinc-100 text-zinc-700' // New
+                  }  rounded-2xl  text-[12px]`}
               >
                 {product.quantity <= 0 ? 'out of stock' : 'new'}
               </Badge>
@@ -115,9 +116,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
       {/* Card footer */}
       <CardFooter className="border-none flex flex-row mt-3 justify-between p-0">
-        <div className="flex flex-col gap-3 flex-1 min-w-0">
+        <div className="flex flex-col gap-2 sm:gap-3 flex-1 min-w-0">
           {/* Product name */}
-          <h3 className="font-semibold text-[18px] truncate text-[#741C21] ms-2">
+          <h3 className="font-semibold text-base sm:text-lg truncate text-[#741C21] ms-2">
             {product.title.length > 30 ? `${product.title.slice(0, 30)}...` : product.title}
           </h3>
 
@@ -126,15 +127,14 @@ export default function ProductCard({ product }: ProductCardProps) {
             {Array.from({ length: 5 }, (_, i) => (
               <Star
                 key={i}
-                className={`w-4 h-4 ${
-                  i < product.rateAvg ? 'text-[#FBA707] fill-[#FBA707]' : 'text-[#FBA707]'
-                }`}
+                className={`w-3 h-3 sm:w-4 sm:h-4 ${i < product.rateAvg ? 'text-[#FBA707] fill-[#FBA707]' : 'text-[#FBA707]'
+                  }`}
               />
             ))}
           </div>
 
           {/* Price and discount */}
-          <p className="font-medium text-base flex gap-1 ms-2">
+          <p className="font-medium text-sm sm:text-base flex gap-1 ms-2">
             <span className="text-[#741C21] uppercase">
               {product.priceAfterDiscount
                 ? ` ${product.priceAfterDiscount} egp`
@@ -148,6 +148,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {/* cart button */}
         <Button
+          onPointerDown={(event) => {
+            // Prevent Embla carousel from starting a drag when the user
+            // presses on the add-to-cart button inside a slide.
+            event.stopPropagation();
+          }}
           onClick={handleAddToCart}
           disabled={isOutOfStock || isPending}
           aria-label="Add to cart"

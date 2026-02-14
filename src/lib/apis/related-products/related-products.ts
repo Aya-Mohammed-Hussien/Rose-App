@@ -14,7 +14,7 @@ export const getProductsByCategory = async (
 
     const data: RelatedProductsResponse = await res.json();
     return data;
-  } catch (error) {
-    throw new Error('Failed to fetch products');
+  } catch (error: unknown) {
+    throw new Error(error instanceof Error ? error.message : 'Failed to fetch products');
   }
 };

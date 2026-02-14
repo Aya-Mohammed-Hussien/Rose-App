@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import AddressForm from './address-form';
 import Map from './map';
 import { useAddAddress } from '@/hooks/addresses/use-add-address';
-import { AddressSubmissionValue } from '@/lib/schemes/address.schema';
+import { AddressSubmissionValue, AddressValue } from '@/lib/schemes/address.schema';
 import { useToast } from '@/hooks/use-toast';
 import { useQueryClient } from '@tanstack/react-query';
 import { useUpdateAddress } from '@/hooks/addresses/use-update-address';
@@ -27,7 +27,9 @@ export default function AddressWizard({ mode, initialData, setView }: AddressWiz
 
   // States
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<Address | null>(initialData);
+  const [formData, setFormData] = useState<AddressValue | null>(
+    initialData ? { street: initialData.street, phone: initialData.phone, city: initialData.city, username: initialData.username } : null
+  );
   const [location, setLocation] = useState<{ lat: string; lng: string } | null>(
     initialData ? { lat: initialData.lat, lng: initialData.long } : null
   );
@@ -51,7 +53,7 @@ export default function AddressWizard({ mode, initialData, setView }: AddressWiz
       return;
     }
     // To omit the id before send the data to the BE
-    const { _id, ...rest } = formData;
+    const { ...rest } = formData;
     const newAddress: AddressSubmissionValue = {
       ...rest,
       lat: location.lat,
@@ -76,7 +78,7 @@ export default function AddressWizard({ mode, initialData, setView }: AddressWiz
 
       // In case of updating existing address
     } else {
-      
+
       // Case of updating address
       updateAddress(
         { values: newAddress, addressId: initialData!._id },

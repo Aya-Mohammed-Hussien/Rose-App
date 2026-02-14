@@ -112,7 +112,7 @@ export default function PaymentMethod({ setStep, shippingPayload }: PaymentMetho
 
             {/* Description */}
             <p className="text-zinc-500 text-sm font-medium">
-              You'll pay in cash when your order is delivered.
+              You&apos;ll pay in cash when your order is delivered.
             </p>
           </div>
         </label>
@@ -151,7 +151,7 @@ export default function PaymentMethod({ setStep, shippingPayload }: PaymentMetho
 
             {/* Description */}
             <p className="text-zinc-500 text-sm font-medium text-center">
-              You'll be securely redirected to Stripe to complete your payment.
+              You&apos;ll be securely redirected to Stripe to complete your payment.
             </p>
           </div>
         </label>
