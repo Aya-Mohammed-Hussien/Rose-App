@@ -45,16 +45,12 @@ export default function Products({ productsData }: Props) {
   return (
     <>
       {/* Products Section */}
-      <section className="flex flex-wrap justify-start p-3 sm:p-4 lg:p-6 gap-4 sm:gap-5 lg:gap-6">
+      <section className="grid grid-cols-2 lg:grid-cols-3 p-3 sm:p-4 lg:p-6 gap-4 sm:gap-5 lg:gap-6">
         {/* Looping on products */}
         {products.length > 0 ? (
-          products.map((product) => (
-            <div key={product._id} className="relative w-full sm:w-[48%] md:w-[31%] lg:w-[30%] flex-shrink-0">
-              <ProductCard product={product} />
-            </div>
-          ))
+          products.map((product) => <ProductCard key={product._id} product={product} />)
         ) : (
-          <p className="text-center text-gray-500 w-full">No products found.</p>
+          <p className="text-center text-gray-500 w-full col-span-full">No products found.</p>
         )}
       </section>
 

@@ -8,6 +8,7 @@ import {
   ChevronsLeft,
   ChevronsRight,
 } from 'lucide-react';
+import { useLocale } from 'next-intl';
 
 import { cn } from '@/lib/utils';
 import { ButtonProps, buttonVariants } from '@/components/ui/button';
@@ -59,46 +60,70 @@ PaginationLink.displayName = 'PaginationLink';
 const PaginationPrevious = ({
   className,
   ...props
-}: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink
-    aria-label="Go to previous page"
-    size="icon"
-    className={cn('pl-0', className)}
-    {...props}
-  >
-    <ChevronLeft className="h-4 w-4  " />
-    <span className="sr-only">Previous</span>
-  </PaginationLink>
-);
+}: React.ComponentProps<typeof PaginationLink>) => {
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  const ChevronIcon = isRTL ? ChevronRight : ChevronLeft;
+
+  return (
+    <PaginationLink
+      aria-label="Go to previous page"
+      size="icon"
+      className={cn('pl-0', className)}
+      {...props}
+    >
+      <ChevronIcon className="h-4 w-4" />
+      <span className="sr-only">Previous</span>
+    </PaginationLink>
+  );
+};
 PaginationPrevious.displayName = 'PaginationPrevious';
 
-const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink
-    aria-label="Go to next page"
-    size="icon"
-    className={cn('pr-0', className)}
-    {...props}
-  >
-    <ChevronRight className="h-4 w-4" />
-    <span className="sr-only">Next</span>
-  </PaginationLink>
-);
+const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => {
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  const ChevronIcon = isRTL ? ChevronLeft : ChevronRight;
+
+  return (
+    <PaginationLink
+      aria-label="Go to next page"
+      size="icon"
+      className={cn('pr-0', className)}
+      {...props}
+    >
+      <ChevronIcon className="h-4 w-4" />
+      <span className="sr-only">Next</span>
+    </PaginationLink>
+  );
+};
 PaginationNext.displayName = 'PaginationNext';
 
-const PaginationFirst = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink aria-label="Go to first page" size="icon" className={cn(className)} {...props}>
-    <ChevronsLeft className="h-4 w-4" />
-    <span className="sr-only">First</span>
-  </PaginationLink>
-);
+const PaginationFirst = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => {
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  const ChevronsIcon = isRTL ? ChevronsRight : ChevronsLeft;
+
+  return (
+    <PaginationLink aria-label="Go to first page" size="icon" className={cn(className)} {...props}>
+      <ChevronsIcon className="h-4 w-4" />
+      <span className="sr-only">First</span>
+    </PaginationLink>
+  );
+};
 PaginationFirst.displayName = 'PaginationFirst';
 
-const PaginationLast = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink aria-label="Go to last page" size="icon" className={cn(className)} {...props}>
-    <ChevronsRight className="h-4 w-4" />
-    <span className="sr-only">Last</span>
-  </PaginationLink>
-);
+const PaginationLast = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => {
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  const ChevronsIcon = isRTL ? ChevronsLeft : ChevronsRight;
+
+  return (
+    <PaginationLink aria-label="Go to last page" size="icon" className={cn(className)} {...props}>
+      <ChevronsIcon className="h-4 w-4" />
+      <span className="sr-only">Last</span>
+    </PaginationLink>
+  );
+};
 PaginationLast.displayName = 'PaginationLast';
 
 const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (

@@ -11,21 +11,17 @@ export default function ResetAllButton() {
   const { deleteAll } = useUrlParams();
   const searchParams = useSearchParams();
 
-  // Functions
-  const handleResetAll = () => {
-    deleteAll();
-  };
+  // Only render when at least one filter is active
+  const hasActiveFilters = searchParams.toString().length > 0;
+  if (!hasActiveFilters) return null;
+
   return (
-    // Button
-    <Button
-      disabled={searchParams.toString().length === 0}
-      onClick={handleResetAll}
-      variant={'destructive'}
-      className="font-semibold w-72"
-    >
-      {' '}
-      {/* Icon */}
-      <RotateCcw width={18} height={18} /> Reset All
-    </Button>
+    <>
+      <hr className="border-t border-gray-200" />
+      <Button onClick={deleteAll} variant={'destructive'} className="font-semibold w-full">
+        {/* Icon */}
+        <RotateCcw width={18} height={18} /> Reset All
+      </Button>
+    </>
   );
 }

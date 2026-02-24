@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -38,7 +32,9 @@ export default function PriceRangeForm() {
         {/* Title + Reset */}
         <div className="flex items-center justify-between mb-[10px]">
           <h3 className="text-base text-zinc-800 font-semibold">{t('title')}</h3>
-          {(form.watch('min') !== undefined || form.watch('max') !== undefined) && (
+          {(([minVal, maxVal]) => minVal !== undefined || maxVal !== undefined)(
+            form.watch(['min', 'max'])
+          ) && (
             <Button
               onClick={reset}
               variant="ghost"

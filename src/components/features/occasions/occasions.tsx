@@ -65,8 +65,9 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
             <div
               key={occasion._id}
               onClick={() => handleOccasionClick(occasion._id)}
-              className={`cursor-pointer font-medium text-sm sm:text-base ${selectedOccasion === occasion._id ? 'text-[#A6252A]' : 'text-zinc-700'
-                }`}
+              className={`cursor-pointer font-medium text-sm sm:text-base ${
+                selectedOccasion === occasion._id ? 'text-[#A6252A]' : 'text-zinc-700'
+              }`}
             >
               {/* name */}
               {occasion.name}
@@ -76,7 +77,7 @@ export default function Occasions({ products, occasions }: OccasionsProps) {
       </header>
 
       {/* product card */}
-      <Card className="grid shadow-none border-none grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+      <Card className="grid shadow-none border-none grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

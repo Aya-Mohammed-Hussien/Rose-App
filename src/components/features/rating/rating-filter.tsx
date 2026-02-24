@@ -17,7 +17,7 @@ export default function RatingFilter() {
   const rating: number[] = [1, 2, 3, 4, 5];
 
   // Functions
-  const handleSelctedRating = (rating: string) => {
+  const handleSelectedRating = (rating: string) => {
     setParam('rateAvg', rating);
   };
 
@@ -26,7 +26,7 @@ export default function RatingFilter() {
   };
   return (
     // Rating Section
-    <section className="w-72   gap-2 flex flex-col">
+    <section className="w-full gap-2 flex flex-col">
       {/* Header */}
       <header className="flex flex-row justify-between ">
         {/* Title */}
@@ -49,7 +49,12 @@ export default function RatingFilter() {
               className="hidden"
               checked={selectedRating === rating.toString()}
               onClick={() => {
-                handleSelctedRating(rating.toString());
+                // Clicking the active star deselects it (toggle behavior)
+                if (selectedRating === rating.toString()) {
+                  handleReset();
+                } else {
+                  handleSelectedRating(rating.toString());
+                }
               }}
               aria-label={`${rating} star rating`}
             />

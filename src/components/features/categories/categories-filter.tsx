@@ -37,7 +37,7 @@ export default function CategoriesFilter() {
   // Error State
   if (error)
     return (
-      <section className="w-72 gap-2 flex flex-col">
+      <section className="w-full gap-2 flex flex-col">
         {/* Header */}
         <header className="flex flex-row justify-between ">
           <h2 className="font-semibold text-lg">Category</h2>
@@ -55,7 +55,7 @@ export default function CategoriesFilter() {
 
   return (
     // Category Filter Section
-    <section className="w-72  gap-2 flex flex-col">
+    <section className="w-full  gap-2 flex flex-col">
       {/* Header */}
       <header className="flex flex-row justify-between ">
         {/* Title */}

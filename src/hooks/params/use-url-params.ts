@@ -30,11 +30,10 @@ export const useUrlParams = () => {
    */
   const setParam = useCallback(
     (key: string, value: string) => {
-      // Read existing query params
       const params = new URLSearchParams(searchParams.toString());
-      // Set query param
       params.set(key, value);
-      // Update URL
+      // Reset to page 1 whenever a filter changes (not pagination itself)
+      if (key !== 'page') params.set('page', '1');
       router.push(`?${params.toString()}`, { scroll: false });
     },
     [searchParams, router]
@@ -47,11 +46,10 @@ export const useUrlParams = () => {
    */
   const deleteParam = useCallback(
     (key: string) => {
-      // Read existing query params
       const params = new URLSearchParams(searchParams.toString());
-      // Remove query param
       params.delete(key);
-      // Update URL
+      // Reset to page 1 whenever a filter is removed (not pagination itself)
+      if (key !== 'page') params.set('page', '1');
       router.push(`?${params.toString()}`, { scroll: false });
     },
     [searchParams, router]

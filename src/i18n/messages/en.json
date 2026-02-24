@@ -119,6 +119,15 @@
     "outOfStock": "Out Of Stock",
     "addToCart": "Add to cart"
   },
+  "Wishlist": {
+    "title": "My Wishlist",
+    "empty": "Your wishlist is empty.",
+    "loading": "Loading your wishlist...",
+    "add": "Add to wishlist",
+    "remove": "Remove from wishlist",
+    "adding": "Adding...",
+    "removing": "Removing..."
+  },
   "CartList": {
     "title": "Cart",
     "singleProduct": "product",

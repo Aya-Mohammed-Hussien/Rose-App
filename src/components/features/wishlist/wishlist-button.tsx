@@ -6,12 +6,17 @@ import { useAddToWishlist } from '@/hooks/wishlist/use-add-wishlist';
 import { useDeleteWishlist } from '@/hooks/wishlist/use-delete-wishlist';
 import { useWishlist } from '@/hooks/wishlist/use-get-wishlist';
 
+import { useTranslations } from 'next-intl';
+
 // Props
 export type AddToWishlistPayload = {
   productId: string;
 };
 
 export default function WishlistButton({ productId }: AddToWishlistPayload) {
+  // Translations
+  const t = useTranslations('Wishlist');
+
   // Mutation
   const { isPending: isPendingAdd, mutate: addToWishlist } = useAddToWishlist();
   const { isPending: isPendingDelete, mutate: deleteFromWishlist } = useDeleteWishlist();
@@ -48,7 +53,7 @@ export default function WishlistButton({ productId }: AddToWishlistPayload) {
       <button
         onClick={handleClick}
         disabled={isAnyPending}
-        aria-label={isAdded ? 'Added to wishlist' : 'Add to wishlist'}
+        aria-label={isAdded ? t('remove') : t('add')}
         className={`group/button flex items-center rounded-full p-1.5 text-sm font-medium transition-all duration-200 ease-in-out
           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-300
           ${isAdded ? 'bg-zinc-800 text-white' : 'bg-white text-rose-700'}
@@ -74,15 +79,15 @@ export default function WishlistButton({ productId }: AddToWishlistPayload) {
         <span
           className={`transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap
             opacity-0 max-w-0
-            group-hover/button:opacity-100 group-hover/button:max-w-xs group-hover/button:ml-2`}
+            group-hover/button:opacity-100 group-hover/button:max-w-xs group-hover/button:ms-2`}
         >
           {isAnyPending
             ? isAdded
-              ? 'Removing...'
-              : 'Adding...'
+              ? t('removing')
+              : t('adding')
             : isAdded
-              ? 'Remove from wishlist'
-              : 'Add to wishlist'}
+              ? t('remove')
+              : t('add')}
         </span>
       </button>
     </div>

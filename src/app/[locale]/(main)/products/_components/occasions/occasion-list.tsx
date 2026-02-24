@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { X } from 'lucide-react';
 
 import { useTranslations } from 'next-intl';
@@ -27,20 +27,19 @@ export default function OccasionList() {
   // Variables
   const occasions = (data?.pages ?? []).flatMap((p) => p.occasions ?? []);
 
-  // Functions
-  const sentinelRef = useIntersection<HTMLDivElement>(
-    () => {
-      if (hasNextPage && !isFetchingNextPage) fetchNextPage();
-    },
-    { rootRef: scrollRef }
-  );
+  // Stable callback reference so the IntersectionObserver isn't reconnected on every render
+  const handleIntersect = useCallback(() => {
+    if (hasNextPage && !isFetchingNextPage) fetchNextPage();
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  const sentinelRef = useIntersection<HTMLDivElement>(handleIntersect, { rootRef: scrollRef });
 
   // Render
   if (isLoading) return <p>{t('loading')}</p>;
   if (isError) return <p className="text-red-500">{t('error')}</p>;
 
   return (
-    <section className=" h-full">
+    <section>
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-base font-semibold text-zinc-800">{t('title')}</h2>
@@ -56,8 +55,8 @@ export default function OccasionList() {
         )}
       </div>
 
-      {/* Scrollable list */}
-      <div ref={scrollRef} className="h-full overflow-y-auto [&::-webkit-scrollbar]:hidden">
+      {/* Scrollable list — fixed height so it doesn't push other sidebar sections */}
+      <div ref={scrollRef} className="h-[270px] overflow-y-auto [&::-webkit-scrollbar]:hidden">
         {/* Occasion cards */}
         <div className="grid grid-cols-2 gap-2">
           {occasions.map((item) => (

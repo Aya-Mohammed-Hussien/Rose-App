@@ -1,31 +1,41 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const PARAM = 'occasion';
 
-// Hook for managing multi-select occasion filters synced with URL (?occasion=id&occasion=id)
+// Manages multi-select occasion filters, synced with the URL (?occasion=id&occasion=id)
 export function useOccasionFilterSingle() {
   const router = useRouter();
   const sp = useSearchParams();
 
-  // Read all selected values from URL
-  const initial = sp.getAll(PARAM);
-  const [selected, setSelected] = useState<string[]>(initial);
+  // Hydrate initial state from URL
+  const [selected, setSelected] = useState<string[]>(() => sp.getAll(PARAM));
 
-  // Update URL on selection change (no scroll)
+  // Skip the first effect run — the URL already reflects the initial state
+  const isFirstRun = useRef(true);
+
+  // Sync selected state → URL on every change after mount
   useEffect(() => {
-    const p = new URLSearchParams(sp.toString());
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
+
+    // Read a fresh URL snapshot to preserve other active filters
+    const p = new URLSearchParams(window.location.search);
     p.delete(PARAM);
     selected.forEach((id) => p.append(PARAM, id));
+    p.set('page', '1'); // Reset pagination on filter change
     router.replace(`?${p.toString()}`, { scroll: false });
-  }, [selected, router, sp]);
 
-  // Check if an ID is selected
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected]); // Only `selected` drives this — NOT `sp` (avoids re-render loop)
+
   const isSelected = useCallback((id: string) => selected.includes(id), [selected]);
 
-  // Toggle selection (add/remove)
+  // Toggle an occasion on/off, capped at 2 simultaneous selections
   const toggle = useCallback(
     (id: string) =>
       setSelected((prev) => {
@@ -35,7 +45,6 @@ export function useOccasionFilterSingle() {
     []
   );
 
-  // Clear all selections
   const reset = useCallback(() => setSelected([]), []);
 
   return { selected, isSelected, toggle, reset };

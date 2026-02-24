@@ -10,6 +10,7 @@ import {
   PaginationLast,
 } from '@/components/ui/pagination';
 import React from 'react';
+import { useLocale } from 'next-intl';
 
 // Props
 type PaginationProps = {
@@ -23,6 +24,9 @@ export default function PaginationSection({
   totalPages,
   onPageChange,
 }: PaginationProps) {
+  const locale = useLocale();
+  const isRTL = locale === 'ar'; // Check if current locale is Arabic (RTL)
+
   if (!totalPages || totalPages < 1) return null;
   //Function
   const goToPage = (page: number) => {
@@ -66,7 +70,7 @@ export default function PaginationSection({
 
   return (
     <Pagination>
-      <PaginationContent>
+      <PaginationContent dir={isRTL ? 'rtl' : 'ltr'}>
         {/* first */}
         <PaginationItem>
           <PaginationFirst
