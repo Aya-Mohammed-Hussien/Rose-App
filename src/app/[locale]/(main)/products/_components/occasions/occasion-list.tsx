@@ -9,6 +9,7 @@ import { useOccasionFilterSingle } from '../../_hooks/occasions/use-occasion-fil
 import { useOccasions } from '../../_hooks/occasions/use-occasions';
 import { useIntersection } from '../../_hooks/occasions/use-intersection';
 import OccasionCard from './occasion-card';
+import OccasionsSkeleton from '@/components/skeletons/occasions.skeleton';
 
 export default function OccasionList() {
   // Translation
@@ -35,7 +36,7 @@ export default function OccasionList() {
   const sentinelRef = useIntersection<HTMLDivElement>(handleIntersect, { rootRef: scrollRef });
 
   // Render
-  if (isLoading) return <p>{t('loading')}</p>;
+  if (isLoading) return <OccasionsSkeleton />;
   if (isError) return <p className="text-red-500">{t('error')}</p>;
 
   return (

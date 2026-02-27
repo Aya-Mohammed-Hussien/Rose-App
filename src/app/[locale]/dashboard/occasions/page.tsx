@@ -1,17 +1,17 @@
-import { getOccasions } from "@/lib/apis/occasions/alloccasions-dashboard.api";
-import AllOccasions from "./_components/occasions";
+import OccasionsProduct from '@/components/dashboard-features/all-occasions/occasions-product';
+import AllOccasionsSkeleton from '@/components/skeletons/all-occasions-skeleton';
+import { Suspense } from 'react';
 
-export default async function OccasionsPage({ searchParams }: { searchParams: Record<string, string | string[] | undefined> }) {
-    const page = Number(searchParams.page) || 1;
-    const search = String(searchParams.search) || '';
+interface OccasionsPageProps {
+    searchParams: { page?: string };
+}
 
-    const data = await getOccasions(Number(page), search);
-
+export default function OccasionsPage({ searchParams }: OccasionsPageProps) {
     return (
-        <AllOccasions
-            occasions={data.occasions}
-            metadata={data.metadata}
-            initialSearch={search}
-        />
+        <div>
+            <Suspense fallback={<AllOccasionsSkeleton />}>
+                <OccasionsProduct searchParams={searchParams} />
+            </Suspense>
+        </div>
     );
 }

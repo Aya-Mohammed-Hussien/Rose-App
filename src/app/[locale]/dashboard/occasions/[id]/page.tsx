@@ -1,18 +1,30 @@
-import { getOccasionById } from "@/lib/apis/occasions/get-occasion-by-Id";
-import UpdateOccasion from "../_components/update-occasions";
+import { notFound } from "next/navigation";
+import { getSpecificOccasion } from "@/lib/apis/occasions/get-specific-occasion.api";
+import UpdateOccasionForm from "./_components/update-occasion";
 
-export default async function UpdateOccasionPage({ params }: { params: { id: string } }) {
-    try {
-        const res = await getOccasionById(params.id);
+interface PageProps {
+    params: Promise<{ id: string }>;
+}
 
+export default async function UpdateOccasionPage({ params }: PageProps) {
+    const { id } = await params;
 
-        const occasionData = res.occasion;
+    const result = await getSpecificOccasion(id);
 
-        return <UpdateOccasion occasion={occasionData} />;
-    } catch (err) {
-        console.error("Failed to fetch occasion:", err);
-        return <div className="text-center text-red-600 p-10">
-            Failed to load occasion.
-        </div>;
+    if ('error' in result || !result.occasion) {
+        notFound();
     }
+
+    const occasion = result.occasion;
+
+    return (
+        <section className="w-full min-h-screen bg-zinc-50 flex justify-center">
+            <UpdateOccasionForm
+                key={occasion._id}
+                id={occasion._id}
+                name={occasion.name}
+                image={occasion.image}
+            />
+        </section>
+    );
 }

@@ -2,17 +2,35 @@ import { getOverallStatistics } from '@/lib/apis/dashboard/overall-statistics.ap
 import { cn } from '@/lib/utils';
 import { Package, ReceiptText, ClipboardList, CircleDollarSign } from 'lucide-react';
 import { getFormatter, getTranslations } from 'next-intl/server';
+import { Link as I18nLink } from '@/i18n/navigation';
 
 export default async function KPICards({ locale }: { locale: string }) {
-  // Translation
   const t = await getTranslations('dashboard');
   const isArabic = locale === 'ar';
-
-  // Number formatter
   const formatter = await getFormatter();
 
-  // Fetch overall categories from BE
-  const data = await getOverallStatistics();
+  let data;
+  try {
+    data = await getOverallStatistics();
+  } catch (error) {
+    const message = error instanceof Error ? error.message : '';
+    const isAuthError = message.includes('authenticated') || message.includes('Session expired') || message.includes('log in');
+    return (
+      <section className="h-[20.375rem] w-1/2 grid place-items-center p-6 bg-white rounded-2xl">
+        <div className="text-center text-zinc-600">
+          <p className="font-medium mb-2">
+            {isAuthError ? t('please_log_in_to_see_statistics') ?? 'Please log in to see statistics.' : message}
+          </p>
+          {isAuthError && (
+            <I18nLink href="/login" className="text-maroon-600 font-semibold hover:underline">
+              {t('log_in') ?? 'Log in'}
+            </I18nLink>
+          )}
+        </div>
+      </section>
+    );
+  }
+
   const overallStatistics = data.statistics;
 
   // Function to limit a number to max 7 digits
