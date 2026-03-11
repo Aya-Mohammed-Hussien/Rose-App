@@ -39,7 +39,7 @@ export default function ChangePasswordForm() {
 
   // Functions
   const onSubmit: SubmitHandler<changePasswordValues> = (value) => {
-    const { ...payload } = value;
+    const { confirmNewPassword, ...payload } = value;
     updatePassword(payload);
   };
   return (
