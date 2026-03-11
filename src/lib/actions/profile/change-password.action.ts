@@ -1,3 +1,56 @@
+// 'use server';
+
+// import { JSON_HEADER } from '@/lib/constants/shared.constant';
+// import { changePasswordValues } from '@/lib/schemes/change-password.schema';
+// import { getToken } from '@/lib/utils/get-token.util';
+// import { cookies } from 'next/headers';
+
+// export const changePassword = async (
+//   userData: Omit<changePasswordValues, 'confirmNewPassword'>
+// ) => {
+//   try {
+//     // Retrieve the access token from cookies
+//     const token = await getToken();
+
+//     // Get the base API URL from environment variables
+//     const baseURL = process.env.NEXT_PUBLIC_API;
+
+//     // Stop if no token is available
+//     if (!token) {
+//       throw new Error('No access token found');
+//     }
+
+//     // Send a PATCH request to the "change password" API endpoint
+//     const response = await fetch(`${baseURL}/auth/change-password`, {
+//       method: 'PATCH',
+//       body: JSON.stringify(userData),
+//       headers: {
+//         ...JSON_HEADER,
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+
+//     // Parse the server response
+//     const payload = await response.json();
+
+//     // If the response status is not OK, throw an error with the server message
+//     if (!response.ok) {
+//       throw new Error(payload.error || 'Something went wrong');
+//     }
+
+//     // On success, remove the session token (force re-login after password change)
+//     cookies().delete('next-auth.session-token');
+
+//     // Return the server response
+//     return payload;
+//   } catch (error) {
+//     // Catch any unexpected errors and return a descriptive message
+//     throw new Error(
+//       error instanceof Error ? error.message : 'Unexpected error while changing password'
+//     );
+//   }
+// };
+
 'use server';
 
 import { JSON_HEADER } from '@/lib/constants/shared.constant';
@@ -8,19 +61,15 @@ import { cookies } from 'next/headers';
 export const changePassword = async (
   userData: Omit<changePasswordValues, 'confirmNewPassword'>
 ) => {
+  // ✅ Never throw — always return { success, error }
   try {
-    // Retrieve the access token from cookies
     const token = await getToken();
-
-    // Get the base API URL from environment variables
     const baseURL = process.env.NEXT_PUBLIC_API;
 
-    // Stop if no token is available
     if (!token) {
-      throw new Error('No access token found');
+      return { success: false, error: 'No access token found' };
     }
 
-    // Send a PATCH request to the "change password" API endpoint
     const response = await fetch(`${baseURL}/auth/change-password`, {
       method: 'PATCH',
       body: JSON.stringify(userData),
@@ -30,23 +79,20 @@ export const changePassword = async (
       },
     });
 
-    // Parse the server response
     const payload = await response.json();
 
-    // If the response status is not OK, throw an error with the server message
     if (!response.ok) {
-      throw new Error(payload.error || 'Something went wrong');
+      return { success: false, error: payload.error || payload.message || 'Something went wrong' };
     }
 
-    // On success, remove the session token (force re-login after password change)
     cookies().delete('next-auth.session-token');
+    cookies().delete('__Secure-next-auth.session-token'); // ✅ also delete the secure one
 
-    // Return the server response
-    return payload;
+    return { success: true, data: payload };
   } catch (error) {
-    // Catch any unexpected errors and return a descriptive message
-    throw new Error(
-      error instanceof Error ? error.message : 'Unexpected error while changing password'
-    );
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Unexpected error while changing password',
+    };
   }
 };

@@ -25,23 +25,53 @@ export const useChangePassword = () => {
   const router = useRouter();
 
   // React Query mutation for changing password
+  // const { mutate: updatePassword, isPending } = useMutation({
+  //   // Function to call the API
+  //   mutationFn: (userData: Omit<changePasswordValues, 'confirmNewPassword'>) =>
+  //     changePassword(userData),
+
+  //   // On successful password change
+  //   onSuccess: () => {
+  //     toast({
+  //       variant: 'default',
+  //       description: t('success-message'),
+  //     });
+
+  //     // Redirect user to login page after short delay
+  //     setTimeout(() => router.push('/login'), 800);
+  //   },
+
+  //   // On error during password change
+  //   onError: (error) => {
+  //     toast({
+  //       variant: 'destructive',
+  //       description: error.message,
+  //     });
+  //   },
+  // });
+
   const { mutate: updatePassword, isPending } = useMutation({
-    // Function to call the API
     mutationFn: (userData: Omit<changePasswordValues, 'confirmNewPassword'>) =>
       changePassword(userData),
 
-    // On successful password change
-    onSuccess: () => {
+    onSuccess: (result) => {
+      // ✅ Check the returned object instead of relying on throw
+      if (!result.success) {
+        toast({
+          variant: 'destructive',
+          description: result.error,
+        });
+        return;
+      }
+
       toast({
         variant: 'default',
         description: t('success-message'),
       });
 
-      // Redirect user to login page after short delay
       setTimeout(() => router.push('/login'), 800);
     },
 
-    // On error during password change
     onError: (error) => {
       toast({
         variant: 'destructive',
