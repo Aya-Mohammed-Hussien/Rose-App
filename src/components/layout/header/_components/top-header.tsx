@@ -12,36 +12,46 @@ export default async function TopHeader() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div
-      className="px-4 md:px-9 
-bg-white dark:bg-zinc-800 
-flex flex-wrap md:flex-nowrap 
-justify-center items-center 
-text-zinc-700 dark:text-zinc-50"
-    >
-      {/* Logo image */}
-      <Image
-        src="/assets/images/RoseApp Logo.png"
-        alt="RoseApp Logo"
-        width={85}
-        height={80}
-        className="my-1 me-4"
-      />
+    <div className="bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-50">
+      {/* Main row */}
+      <div className="flex items-center justify-between gap-2 px-4 md:px-9 py-2">
+        {/* Logo */}
+        <Image
+          src="/assets/images/RoseApp Logo.png"
+          alt="RoseApp Logo"
+          width={85}
+          height={80}
+          className="shrink-0"
+          priority
+        />
 
-      {/* Address if user logged in  */}
-      <AddressIcon addresses={session?.user.addresses || []} />
+        {/* Address */}
+        <div className="shrink-0">
+          <AddressIcon addresses={session?.user.addresses || []} />
+        </div>
 
-      {/* Search Bar */}
-      <SearchBar />
+        {/* Search Bar */}
+        <div className="hidden lg:flex flex-1 min-w-0">
+          <SearchBar />
+        </div>
 
-      {/* Dropdown Menu for authenticated user & Login button for guests */}
-      {!session ? <LoginButton /> : <HeaderDropdownMenu session={session.user} />}
+        {/* Right-side controls */}
+        <div className="flex items-center gap-1 shrink-0">
+          {/* Auth */}
+          {!session ? <LoginButton /> : <HeaderDropdownMenu session={session.user} />}
 
-      {/* Icons  */}
-      <HeaderIcons />
+          {/* Cart / Wishlist icons */}
+          <HeaderIcons />
 
-      {/* Language Toggle  */}
-      <ToggleLocale />
+          {/* Locale toggle */}
+          <ToggleLocale />
+        </div>
+      </div>
+
+      {/* Search row (mobile / tablet only) */}
+      <div className="lg:hidden px-4 md:px-9 pb-3">
+        <SearchBar />
+      </div>
     </div>
   );
 }

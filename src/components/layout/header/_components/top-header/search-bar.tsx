@@ -14,7 +14,7 @@ export default function SearchBar() {
   const form = useForm();
 
   return (
-    <div className="relative w-full me-8">
+    <div className="relative w-full">
       {/* Search Button */}
       <SearchButton />
 

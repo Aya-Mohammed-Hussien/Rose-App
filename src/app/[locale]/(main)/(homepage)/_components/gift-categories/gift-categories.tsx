@@ -4,7 +4,8 @@ import { useTranslations } from 'next-intl';
 export function GiftCategories() {
   // Translations
   const t = useTranslations();
-  //variables
+
+  // Variables
   const giftCategories = [
     {
       id: 1,
@@ -28,24 +29,25 @@ export function GiftCategories() {
 
   return (
     <div className="mx-auto mb-10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
+      {/* 1 col on xs, 2 cols on sm, 3 cols on md+ */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
         {giftCategories.map((card) => (
           <div
             key={card.id}
-            className="relative w-full max-w-md h-72 rounded-2xl overflow-hidden p-6 gap-2 
-          before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/70 before:to-transparent before:z-[1]"
+            className="relative w-full h-56 sm:h-64 md:h-72 rounded-2xl overflow-hidden
+                       before:absolute before:inset-0 before:bg-gradient-to-t
+                       before:from-black/70 before:to-transparent before:z-[1]"
             aria-label={`Gift category: ${card.title}`}
           >
-            {/*  Image and overlay handled with pseudo-element instead of extra DOM layers */}
+            {/* Background image */}
             <Image src={card.img} alt={card.title} fill className="object-cover" />
 
-            {/*  Text casing controlled by Tailwind (capitalize) */}
-            <div className="absolute inset-0 p-5 text-white flex flex-col justify-end z-[2]">
-              <span className="text-sm bg-[#FBEAEA] text-[#A6252A] px-3 py-1 rounded-full inline-block w-fit mb-2 capitalize">
+            {/* Text overlay */}
+            <div className="absolute inset-0 p-4 sm:p-5 text-white flex flex-col justify-end z-[2]">
+              <span className="text-xs sm:text-sm bg-[#FBEAEA] text-[#A6252A] px-3 py-1 rounded-full inline-block w-fit mb-1.5 sm:mb-2 capitalize">
                 {card.tag}
               </span>
-
-              <h3 className="font-medium text-lg leading-snug whitespace-pre-line capitalize">
+              <h3 className="font-medium text-base sm:text-lg leading-snug capitalize">
                 {card.title}
               </h3>
             </div>
