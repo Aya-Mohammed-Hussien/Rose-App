@@ -11,7 +11,7 @@ export default async function middelware(request: NextRequest) {
   const response = intlMiddleWare(request);
   const pathname = request.nextUrl.pathname;
   const pathnameWithoutLocale = '/' + pathname.split('/').slice(2).join('/') || '/';
-  const token = await getToken({ req: request });
+  const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
 
   // 1-Auth routes
   if (authRoutes.includes(pathnameWithoutLocale)) {

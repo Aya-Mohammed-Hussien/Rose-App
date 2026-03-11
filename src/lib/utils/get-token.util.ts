@@ -1,46 +1,3 @@
-// import { decode } from 'next-auth/jwt';
-// import { cookies } from 'next/headers';
-
-// export async function getToken() {
-//   try {
-//     // Get token from cookies
-//     // Note: This will throw during static generation if route doesn't have 'force-dynamic'
-//     // but we catch and handle it gracefully
-//     const tokenCookies = cookies().get('next-auth.session-token')?.value;
-
-//     if (!tokenCookies) return null;
-
-//     if (!process.env.NEXTAUTH_SECRET) {
-//       console.error('NEXTAUTH_SECRET is not set');
-//       return null;
-//     }
-
-//     const jwt = await decode({
-//       token: tokenCookies,
-//       secret: process.env.NEXTAUTH_SECRET,
-//     });
-
-//     return jwt?.token || null;
-//   } catch (error: unknown) {
-//     // Handle errors gracefully
-//     // If it's a dynamic server usage error, it's expected during static generation
-//     // and the route should have 'export const dynamic = "force-dynamic"' to prevent this
-//     if (error instanceof Error) {
-//       // Don't log expected dynamic server usage errors during build
-//       // These are handled by the route's dynamic configuration
-//       if (error.message.includes('Dynamic server usage')) {
-//         // Silently return null - this is expected behavior
-//         return null;
-//       }
-//       // Log other errors for debugging
-//       console.error('Error decoding token:', error);
-//     } else {
-//       console.error('Error decoding token:', error);
-//     }
-//     return null;
-//   }
-// }
-
 import { decode } from 'next-auth/jwt';
 import { cookies } from 'next/headers';
 
@@ -48,30 +5,41 @@ export async function getToken() {
   try {
     const cookieStore = cookies();
 
-    // ✅ Try both — __Secure- prefix exists on HTTPS (Vercel), plain name on localhost
+    // Try common cookie names — Vercel/HTTPS may set __Secure- or __Host-
     const tokenCookie =
       cookieStore.get('__Secure-next-auth.session-token')?.value ??
+      cookieStore.get('__Host-next-auth.session-token')?.value ??
       cookieStore.get('next-auth.session-token')?.value;
 
     if (!tokenCookie) return null;
 
+    // If NEXTAUTH_SECRET is not set, return the raw cookie value as a fallback.
+    // Many API calls only need the raw JWT for Bearer auth; decoding isn't strictly
+    // necessary in those paths and this avoids breaking when the secret is missing.
     if (!process.env.NEXTAUTH_SECRET) {
-      console.error('NEXTAUTH_SECRET is not set');
-      return null;
+      return tokenCookie;
     }
 
-    const jwt = await decode({
-      token: tokenCookie,
-      secret: process.env.NEXTAUTH_SECRET,
-    });
-
-    return jwt?.token || null;
+    // Try to decode the cookie to validate it and extract the embedded token
+    // (NextAuth stores the actual token under `.token` in the JWT payload).
+    try {
+      const jwt = await decode({ token: tokenCookie, secret: process.env.NEXTAUTH_SECRET });
+      // If decode succeeded and contains the nested token, return it.
+      if (jwt?.token) return jwt.token;
+      // Otherwise fall back to returning the raw cookie value
+      return tokenCookie;
+    } catch (err) {
+      // If decode fails for any reason, log and fall back to raw cookie so callers
+      // that only need the JWT string continue to work.
+      console.error('Error decoding token fallback:', err);
+      return tokenCookie;
+    }
   } catch (error: unknown) {
     if (error instanceof Error) {
       if (error.message.includes('Dynamic server usage')) return null;
-      console.error('Error decoding token:', error);
+      console.error('Error getting token:', error);
     } else {
-      console.error('Error decoding token:', error);
+      console.error('Error getting token:', error);
     }
     return null;
   }
