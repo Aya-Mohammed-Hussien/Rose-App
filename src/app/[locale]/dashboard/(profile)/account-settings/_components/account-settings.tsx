@@ -309,7 +309,7 @@ export default function ProfileAccount({ userData }: MyAccountProps) {
                   >
                     {t('delete-account')}
                   </Button>
-                  <Link href={'/dashbaord/change-password-dashboard'} className="ms-5">
+                  <Link href={'/dashboard/change-password'} className="ms-5">
                     Change Password
                   </Link>
                 </div>

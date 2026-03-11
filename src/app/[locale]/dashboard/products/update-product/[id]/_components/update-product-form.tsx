@@ -21,6 +21,7 @@ import { useUpdateProduct } from '@/hooks/product/use-update-products';
 import { Product } from '@/lib/types/product';
 import { UpdateProductValues } from '@/lib/actions/product/update-product.action';
 import { Image, Images } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 
 // Props
 type UpdateProductProps = {
@@ -237,24 +238,24 @@ export default function UpdateProductForm({ product }: UpdateProductProps) {
         {/* Occasion */}
         <SelectOccasionField form={form} />
 
-        {/* Image cover & gallery */}
-        <div className="flex w-[46.625rem] items-center justify-end">
-          {/* Image cover button */}
-          <Button
-            className="text-blue-600  hover:bg-transparent border-[rgba(0,0,0,0.08)]"
-            variant="ghost"
+        {/* Image cover & gallery - open in new page like categories/occasions */}
+        <div className="flex w-[46.625rem] items-center justify-end gap-4">
+          <Link
+            href={`/dashboard/products/update-product/${product._id}/cover`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-blue-600 hover:bg-transparent hover:text-blue-700 border-[rgba(0,0,0,0.08)] rounded-md px-3 py-2 hover:bg-blue-50 transition-colors"
           >
-            {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image size={18} aria-hidden="true" /> {t('View_product_cover')}
-          </Button>
-
-          {/* Gallery button */}
-          <Button
-            className="text-blue-600  hover:bg-transparent border-[rgba(0,0,0,0.08)]"
-            variant="ghost"
+          </Link>
+          <Link
+            href={`/dashboard/products/update-product/${product._id}/gallery`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-blue-600 hover:bg-transparent hover:text-blue-700 border-[rgba(0,0,0,0.08)] rounded-md px-3 py-2 hover:bg-blue-50 transition-colors"
           >
             <Images size={18} aria-hidden="true" /> {t('View_product_gallery')}
-          </Button>
+          </Link>
         </div>
 
         {/* Submission Button */}

@@ -33,24 +33,11 @@ export function CarouselSection() {
     },
     {
       id: 2,
-      img: '/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
+
+      img: '/assets/images/slide2.png',
       title: t('sweet-surprises-for-loved-ones'),
       subtitle: t('delicious-chocolates-for-any-occasion'),
       btnText: t('shop-now'),
-    },
-    {
-      id: 3,
-      img: '/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
-      title: t('roses-romance'),
-      subtitle: t('show-your-love-in-a-classic-way'),
-      btnText: t('discover-more'),
-    },
-    {
-      id: 4,
-      img: '/assets/images/01467f720fe7a76f6c05ac3be7d4de290cc20957.png',
-      title: t('roses-romance'),
-      subtitle: t('show-your-love-in-a-classic-way'),
-      btnText: t('discover-more'),
     },
   ];
 
@@ -105,20 +92,23 @@ export function CarouselSection() {
               {slides.map((slide) => (
                 <CarouselItem
                   key={slide.id}
-                  className="relative w-full h-[280px] sm:h-[360px] lg:h-[440px] pl-0 overflow-hidden
-                             before:absolute before:inset-0 before:bg-gradient-to-t
-                             before:from-black/70 before:to-transparent before:z-[1]"
+                  className="relative w-full h-[440px] pl-0 overflow-hidden rounded-2xl"
                 >
-                  <Image src={slide.img} alt={slide.title} fill className="object-cover" />
+                  <Image
+                    src={slide.img}
+                    alt={slide.title}
+                    fill
+                    priority
+                    className="object-cover "
+                  />
 
-                  <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 lg:p-8 text-white z-[2]">
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-1 sm:mb-2 capitalize">
-                      {slide.title}
-                    </h2>
-                    <p className="text-sm sm:text-base opacity-90 mb-3 sm:mb-4 capitalize">
-                      {slide.subtitle}
-                    </p>
-                    <button className="flex items-center text-center gap-2 w-28 sm:w-32 h-8 sm:h-9 bg-[#FBEAEA] text-[#A6252A] text-sm whitespace-nowrap rounded-lg px-3 sm:px-4 capitalize">
+                  {/* Overlay*/}
+                  <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black/70 via-black/35 to-transparent" />
+
+                  <div className="absolute inset-0 flex flex-col justify-end p-8 ms-5 text-white z-[2]">
+                    <h2 className="text-3xl font-semibold mb-2 capitalize">{slide.title}</h2>
+                    <p className="text-base opacity-90 mb-4 capitalize">{slide.subtitle}</p>
+                    <button className="flex items-center justify-center gap-2 w-32 h-9 bg-[#FBEAEA] text-[#A6252A] whitespace-nowrap rounded-lg px-4 capitalize">
                       {slide.btnText}
                     </button>
                   </div>

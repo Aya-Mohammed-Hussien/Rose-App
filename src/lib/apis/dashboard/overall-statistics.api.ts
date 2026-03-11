@@ -9,30 +9,29 @@ import { getToken } from '@/lib/utils/get-token.util';
 
 export const getOverallStatistics = async (): Promise<OverallStatisticsResponse> => {
   try {
-    // Retrieve the JWT token from cookies
     const token = await getToken();
 
-    // Send a GET request to the /categories endpoint
+    if (!token) {
+      throw new Error('Not authenticated');
+    }
+
     const response = await fetch(`${process.env.API_URL}/statistics/overall`, {
       method: 'GET',
       headers: {
-        // Include the token in the Authorization header
         Authorization: `Bearer ${token}`,
       },
     });
 
-    // Check if the response status is not OK (e.g., 401)
     if (!response.ok) {
-      throw new Error(`Failed to get categories statistics: ${response.status}`);
+      if (response.status === 401) {
+        throw new Error('Session expired or invalid. Please log in again.');
+      }
+      throw new Error(`Failed to get overall statistics: ${response.status}`);
     }
 
-    // Parse the response body as JSON
     const payload: OverallStatisticsResponse = await response.json();
-
-    // Return the parsed data
     return payload;
   } catch (error) {
-    // Rethrow the error so it can be handled in the calling code
     throw error;
   }
 };

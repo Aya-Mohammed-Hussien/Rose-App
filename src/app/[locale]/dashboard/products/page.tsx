@@ -1,27 +1,18 @@
-import { getDashboardProducts } from '@/lib/apis/products/product.api';
-import { AllProductsPage } from './_components/all-products-page';
+import ProductsProduct from '@/components/dashboard-features/all-products/products-product';
+import AllProductsSkeleton from '@/components/skeletons/all-products-skeleton';
+import { Suspense } from 'react';
 
-type ProductsRoutePageProps = {
-  searchParams?: {
-    page?: string;
-  };
-};
+// Props
+interface ProductsPageProps {
+    searchParams: { page?: string };
+}
 
-export const dynamic = "force-dynamic";
-
-
-export default async function ProductsRoutePage({ searchParams }: ProductsRoutePageProps) {
-  try {
-    const page = searchParams?.page ? Number(searchParams.page) || 1 : 1;
-
-    const { products, metadata } = await getDashboardProducts({
-      page,
-      limit: 12,
-    });
-
-    return <AllProductsPage products={products} metadata={metadata} />;
-  } catch (error) {
-    console.error(error);
-    return <div>Failed to load products.</div>;
-  }
+export default function ProductsPage({ searchParams }: ProductsPageProps) {
+    return (
+        <div>
+            <Suspense fallback={<AllProductsSkeleton />}>
+                <ProductsProduct searchParams={searchParams} />
+            </Suspense>
+        </div>
+    );
 }
