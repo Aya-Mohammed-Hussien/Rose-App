@@ -11,7 +11,12 @@ export default async function middelware(request: NextRequest) {
   const response = intlMiddleWare(request);
   const pathname = request.nextUrl.pathname;
   const pathnameWithoutLocale = '/' + pathname.split('/').slice(2).join('/') || '/';
-  const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
+  const isSecure = request.url.startsWith('https');
+  const token = await getToken({
+    req: request,
+    secret: process.env.NEXTAUTH_SECRET,
+    cookieName: isSecure ? '__Secure-next-auth.session-token' : 'next-auth.session-token',
+  });
 
   // 1-Auth routes
   if (authRoutes.includes(pathnameWithoutLocale)) {
